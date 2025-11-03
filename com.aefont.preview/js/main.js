@@ -91,6 +91,113 @@
             .replace(/>/g, '&gt;');
     }
 
+    function escapeCssString(text) {
+        if (text === null || text === undefined) {
+            return '';
+        }
+        return escapeHtml(text);
+    }
+
+    function addCandidate(target, value) {
+        if (!target || !Array.isArray(target)) {
+            return;
+        }
+        if (!value && value !== 0) {
+            return;
+        }
+        const candidate = String(value).trim();
+        if (!candidate) {
+            return;
+        }
+        if (!target.includes(candidate)) {
+            target.push(candidate);
+        }
+    }
+
+    function getFontFamilyValue(font) {
+        const families = [];
+        if (font && Array.isArray(font.cssFamilies)) {
+            font.cssFamilies.forEach(name => addCandidate(families, name));
+        }
+        const cssList = families
+            .filter(Boolean)
+            .map(name => `"${escapeCssString(name)}"`)
+            .join(', ');
+        return cssList ? `${cssList}, sans-serif` : 'sans-serif';
+    }
+
+    function isFontRenderable(font) {
+        if (!font) {
+            return false;
+        }
+        if (!document.fonts || !document.fonts.check) {
+            return true;
+        }
+        const families = Array.isArray(font.cssFamilies) ? font.cssFamilies : [];
+        for (let i = 0; i < families.length; i++) {
+            const candidate = families[i];
+            if (!candidate) {
+                continue;
+            }
+            const safeName = candidate.replace(/"/g, '');
+            try {
+                if (document.fonts.check(`12px "${safeName}"`)) {
+                    return true;
+                }
+            } catch (error) {
+                // ignore
+            }
+        }
+        return false;
+    }
+
+    function updateFontPreviewFamily(font) {
+        if (!font) {
+            return;
+        }
+        const selector = `.font-item[data-font-uid="${font.uid}"] .font-preview`;
+        const familyValue = getFontFamilyValue(font);
+        document.querySelectorAll(selector).forEach(element => {
+            element.style.fontFamily = familyValue;
+        });
+    }
+
+    function ensureFontForPreview(font) {
+        if (!window.AEFontLoader || !font) {
+            return;
+        }
+
+        if (font.webFontStatus === 'loading' || font.webFontStatus === 'loaded' || font.webFontStatus === 'missing-config' || font.webFontStatus === 'failed') {
+            return;
+        }
+
+        if (isFontRenderable(font)) {
+            font.webFontStatus = 'available';
+            return;
+        }
+
+        font.webFontStatus = 'loading';
+        AEFontLoader.ensureFont(font).then(result => {
+            if (result && Array.isArray(result.addedFamilies)) {
+                result.addedFamilies.forEach(name => addCandidate(font.cssFamilies, name));
+            }
+
+            if (result && (result.status === 'loaded' || result.status === 'available')) {
+                font.webFontStatus = 'loaded';
+                requestAnimationFrame(() => updateFontPreviewFamily(font));
+            } else if (result && result.status === 'missing-config') {
+                font.webFontStatus = 'missing-config';
+            } else if (result && result.status === 'failed') {
+                font.webFontStatus = 'failed';
+            } else {
+                font.webFontStatus = result ? result.status : 'unknown';
+            }
+        }).catch(error => {
+            font.webFontStatus = 'failed';
+            console.warn('Web font loading failed:', font.displayName, error);
+        });
+    }
+
     // Initialize CSInterface
     function initCSInterface() {
         try {
@@ -261,7 +368,7 @@
         document.getElementById('status-text').textContent = finalText;
     }
 
-    // Load fonts from After Effects
+        // Load fonts from After Effects
     function loadFonts() {
         updateStatus('status-loading');
         showLoading(true);
@@ -303,7 +410,26 @@
                         const styleName = font.style || 'Regular';
                         const id = postScriptName || (displayName + '|' + styleName);
                         const uid = 'font-' + index;
-                        
+
+                        const cssFamilies = [];
+                        addCandidate(cssFamilies, postScriptName);
+                        addCandidate(cssFamilies, familyName);
+                        addCandidate(cssFamilies, displayName);
+                        addCandidate(cssFamilies, displayName.replace(/_/g, ' '));
+                        addCandidate(cssFamilies, familyName.replace(/_/g, ' '));
+                        if (postScriptName) {
+                            addCandidate(cssFamilies, postScriptName.replace(/[_-]/g, ' '));
+                        }
+                        if (styleName) {
+                            addCandidate(cssFamilies, `${familyName} ${styleName}`);
+                            addCandidate(cssFamilies, `${familyName}-${styleName}`);
+                            addCandidate(cssFamilies, `${displayName} ${styleName}`);
+                            addCandidate(cssFamilies, `${displayName}-${styleName}`);
+                        }
+                        if (cssFamilies.length === 0) {
+                            cssFamilies.push(displayName);
+                        }
+
                         return {
                             uid,
                             id,
@@ -311,11 +437,13 @@
                             family: familyName,
                             style: styleName,
                             postScriptName,
-                            cssName: familyName
+                            cssFamilies,
+                            source: font.source || 'System'
                         };
                     });
-                    
-                    console.log('Processed fonts:', availableFonts.length);
+
+                    window.availableFonts = availableFonts;
+
                     showLoading(false);  // displayFonts 호출 전에 loading 숨김
                     displayFonts(availableFonts);
                     updateFontCount();
@@ -346,36 +474,44 @@
             return;
         }
 
-        fontList.innerHTML = fonts.map(font => {
+        const html = fonts.map(font => {
             const encodedUid = escapeAttr(font.uid);
-            const cssFamily = escapeAttr(font.cssName);
             const nameText = escapeHtml(font.displayName);
             const styleText = escapeHtml(font.style);
+            const familyValue = getFontFamilyValue(font);
+            const familyAttr = escapeAttr(familyValue);
+            const statusAttr = font.webFontStatus ? ` data-font-status="${escapeAttr(font.webFontStatus)}"` : '';
+
             return `
-                <div class="font-item" data-font-uid="${encodedUid}">
+                <div class="font-item" data-font-uid="${encodedUid}"${statusAttr}>
                     <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span></div>
-                    <div class="font-preview" style="font-family: &quot;${cssFamily}&quot;; font-size: ${fontSize}px;">
+                    <div class="font-preview" style="font-family: ${familyAttr}; font-size: ${fontSize}px;">
                         ${escapeHtml(previewText)}
                     </div>
                 </div>
             `;
         }).join('');
 
-        // Add click listeners
+        fontList.innerHTML = html;
+
         document.querySelectorAll('.font-item').forEach(item => {
             item.addEventListener('click', function() {
                 selectFont(this.dataset.fontUid);
             });
         });
 
-        // Re-apply selection if the currently selected font is in the rendered list
         if (selectedFontId) {
             const selectedElement = document.querySelector(`.font-item[data-font-uid="${selectedFontId}"]`);
             if (selectedElement) {
                 selectedElement.classList.add('selected');
             }
         }
+
+        if (window.AEFontLoader) {
+            fonts.forEach(font => ensureFontForPreview(font));
+        }
     }
+
 
     // Select a font
     function selectFont(fontUid) {
@@ -407,6 +543,9 @@
                 font.postScriptName || '',
                 font.style || ''
             ];
+            if (Array.isArray(font.cssFamilies)) {
+                targets.push(...font.cssFamilies);
+            }
             for (let i = 0; i < targets.length; i++) {
                 if (targets[i].toLowerCase().indexOf(searchTerm) !== -1) {
                     return true;
@@ -535,7 +674,51 @@
             console.log('Font fetch result:', result);
         });
     };
-    
+
+    window.checkFontRendering = function(fontName) {
+        if (!fontName) {
+            console.warn('Font name is required.');
+            return;
+        }
+
+        console.log(`Checking font: "${fontName}"`);
+
+        const lowerName = fontName.toLowerCase();
+        const font = availableFonts.find(f =>
+            (f.displayName && f.displayName.toLowerCase().includes(lowerName)) ||
+            (f.family && f.family.toLowerCase().includes(lowerName)) ||
+            (f.postScriptName && f.postScriptName.toLowerCase().includes(lowerName))
+        );
+
+        if (!font) {
+            console.log('Font not found in available fonts list');
+            return;
+        }
+
+        if (document.fonts && document.fonts.check) {
+            const candidates = (font.cssFamilies || []).map(name => ({
+                name,
+                loaded: document.fonts.check(`12px "${name}"`)
+            }));
+            console.table(candidates);
+        } else {
+            console.log('document.fonts API is not available in this runtime.');
+        }
+
+        console.log('Font data:', {
+            displayName: font.displayName,
+            family: font.family,
+            postScriptName: font.postScriptName,
+            style: font.style,
+            cssFamilies: font.cssFamilies,
+            webFontStatus: font.webFontStatus || '(none)'
+        });
+
+        if (window.AEFontLoader) {
+            ensureFontForPreview(font);
+        }
+    };
+
     // Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', init);
 

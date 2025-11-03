@@ -198,12 +198,55 @@ body {
 }
 
 .font-item:hover {
-    background-color: #404040;
+    background-color: #3a3a3a;
 }
 
 .font-item.selected {
-    background-color: #007acc;
-    color: white;
+    background-color: #0078d4;
+}
+
+/* Font not available (no location) */
+.font-item.font-not-available {
+    opacity: 0.5;
+    background-color: #2a2a2a;
+}
+
+.font-item.font-not-available .font-name {
+    color: #888;
+}
+
+.font-item.font-not-available .font-preview {
+    color: #666;
+    font-style: italic;
+}
+
+.font-item.font-not-available:hover {
+    background-color: #333;
+}
+
+.location-hint {
+    color: #f0ad4e;
+    font-size: 10px;
+    margin-left: 4px;
+    cursor: help;
+}
+
+/* Web font badge */
+.webfont-badge {
+    color: #5cb85c;
+    font-size: 10px;
+    margin-left: 4px;
+    cursor: help;
+}
+
+/* Web font highlight */
+.font-item.font-webfont {
+    border-left: 3px solid #5cb85c;
+    padding-left: 9px;
+}
+
+.font-item.font-webfont .font-name {
+    color: #d4f4dd;
 }
 
 .font-name {

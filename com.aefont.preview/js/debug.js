@@ -86,8 +86,31 @@
                 });
             };
             
+            // Debug specific font by name
+            window.debugFont = function(fontName) {
+                console.log('\n=== Font Detail ===');
+                const font = window.availableFonts?.find(f => 
+                    f.displayName.toLowerCase().includes(fontName.toLowerCase()) ||
+                    f.family.toLowerCase().includes(fontName.toLowerCase())
+                );
+                
+                if (font) {
+                    console.table({
+                        'Display Name': font.displayName,
+                        'Family': font.family,
+                        'Style': font.style,
+                        'PostScript': font.postScriptName,
+                        'CSS Families': (font.cssFamilies || []).join(', '),
+                        'Web Font Status': font.webFontStatus || '(none)'
+                    });
+                } else {
+                    console.log(`Font "${fontName}" not found`);
+                }
+            };
+            
             console.log('\n=== Debug Commands ===');
             console.log('Run "debugFonts()" in console to test font loading');
+            console.log('Run "debugFont(\'Arial\')" to see specific font details');
             console.log('Run "testJSXConnection()" for connection test');
             
         } else {

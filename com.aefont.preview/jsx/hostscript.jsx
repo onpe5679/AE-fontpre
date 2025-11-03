@@ -76,6 +76,14 @@
                                     var fullName = fontItem.fullName || fontItem.nativeFullName || "";
                                     var psName = fontItem.postScriptName || "";
                                     
+                                    // Get font file location (may be empty for some font types)
+                                    var fontPath = "";
+                                    try {
+                                        fontPath = fontItem.location || "";
+                                    } catch (locError) {
+                                        // location property may not exist on some systems
+                                    }
+                                    
                                     // Use fullName if available, otherwise combine family + style
                                     var displayName = fullName || (familyName + " " + styleName);
                                     
@@ -84,6 +92,7 @@
                                         family: familyName,
                                         style: styleName,
                                         postScriptName: psName,
+                                        location: fontPath,
                                         available: true
                                     });
                                     

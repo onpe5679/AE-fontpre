@@ -196,3 +196,4 @@ com.aefontpre.preview/
 
 **제작**: AE Font Preview Development Team  
 **최종 업데이트**: 2025년 11월 3일
+# AE-fontpre

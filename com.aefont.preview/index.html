@@ -10,48 +10,54 @@
     <div class="container">
         <header class="header">
             <h1 id="app-title">폰트 프리뷰</h1>
-            <div class="language-selector">
-                <select id="language-select">
-                    <option value="ko">한국어</option>
-                    <option value="en">English</option>
-                    <option value="ja">日本語</option>
-                </select>
-            </div>
         </header>
 
         <main class="main-content">
-            <section class="input-section">
-                <div class="input-group">
+            <div class="control-panel">
+                <div class="control-row">
+                    <div class="search-group">
+                        <label for="search-font" id="search-label">폰트 검색:</label>
+                        <input type="text" id="search-font" placeholder="폰트 이름으로 검색...">
+                    </div>
+                    <div class="slider-group">
+                        <label for="font-size" id="size-label">폰트 크기:</label>
+                        <div class="slider-input">
+                            <input type="range" id="font-size" min="12" max="72" value="24">
+                            <span id="size-value">24px</span>
+                        </div>
+                    </div>
+                    <div class="locale-group">
+                        <select id="language-select">
+                            <option value="ko">한국어</option>
+                            <option value="en">English</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="action-row">
+                    <button id="load-text-btn" class="btn btn-ghost">
+                        <span id="load-text">텍스트 불러오기</span>
+                    </button>
+                    <button id="apply-font" class="btn btn-primary">
+                        <span id="apply-text">선택된 폰트 적용</span>
+                    </button>
+                    <button id="refresh-fonts" class="icon-btn" title="새로고침">
+                        <span class="icon-refresh" aria-hidden="true">⟳</span>
+                    </button>
+                </div>
+                <div class="preview-group">
                     <label for="preview-text" id="text-label">미리보기 텍스트:</label>
                     <textarea id="preview-text" placeholder="미리보기할 텍스트를 입력하세요...">가나다라마바사 ABCD 1234 あいうえお</textarea>
                 </div>
-                
-                <div class="input-group">
-                    <label for="font-size" id="size-label">폰트 크기:</label>
-                    <input type="range" id="font-size" min="12" max="72" value="24">
-                    <span id="size-value">24px</span>
+                <div class="status-row">
+                    <div class="status" id="status">
+                        <span id="status-text">준비 완료</span>
+                    </div>
+                    <span id="font-count" class="font-count-inline">0개 폰트</span>
                 </div>
-
-                <div class="input-group">
-                    <label for="search-font" id="search-label">폰트 검색:</label>
-                    <input type="text" id="search-font" placeholder="폰트 이름으로 검색...">
-                </div>
-            </section>
-
-            <section class="controls-section">
-                <button id="refresh-fonts" class="btn btn-primary">
-                    <span id="refresh-text">폰트 새로고침</span>
-                </button>
-                <button id="apply-font" class="btn btn-secondary">
-                    <span id="apply-text">선택된 폰트 적용</span>
-                </button>
-            </section>
+            </div>
 
             <section class="font-list-section">
-                <div class="list-header">
-                    <h3 id="font-list-title">폰트 목록</h3>
-                    <span id="font-count">0개 폰트</span>
-                </div>
                 <div id="font-list" class="font-list">
                     <div class="loading" id="loading">
                         <span id="loading-text">폰트 목록을 불러오는 중...</span>
@@ -60,11 +66,7 @@
             </section>
         </main>
 
-        <footer class="footer">
-            <div class="status" id="status">
-                <span id="status-text">준비 완료</span>
-            </div>
-        </footer>
+        <div class="toast-container" id="toast-container"></div>
     </div>
 
     <!-- Adobe CEP CSInterface -->

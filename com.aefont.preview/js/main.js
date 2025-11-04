@@ -10,6 +10,7 @@
     let selectedFont = null;
     let selectedFontId = null;
     let isInitialized = false;
+    let toastContainer;
 
     // Multi-language support
     const translations = {
@@ -29,7 +30,15 @@
             'no-fonts': '사용 가능한 폰트가 없습니다',
             'font-count': '{count}개 폰트',
             'placeholder-text': '미리보기할 텍스트를 입력하세요...',
-            'placeholder-search': '폰트 이름으로 검색...'
+            'placeholder-search': '폰트 이름으로 검색...',
+            'load-text': '텍스트 불러오기',
+            'status-fetching-text': '텍스트 불러오는 중...',
+            'toast-apply-success': '{count}개의 레이어에 적용했습니다.',
+            'toast-apply-success-single': '{count}개의 레이어에 적용했습니다.',
+            'toast-load-success': '텍스트를 불러왔습니다.',
+            'toast-load-fail': '텍스트를 불러올 수 없습니다.',
+            'toast-apply-fail': '폰트 적용 실패',
+            'toast-parse-fail': '응답을 파싱할 수 없습니다.'
         },
         en: {
             'app-title': 'Font Preview',
@@ -47,7 +56,15 @@
             'no-fonts': 'No fonts available',
             'font-count': '{count} fonts',
             'placeholder-text': 'Enter preview text...',
-            'placeholder-search': 'Search by font name...'
+            'placeholder-search': 'Search by font name...',
+            'load-text': 'Fetch Text',
+            'status-fetching-text': 'Fetching text...',
+            'toast-apply-success': 'Applied to {count} layers.',
+            'toast-apply-success-single': 'Applied to {count} layer.',
+            'toast-load-success': 'Loaded layer text.',
+            'toast-load-fail': 'Could not load text.',
+            'toast-apply-fail': 'Failed to apply font',
+            'toast-parse-fail': 'Could not parse response.'
         },
         ja: {
             'app-title': 'フォントプレビュー',
@@ -65,9 +82,37 @@
             'no-fonts': '利用可能なフォントがありません',
             'font-count': '{count}個のフォント',
             'placeholder-text': 'プレビューテキストを入力...',
-            'placeholder-search': 'フォント名で検索...'
+            'placeholder-search': 'フォント名で検索...',
+            'load-text': 'テキスト取得',
+            'status-fetching-text': 'テキスト取得中...',
+            'toast-apply-success': '{count}個のレイヤーに適用しました。',
+            'toast-apply-success-single': '{count}個のレイヤーに適用しました。',
+            'toast-load-success': 'テキストを読み込みました。',
+            'toast-load-fail': 'テキストを取得できません。',
+            'toast-apply-fail': 'フォントの適用に失敗しました',
+            'toast-parse-fail': 'レスポンスを解析できません。'
         }
     };
+
+    function translate(key, fallback) {
+        const pack = translations[currentLanguage] || translations.ko;
+        if (pack && Object.prototype.hasOwnProperty.call(pack, key)) {
+            return pack[key];
+        }
+        if (fallback !== undefined) {
+            return fallback;
+        }
+        return key;
+    }
+
+    function formatTranslation(key, params = {}) {
+        let template = translate(key, key);
+        Object.keys(params).forEach(paramKey => {
+            const pattern = new RegExp(`\\{${paramKey}\\}`, 'g');
+            template = template.replace(pattern, params[paramKey]);
+        });
+        return template;
+    }
 
     // Simple HTML escape helpers to guard against unsafe font names
     function escapeHtml(text) {
@@ -283,6 +328,12 @@
     // Initialize the application
     function init() {
         console.log('Initializing AE Font Preview...');
+        toastContainer = document.getElementById('toast-container');
+        const fontSizeInput = document.getElementById('font-size');
+        const sizeValue = document.getElementById('size-value');
+        if (fontSizeInput && sizeValue) {
+            sizeValue.textContent = fontSizeInput.value + 'px';
+        }
         
         if (!initCSInterface()) {
             console.error('Failed to initialize CSInterface');
@@ -370,6 +421,7 @@
         // Buttons
         document.getElementById('refresh-fonts').addEventListener('click', loadFonts);
         document.getElementById('apply-font').addEventListener('click', applySelectedFont);
+        document.getElementById('load-text-btn').addEventListener('click', loadTextFromSelectedLayer);
     }
 
     // Load language
@@ -378,6 +430,11 @@
         const texts = translations[lang];
         
         if (!texts) return;
+
+        const languageSelect = document.getElementById('language-select');
+        if (languageSelect && languageSelect.value !== lang) {
+            languageSelect.value = lang;
+        }
 
         // Update all translatable elements
         Object.keys(texts).forEach(key => {
@@ -408,6 +465,31 @@
         });
         
         document.getElementById('status-text').textContent = finalText;
+    }
+
+    function showToast(message, type = 'info') {
+        if (!toastContainer) {
+            toastContainer = document.getElementById('toast-container');
+        }
+        if (!toastContainer) return;
+
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+
+        requestAnimationFrame(() => {
+            toast.classList.add('show');
+        });
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 220);
+        }, 2600);
     }
 
         // Load fonts from After Effects
@@ -499,6 +581,7 @@
                     showLoading(false);  // displayFonts 호출 전에 loading 숨김
                     displayFonts(availableFonts);
                     updateFontCount();
+                    updateFontPreviews();
                     updateStatus('status-ready');
                 } else {
                     console.error('Script error:', response.error);
@@ -568,6 +651,8 @@
         if (window.AEFontLoader) {
             fonts.forEach(font => ensureFontForPreview(font));
         }
+
+        updateFontPreviews();
     }
 
 
@@ -629,6 +714,43 @@
         });
     }
 
+    function loadTextFromSelectedLayer() {
+        if (!csInterface) {
+            return;
+        }
+
+        updateStatus('status-fetching-text');
+        csInterface.evalScript('AEFontPreview_getSelectedText()', function(result) {
+            updateStatus('status-ready');
+            try {
+                if (!result || result === 'undefined') {
+                    showToast(translate('toast-load-fail'), 'warning');
+                    return;
+                }
+
+                if (typeof result === 'string' && result.indexOf('EvalScript error') !== -1) {
+                    console.warn('EvalScript error during load text:', result);
+                    showToast(translate('toast-load-fail'), 'warning');
+                    return;
+                }
+
+                const response = JSON.parse(result);
+                if (response.success) {
+                    const preview = document.getElementById('preview-text');
+                    preview.value = response.text || '';
+                    updateFontPreviews();
+                    showToast(translate('toast-load-success'), 'success');
+                } else {
+                    console.warn('Load text failed:', response.error);
+                    showToast(`${translate('toast-load-fail')} (${response.error || 'N/A'})`, 'warning');
+                }
+            } catch (error) {
+                console.error('Failed to parse load text response:', error, result);
+                showToast(translate('toast-load-fail'), 'error');
+            }
+        });
+    }
+
     // Update font count
     function updateFontCount(count = availableFonts.length) {
         const countText = translations[currentLanguage]['font-count'].replace('{count}', count);
@@ -681,35 +803,19 @@
                 if (response.success) {
                     updateStatus('status-ready');
                     const appliedCount = response.appliedCount || 0;
-                    const displayName = selectedFont.displayName || fontNameForApply;
-                    showSuccessMessage(`${displayName} 폰트를 ${appliedCount}개의 텍스트 레이어에 적용했습니다.`);
+                    const key = appliedCount === 1 ? 'toast-apply-success-single' : 'toast-apply-success';
+                    const message = formatTranslation(key, { count: appliedCount });
+                    showToast(message, 'success');
                 } else {
                     updateStatus('status-error');
-                    showErrorMessage('폰트 적용 실패: ' + response.error);
+                    showToast(`${translate('toast-apply-fail')}: ${response.error}`, 'error');
                 }
             } catch (parseError) {
                 console.error('Parse error:', parseError);
                 updateStatus('status-error');
-                showErrorMessage('응답을 파싱할 수 없습니다.');
+                showToast(translate('toast-parse-fail'), 'error');
             }
         });
-    }
-
-    // Show success message
-    function showSuccessMessage(message) {
-        const fontList = document.getElementById('font-list');
-        const successDiv = document.createElement('div');
-        successDiv.className = 'success-message';
-        successDiv.textContent = message;
-        successDiv.style.cssText = 'background: #4CAF50; color: white; padding: 12px; margin: 8px; border-radius: 3px;';
-        
-        fontList.insertBefore(successDiv, fontList.firstChild);
-        
-        setTimeout(() => {
-            if (successDiv.parentNode) {
-                successDiv.parentNode.removeChild(successDiv);
-            }
-        }, 3000);
     }
 
     // Debug function to test JSX connection

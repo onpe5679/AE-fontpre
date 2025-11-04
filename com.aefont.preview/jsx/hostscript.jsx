@@ -199,7 +199,7 @@
             };
         }
     }
-    
+
     // Apply font to selected text layers
     function applyFontToSelectedLayers(fontName) {
         try {
@@ -272,6 +272,59 @@
                 success: false,
                 error: error.toString(),
                 appliedCount: 0
+            };
+        }
+    }
+
+    // Get text from the first selected text layer
+    function getSelectedTextContent() {
+        try {
+            var comp = app.project.activeItem;
+            if (!comp || !(comp instanceof CompItem)) {
+                return {
+                    success: false,
+                    error: "No active composition found"
+                };
+            }
+
+            var selectedLayers = comp.selectedLayers;
+            if (!selectedLayers || selectedLayers.length === 0) {
+                return {
+                    success: false,
+                    error: "No layers selected"
+                };
+            }
+
+            for (var i = 0; i < selectedLayers.length; i++) {
+                var layer = selectedLayers[i];
+                if (layer instanceof TextLayer) {
+                    try {
+                        var textProp = layer.property("ADBE Text Properties").property("ADBE Text Document");
+                        var textDoc = textProp.value;
+                        return {
+                            success: true,
+                            text: textDoc.text || "",
+                            layerName: layer.name
+                        };
+                    } catch (textError) {
+                        return {
+                            success: false,
+                            error: "Unable to read text from layer: " + textError.toString()
+                        };
+                    }
+                }
+            }
+
+            return {
+                success: false,
+                error: "No text layers selected"
+            };
+
+        } catch (error) {
+            log("Error in getSelectedTextContent: " + error.toString());
+            return {
+                success: false,
+                error: error.toString()
             };
         }
     }
@@ -450,6 +503,9 @@
     $.global.AEFontPreview_getProjectInfo = function() {
         return JSON.stringify(getProjectInfo());
     };
+    $.global.AEFontPreview_getSelectedText = function() {
+        return JSON.stringify(getSelectedTextContent());
+    };
     
     // Export functions for CEP interface
     AEFontPreview.getSystemFonts = getSystemFonts;
@@ -458,6 +514,7 @@
     AEFontPreview.getFontInfo = getFontInfo;
     AEFontPreview.isFontAvailable = isFontAvailable;
     AEFontPreview.getProjectInfo = getProjectInfo;
+    AEFontPreview.getSelectedTextContent = getSelectedTextContent;
     
     // Make AEFontPreview globally available
     this.AEFontPreview = AEFontPreview;

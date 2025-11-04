@@ -101,7 +101,9 @@
                         'Style': font.style,
                         'PostScript': font.postScriptName,
                         'CSS Families': (font.cssFamilies || []).join(', '),
-                        'Web Font Status': font.webFontStatus || '(none)'
+                        'Web Font Status': font.webFontStatus || '(none)',
+                        'Family Members': font.familyMeta ? font.familyMeta.memberCount : 1,
+                        'Family Display': font.familyMeta ? font.familyMeta.displayName : font.family
                     });
                 } else {
                     console.log(`Font "${fontName}" not found`);

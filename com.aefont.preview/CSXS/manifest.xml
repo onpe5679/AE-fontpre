@@ -23,6 +23,7 @@
           <CEFCommandLine>
             <Parameter>--enable-nodejs</Parameter>
             <Parameter>--mixed-context</Parameter>
+            <Parameter>--remote-debugging-port=9222</Parameter>
           </CEFCommandLine>
         </Resources>
         <Lifecycle>

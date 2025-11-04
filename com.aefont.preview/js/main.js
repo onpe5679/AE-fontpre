@@ -6,6 +6,7 @@
     let csInterface;
     let currentLanguage = 'ko';
     let availableFonts = [];
+    let fontFamilies = [];
     let selectedFont = null;
     let selectedFontId = null;
     let isInitialized = false;
@@ -91,111 +92,152 @@
             .replace(/>/g, '&gt;');
     }
 
-    function escapeCssString(text) {
-        if (text === null || text === undefined) {
-            return '';
-        }
-        return escapeHtml(text);
-    }
-
-    function addCandidate(target, value) {
-        if (!target || !Array.isArray(target)) {
+    function applyPlanToFontItem(font, fontItem) {
+        if (!fontItem || !window.AEFontRender) {
             return;
         }
-        if (!value && value !== 0) {
-            return;
-        }
-        const candidate = String(value).trim();
-        if (!candidate) {
-            return;
-        }
-        if (!target.includes(candidate)) {
-            target.push(candidate);
-        }
-    }
-
-    function getFontFamilyValue(font) {
-        const families = [];
-        if (font && Array.isArray(font.cssFamilies)) {
-            font.cssFamilies.forEach(name => addCandidate(families, name));
-        }
-        const cssList = families
-            .filter(Boolean)
-            .map(name => `"${escapeCssString(name)}"`)
-            .join(', ');
-        return cssList ? `${cssList}, sans-serif` : 'sans-serif';
-    }
-
-    function isFontRenderable(font) {
-        if (!font) {
-            return false;
-        }
-        if (!document.fonts || !document.fonts.check) {
-            return true;
-        }
-        const families = Array.isArray(font.cssFamilies) ? font.cssFamilies : [];
-        for (let i = 0; i < families.length; i++) {
-            const candidate = families[i];
-            if (!candidate) {
-                continue;
-            }
-            const safeName = candidate.replace(/"/g, '');
-            try {
-                if (document.fonts.check(`12px "${safeName}"`)) {
-                    return true;
-                }
-            } catch (error) {
-                // ignore
+        const plan = AEFontRender.computePlan(font);
+        const preview = fontItem.querySelector('.font-preview');
+        if (preview) {
+            preview.style.fontFamily = plan.cssString;
+            if (plan.needsWeightOverride && plan.fontWeight) {
+                preview.style.fontWeight = plan.fontWeight;
+            } else {
+                preview.style.removeProperty('font-weight');
             }
         }
-        return false;
+
+        fontItem.dataset.renderSource = plan.renderSource;
+        fontItem.dataset.matchType = plan.matchType;
+        fontItem.dataset.loadedCount = plan.loadedCandidates.length;
+        fontItem.dataset.warningReasons = plan.warningReasons ? plan.warningReasons.join(',') : '';
+        if (plan.fontWeight) {
+            fontItem.dataset.fontWeight = String(plan.fontWeight);
+        } else {
+            delete fontItem.dataset.fontWeight;
+        }
+        if (plan.preferredFamily) {
+            fontItem.dataset.preferredFamily = plan.preferredFamily;
+        } else {
+            delete fontItem.dataset.preferredFamily;
+        }
+        if (font.familyMeta) {
+            fontItem.dataset.familyId = font.familyMeta.id || '';
+            fontItem.dataset.familyName = font.familyMeta.displayName || '';
+        }
+
+        const classes = [
+            'font-origin-web',
+            'font-origin-local',
+            'font-warning',
+            'font-render-failed',
+            'font-origin-web-loading',
+            'font-loading'
+        ];
+        fontItem.classList.remove(...classes);
+
+        switch (plan.renderSource) {
+            case 'web':
+                fontItem.classList.add('font-origin-web');
+                break;
+            case 'web-loading':
+                fontItem.classList.add('font-origin-web', 'font-origin-web-loading');
+                break;
+            case 'local':
+            case 'available':
+                fontItem.classList.add('font-origin-local');
+                break;
+            case 'error':
+            case 'render-failed':
+                fontItem.classList.add('font-render-failed');
+                break;
+            default:
+                fontItem.classList.add('font-loading');
+                break;
+        }
+
+        if (plan.warning) {
+            fontItem.classList.add('font-warning');
+        } else {
+            fontItem.classList.remove('font-warning');
+        }
+        if (plan.renderSource === 'render-failed') {
+            fontItem.classList.add('font-render-failed');
+        }
     }
 
-    function updateFontPreviewFamily(font) {
-        if (!font) {
-            return;
+    function refreshFontItem(font) {
+        const item = document.querySelector(`.font-item[data-font-uid="${font.uid}"]`);
+        if (item) {
+            AEFontRender.invalidate(font);
+            applyPlanToFontItem(font, item);
         }
-        const selector = `.font-item[data-font-uid="${font.uid}"] .font-preview`;
-        const familyValue = getFontFamilyValue(font);
-        document.querySelectorAll(selector).forEach(element => {
-            element.style.fontFamily = familyValue;
-        });
+    }
+
+    function invalidateFontPlan(font) {
+        if (window.AEFontRender && font) {
+            AEFontRender.invalidate(font);
+        }
     }
 
     function ensureFontForPreview(font) {
-        if (!window.AEFontLoader || !font) {
+        if (!window.AEFontLoader || !window.AEFontRender || !font) {
             return;
         }
 
-        if (font.webFontStatus === 'loading' || font.webFontStatus === 'loaded' || font.webFontStatus === 'missing-config' || font.webFontStatus === 'failed') {
+        if (['loading', 'web', 'web-loading', 'render-failed', 'local', 'available'].includes(font.webFontStatus)) {
             return;
         }
 
-        if (isFontRenderable(font)) {
-            font.webFontStatus = 'available';
+        if (AEFontRender.isRenderable(font)) {
+            font.webFontStatus = 'local';
+            refreshFontItem(font);
             return;
         }
 
         font.webFontStatus = 'loading';
+        refreshFontItem(font);
+
         AEFontLoader.ensureFont(font).then(result => {
             if (result && Array.isArray(result.addedFamilies)) {
-                result.addedFamilies.forEach(name => addCandidate(font.cssFamilies, name));
+                result.addedFamilies.forEach(name => AEFontRender.addCandidate(font.cssFamilies, name));
             }
 
             if (result && (result.status === 'loaded' || result.status === 'available')) {
                 font.webFontStatus = 'loaded';
-                requestAnimationFrame(() => updateFontPreviewFamily(font));
-            } else if (result && result.status === 'missing-config') {
-                font.webFontStatus = 'missing-config';
-            } else if (result && result.status === 'failed') {
-                font.webFontStatus = 'failed';
+            } else if (result && result.status) {
+                font.webFontStatus = result.status;
             } else {
-                font.webFontStatus = result ? result.status : 'unknown';
+                font.webFontStatus = 'failed';
             }
+
+            AEFontRender.invalidate(font);
+            refreshFontItem(font);
+            setTimeout(() => checkFinalRenderStatus(font), 120);
         }).catch(error => {
-            font.webFontStatus = 'failed';
             console.warn('Web font loading failed:', font.displayName, error);
+            font.webFontStatus = 'failed';
+            AEFontRender.invalidate(font);
+            refreshFontItem(font);
+            setTimeout(() => checkFinalRenderStatus(font), 120);
         });
+    }
+
+    function checkFinalRenderStatus(font) {
+        if (!font || !window.AEFontRender) return;
+        
+        const canRender = AEFontRender.isRenderable(font);
+        if (canRender) {
+            if (font.webFontStatus === 'loaded' || font.webFontStatus === 'web') {
+                font.webFontStatus = 'web';
+            } else {
+                font.webFontStatus = 'local';
+            }
+        } else {
+            font.webFontStatus = 'render-failed';
+        }
+        AEFontRender.invalidate(font);
+        refreshFontItem(font);
     }
 
     // Initialize CSInterface
@@ -412,19 +454,23 @@
                         const uid = 'font-' + index;
 
                         const cssFamilies = [];
-                        addCandidate(cssFamilies, postScriptName);
-                        addCandidate(cssFamilies, familyName);
-                        addCandidate(cssFamilies, displayName);
-                        addCandidate(cssFamilies, displayName.replace(/_/g, ' '));
-                        addCandidate(cssFamilies, familyName.replace(/_/g, ' '));
-                        if (postScriptName) {
-                            addCandidate(cssFamilies, postScriptName.replace(/[_-]/g, ' '));
-                        }
-                        if (styleName) {
-                            addCandidate(cssFamilies, `${familyName} ${styleName}`);
-                            addCandidate(cssFamilies, `${familyName}-${styleName}`);
-                            addCandidate(cssFamilies, `${displayName} ${styleName}`);
-                            addCandidate(cssFamilies, `${displayName}-${styleName}`);
+                        if (window.AEFontRender) {
+                            AEFontRender.addCandidate(cssFamilies, postScriptName);
+                            AEFontRender.addCandidate(cssFamilies, familyName);
+                            AEFontRender.addCandidate(cssFamilies, displayName);
+                            AEFontRender.addCandidate(cssFamilies, displayName.replace(/_/g, ' '));
+                            AEFontRender.addCandidate(cssFamilies, familyName.replace(/_/g, ' '));
+                            if (postScriptName) {
+                                AEFontRender.addCandidate(cssFamilies, postScriptName.replace(/[_-]/g, ' '));
+                            }
+                            if (styleName) {
+                                AEFontRender.addCandidate(cssFamilies, `${familyName} ${styleName}`);
+                                AEFontRender.addCandidate(cssFamilies, `${familyName}-${styleName}`);
+                                AEFontRender.addCandidate(cssFamilies, `${displayName} ${styleName}`);
+                                AEFontRender.addCandidate(cssFamilies, `${displayName}-${styleName}`);
+                            }
+                        } else {
+                            cssFamilies.push(displayName);
                         }
                         if (cssFamilies.length === 0) {
                             cssFamilies.push(displayName);
@@ -441,6 +487,12 @@
                             source: font.source || 'System'
                         };
                     });
+
+                    if (window.AEFontFamilies) {
+                        const familyData = AEFontFamilies.buildFamilies(availableFonts);
+                        fontFamilies = familyData.families;
+                        window.fontFamilies = fontFamilies;
+                    }
 
                     window.availableFonts = availableFonts;
 
@@ -478,14 +530,11 @@
             const encodedUid = escapeAttr(font.uid);
             const nameText = escapeHtml(font.displayName);
             const styleText = escapeHtml(font.style);
-            const familyValue = getFontFamilyValue(font);
-            const familyAttr = escapeAttr(familyValue);
-            const statusAttr = font.webFontStatus ? ` data-font-status="${escapeAttr(font.webFontStatus)}"` : '';
 
             return `
-                <div class="font-item" data-font-uid="${encodedUid}"${statusAttr}>
+                <div class="font-item" data-font-uid="${encodedUid}">
                     <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span></div>
-                    <div class="font-preview" style="font-family: ${familyAttr}; font-size: ${fontSize}px;">
+                    <div class="font-preview" style="font-size: ${fontSize}px;">
                         ${escapeHtml(previewText)}
                     </div>
                 </div>
@@ -494,7 +543,9 @@
 
         fontList.innerHTML = html;
 
-        document.querySelectorAll('.font-item').forEach(item => {
+        const items = fontList.querySelectorAll('.font-item');
+
+        items.forEach(item => {
             item.addEventListener('click', function() {
                 selectFont(this.dataset.fontUid);
             });
@@ -506,6 +557,13 @@
                 selectedElement.classList.add('selected');
             }
         }
+
+        fonts.forEach(font => {
+            const item = fontList.querySelector(`.font-item[data-font-uid="${font.uid}"]`);
+            if (item) {
+                applyPlanToFontItem(font, item);
+            }
+        });
 
         if (window.AEFontLoader) {
             fonts.forEach(font => ensureFontForPreview(font));
@@ -543,6 +601,9 @@
                 font.postScriptName || '',
                 font.style || ''
             ];
+            if (font.familyMeta && font.familyMeta.displayName) {
+                targets.push(font.familyMeta.displayName);
+            }
             if (Array.isArray(font.cssFamilies)) {
                 targets.push(...font.cssFamilies);
             }
@@ -711,8 +772,13 @@
             postScriptName: font.postScriptName,
             style: font.style,
             cssFamilies: font.cssFamilies,
-            webFontStatus: font.webFontStatus || '(none)'
+            webFontStatus: font.webFontStatus || '(none)',
+            familyMeta: font.familyMeta
         });
+
+        if (window.AEFontRender) {
+            console.log('Render plan:', AEFontRender.computePlan(font));
+        }
 
         if (window.AEFontLoader) {
             ensureFontForPreview(font);

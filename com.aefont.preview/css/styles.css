@@ -187,10 +187,24 @@ body {
 }
 
 .font-item {
-    padding: 12px;
+    position: relative;
+    padding: 12px 12px 12px 20px;
     border-bottom: 1px solid #484848;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.font-item::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 4px;
+    border-radius: 2px;
+    background: transparent;
+    opacity: 0;
+    transition: background 0.2s ease, opacity 0.2s ease;
 }
 
 .font-item:last-child {
@@ -202,51 +216,67 @@ body {
 }
 
 .font-item.selected {
-    background-color: #0078d4;
+    background-color: #0f6ab8;
 }
 
-/* Font not available (no location) */
-.font-item.font-not-available {
-    opacity: 0.5;
-    background-color: #2a2a2a;
+.font-item.font-origin-web::before {
+    background-color: #3fa1ff;
+    opacity: 1;
 }
 
-.font-item.font-not-available .font-name {
-    color: #888;
+.font-item.font-loading::before {
+    background-color: #888;
+    opacity: 0.4;
 }
 
-.font-item.font-not-available .font-preview {
-    color: #666;
-    font-style: italic;
+.font-item.font-origin-web-loading::before {
+    background: repeating-linear-gradient(
+        180deg,
+        #3fa1ff,
+        #3fa1ff 4px,
+        #1b5f9e 4px,
+        #1b5f9e 8px
+    );
+    opacity: 1;
 }
 
-.font-item.font-not-available:hover {
-    background-color: #333;
+.font-item.font-origin-local::before {
+    background-color: #5cb85c;
+    opacity: 0.6;
 }
 
-.location-hint {
-    color: #f0ad4e;
+.font-item.font-warning::before {
+    background-color: #f0ad4e;
+    opacity: 1;
+}
+
+.font-item.font-warning .font-name {
+    color: #ffd666;
+}
+
+.font-item.font-render-failed::before {
+    background-color: #d9534f;
+    opacity: 1;
+}
+
+.font-item.font-render-failed {
+    opacity: 0.6;
+}
+
+.font-item.font-render-failed .font-preview {
+    display: none;
+}
+
+.font-item.font-render-failed .font-name {
+    color: #ffb3b3;
+}
+
+.font-item.font-render-failed .font-name::after {
+    content: " (렌더링 불가)";
     font-size: 10px;
+    color: #d9534f;
+    font-weight: 400;
     margin-left: 4px;
-    cursor: help;
-}
-
-/* Web font badge */
-.webfont-badge {
-    color: #5cb85c;
-    font-size: 10px;
-    margin-left: 4px;
-    cursor: help;
-}
-
-/* Web font highlight */
-.font-item.font-webfont {
-    border-left: 3px solid #5cb85c;
-    padding-left: 9px;
-}
-
-.font-item.font-webfont .font-name {
-    color: #d4f4dd;
 }
 
 .font-name {

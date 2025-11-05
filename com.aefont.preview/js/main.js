@@ -11,6 +11,20 @@
     let selectedFontId = null;
     let isInitialized = false;
     let toastContainer;
+    let pythonProcess = null;
+    let pythonClient = null;
+    let pythonReady = false;
+    let pythonCatalogAll = new Map();
+    let pythonFontCounter = 0;
+    const pythonPreviewCache = new Map();
+    let pythonUpdateTimer = null;
+    let pythonPreviewBusy = false;
+    const fontByUid = new Map();
+    const fontsByPythonKey = new Map();
+    let fontListElement;
+    let previewTextInput;
+    let fontSizeInput;
+    let applyButton;
 
     // Multi-language support
     const translations = {
@@ -38,7 +52,8 @@
             'toast-load-success': '텍스트를 불러왔습니다.',
             'toast-load-fail': '텍스트를 불러올 수 없습니다.',
             'toast-apply-fail': '폰트 적용 실패',
-            'toast-parse-fail': '응답을 파싱할 수 없습니다.'
+            'toast-parse-fail': '응답을 파싱할 수 없습니다.',
+            'preview-only': '미리보기 전용'
         },
         en: {
             'app-title': 'Font Preview',
@@ -64,7 +79,8 @@
             'toast-load-success': 'Loaded layer text.',
             'toast-load-fail': 'Could not load text.',
             'toast-apply-fail': 'Failed to apply font',
-            'toast-parse-fail': 'Could not parse response.'
+            'toast-parse-fail': 'Could not parse response.',
+            'preview-only': 'Preview only'
         },
         ja: {
             'app-title': 'フォントプレビュー',
@@ -90,7 +106,8 @@
             'toast-load-success': 'テキストを読み込みました。',
             'toast-load-fail': 'テキストを取得できません。',
             'toast-apply-fail': 'フォントの適用に失敗しました',
-            'toast-parse-fail': 'レスポンスを解析できません。'
+            'toast-parse-fail': 'レスポンスを解析できません。',
+            'preview-only': 'プレビュー専用'
         }
     };
 
@@ -112,6 +129,13 @@
             template = template.replace(pattern, params[paramKey]);
         });
         return template;
+    }
+
+    function normalizeFontKey(name) {
+        if (!name && name !== 0) {
+            return '';
+        }
+        return String(name).toLowerCase().replace(/\\s+/g, '').replace(/[_-]/g, '');
     }
 
     // Simple HTML escape helpers to guard against unsafe font names
@@ -137,19 +161,95 @@
             .replace(/>/g, '&gt;');
     }
 
+    async function initializePythonSupport() {
+        if (typeof PythonProcessManager === 'undefined' || typeof PythonPreviewClient === 'undefined') {
+            return false;
+        }
+
+        let extensionPath;
+        try {
+            if (typeof window.CSInterface === 'function') {
+                const tempInterface = new window.CSInterface();
+                extensionPath = tempInterface.getSystemPath('extension');
+            }
+        } catch (error) {
+            console.warn('[initializePythonSupport] Unable to resolve extension path:', error);
+        }
+
+        pythonProcess = new PythonProcessManager();
+        const started = pythonProcess.start(extensionPath);
+        if (!started) {
+            return false;
+        }
+
+        pythonClient = new PythonPreviewClient();
+        const ready = await pythonClient.waitUntilReady();
+        if (!ready) {
+            pythonProcess.stop();
+            return false;
+        }
+
+        pythonCatalogAll = await pythonClient.fetchFontCatalog();
+        pythonReady = true;
+        return true;
+    }
+
     function applyPlanToFontItem(font, fontItem) {
-        if (!fontItem || !window.AEFontRender) {
+        if (!fontItem) {
             return;
         }
-        const plan = AEFontRender.computePlan(font);
-        const preview = fontItem.querySelector('.font-preview');
-        if (preview) {
-            preview.style.fontFamily = plan.cssString;
-            if (plan.needsWeightOverride && plan.fontWeight) {
-                preview.style.fontWeight = plan.fontWeight;
-            } else {
-                preview.style.removeProperty('font-weight');
+
+        const textNode = fontItem.querySelector('.font-preview-text');
+        const imageNode = fontItem.querySelector('.font-preview-image');
+
+        if (font.familyMeta) {
+            fontItem.dataset.familyId = font.familyMeta.id || '';
+            fontItem.dataset.familyName = font.familyMeta.displayName || '';
+        }
+
+        if (font.requiresPython || font.externalOnly) {
+            fontItem.classList.add('python-render');
+            fontItem.classList.remove('css-render');
+            if (textNode && previewTextInput) {
+                textNode.textContent = previewTextInput.value;
+                if (fontSizeInput) {
+                    textNode.style.fontSize = `${fontSizeInput.value}px`;
+                }
             }
+            if (imageNode && font.pythonImage) {
+                imageNode.src = font.pythonImage;
+            }
+            return;
+        }
+
+        fontItem.classList.add('css-render');
+        fontItem.classList.remove('python-render');
+
+        if (!window.AEFontRender) {
+            if (textNode) {
+                textNode.style.fontFamily = `'${font.displayName}', sans-serif`;
+                if (previewTextInput) {
+                    textNode.textContent = previewTextInput.value;
+                }
+            }
+            return;
+        }
+
+        const plan = AEFontRender.computePlan(font);
+
+        if (textNode) {
+            textNode.style.fontFamily = plan.cssString;
+            if (plan.needsWeightOverride && plan.fontWeight) {
+                textNode.style.fontWeight = plan.fontWeight;
+            } else {
+                textNode.style.removeProperty('font-weight');
+            }
+            if (previewTextInput) {
+                textNode.textContent = previewTextInput.value;
+            }
+        }
+        if (imageNode) {
+            imageNode.removeAttribute('src');
         }
 
         fontItem.dataset.renderSource = plan.renderSource;
@@ -165,10 +265,6 @@
             fontItem.dataset.preferredFamily = plan.preferredFamily;
         } else {
             delete fontItem.dataset.preferredFamily;
-        }
-        if (font.familyMeta) {
-            fontItem.dataset.familyId = font.familyMeta.id || '';
-            fontItem.dataset.familyName = font.familyMeta.displayName || '';
         }
 
         const classes = [
@@ -230,6 +326,11 @@
             return;
         }
 
+        if (font.requiresPython || font.externalOnly) {
+            schedulePythonPreviewUpdate();
+            return;
+        }
+
         if (['loading', 'web', 'web-loading', 'render-failed', 'local', 'available'].includes(font.webFontStatus)) {
             return;
         }
@@ -240,37 +341,17 @@
             return;
         }
 
-        font.webFontStatus = 'loading';
+        font.requiresPython = true;
         refreshFontItem(font);
-
-        AEFontLoader.ensureFont(font).then(result => {
-            if (result && Array.isArray(result.addedFamilies)) {
-                result.addedFamilies.forEach(name => AEFontRender.addCandidate(font.cssFamilies, name));
-            }
-
-            if (result && (result.status === 'loaded' || result.status === 'available')) {
-                font.webFontStatus = 'loaded';
-            } else if (result && result.status) {
-                font.webFontStatus = result.status;
-            } else {
-                font.webFontStatus = 'failed';
-            }
-
-            AEFontRender.invalidate(font);
-            refreshFontItem(font);
-            setTimeout(() => checkFinalRenderStatus(font), 120);
-        }).catch(error => {
-            console.warn('Web font loading failed:', font.displayName, error);
-            font.webFontStatus = 'failed';
-            AEFontRender.invalidate(font);
-            refreshFontItem(font);
-            setTimeout(() => checkFinalRenderStatus(font), 120);
-        });
+        schedulePythonPreviewUpdate(true);
     }
 
     function checkFinalRenderStatus(font) {
         if (!font || !window.AEFontRender) return;
-        
+        if (font.requiresPython || font.externalOnly) {
+            return;
+        }
+
         const canRender = AEFontRender.isRenderable(font);
         if (canRender) {
             if (font.webFontStatus === 'loaded' || font.webFontStatus === 'web') {
@@ -326,36 +407,47 @@
     }
 
     // Initialize the application
-    function init() {
+    async function init() {
         console.log('Initializing AE Font Preview...');
         toastContainer = document.getElementById('toast-container');
-        const fontSizeInput = document.getElementById('font-size');
+        fontListElement = document.getElementById('font-list');
+        previewTextInput = document.getElementById('preview-text');
+        fontSizeInput = document.getElementById('font-size');
+        applyButton = document.getElementById('apply-font');
+        if (applyButton) {
+            applyButton.disabled = true;
+        }
         const sizeValue = document.getElementById('size-value');
         if (fontSizeInput && sizeValue) {
             sizeValue.textContent = fontSizeInput.value + 'px';
         }
-        
+
+        window.addEventListener('beforeunload', () => {
+            if (pythonProcess) {
+                pythonProcess.stop();
+            }
+        });
+
+        await initializePythonSupport();
+
         if (!initCSInterface()) {
             console.error('Failed to initialize CSInterface');
-            // Try to reinitialize after a delay
             setTimeout(init, 1000);
             return;
         }
 
-        // Load JSX script manually if not loaded
         loadJSXScript();
-
-        // Set up event listeners
         setupEventListeners();
-        
-        // Load initial language
+        if (fontListElement) {
+            fontListElement.addEventListener('scroll', () => schedulePythonPreviewUpdate());
+        }
+
         loadLanguage('ko');
-        
-        // Wait a bit for JSX to load, then load fonts
+
         setTimeout(function() {
             loadFonts();
         }, 500);
-        
+
         isInitialized = true;
         updateStatus('status-ready');
     }
@@ -419,9 +511,18 @@
         document.getElementById('search-font').addEventListener('input', filterFonts);
 
         // Buttons
-        document.getElementById('refresh-fonts').addEventListener('click', loadFonts);
-        document.getElementById('apply-font').addEventListener('click', applySelectedFont);
-        document.getElementById('load-text-btn').addEventListener('click', loadTextFromSelectedLayer);
+        const refreshBtn = document.getElementById('refresh-fonts');
+        const applyBtn = document.getElementById('apply-font');
+        const loadTextBtn = document.getElementById('load-text-btn');
+        if (refreshBtn) {
+            refreshBtn.addEventListener('click', () => loadFonts());
+        }
+        if (applyBtn) {
+            applyBtn.addEventListener('click', () => applySelectedFont());
+        }
+        if (loadTextBtn) {
+            loadTextBtn.addEventListener('click', () => loadTextFromSelectedLayer());
+        }
     }
 
     // Load language
@@ -493,166 +594,295 @@
     }
 
         // Load fonts from After Effects
-    function loadFonts() {
+    async function loadFonts() {
         updateStatus('status-loading');
         showLoading(true);
-        console.log('Loading fonts from After Effects...');
 
-        csInterface.evalScript('AEFontPreview_getFonts()', function(result) {
-            console.log('evalScript result:', result);
-            
-            try {
-                // Check if result is undefined or null
+        try {
+            const aeFonts = await fetchAEFonts();
+            availableFonts = aeFonts;
+            pythonPreviewCache.clear();
+
+            if (pythonReady) {
+                mergePythonFonts();
+            } else {
+                availableFonts.forEach(font => {
+                    font.pythonLookup = font.displayName;
+                    font.pythonKey = normalizeFontKey(font.displayName);
+                    font.canApply = font.canApply !== false;
+                });
+            }
+
+            if (window.AEFontFamilies) {
+                const familyData = AEFontFamilies.buildFamilies(availableFonts);
+                fontFamilies = familyData.families;
+                window.fontFamilies = fontFamilies;
+            }
+
+            availableFonts.sort((a, b) => a.displayName.localeCompare(b.displayName, currentLanguage));
+
+            fontByUid.clear();
+            fontsByPythonKey.clear();
+            availableFonts.forEach(font => {
+                fontByUid.set(font.uid, font);
+                const key = font.pythonKey || normalizeFontKey(font.displayName);
+                if (key) {
+                    if (!fontsByPythonKey.has(key)) {
+                        fontsByPythonKey.set(key, []);
+                    }
+                    fontsByPythonKey.get(key).push(font);
+                }
+            });
+
+            window.availableFonts = availableFonts;
+
+            showLoading(false);
+            displayFonts(availableFonts);
+            updateFontCount();
+            schedulePythonPreviewUpdate(true);
+            updateStatus('status-ready');
+        } catch (error) {
+            console.error('Failed to load fonts:', error);
+            showLoading(false);
+            showErrorMessage('폰트 목록을 불러올 수 없습니다: ' + (error.message || error));
+            updateStatus('status-error');
+        }
+    }
+
+    function fetchAEFonts() {
+        return new Promise((resolve, reject) => {
+            if (!csInterface) {
+                resolve([]);
+                return;
+            }
+
+            csInterface.evalScript('AEFontPreview_getFonts()', function(result) {
                 if (!result || result === 'undefined' || result === 'null') {
-                    console.error('evalScript returned empty or undefined result');
-                    updateStatus('status-error');
-                    showErrorMessage('JSX 스크립트가 로드되지 않았습니다. After Effects를 다시 시작해주세요.');
-                    showLoading(false);
+                    reject(new Error('Empty response from host script.'));
                     return;
                 }
-                
-                // Check for EvalScript error
+
                 if (typeof result === 'string' && result.indexOf('EvalScript error') !== -1) {
-                    console.error('EvalScript error:', result);
-                    updateStatus('status-error');
-                    showErrorMessage('JSX 스크립트 실행 오류: ' + result);
-                    showLoading(false);
+                    reject(new Error(result));
                     return;
                 }
-                
-                const response = JSON.parse(result);
-                console.log('Parsed response:', response);
-                
-                if (response.success) {
-                    const fonts = Array.isArray(response.fonts) ? response.fonts : [];
-                    console.log('Font count:', fonts.length, 'Source:', response.source);
-                    
-                    availableFonts = fonts.map((font, index) => {
-                        const displayName = font.name || font.family || font.postScriptName || 'Unknown Font';
-                        const familyName = font.family || displayName;
-                        const postScriptName = font.postScriptName || font.name || displayName;
-                        const styleName = font.style || 'Regular';
-                        const id = postScriptName || (displayName + '|' + styleName);
-                        const uid = 'font-' + index;
 
-                        const cssFamilies = [];
-                        if (window.AEFontRender) {
-                            AEFontRender.addCandidate(cssFamilies, postScriptName);
-                            AEFontRender.addCandidate(cssFamilies, familyName);
-                            AEFontRender.addCandidate(cssFamilies, displayName);
-                            AEFontRender.addCandidate(cssFamilies, displayName.replace(/_/g, ' '));
-                            AEFontRender.addCandidate(cssFamilies, familyName.replace(/_/g, ' '));
-                            if (postScriptName) {
-                                AEFontRender.addCandidate(cssFamilies, postScriptName.replace(/[_-]/g, ' '));
-                            }
-                            if (styleName) {
-                                AEFontRender.addCandidate(cssFamilies, `${familyName} ${styleName}`);
-                                AEFontRender.addCandidate(cssFamilies, `${familyName}-${styleName}`);
-                                AEFontRender.addCandidate(cssFamilies, `${displayName} ${styleName}`);
-                                AEFontRender.addCandidate(cssFamilies, `${displayName}-${styleName}`);
-                            }
-                        } else {
-                            cssFamilies.push(displayName);
-                        }
-                        if (cssFamilies.length === 0) {
-                            cssFamilies.push(displayName);
-                        }
-
-                        return {
-                            uid,
-                            id,
-                            displayName,
-                            family: familyName,
-                            style: styleName,
-                            postScriptName,
-                            cssFamilies,
-                            source: font.source || 'System'
-                        };
-                    });
-
-                    if (window.AEFontFamilies) {
-                        const familyData = AEFontFamilies.buildFamilies(availableFonts);
-                        fontFamilies = familyData.families;
-                        window.fontFamilies = fontFamilies;
+                try {
+                    const response = JSON.parse(result);
+                    if (!response.success) {
+                        reject(new Error(response.error || 'Unknown ExtendScript error.'));
+                        return;
                     }
 
-                    window.availableFonts = availableFonts;
-
-                    showLoading(false);  // displayFonts 호출 전에 loading 숨김
-                    displayFonts(availableFonts);
-                    updateFontCount();
-                    updateFontPreviews();
-                    updateStatus('status-ready');
-                } else {
-                    console.error('Script error:', response.error);
-                    updateStatus('status-error');
-                    showLoading(false);
-                    showErrorMessage('폰트 목록을 불러올 수 없습니다: ' + response.error);
+                    const fonts = (response.fonts || []).map((font, index) => createFontObject(font, index));
+                    resolve(fonts);
+                } catch (parseError) {
+                    reject(parseError);
                 }
-            } catch (parseError) {
-                console.error('Parse error:', parseError, 'Result was:', result);
-                updateStatus('status-error');
-                showLoading(false);
-                showErrorMessage('응답을 파싱할 수 없습니다: ' + parseError.message);
+            });
+        });
+    }
+
+    function createFontObject(font, index) {
+        const displayName = font.name || font.family || font.postScriptName || 'Unknown Font';
+        const familyName = font.family || displayName;
+        const styleName = font.style || 'Regular';
+        const postScriptName = font.postScriptName || displayName;
+        const uid = `font-${index}`;
+
+        const cssFamilies = [];
+        if (window.AEFontRender) {
+            AEFontRender.addCandidate(cssFamilies, postScriptName);
+            AEFontRender.addCandidate(cssFamilies, familyName);
+            AEFontRender.addCandidate(cssFamilies, displayName);
+            AEFontRender.addCandidate(cssFamilies, displayName.replace(/_/g, ' '));
+            AEFontRender.addCandidate(cssFamilies, familyName.replace(/_/g, ' '));
+            if (postScriptName) {
+                AEFontRender.addCandidate(cssFamilies, postScriptName.replace(/[_-]/g, ' '));
+            }
+            if (styleName) {
+                AEFontRender.addCandidate(cssFamilies, `${familyName} ${styleName}`);
+                AEFontRender.addCandidate(cssFamilies, `${familyName}-${styleName}`);
+                AEFontRender.addCandidate(cssFamilies, `${displayName} ${styleName}`);
+                AEFontRender.addCandidate(cssFamilies, `${displayName}-${styleName}`);
+            }
+        } else {
+            cssFamilies.push(displayName);
+        }
+
+        if (cssFamilies.length === 0) {
+            cssFamilies.push(displayName);
+        }
+
+        return {
+            uid,
+            id: postScriptName || `${displayName}|${styleName}`,
+            displayName,
+            family: familyName,
+            style: styleName,
+            postScriptName,
+            cssFamilies,
+            source: font.source || 'System',
+            canApply: true,
+            requiresPython: false,
+            externalOnly: false,
+            pythonLookup: displayName,
+            pythonKey: normalizeFontKey(displayName)
+        };
+    }
+
+    function mergePythonFonts() {
+        if (!pythonReady || !(pythonCatalogAll instanceof Map) || pythonCatalogAll.size === 0) {
+            return;
+        }
+
+        pythonFontCounter = 0;
+        const unmatchedKeys = new Set(pythonCatalogAll.keys());
+
+        availableFonts.forEach(font => {
+            const meta = findPythonMetaForFont(font);
+            if (meta) {
+                font.pythonInfo = meta;
+                font.pythonLookup = meta.name;
+                font.pythonKey = meta.key;
+                font.paths = meta.paths || [];
+                font.externalOnly = font.externalOnly || meta.apply === false;
+                font.canApply = !font.externalOnly;
+                if (meta.forceBitmap) {
+                    font.requiresPython = true;
+                }
+                unmatchedKeys.delete(meta.key);
             }
         });
+
+        unmatchedKeys.forEach(key => {
+            const meta = pythonCatalogAll.get(key);
+            if (!meta) {
+                return;
+            }
+            const uid = `py-font-${++pythonFontCounter}`;
+            const newFont = {
+                uid,
+                id: meta.name,
+                displayName: meta.name,
+                family: meta.family || meta.name,
+                style: meta.style || 'Regular',
+                postScriptName: meta.postScriptName || meta.name,
+                cssFamilies: [meta.name],
+                source: 'System',
+                canApply: false,
+                requiresPython: true,
+                externalOnly: true,
+                pythonInfo: meta,
+                pythonLookup: meta.name,
+                pythonKey: meta.key,
+                familyMeta: {
+                    id: meta.key,
+                    displayName: meta.family || meta.name,
+                    hasVariants: false,
+                    memberCount: 1,
+                    weights: meta.weight ? [meta.weight] : [400],
+                    styles: [meta.style || 'Regular']
+                }
+            };
+            availableFonts.push(newFont);
+        });
+    }
+
+    function findPythonMetaForFont(font) {
+        if (!pythonCatalogAll || pythonCatalogAll.size === 0) {
+            return null;
+        }
+        const candidates = [
+            font.pythonKey,
+            normalizeFontKey(font.displayName),
+            normalizeFontKey(font.family),
+            normalizeFontKey(font.postScriptName)
+        ];
+        for (let i = 0; i < candidates.length; i++) {
+            const key = candidates[i];
+            if (!key) continue;
+            const meta = pythonCatalogAll.get(key);
+            if (meta) {
+                return meta;
+            }
+        }
+        return null;
     }
 
     // Display fonts in the list
     function displayFonts(fonts) {
-        const fontList = document.getElementById('font-list');
-        const previewText = document.getElementById('preview-text').value;
-        const fontSize = document.getElementById('font-size').value;
-        
-        if (fonts.length === 0) {
-            fontList.innerHTML = `<div class="no-fonts">${translations[currentLanguage]['no-fonts']}</div>`;
+        const listElement = fontListElement || document.getElementById('font-list');
+        if (!listElement) {
+            return;
+        }
+
+        const previewText = previewTextInput ? previewTextInput.value : '';
+        const fontSize = fontSizeInput ? fontSizeInput.value : '24';
+
+        if (!fonts.length) {
+            listElement.innerHTML = `<div class="no-fonts">${translate('no-fonts', 'No fonts available')}</div>`;
             return;
         }
 
         const html = fonts.map(font => {
             const encodedUid = escapeAttr(font.uid);
             const nameText = escapeHtml(font.displayName);
-            const styleText = escapeHtml(font.style);
+            const styleText = escapeHtml(font.style || '');
+            const pythonKeyAttr = font.pythonKey ? ` data-python-key="${escapeAttr(font.pythonKey)}"` : '';
+            const badge = !font.canApply ? `<span class="font-badge preview-only">${escapeHtml(translate('preview-only'))}</span>` : '';
+            const classes = ['font-item'];
+            if (font.requiresPython || font.externalOnly) {
+                classes.push('python-render');
+            } else {
+                classes.push('css-render');
+            }
+            if (!font.canApply) {
+                classes.push('font-preview-only');
+            }
 
             return `
-                <div class="font-item" data-font-uid="${encodedUid}">
-                    <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span></div>
-                    <div class="font-preview" style="font-size: ${fontSize}px;">
-                        ${escapeHtml(previewText)}
+                <div class="${classes.join(' ')}" data-font-uid="${encodedUid}"${pythonKeyAttr}>
+                    <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span>${badge}</div>
+                    <div class="font-preview">
+                        <div class="font-preview-text" style="font-size:${fontSize}px;">${escapeHtml(previewText)}</div>
+                        <img class="font-preview-image" alt="${nameText} preview">
                     </div>
                 </div>
             `;
         }).join('');
 
-        fontList.innerHTML = html;
+        listElement.innerHTML = html;
 
-        const items = fontList.querySelectorAll('.font-item');
-
-        items.forEach(item => {
-            item.addEventListener('click', function() {
-                selectFont(this.dataset.fontUid);
-            });
+        const items = Array.from(listElement.children);
+        items.forEach((item, index) => {
+            const font = fonts[index];
+            if (!font) {
+                return;
+            }
+            item.addEventListener('click', () => selectFont(font.uid));
+            if (font.pythonLookup) {
+                item.dataset.pythonLookup = font.pythonLookup;
+            }
+            if (font.externalOnly) {
+                item.dataset.externalOnly = '1';
+            }
+            applyPlanToFontItem(font, item);
         });
 
         if (selectedFontId) {
-            const selectedElement = document.querySelector(`.font-item[data-font-uid="${selectedFontId}"]`);
+            const selectedElement = listElement.querySelector(`.font-item[data-font-uid="${selectedFontId}"]`);
             if (selectedElement) {
                 selectedElement.classList.add('selected');
             }
         }
-
-        fonts.forEach(font => {
-            const item = fontList.querySelector(`.font-item[data-font-uid="${font.uid}"]`);
-            if (item) {
-                applyPlanToFontItem(font, item);
-            }
-        });
 
         if (window.AEFontLoader) {
             fonts.forEach(font => ensureFontForPreview(font));
         }
 
         updateFontPreviews();
+        schedulePythonPreviewUpdate(true);
     }
 
 
@@ -672,6 +902,14 @@
                 selectedItem.classList.add('selected');
             }
             updateStatus('status-ready');
+            if (applyButton) {
+                applyButton.disabled = selectedFont.canApply === false;
+            }
+            if (selectedFont.canApply === false) {
+                showToast(translate('preview-only'), 'warning');
+            }
+        } else if (applyButton) {
+            applyButton.disabled = true;
         }
     }
 
@@ -705,13 +943,120 @@
 
     // Update font previews
     function updateFontPreviews() {
-        const previewText = document.getElementById('preview-text').value;
-        const fontSize = document.getElementById('font-size').value;
-        
-        document.querySelectorAll('.font-preview').forEach(preview => {
-            preview.textContent = previewText;
-            preview.style.fontSize = fontSize + 'px';
+        const previewText = previewTextInput ? previewTextInput.value : '';
+        const fontSize = fontSizeInput ? fontSizeInput.value : '24';
+
+        document.querySelectorAll('.font-preview-text').forEach(node => {
+            node.textContent = previewText;
+            node.style.fontSize = fontSize + 'px';
         });
+
+        schedulePythonPreviewUpdate();
+    }
+
+    function schedulePythonPreviewUpdate(immediate = false) {
+        if (!pythonReady) {
+            return;
+        }
+        if (immediate) {
+            if (pythonUpdateTimer) {
+                clearTimeout(pythonUpdateTimer);
+                pythonUpdateTimer = null;
+            }
+            updatePythonPreviews();
+            return;
+        }
+        if (pythonUpdateTimer) {
+            clearTimeout(pythonUpdateTimer);
+        }
+        pythonUpdateTimer = setTimeout(updatePythonPreviews, 300);
+    }
+
+    function buildPythonCacheKey(fontKey, text, size) {
+        return `${fontKey}__${size}__${text}`;
+    }
+
+    async function updatePythonPreviews() {
+        if (!pythonReady || !pythonClient || pythonPreviewBusy) {
+            return;
+        }
+        if (!fontListElement) {
+            return;
+        }
+
+        const text = previewTextInput ? previewTextInput.value : '';
+        const size = fontSizeInput ? parseInt(fontSizeInput.value, 10) || 24 : 24;
+        const listRect = fontListElement.getBoundingClientRect();
+
+        const fontsNeedingPreview = [];
+
+        document.querySelectorAll('.font-item.python-render').forEach(item => {
+            const rect = item.getBoundingClientRect();
+            if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 80) {
+                return;
+            }
+            const font = fontByUid.get(item.dataset.fontUid);
+            if (!font) {
+                return;
+            }
+            const key = font.pythonKey || normalizeFontKey(font.displayName);
+            if (!key) {
+                return;
+            }
+            const cacheKey = buildPythonCacheKey(key, text, size);
+            font.currentPythonCacheKey = cacheKey;
+            const cached = pythonPreviewCache.get(cacheKey);
+            if (cached) {
+                updatePythonPreviewDom(font, cached);
+            } else {
+                fontsNeedingPreview.push(font);
+            }
+        });
+
+        if (fontsNeedingPreview.length === 0) {
+            return;
+        }
+
+        const requestNames = Array.from(new Set(fontsNeedingPreview.map(font => font.pythonLookup || font.displayName)));
+        pythonPreviewBusy = true;
+        try {
+            const previews = await pythonClient.fetchBatchPreviews(requestNames, text, size);
+            (previews || []).forEach(preview => {
+                if (!preview || !preview.fontName || !preview.image) {
+                    return;
+                }
+                const norm = normalizeFontKey(preview.fontName);
+                const linkedFonts = fontsByPythonKey.get(norm);
+                if (!linkedFonts || !linkedFonts.length) {
+                    return;
+                }
+                linkedFonts.forEach(font => {
+                    const cacheKey = buildPythonCacheKey(font.pythonKey || norm, text, size);
+                    pythonPreviewCache.set(cacheKey, preview.image);
+                    updatePythonPreviewDom(font, preview.image);
+                });
+            });
+        } catch (error) {
+            console.error('Python preview fetch failed:', error);
+        } finally {
+            pythonPreviewBusy = false;
+        }
+    }
+
+    function updatePythonPreviewDom(font, image) {
+        if (!font) {
+            return;
+        }
+        const item = document.querySelector(`.font-item[data-font-uid="${font.uid}"]`);
+        if (!item) {
+            return;
+        }
+        const img = item.querySelector('.font-preview-image');
+        if (img && image) {
+            img.src = image;
+            font.pythonImage = image;
+            item.classList.add('python-loaded');
+        }
     }
 
     function loadTextFromSelectedLayer() {
@@ -789,6 +1134,11 @@
         if (!selectedFont) {
             updateStatus('status-error');
             showErrorMessage('폰트를 먼저 선택해주세요.');
+            return;
+        }
+
+        if (selectedFont.canApply === false) {
+            showToast(`${translate('preview-only')} (${selectedFont.displayName})`, 'warning');
             return;
         }
 

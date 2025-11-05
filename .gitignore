@@ -10,3 +10,10 @@
 /TROUBLESHOOTING.md
 /ZXPSignCmd.exe
 /Adobe After Effects Auto-Save
+/bin/**/*
+!/bin/win/README.txt
+!/bin/mac/README.txt
+/python/__pycache__/
+/python/build/
+/python/dist/
+/python/*.spec

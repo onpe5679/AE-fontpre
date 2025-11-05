@@ -33,6 +33,19 @@
                 if (data && Array.isArray(data.fonts)) {
                     data.fonts.forEach(font => {
                         const key = this._normalize(font.name);
+                        if (!key) {
+                            return;
+                        }
+                        const aliasList = Array.isArray(font.aliases)
+                            ? font.aliases.filter(value => typeof value === 'string' && value.trim().length)
+                            : [];
+                        const normalizedAliases = Array.from(
+                            new Set(
+                                aliasList
+                                    .map(value => this._normalize(value))
+                                    .filter(Boolean)
+                            )
+                        );
                         map.set(key, {
                             key,
                             name: font.name,
@@ -42,7 +55,18 @@
                             forceBitmap: font.forceBitmap || false,
                             apply: font.apply !== undefined ? font.apply : true,
                             postScriptName: font.postScriptName || font.name,
-                            weight: font.weight || null
+                            weight: font.weight || null,
+                            aliases: aliasList,
+                            normalizedAliases
+                        });
+                        const meta = map.get(key);
+                        normalizedAliases.forEach(aliasKey => {
+                            if (!aliasKey || aliasKey === key) {
+                                return;
+                            }
+                            if (!map.has(aliasKey)) {
+                                map.set(aliasKey, meta);
+                            }
                         });
                     });
                 }

@@ -149,6 +149,7 @@ class FontRegistry:
     def __init__(self) -> None:
         self._lock = threading.Lock()
         self._cache = {}
+        self._aliases = {}
         self._families = []
         self._root = None
         self._load()
@@ -165,7 +166,13 @@ class FontRegistry:
         self._root = Tk()
         self._root.withdraw()
         all_families = sorted(set(families()))
-        self._families = [family for family in all_families if not family.startswith('@')]
+        filtered = []
+        for family in all_families:
+            if family.startswith('@'):
+                continue
+            filtered.append(family)
+            self._remember_alias(family)
+        self._families = filtered
         debug(f"Loaded {len(self._families)} font families from Tkinter")
 
         if winreg is not None:
@@ -177,15 +184,17 @@ class FontRegistry:
             fonts_dir = os.environ.get('WINDIR', 'C:\\Windows')
             fonts_dir = os.path.join(fonts_dir, 'Fonts')
             with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE,
-                                r"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts") as key:
-                for i in range(winreg.QueryInfoKey(key)[1]):
+                                r"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts") as reg_key:
+                for i in range(winreg.QueryInfoKey(reg_key)[1]):
                     try:
-                        font_name, font_value, _ = winreg.EnumValue(key, i)
+                        font_name, font_value, _ = winreg.EnumValue(reg_key, i)
                         font_path = font_value
                         if not os.path.isabs(font_path):
                             font_path = os.path.join(fonts_dir, font_path)
                         if os.path.exists(font_path):
-                            self._cache.setdefault(normalize(font_name), font_path)
+                            norm_key = normalize(font_name)
+                            self._cache.setdefault(norm_key, font_path)
+                            self._remember_alias(font_name)
                     except OSError:
                         continue
         except OSError as exc:
@@ -218,8 +227,10 @@ class FontRegistry:
                     try:
                         for name in extract_font_names(font_path):
                             key = normalize(name)
-                            if key and key not in self._cache:
-                                self._cache[key] = str(font_path)
+                            if key:
+                                self._remember_alias(name)
+                                if key not in self._cache:
+                                    self._cache[key] = str(font_path)
                     except Exception as exc:
                         debug(f'Error reading font {font_path}: {exc}')
                         continue
@@ -229,6 +240,19 @@ class FontRegistry:
     def resolve_path(self, font_name: str):
         key = normalize(font_name)
         return self._cache.get(key)
+
+    def aliases_for(self, font_name: str):
+        key = normalize(font_name)
+        aliases = self._aliases.get(key, set())
+        if aliases:
+            return sorted(aliases)
+        return [font_name]
+
+    def _remember_alias(self, name: str):
+        key = normalize(name)
+        if not key:
+            return
+        self._aliases.setdefault(key, set()).add(name)
 
 
 def iter_font_files(directory: Path):
@@ -358,39 +382,6 @@ def render_with_gdi(font_name: str, text: str, size: int):
         if hdc:
             gdi32.DeleteDC(hdc)
 
-    def _iter_font_files(self, directory: Path):
-        patterns = ['**/*.ttf', '**/*.otf', '**/*.ttc', '**/*.otc']
-        for pattern in patterns:
-            for font_path in directory.glob(pattern):
-                yield font_path
-
-    def _extract_font_names(self, font_path: Path):
-        names = set()
-        if TTFont is None:
-            return names
-        suffix = font_path.suffix.lower()
-        try:
-            if suffix in {'.ttc', '.otc'} and TTCollection is not None:
-                collection = TTCollection(font_path, lazy=True)
-                fonts = collection.fonts
-            else:
-                fonts = [TTFont(font_path, lazy=True)]
-            for font in fonts:
-                name_table = font['name']
-                for record in name_table.names:
-                    try:
-                        value = record.toUnicode()
-                    except Exception:
-                        try:
-                            value = record.string.decode('utf-16-be')
-                        except Exception:
-                            value = record.string.decode(errors='ignore')
-                    if value:
-                        names.add(value)
-        except Exception as exc:
-            debug(f'Failed to parse names from {font_path}: {exc}')
-        return names
-
 
 REGISTRY = FontRegistry()
 
@@ -448,7 +439,8 @@ class FontServerHandler(BaseHTTPRequestHandler):
                 'family': family,
                 'style': 'Regular',
                 'paths': [REGISTRY.resolve_path(family)] if REGISTRY.resolve_path(family) else [],
-                'forceBitmap': False
+                'forceBitmap': False,
+                'aliases': REGISTRY.aliases_for(family)
             }
             fonts.append(meta)
 

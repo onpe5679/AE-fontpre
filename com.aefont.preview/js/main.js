@@ -15,7 +15,7 @@
     let pythonClient = null;
     let pythonReady = false;
     let pythonCatalogAll = new Map();
-    let pythonFontCounter = 0;
+    const pythonAliasIndex = new Map();
     const pythonPreviewCache = new Map();
     let pythonUpdateTimer = null;
     let pythonPreviewBusy = false;
@@ -52,8 +52,7 @@
             'toast-load-success': '텍스트를 불러왔습니다.',
             'toast-load-fail': '텍스트를 불러올 수 없습니다.',
             'toast-apply-fail': '폰트 적용 실패',
-            'toast-parse-fail': '응답을 파싱할 수 없습니다.',
-            'preview-only': '미리보기 전용'
+            'toast-parse-fail': '응답을 파싱할 수 없습니다.'
         },
         en: {
             'app-title': 'Font Preview',
@@ -79,8 +78,7 @@
             'toast-load-success': 'Loaded layer text.',
             'toast-load-fail': 'Could not load text.',
             'toast-apply-fail': 'Failed to apply font',
-            'toast-parse-fail': 'Could not parse response.',
-            'preview-only': 'Preview only'
+            'toast-parse-fail': 'Could not parse response.'
         },
         ja: {
             'app-title': 'フォントプレビュー',
@@ -106,8 +104,7 @@
             'toast-load-success': 'テキストを読み込みました。',
             'toast-load-fail': 'テキストを取得できません。',
             'toast-apply-fail': 'フォントの適用に失敗しました',
-            'toast-parse-fail': 'レスポンスを解析できません。',
-            'preview-only': 'プレビュー専用'
+            'toast-parse-fail': 'レスポンスを解析できません。'
         }
     };
 
@@ -135,7 +132,56 @@
         if (!name && name !== 0) {
             return '';
         }
-        return String(name).toLowerCase().replace(/\\s+/g, '').replace(/[_-]/g, '');
+        return String(name)
+            .toLowerCase()
+            .replace(/\s+/g, '')
+            .replace(/[_-]/g, '');
+    }
+
+    function addAlias(font, alias) {
+        if (!alias && alias !== 0) {
+            return;
+        }
+        const value = String(alias).trim();
+        if (!value) {
+            return;
+        }
+        if (!font.aliases) {
+            font.aliases = new Set();
+        }
+        if (!font.normalizedAliases) {
+            font.normalizedAliases = new Set();
+        }
+        font.aliases.add(value);
+        const normalized = normalizeFontKey(value);
+        if (normalized) {
+            font.normalizedAliases.add(normalized);
+        }
+    }
+
+    function rebuildPythonAliasIndex() {
+        pythonAliasIndex.clear();
+        if (!pythonCatalogAll || typeof pythonCatalogAll.forEach !== 'function') {
+            return;
+        }
+        pythonCatalogAll.forEach(meta => {
+            if (!meta) {
+                return;
+            }
+            const key = meta.key || normalizeFontKey(meta.name);
+            if (key && !pythonAliasIndex.has(key)) {
+                pythonAliasIndex.set(key, meta);
+            }
+            const list = Array.isArray(meta.normalizedAliases) ? meta.normalizedAliases : [];
+            list.forEach(alias => {
+                if (!alias) {
+                    return;
+                }
+                if (!pythonAliasIndex.has(alias)) {
+                    pythonAliasIndex.set(alias, meta);
+                }
+            });
+        });
     }
 
     // Simple HTML escape helpers to guard against unsafe font names
@@ -190,6 +236,7 @@
         }
 
         pythonCatalogAll = await pythonClient.fetchFontCatalog();
+        rebuildPythonAliasIndex();
         pythonReady = true;
         return true;
     }
@@ -207,7 +254,7 @@
             fontItem.dataset.familyName = font.familyMeta.displayName || '';
         }
 
-        if (font.requiresPython || font.externalOnly) {
+        if (font.requiresPython) {
             fontItem.classList.add('python-render');
             fontItem.classList.remove('css-render');
             if (textNode && previewTextInput) {
@@ -326,7 +373,7 @@
             return;
         }
 
-        if (font.requiresPython || font.externalOnly) {
+        if (font.requiresPython) {
             schedulePythonPreviewUpdate();
             return;
         }
@@ -348,7 +395,7 @@
 
     function checkFinalRenderStatus(font) {
         if (!font || !window.AEFontRender) return;
-        if (font.requiresPython || font.externalOnly) {
+        if (font.requiresPython) {
             return;
         }
 
@@ -625,13 +672,24 @@
             fontsByPythonKey.clear();
             availableFonts.forEach(font => {
                 fontByUid.set(font.uid, font);
-                const key = font.pythonKey || normalizeFontKey(font.displayName);
-                if (key) {
+                const keys = [];
+                if (font.normalizedAliases && font.normalizedAliases.size) {
+                    keys.push(...font.normalizedAliases);
+                }
+                const primaryKey = font.pythonKey || normalizeFontKey(font.displayName);
+                if (primaryKey) {
+                    keys.push(primaryKey);
+                }
+                const uniqueKeys = new Set(keys.filter(Boolean));
+                uniqueKeys.forEach(key => {
                     if (!fontsByPythonKey.has(key)) {
                         fontsByPythonKey.set(key, []);
                     }
-                    fontsByPythonKey.get(key).push(font);
-                }
+                    const list = fontsByPythonKey.get(key);
+                    if (!list.includes(font)) {
+                        list.push(font);
+                    }
+                });
             });
 
             window.availableFonts = availableFonts;
@@ -714,7 +772,7 @@
             cssFamilies.push(displayName);
         }
 
-        return {
+        const fontObj = {
             uid,
             id: postScriptName || `${displayName}|${styleName}`,
             displayName,
@@ -729,6 +787,19 @@
             pythonLookup: displayName,
             pythonKey: normalizeFontKey(displayName)
         };
+
+        addAlias(fontObj, displayName);
+        addAlias(fontObj, familyName);
+        addAlias(fontObj, postScriptName);
+        if (styleName) {
+            addAlias(fontObj, `${familyName} ${styleName}`);
+            addAlias(fontObj, `${displayName} ${styleName}`);
+            addAlias(fontObj, `${familyName}-${styleName}`);
+            addAlias(fontObj, `${displayName}-${styleName}`);
+        }
+        cssFamilies.forEach(candidate => addAlias(fontObj, candidate));
+
+        return fontObj;
     }
 
     function mergePythonFonts() {
@@ -736,9 +807,7 @@
             return;
         }
 
-        pythonFontCounter = 0;
-        const unmatchedKeys = new Set(pythonCatalogAll.keys());
-
+        rebuildPythonAliasIndex();
         availableFonts.forEach(font => {
             const meta = findPythonMetaForFont(font);
             if (meta) {
@@ -746,46 +815,22 @@
                 font.pythonLookup = meta.name;
                 font.pythonKey = meta.key;
                 font.paths = meta.paths || [];
-                font.externalOnly = font.externalOnly || meta.apply === false;
-                font.canApply = !font.externalOnly;
+                if (Array.isArray(meta.aliases)) {
+                    meta.aliases.forEach(alias => addAlias(font, alias));
+                }
+                if (Array.isArray(meta.normalizedAliases)) {
+                    meta.normalizedAliases.forEach(alias => {
+                        if (alias) {
+                            font.normalizedAliases.add(alias);
+                        }
+                    });
+                }
+                font.externalOnly = false;
+                font.canApply = true;
                 if (meta.forceBitmap) {
                     font.requiresPython = true;
                 }
-                unmatchedKeys.delete(meta.key);
             }
-        });
-
-        unmatchedKeys.forEach(key => {
-            const meta = pythonCatalogAll.get(key);
-            if (!meta) {
-                return;
-            }
-            const uid = `py-font-${++pythonFontCounter}`;
-            const newFont = {
-                uid,
-                id: meta.name,
-                displayName: meta.name,
-                family: meta.family || meta.name,
-                style: meta.style || 'Regular',
-                postScriptName: meta.postScriptName || meta.name,
-                cssFamilies: [meta.name],
-                source: 'System',
-                canApply: false,
-                requiresPython: true,
-                externalOnly: true,
-                pythonInfo: meta,
-                pythonLookup: meta.name,
-                pythonKey: meta.key,
-                familyMeta: {
-                    id: meta.key,
-                    displayName: meta.family || meta.name,
-                    hasVariants: false,
-                    memberCount: 1,
-                    weights: meta.weight ? [meta.weight] : [400],
-                    styles: [meta.style || 'Regular']
-                }
-            };
-            availableFonts.push(newFont);
         });
     }
 
@@ -793,18 +838,36 @@
         if (!pythonCatalogAll || pythonCatalogAll.size === 0) {
             return null;
         }
-        const candidates = [
-            font.pythonKey,
-            normalizeFontKey(font.displayName),
-            normalizeFontKey(font.family),
-            normalizeFontKey(font.postScriptName)
-        ];
-        for (let i = 0; i < candidates.length; i++) {
-            const key = candidates[i];
-            if (!key) continue;
-            const meta = pythonCatalogAll.get(key);
-            if (meta) {
-                return meta;
+        const candidateKeys = new Set();
+        const addCandidate = value => {
+            const key = normalizeFontKey(value);
+            if (key) {
+                candidateKeys.add(key);
+            }
+        };
+
+        addCandidate(font.pythonKey);
+        addCandidate(font.displayName);
+        addCandidate(font.family);
+        addCandidate(font.postScriptName);
+
+        if (font.aliases && typeof font.aliases.forEach === 'function') {
+            font.aliases.forEach(alias => addCandidate(alias));
+        }
+        if (font.normalizedAliases && typeof font.normalizedAliases.forEach === 'function') {
+            font.normalizedAliases.forEach(key => {
+                if (key) {
+                    candidateKeys.add(key);
+                }
+            });
+        }
+
+        for (const key of candidateKeys) {
+            if (pythonCatalogAll.has(key)) {
+                return pythonCatalogAll.get(key);
+            }
+            if (pythonAliasIndex.has(key)) {
+                return pythonAliasIndex.get(key);
             }
         }
         return null;
@@ -830,20 +893,16 @@
             const nameText = escapeHtml(font.displayName);
             const styleText = escapeHtml(font.style || '');
             const pythonKeyAttr = font.pythonKey ? ` data-python-key="${escapeAttr(font.pythonKey)}"` : '';
-            const badge = !font.canApply ? `<span class="font-badge preview-only">${escapeHtml(translate('preview-only'))}</span>` : '';
             const classes = ['font-item'];
-            if (font.requiresPython || font.externalOnly) {
+            if (font.requiresPython) {
                 classes.push('python-render');
             } else {
                 classes.push('css-render');
             }
-            if (!font.canApply) {
-                classes.push('font-preview-only');
-            }
 
             return `
                 <div class="${classes.join(' ')}" data-font-uid="${encodedUid}"${pythonKeyAttr}>
-                    <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span>${badge}</div>
+                    <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span></div>
                     <div class="font-preview">
                         <div class="font-preview-text" style="font-size:${fontSize}px;">${escapeHtml(previewText)}</div>
                         <img class="font-preview-image" alt="${nameText} preview">
@@ -863,9 +922,6 @@
             item.addEventListener('click', () => selectFont(font.uid));
             if (font.pythonLookup) {
                 item.dataset.pythonLookup = font.pythonLookup;
-            }
-            if (font.externalOnly) {
-                item.dataset.externalOnly = '1';
             }
             applyPlanToFontItem(font, item);
         });
@@ -903,10 +959,7 @@
             }
             updateStatus('status-ready');
             if (applyButton) {
-                applyButton.disabled = selectedFont.canApply === false;
-            }
-            if (selectedFont.canApply === false) {
-                showToast(translate('preview-only'), 'warning');
+                applyButton.disabled = false;
             }
         } else if (applyButton) {
             applyButton.disabled = true;
@@ -930,8 +983,12 @@
             if (Array.isArray(font.cssFamilies)) {
                 targets.push(...font.cssFamilies);
             }
+            if (font.aliases && typeof font.aliases.forEach === 'function') {
+                font.aliases.forEach(alias => targets.push(alias));
+            }
             for (let i = 0; i < targets.length; i++) {
-                if (targets[i].toLowerCase().indexOf(searchTerm) !== -1) {
+                const target = targets[i];
+                if (target && String(target).toLowerCase().indexOf(searchTerm) !== -1) {
                     return true;
                 }
             }
@@ -1134,11 +1191,6 @@
         if (!selectedFont) {
             updateStatus('status-error');
             showErrorMessage('폰트를 먼저 선택해주세요.');
-            return;
-        }
-
-        if (selectedFont.canApply === false) {
-            showToast(`${translate('preview-only')} (${selectedFont.displayName})`, 'warning');
             return;
         }
 

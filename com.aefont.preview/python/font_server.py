@@ -16,6 +16,7 @@ Windows-only prototype (mac build TBD).
 import base64
 import io
 import json
+import math
 import os
 import sys
 import threading
@@ -294,10 +295,57 @@ def extract_font_names(font_path: Path):
     return names
 
 
-def render_with_gdi(font_name: str, text: str, size: int):
+def layout_text_lines_pil(text: str, font, max_width: int, fallback_size: int):
+    content = text or ' '
+    max_width = int(max_width or 0)
+    if Image is None or ImageDraw is None or font is None:
+        lines = content.split('\n')
+        lines = [line if line else ' ' for line in lines] or [' ']
+        line_height = max(1, int(math.ceil(fallback_size * 1.3)))
+        canvas_width = max(max_width, max(len(line) for line in lines) * max(fallback_size // 2, 1), 1)
+        canvas_height = line_height * len(lines) + max(2, int(line_height * 0.1))
+        return lines, canvas_width, canvas_height, line_height, 0
+    dummy = Image.new('RGB', (10, 10))
+    draw = ImageDraw.Draw(dummy)
+    lines = ['']
+    for ch in content:
+        if ch == '\r':
+            continue
+        if ch == '\n':
+            lines.append('')
+            continue
+        current = lines[-1]
+        candidate = current + ch
+        width_candidate = draw.textlength(candidate, font=font)
+        if max_width > 0 and width_candidate > max_width and current:
+            lines.append(ch)
+        else:
+            lines[-1] = candidate
+    lines = [line if line else ' ' for line in lines] or [' ']
+    measured_width = 0
+    for line in lines:
+        measured_width = max(measured_width, draw.textlength(line, font=font))
+    canvas_width = max(measured_width, max_width) if max_width > 0 else max(measured_width, 1)
+    try:
+        ascent, descent = font.getmetrics()
+        metrics_height = ascent + descent
+    except Exception:
+        metrics_height = fallback_size
+    line_height = max(1, int(math.ceil(metrics_height * 1.3)))
+    sample = lines[0] if lines and lines[0].strip() else 'Ag'
+    try:
+        bbox = draw.textbbox((0, 0), sample, font=font)
+        top_offset = max(0, -(bbox[1] if bbox else 0))
+    except Exception:
+        top_offset = 0
+    bottom_padding = max(2, int(math.ceil(line_height * 0.1)))
+    canvas_height = top_offset + line_height * len(lines) + bottom_padding
+    return lines, canvas_width, canvas_height, line_height, top_offset
+def render_with_gdi(font_name: str, text: str, size: int, target_width: int = 0):
     if Image is None:
         return None
 
+    target_width = int(target_width or 0)
     hdc = gdi32.CreateCompatibleDC(0)
     if not hdc:
         raise RuntimeError('CreateCompatibleDC failed')
@@ -324,21 +372,28 @@ def render_with_gdi(font_name: str, text: str, size: int):
 
         old_font = gdi32.SelectObject(hdc, hfont)
 
-        rect = RECT(0, 0, 0, 0)
-        flags = DT_SINGLELINE | DT_NOPREFIX | DT_CALCRECT
-        if user32.DrawTextW(hdc, text, -1, ctypes.byref(rect), flags) == 0:
+        # Measure text with optional word wrapping
+        calc_rect = RECT(0, 0, target_width if target_width > 0 else 0, 0)
+        calc_flags = DT_NOPREFIX | DT_CALCRECT
+        if target_width > 0:
+            calc_flags |= DT_WORDBREAK
+        else:
+            calc_flags |= DT_SINGLELINE
+        if user32.DrawTextW(hdc, text or ' ', -1, ctypes.byref(calc_rect), calc_flags) == 0:
             raise RuntimeError('DrawTextW failed during measurement')
 
-        width = rect.right - rect.left
-        height = rect.bottom - rect.top
-        padding = max(int(size * 0.35), 12)
-        width = max(width + padding * 2, 160)
-        height = max(height + padding * 2, int(size * 2.2))
+        measured_width = max(calc_rect.right - calc_rect.left, 1)
+        measured_height = max(calc_rect.bottom - calc_rect.top, size)
+        
+        # Use target width if provided, otherwise use measured width
+        final_width = target_width if target_width > 0 else measured_width
+        final_width = max(final_width, measured_width, 1)
+        final_height = measured_height
 
         bmi = BITMAPINFO()
         bmi.bmiHeader.biSize = ctypes.sizeof(BITMAPINFOHEADER)
-        bmi.bmiHeader.biWidth = width
-        bmi.bmiHeader.biHeight = -height  # top-down DIB
+        bmi.bmiHeader.biWidth = final_width
+        bmi.bmiHeader.biHeight = -final_height  # top-down DIB
         bmi.bmiHeader.biPlanes = 1
         bmi.bmiHeader.biBitCount = 32
         bmi.bmiHeader.biCompression = 0  # BI_RGB
@@ -352,18 +407,23 @@ def render_with_gdi(font_name: str, text: str, size: int):
         gdi32.SetBkMode(hdc, 1)  # TRANSPARENT
         gdi32.SetTextColor(hdc, 0x00FFFFFF)  # white text
 
-        margin = max(int(size * 0.3), 12)
-        draw_rect = RECT(margin, margin, width - margin, height - margin)
-        if user32.DrawTextW(hdc, text, -1, ctypes.byref(draw_rect), DT_SINGLELINE | DT_NOPREFIX) == 0:
+        # Draw text without padding
+        draw_rect = RECT(0, 0, final_width, final_height)
+        draw_flags = DT_NOPREFIX
+        if target_width > 0:
+            draw_flags |= DT_WORDBREAK
+        else:
+            draw_flags |= DT_SINGLELINE
+        if user32.DrawTextW(hdc, text or ' ', -1, ctypes.byref(draw_rect), draw_flags) == 0:
             raise RuntimeError('DrawTextW failed during draw')
 
-        buffer = ctypes.string_at(bits, width * height * 4)
-        image = Image.frombuffer('RGBA', (width, height), buffer, 'raw', 'BGRA', 0, 1).copy()
+        buffer = ctypes.string_at(bits, final_width * final_height * 4)
+        image = Image.frombuffer('RGBA', (final_width, final_height), buffer, 'raw', 'BGRA', 0, 1).copy()
         if image.mode != 'RGBA':
             image = image.convert('RGBA')
         pixels = image.load()
-        for y in range(height):
-            for x in range(width):
+        for y in range(final_height):
+            for x in range(final_width):
                 r, g, b, a = pixels[x, y]
                 if r or g or b:
                     alpha = max(r, g, b)
@@ -462,8 +522,13 @@ class FontServerHandler(BaseHTTPRequestHandler):
         except (TypeError, ValueError):
             size = 24
         size = max(8, min(size, 160))
-        image = self._render_font_image(font_name, text, size)
-        self._send_json({'fontName': font_name, 'image': image})
+        try:
+            width_param = self._get_query_param('width')
+            viewport_width = int(round(float(width_param))) if width_param else 0
+        except (TypeError, ValueError):
+            viewport_width = 0
+        image = self._render_font_image(font_name, text, size, viewport_width)
+        self._send_json({'fontName': font_name, 'image': image, 'requestId': None})
 
     def _handle_batch_preview(self):
         length = int(self.headers.get('Content-Length', '0'))
@@ -483,14 +548,30 @@ class FontServerHandler(BaseHTTPRequestHandler):
         size = max(8, min(size, 160))
 
         previews = []
-        for font_name in fonts:
-            debug(f'Requested preview: {font_name} (size={size})')
+        for entry in fonts:
+            if isinstance(entry, dict):
+                font_name = entry.get('name') or entry.get('fontName') or entry.get('font')
+                viewport_width = entry.get('width') or entry.get('maxWidth') or 0
+                request_id = entry.get('requestId')
+            else:
+                font_name = str(entry)
+                viewport_width = 0
+                request_id = None
+            if not font_name:
+                continue
             try:
-                image = self._render_font_image(font_name, text, size)
+                viewport_width = int(round(float(viewport_width))) if viewport_width else 0
+            except (TypeError, ValueError):
+                viewport_width = 0
+            request_id = str(request_id) if request_id is not None else None
+            debug(f'Requested preview: {font_name} (size={size}, width={viewport_width})')
+            try:
+                image = self._render_font_image(font_name, text, size, viewport_width)
             except Exception as exc:  # noqa: BLE001
                 debug(f'Error rendering {font_name}: {exc}')
-                image = self._render_fallback(text, 400, size * 3)
-            previews.append({'fontName': font_name, 'image': image})
+                fallback_width = viewport_width or 320
+                image = self._render_fallback(text, fallback_width, size)
+            previews.append({'fontName': font_name, 'image': image, 'requestId': request_id})
 
         self._send_json({'previews': previews})
 
@@ -506,18 +587,23 @@ class FontServerHandler(BaseHTTPRequestHandler):
         values = params.get(key)
         return values[0] if values else None
 
-    def _render_font_image(self, font_name: str, text: str, size: int):
+    def _render_font_image(self, font_name: str, text: str, size: int, viewport_width: int = 0):
+        text_value = text or ' '
+        requested_width = int(viewport_width or 0)
         effective_size = max(8, min(int(round(size * 1.1)), 220))
 
         if Image is None or ImageFont is None:
-            debug('Pillow not available; returning fallback preview.')
-            return self._render_fallback(text, 320, int(effective_size * 3))
+            debug('Pillow not available; relying on GDI fallback.')
+            gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width)
+            if gdi_image:
+                return gdi_image
+            return self._render_fallback(text_value, requested_width, effective_size)
 
         font_path = REGISTRY.resolve_path(font_name)
         debug(f'Resolve path for {font_name}: {font_path}')
         if not font_path:
             try:
-                gdi_image = render_with_gdi(font_name, text, effective_size)
+                gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width)
                 if gdi_image:
                     return gdi_image
             except Exception as gdi_error:
@@ -529,47 +615,46 @@ class FontServerHandler(BaseHTTPRequestHandler):
                 pil_font = ImageFont.truetype(FALLBACK_FONT, effective_size)
         except Exception:
             try:
-                gdi_image = render_with_gdi(font_name, text, effective_size)
+                gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width)
                 if gdi_image:
                     return gdi_image
             except Exception as gdi_error:
                 debug(f'GDI fallback (second attempt) failed for {font_name}: {gdi_error}')
             pil_font = ImageFont.load_default()
 
-        # measure text bounds for tight box
-        dummy = Image.new('RGB', (10, 10))
-        dummy_draw = ImageDraw.Draw(dummy)
-        try:
-            bbox = dummy_draw.textbbox((0, 0), text, font=pil_font)
-        except Exception:
-            bbox = (0, 0, len(text) * effective_size, effective_size)
-        text_width = bbox[2] - bbox[0]
-        text_height = bbox[3] - bbox[1]
-        padding = max(int(effective_size * 0.35), 14)
-        width = max(320, text_width + padding * 2)
-        height = max(int(effective_size * 2.4), text_height + padding * 2)
+        lines, canvas_width, canvas_height, line_height, top_offset = layout_text_lines_pil(
+            text_value, pil_font, requested_width, effective_size
+        )
+        canvas_width = max(1, int(canvas_width))
+        canvas_height = max(1, int(canvas_height))
 
-        img = Image.new('RGBA', (width, height), (0, 0, 0, 0))
+        img = Image.new('RGBA', (canvas_width, canvas_height), (0, 0, 0, 0))
         draw = ImageDraw.Draw(img)
-        origin_x = padding - bbox[0]
-        origin_y = padding - bbox[1]
-        draw.text((origin_x, origin_y), text, font=pil_font, fill=(255, 255, 255, 255))
+        y = top_offset
+        for line in lines:
+            draw.text((0, y), line, font=pil_font, fill=(255, 255, 255, 255))
+            y += line_height
 
         buffer = io.BytesIO()
         img.save(buffer, format='PNG')
         encoded = base64.b64encode(buffer.getvalue()).decode('utf-8')
         return f'data:image/png;base64,{encoded}'
 
-    def _render_fallback(self, text: str, width: int, height: int):
+    def _render_fallback(self, text: str, width: int, size: int):
         try:
             if Image is None:
                 raise RuntimeError('Pillow unavailable')
-            fallback_width = max(320, width)
-            fallback_height = max(80, height)
-            img = Image.new('RGBA', (fallback_width, fallback_height), (255, 255, 255, 0))
+            lines, canvas_width, canvas_height, line_height, top_offset = layout_text_lines_pil(
+                text or ' ', None, width, size
+            )
+            fallback_width = max(1, int(canvas_width))
+            fallback_height = max(1, int(canvas_height))
+            img = Image.new('RGBA', (fallback_width, fallback_height), (0, 0, 0, 0))
             draw = ImageDraw.Draw(img)
-            padding = max(int(height * 0.15), 16)
-            draw.text((padding, padding), text, fill=(255, 255, 255, 255))
+            y = top_offset
+            for line in lines:
+                draw.text((0, y), line, fill=(255, 255, 255, 255))
+                y += line_height
             buffer = io.BytesIO()
             img.save(buffer, format='PNG')
             encoded = base64.b64encode(buffer.getvalue()).decode('utf-8')

@@ -571,6 +571,8 @@
             loadTextBtn.addEventListener('click', () => loadTextFromSelectedLayer());
         }
     }
+    
+    window.addEventListener('resize', () => schedulePythonPreviewUpdate(true));
 
     // Load language
     function loadLanguage(lang) {
@@ -1028,9 +1030,9 @@
         }
         pythonUpdateTimer = setTimeout(updatePythonPreviews, 300);
     }
-
-    function buildPythonCacheKey(fontKey, text, size) {
-        return `${fontKey}__${size}__${text}`;
+    function buildPythonCacheKey(fontKey, text, size, width) {
+        const normalizedWidth = Number.isFinite(width) ? Math.round(width) : 0;
+        return `${fontKey}__${size}__${normalizedWidth}__${text}`;
     }
 
     async function updatePythonPreviews() {
@@ -1045,7 +1047,8 @@
         const size = fontSizeInput ? parseInt(fontSizeInput.value, 10) || 24 : 24;
         const listRect = fontListElement.getBoundingClientRect();
 
-        const fontsNeedingPreview = [];
+        const requestPayload = [];
+        const requestBindings = new Map();
 
         document.querySelectorAll('.font-item.python-render').forEach(item => {
             const rect = item.getBoundingClientRect();
@@ -1060,35 +1063,51 @@
             if (!key) {
                 return;
             }
-            const cacheKey = buildPythonCacheKey(key, text, size);
+             const previewHost = item.querySelector('.font-preview');
+            const viewportWidth = previewHost ? Math.max(0, Math.floor(previewHost.clientWidth || previewHost.getBoundingClientRect().width || 0)) : 0;
+            font._pythonViewportWidth = viewportWidth;
+            const cacheKey = buildPythonCacheKey(key, text, size, viewportWidth);
             font.currentPythonCacheKey = cacheKey;
             const cached = pythonPreviewCache.get(cacheKey);
             if (cached) {
                 updatePythonPreviewDom(font, cached);
-            } else {
-                fontsNeedingPreview.push(font);
+           return;
             }
+            const requestId = cacheKey;
+            if (!requestBindings.has(requestId)) {
+                requestBindings.set(requestId, []);
+                requestPayload.push({
+                    name: font.pythonLookup || font.displayName,
+                    width: viewportWidth,
+                    requestId
+                });
+            }
+            requestBindings.get(requestId).push(font);
         });
 
-        if (fontsNeedingPreview.length === 0) {
+        if (requestPayload.length === 0) {
             return;
         }
 
-        const requestNames = Array.from(new Set(fontsNeedingPreview.map(font => font.pythonLookup || font.displayName)));
         pythonPreviewBusy = true;
         try {
-            const previews = await pythonClient.fetchBatchPreviews(requestNames, text, size);
+            const previews = await pythonClient.fetchBatchPreviews(requestPayload, text, size);
             (previews || []).forEach(preview => {
-                if (!preview || !preview.fontName || !preview.image) {
+                if (!preview || !preview.image) {
                     return;
                 }
-                const norm = normalizeFontKey(preview.fontName);
-                const linkedFonts = fontsByPythonKey.get(norm);
-                if (!linkedFonts || !linkedFonts.length) {
+               const requestId = preview.requestId;
+                let boundFonts = requestId ? requestBindings.get(requestId) : null;
+                if ((!boundFonts || !boundFonts.length) && preview.fontName) {
+                    const norm = normalizeFontKey(preview.fontName);
+                    boundFonts = fontsByPythonKey.get(norm) || [];
+                }
+                if (!boundFonts || !boundFonts.length) {
                     return;
                 }
-                linkedFonts.forEach(font => {
-                    const cacheKey = buildPythonCacheKey(font.pythonKey || norm, text, size);
+              boundFonts.forEach(font => {
+                    const width = font._pythonViewportWidth || 0;
+                    const cacheKey = buildPythonCacheKey(font.pythonKey || normalizeFontKey(font.displayName), text, size, width);
                     pythonPreviewCache.set(cacheKey, preview.image);
                     updatePythonPreviewDom(font, preview.image);
                 });

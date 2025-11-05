@@ -414,7 +414,8 @@ body {
 
 .font-preview-image {
     display: none;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
     margin-top: 4px;
 }
 

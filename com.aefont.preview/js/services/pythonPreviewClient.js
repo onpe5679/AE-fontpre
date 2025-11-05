@@ -77,17 +77,41 @@
             }
         }
 
-        async fetchBatchPreviews(fontNames, text, size) {
-            if (!Array.isArray(fontNames) || fontNames.length === 0) {
+        async fetchBatchPreviews(fontRequests, text, size) {
+            if (!Array.isArray(fontRequests) || fontRequests.length === 0) {
                 return [];
             }
             try {
+                         const payloadFonts = fontRequests
+                    .map(entry => {
+                        if (typeof entry === 'string') {
+                            return {
+                                name: entry,
+                                width: 0,
+                                requestId: `${entry}__0`
+                            };
+                        }
+                        if (!entry || !entry.name) {
+                            return null;
+                        }
+                        const widthValue = Number.isFinite(entry.width) ? Math.max(0, Math.round(entry.width)) : 0;
+                        return {
+                            name: entry.name,
+                            width: widthValue,
+                            requestId: entry.requestId || `${entry.name}__${widthValue}`
+                        };
+                    })
+                    .filter(Boolean);
+                if (!payloadFonts.length) {
+                    return [];
+                }
+
                 const response = await fetch(`${this.baseUrl}/batch-preview`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ fonts: fontNames, text, size })
+                    body: JSON.stringify({ fonts: payloadFonts, text, size })
                 });
                 if (!response.ok) {
                     throw new Error(`Status ${response.status}`);

@@ -47,6 +47,12 @@ except ImportError:
     TTFont = None  # type: ignore
     TTCollection = None  # type: ignore
 
+try:
+    from font_name_resolver import FontNameResolver, parse_style_flags
+except ImportError:
+    FontNameResolver = None  # type: ignore
+    parse_style_flags = None  # type: ignore
+
 
 FALLBACK_FONT = "Arial"
 
@@ -341,11 +347,32 @@ def layout_text_lines_pil(text: str, font, max_width: int, fallback_size: int):
     bottom_padding = max(2, int(math.ceil(line_height * 0.1)))
     canvas_height = top_offset + line_height * len(lines) + bottom_padding
     return lines, canvas_width, canvas_height, line_height, top_offset
-def render_with_gdi(font_name: str, text: str, size: int, target_width: int = 0):
+def render_with_gdi(font_name: str, text: str, size: int, target_width: int = 0, 
+                    postscript_name: str = None, style: str = None):
     if Image is None:
         return None
 
     target_width = int(target_width or 0)
+    
+    # Resolve font name using the resolver
+    if FontNameResolver:
+        resolver = FontNameResolver()
+        resolved = resolver.resolve(
+            display_name=font_name,
+            postscript_name=postscript_name,
+            style=style
+        )
+        face_name = resolved['faceName']
+        font_weight = resolved['weight']
+        font_italic = resolved['italic']
+        debug(f"Resolved '{font_name}' (PS: {postscript_name}, Style: {style}) → '{face_name}' (weight={font_weight}, italic={font_italic}, source={resolved['source']})")
+    else:
+        # Fallback if resolver not available
+        face_name = postscript_name if postscript_name else font_name
+        font_weight = FW_NORMAL
+        font_italic = 0
+        debug(f"Resolver unavailable, using '{face_name}' as-is")
+    
     hdc = gdi32.CreateCompatibleDC(0)
     if not hdc:
         raise RuntimeError('CreateCompatibleDC failed')
@@ -357,13 +384,14 @@ def render_with_gdi(font_name: str, text: str, size: int, target_width: int = 0)
     try:
         logfont = LOGFONTW()
         logfont.lfHeight = -abs(int(size))
-        logfont.lfWeight = FW_NORMAL
+        logfont.lfWeight = font_weight  # Use resolved weight
         logfont.lfCharSet = DEFAULT_CHARSET
         logfont.lfOutPrecision = OUT_DEFAULT_PRECIS
         logfont.lfClipPrecision = CLIP_DEFAULT_PRECIS
         logfont.lfQuality = ANTIALIASED_QUALITY
         logfont.lfPitchAndFamily = DEFAULT_PITCH
-        face = font_name[:LF_FACESIZE - 1]
+        logfont.lfItalic = font_italic  # Use resolved italic flag
+        face = face_name[:LF_FACESIZE - 1]  # Use resolved face name
         logfont.lfFaceName = face
 
         hfont = gdi32.CreateFontIndirectW(ctypes.byref(logfont))
@@ -553,10 +581,14 @@ class FontServerHandler(BaseHTTPRequestHandler):
                 font_name = entry.get('name') or entry.get('fontName') or entry.get('font')
                 viewport_width = entry.get('width') or entry.get('maxWidth') or 0
                 request_id = entry.get('requestId')
+                postscript_name = entry.get('postScriptName') or entry.get('postscript')  # Extract PostScript name
+                style = entry.get('style')  # Extract style
             else:
                 font_name = str(entry)
                 viewport_width = 0
                 request_id = None
+                postscript_name = None
+                style = None
             if not font_name:
                 continue
             try:
@@ -564,9 +596,9 @@ class FontServerHandler(BaseHTTPRequestHandler):
             except (TypeError, ValueError):
                 viewport_width = 0
             request_id = str(request_id) if request_id is not None else None
-            debug(f'Requested preview: {font_name} (size={size}, width={viewport_width})')
+            debug(f'Requested preview: {font_name} (PS: {postscript_name}, Style: {style}, size={size}, width={viewport_width})')
             try:
-                image = self._render_font_image(font_name, text, size, viewport_width)
+                image = self._render_font_image(font_name, text, size, viewport_width, postscript_name, style)
             except Exception as exc:  # noqa: BLE001
                 debug(f'Error rendering {font_name}: {exc}')
                 fallback_width = viewport_width or 320
@@ -587,14 +619,16 @@ class FontServerHandler(BaseHTTPRequestHandler):
         values = params.get(key)
         return values[0] if values else None
 
-    def _render_font_image(self, font_name: str, text: str, size: int, viewport_width: int = 0):
+    def _render_font_image(self, font_name: str, text: str, size: int, viewport_width: int = 0,
+                           postscript_name: str = None, style: str = None):
         text_value = text or ' '
         requested_width = int(viewport_width or 0)
         effective_size = max(8, min(int(round(size * 1.1)), 220))
 
         if Image is None or ImageFont is None:
             debug('Pillow not available; relying on GDI fallback.')
-            gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width)
+            gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width, 
+                                       postscript_name, style)
             if gdi_image:
                 return gdi_image
             return self._render_fallback(text_value, requested_width, effective_size)
@@ -603,7 +637,8 @@ class FontServerHandler(BaseHTTPRequestHandler):
         debug(f'Resolve path for {font_name}: {font_path}')
         if not font_path:
             try:
-                gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width)
+                gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width,
+                                           postscript_name, style)
                 if gdi_image:
                     return gdi_image
             except Exception as gdi_error:
@@ -615,7 +650,8 @@ class FontServerHandler(BaseHTTPRequestHandler):
                 pil_font = ImageFont.truetype(FALLBACK_FONT, effective_size)
         except Exception:
             try:
-                gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width)
+                gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width,
+                                           postscript_name, style)
                 if gdi_image:
                     return gdi_image
             except Exception as gdi_error:

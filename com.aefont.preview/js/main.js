@@ -1076,8 +1076,17 @@
             const requestId = cacheKey;
             if (!requestBindings.has(requestId)) {
                 requestBindings.set(requestId, []);
+                // Debug: Check what we're sending
+                console.log('[DEBUG] Sending to Python:', {
+                    name: font.displayName,
+                    postScriptName: font.postScriptName,
+                    style: font.style,
+                    hasPS: !!font.postScriptName
+                });
                 requestPayload.push({
                     name: font.pythonLookup || font.displayName,
+                    postScriptName: font.postScriptName || null,
+                    style: font.style || null,
                     width: viewportWidth,
                     requestId
                 });

@@ -97,6 +97,8 @@
                         const widthValue = Number.isFinite(entry.width) ? Math.max(0, Math.round(entry.width)) : 0;
                         return {
                             name: entry.name,
+                            postScriptName: entry.postScriptName || entry.postscript || null,
+                            style: entry.style || null,
                             width: widthValue,
                             requestId: entry.requestId || `${entry.name}__${widthValue}`
                         };

@@ -63,6 +63,7 @@ TRANSPARENT = 1
 DT_NOPREFIX = 0x00000800
 DT_WORDBREAK = 0x00000010
 DT_CALCRECT = 0x00000400
+DT_SINGLELINE = 0x00000020
 
 
 class LOGFONTW(ctypes.Structure):
@@ -324,14 +325,15 @@ def render_with_gdi(font_name: str, text: str, size: int):
         old_font = gdi32.SelectObject(hdc, hfont)
 
         rect = RECT(0, 0, 0, 0)
-        flags = DT_WORDBREAK | DT_NOPREFIX | DT_CALCRECT
+        flags = DT_SINGLELINE | DT_NOPREFIX | DT_CALCRECT
         if user32.DrawTextW(hdc, text, -1, ctypes.byref(rect), flags) == 0:
             raise RuntimeError('DrawTextW failed during measurement')
 
         width = rect.right - rect.left
         height = rect.bottom - rect.top
-        width = max(width + 24, 160)
-        height = max(height + 24, int(size * 2))
+        padding = max(int(size * 0.35), 12)
+        width = max(width + padding * 2, 160)
+        height = max(height + padding * 2, int(size * 2.2))
 
         bmi = BITMAPINFO()
         bmi.bmiHeader.biSize = ctypes.sizeof(BITMAPINFOHEADER)
@@ -348,10 +350,11 @@ def render_with_gdi(font_name: str, text: str, size: int):
 
         old_bitmap = gdi32.SelectObject(hdc, hbitmap)
         gdi32.SetBkMode(hdc, 1)  # TRANSPARENT
-        gdi32.SetTextColor(hdc, 0x00202020)
+        gdi32.SetTextColor(hdc, 0x00FFFFFF)  # white text
 
-        draw_rect = RECT(12, 12, width - 12, height - 12)
-        if user32.DrawTextW(hdc, text, -1, ctypes.byref(draw_rect), DT_WORDBREAK | DT_NOPREFIX) == 0:
+        margin = max(int(size * 0.3), 12)
+        draw_rect = RECT(margin, margin, width - margin, height - margin)
+        if user32.DrawTextW(hdc, text, -1, ctypes.byref(draw_rect), DT_SINGLELINE | DT_NOPREFIX) == 0:
             raise RuntimeError('DrawTextW failed during draw')
 
         buffer = ctypes.string_at(bits, width * height * 4)
@@ -363,7 +366,8 @@ def render_with_gdi(font_name: str, text: str, size: int):
             for x in range(width):
                 r, g, b, a = pixels[x, y]
                 if r or g or b:
-                    pixels[x, y] = (r, g, b, 255)
+                    alpha = max(r, g, b)
+                    pixels[x, y] = (255, 255, 255, alpha)
                 else:
                     pixels[x, y] = (0, 0, 0, 0)
 
@@ -503,50 +507,53 @@ class FontServerHandler(BaseHTTPRequestHandler):
         return values[0] if values else None
 
     def _render_font_image(self, font_name: str, text: str, size: int):
-        width = max(300, int(len(text) * size / 1.2) + 32)
-        height = max(size * 3, int(size * 2.5))
+        effective_size = max(8, min(int(round(size * 1.1)), 220))
 
         if Image is None or ImageFont is None:
             debug('Pillow not available; returning fallback preview.')
-            return self._render_fallback(text, width, height)
+            return self._render_fallback(text, 320, int(effective_size * 3))
 
         font_path = REGISTRY.resolve_path(font_name)
         debug(f'Resolve path for {font_name}: {font_path}')
         if not font_path:
             try:
-                gdi_image = render_with_gdi(font_name, text, size)
+                gdi_image = render_with_gdi(font_name, text, effective_size)
                 if gdi_image:
                     return gdi_image
             except Exception as gdi_error:
                 debug(f'GDI fallback failed for {font_name}: {gdi_error}')
         try:
             if font_path:
-                pil_font = ImageFont.truetype(font_path, size)
+                pil_font = ImageFont.truetype(font_path, effective_size)
             else:
-                pil_font = ImageFont.truetype(FALLBACK_FONT, size)
+                pil_font = ImageFont.truetype(FALLBACK_FONT, effective_size)
         except Exception:
             try:
-                gdi_image = render_with_gdi(font_name, text, size)
+                gdi_image = render_with_gdi(font_name, text, effective_size)
                 if gdi_image:
                     return gdi_image
             except Exception as gdi_error:
                 debug(f'GDI fallback (second attempt) failed for {font_name}: {gdi_error}')
             pil_font = ImageFont.load_default()
 
+        # measure text bounds for tight box
+        dummy = Image.new('RGB', (10, 10))
+        dummy_draw = ImageDraw.Draw(dummy)
+        try:
+            bbox = dummy_draw.textbbox((0, 0), text, font=pil_font)
+        except Exception:
+            bbox = (0, 0, len(text) * effective_size, effective_size)
+        text_width = bbox[2] - bbox[0]
+        text_height = bbox[3] - bbox[1]
+        padding = max(int(effective_size * 0.35), 14)
+        width = max(320, text_width + padding * 2)
+        height = max(int(effective_size * 2.4), text_height + padding * 2)
+
         img = Image.new('RGBA', (width, height), (0, 0, 0, 0))
         draw = ImageDraw.Draw(img)
-        baseline = height // 2
-        try:
-            ascent, descent = pil_font.getmetrics()
-            text_width = draw.textlength(text, font=pil_font)
-            text_height = ascent + descent
-        except Exception:
-            text_width = len(text) * size
-            text_height = size
-
-        x = 16
-        y = max(8, baseline - text_height // 2)
-        draw.text((x, y), text, font=pil_font, fill=(32, 32, 32, 255))
+        origin_x = padding - bbox[0]
+        origin_y = padding - bbox[1]
+        draw.text((origin_x, origin_y), text, font=pil_font, fill=(255, 255, 255, 255))
 
         buffer = io.BytesIO()
         img.save(buffer, format='PNG')
@@ -557,11 +564,12 @@ class FontServerHandler(BaseHTTPRequestHandler):
         try:
             if Image is None:
                 raise RuntimeError('Pillow unavailable')
-            fallback_width = max(300, int(len(text) * 16) + 32)
-            fallback_height = max(60, height)
+            fallback_width = max(320, width)
+            fallback_height = max(80, height)
             img = Image.new('RGBA', (fallback_width, fallback_height), (255, 255, 255, 0))
             draw = ImageDraw.Draw(img)
-            draw.text((16, fallback_height // 3), text, fill=(120, 120, 120, 255))
+            padding = max(int(height * 0.15), 16)
+            draw.text((padding, padding), text, fill=(255, 255, 255, 255))
             buffer = io.BytesIO()
             img.save(buffer, format='PNG')
             encoded = base64.b64encode(buffer.getvalue()).decode('utf-8')

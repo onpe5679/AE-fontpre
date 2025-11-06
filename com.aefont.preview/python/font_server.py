@@ -53,6 +53,11 @@ except ImportError:
     FontNameResolver = None  # type: ignore
     parse_style_flags = None  # type: ignore
 
+try:
+    from font_matcher import should_treat_as_substitution
+except ImportError:
+    should_treat_as_substitution = None  # type: ignore
+
 # Temporarily disable new modules - they have ctypes issues
 # TODO: Fix and re-enable later
 FontEnumerator = None
@@ -167,6 +172,7 @@ class FontRegistry:
         self._aliases = {}
         self._families = []
         self._root = None
+        self._extracted_names = []  # All names extracted from font files
         self._load()
 
     @property
@@ -214,6 +220,9 @@ class FontRegistry:
         if winreg is not None:
             self._load_from_registry()
         self._scan_font_directories()
+        
+        # Debug: Print all recognized fonts with paths
+        self._print_font_debug_info()
     
     def _load_with_tkinter(self):
         """Fallback method using Tkinter"""
@@ -279,12 +288,31 @@ class FontRegistry:
                         continue
                     visited.add(font_path)
                     try:
-                        for name in extract_font_names(font_path):
+                        all_names = extract_font_names(font_path)
+                        
+                        # Track all extracted names with their source file
+                        if all_names:
+                            self._extracted_names.append({
+                                'path': str(font_path),
+                                'names': sorted(list(all_names))
+                            })
+                        
+                        for name in all_names:
                             key = normalize(name)
                             if key:
                                 self._remember_alias(name)
+                                # Store path for all name variants (English + Korean + etc.)
                                 if key not in self._cache:
                                     self._cache[key] = str(font_path)
+                        
+                        # Additional: Store path without language-specific chars for broader matching
+                        # This helps match "210 수퍼사이즈" to "210 Supersize"
+                        if all_names:
+                            for name in all_names:
+                                # Create a simplified key without any language-specific chars
+                                simple_key = ''.join(c.lower() for c in name if c.isalnum() and ord(c) < 128)
+                                if simple_key and simple_key not in self._cache:
+                                    self._cache[simple_key] = str(font_path)
                     except Exception as exc:
                         debug(f'Error reading font {font_path}: {exc}')
                         continue
@@ -307,6 +335,75 @@ class FontRegistry:
         if not key:
             return
         self._aliases.setdefault(key, set()).add(name)
+    
+    def _print_font_debug_info(self):
+        """서버 시작 시 모든 폰트 정보를 파일로 저장"""
+        from datetime import datetime
+        
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        debug_dir = Path('font_debug')
+        debug_dir.mkdir(exist_ok=True)
+        
+        # 1. Tkinter families (sorted)
+        tkinter_file = debug_dir / f'1_tkinter_families_{timestamp}.txt'
+        with open(tkinter_file, 'w', encoding='utf-8') as f:
+            f.write(f"Tkinter Font Families ({len(self._families)} total)\n")
+            f.write("=" * 80 + "\n\n")
+            for i, family in enumerate(sorted(self._families), 1):
+                f.write(f"{i:4d}. {family}\n")
+        
+        # 2. Registry scan results
+        registry_file = debug_dir / f'2_registry_scan_{timestamp}.txt'
+        with open(registry_file, 'w', encoding='utf-8') as f:
+            f.write("Registry Font Scan Results\n")
+            f.write("=" * 80 + "\n\n")
+            # Registry entries are already in self._cache
+            # Let's track which ones came from registry vs file scan
+            f.write("(Registry entries are merged into cache)\n")
+        
+        # 3. All cache entries (normalized key -> path)
+        cache_file = debug_dir / f'3_cache_mapping_{timestamp}.json'
+        with open(cache_file, 'w', encoding='utf-8') as f:
+            # Sort by key for readability
+            sorted_cache = dict(sorted(self._cache.items()))
+            json.dump(sorted_cache, f, ensure_ascii=False, indent=2)
+        
+        # 4. Aliases mapping
+        aliases_file = debug_dir / f'4_aliases_{timestamp}.json'
+        with open(aliases_file, 'w', encoding='utf-8') as f:
+            sorted_aliases = {}
+            for key in sorted(self._aliases.keys()):
+                sorted_aliases[key] = sorted(list(self._aliases[key]))
+            json.dump(sorted_aliases, f, ensure_ascii=False, indent=2)
+        
+        # 5. Final mapping: family -> path
+        final_mapping_file = debug_dir / f'5_final_family_to_path_{timestamp}.txt'
+        with open(final_mapping_file, 'w', encoding='utf-8') as f:
+            f.write("Final Font Family to Path Mapping\n")
+            f.write("=" * 80 + "\n\n")
+            
+            with_path = 0
+            without_path = 0
+            
+            for family in sorted(self._families):
+                path = self.resolve_path(family)
+                if path:
+                    with_path += 1
+                    f.write(f"✓ {family}\n")
+                    f.write(f"  → {path}\n\n")
+                else:
+                    without_path += 1
+                    f.write(f"✗ {family}\n")
+                    f.write(f"  → (No path found)\n\n")
+            
+            f.write("\n" + "=" * 80 + "\n")
+            f.write(f"Summary: {with_path} fonts with paths, {without_path} without paths\n")
+        
+        debug(f"Font debug info saved to {debug_dir}/ directory")
+        debug(f"  - {tkinter_file.name}")
+        debug(f"  - {cache_file.name}")
+        debug(f"  - {aliases_file.name}")
+        debug(f"  - {final_mapping_file.name}")
 
 
 def iter_font_files(directory: Path):
@@ -469,16 +566,29 @@ def render_with_gdi(font_name: str, text: str, size: int, target_width: int = 0,
         
         if result > 0:
             actual_name = actual_face.value
-            # Normalize comparison (case-insensitive, strip whitespace)
-            expected_norm = face_name.lower().strip()
-            actual_norm = actual_name.lower().strip()
             
-            if expected_norm != actual_norm:
-                substitution_detected = True
-                debug(f"[GDI] ⚠ Font substitution: requested '{face_name}' but got '{actual_name}'")
-                debug(f"[GDI]   Will continue rendering but mark for PIL fallback consideration")
+            # Use smart font matching to detect real substitution
+            if should_treat_as_substitution:
+                # Check if this is real substitution or just name variant
+                is_real_substitution = should_treat_as_substitution(face_name, actual_name)
+                
+                if is_real_substitution:
+                    substitution_detected = True
+                    debug(f"[GDI] ⚠ REAL substitution: requested '{face_name}' but got '{actual_name}'")
+                    debug(f"[GDI]   → This is a different font, will consider PIL fallback")
+                else:
+                    # Same font family, just different name (e.g., English vs Korean)
+                    debug(f"[GDI] ✓ Font OK: requested '{face_name}', got '{actual_name}' (same family)")
             else:
-                debug(f"[GDI] ✓ Font verified: '{actual_name}' matches request")
+                # Fallback to simple comparison if font_matcher not available
+                expected_norm = face_name.lower().strip()
+                actual_norm = actual_name.lower().strip()
+                
+                if expected_norm != actual_norm:
+                    substitution_detected = True
+                    debug(f"[GDI] ⚠ Font name mismatch: requested '{face_name}' but got '{actual_name}'")
+                else:
+                    debug(f"[GDI] ✓ Font verified: '{actual_name}' matches request")
         else:
             debug("[GDI] Warning: GetTextFaceW failed, proceeding anyway")
 

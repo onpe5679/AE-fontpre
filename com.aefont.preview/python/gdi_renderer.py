@@ -197,7 +197,7 @@ class GDIRenderer:
             logfont.lfItalic = italic
             logfont.lfFaceName = face_name[:LF_FACESIZE - 1]
             
-            # Create font
+            # Create font with byref
             hfont = gdi32.CreateFontIndirectW(ctypes.byref(logfont))
             if not hfont:
                 self.debug(f"CreateFontIndirectW failed for '{face_name}'")

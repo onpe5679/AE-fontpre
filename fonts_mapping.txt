@@ -4,6 +4,12 @@
 ============================================================
 
 210 산토리니 B -> 210 Santorini B
+
+
+
+"210 산토리니 B"넣어서 테스트
+"210 Santorini B"넣어서 렌더 되는지 확인
+
 210 수퍼사이즈 Black -> 210 Supersize Black
 210 수퍼사이즈 Black 3D -> 210 Supersize Black 3D
 210 수퍼사이즈 Black 3D italic -> 210 Supersize Black 3D italic

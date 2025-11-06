@@ -12,6 +12,8 @@
 ```bash
 cd com.aefont.preview/python
 pip install -r requirements.txt
+# 실행 파일 빌드가 필요하다면 PyInstaller도 설치하세요
+pip install pyinstaller>=6.0.0
 ```
 
 ### 2️⃣ 실행 파일 빌드
@@ -65,7 +67,6 @@ com.aefont.preview/
 --noconsole       # 콘솔 창 숨김 (백그라운드 실행)
 --name=font_server  # 출력 파일명
 --strip           # 디버그 심볼 제거 (크기 감소)
---hidden-import   # Tkinter 명시적 포함
 ```
 
 ---
@@ -82,18 +83,9 @@ pip install Pillow>=10.0.0
 pip install pyinstaller>=6.0.0
 ```
 
-### ❌ "Tkinter not available"
-Python이 Tkinter와 함께 설치되었는지 확인:
-```bash
-python -c "import tkinter; print('OK')"
-```
-
-Windows에서 Python 재설치 시 "tcl/tk and IDLE" 옵션 체크
-
 ### ❌ 실행 파일이 너무 큼 (>50MB)
 정상입니다. 다음이 포함되어 있습니다:
 - Python 인터프리터
-- Tkinter/Tcl/Tk 라이브러리
 - Pillow 이미지 처리 라이브러리
 
 압축을 원하면 UPX 사용 (선택):
@@ -109,9 +101,6 @@ build_exe.py를 사용하지 않고 직접 빌드:
 
 ```bash
 pyinstaller --onefile --noconsole --name=font_server ^
-  --hidden-import=tkinter ^
-  --hidden-import=tkinter.font ^
-  --hidden-import=PIL._tkinter_finder ^
   --strip --noupx ^
   font_server.py
 ```

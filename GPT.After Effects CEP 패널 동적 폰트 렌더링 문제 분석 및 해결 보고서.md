@@ -1,4 +1,4 @@
-# After Effects CEP 패널 동적 폰트 렌더링 문제 분석 및 해결 보고서
+  # After Effects CEP 패널 동적 폰트 렌더링 문제 분석 및 해결 보고서
 
 ## 1. 기술 분석: Windows 폰트 시스템 동작 원리와 GDI vs Tkinter 차이 {#기술-분석-windows-폰트-시스템-동작-원리와-gdi-vs-tkinter-차이}
 

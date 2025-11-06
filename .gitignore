@@ -1,3 +1,6 @@
+/__pycache__/
+**/__pycache__/
+*.pyc
 /.rnd
 /AE-Font-Preview-v1.0.0.zip
 /AE-Font-Preview.zxp
@@ -13,7 +16,6 @@
 /bin/**/*
 !/bin/win/README.txt
 !/bin/mac/README.txt
-/python/__pycache__/
 /python/build/
 /python/dist/
 /python/*.spec

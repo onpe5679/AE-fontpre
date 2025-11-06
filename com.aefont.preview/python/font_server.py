@@ -36,7 +36,7 @@ try:
 except ImportError:
     Image = ImageDraw = ImageFont = None  # type: ignore
 
-try:
+try:    
     import winreg
 except ImportError:
     winreg = None  # type: ignore
@@ -52,6 +52,16 @@ try:
 except ImportError:
     FontNameResolver = None  # type: ignore
     parse_style_flags = None  # type: ignore
+
+try:
+    from font_enumerator import FontEnumerator
+except ImportError:
+    FontEnumerator = None  # type: ignore
+
+try:
+    from gdi_renderer import GDIRenderer
+except ImportError:
+    GDIRenderer = None  # type: ignore
 
 
 FALLBACK_FONT = "Arial"
@@ -167,6 +177,49 @@ class FontRegistry:
         return list(self._families)
 
     def _load(self) -> None:
+        # Try to use FontEnumerator (EnumFontFamiliesExW) first - more accurate
+        if FontEnumerator is not None:
+            try:
+                enumerator = FontEnumerator()
+                gdi_families = enumerator.enumerate_all_fonts()
+                
+                # Also get Tkinter families for comparison
+                if Tk is not None:
+                    self._root = Tk()
+                    self._root.withdraw()
+                    tkinter_families = sorted(set(families()))
+                    
+                    # Compare for debugging
+                    gdi_set = set(gdi_families)
+                    tk_set = set(f for f in tkinter_families if not f.startswith('@'))
+                    if gdi_set != tk_set:
+                        debug(f"Font enumeration comparison: GDI={len(gdi_set)}, Tkinter={len(tk_set)}")
+                        only_gdi = gdi_set - tk_set
+                        only_tk = tk_set - gdi_set
+                        if only_gdi:
+                            debug(f"  Only in GDI: {list(only_gdi)[:5]}...")
+                        if only_tk:
+                            debug(f"  Only in Tkinter: {list(only_tk)[:5]}...")
+                
+                # Use GDI enumeration result (more accurate)
+                self._families = gdi_families
+                for family in self._families:
+                    self._remember_alias(family)
+                
+                debug(f"Loaded {len(self._families)} font families from EnumFontFamiliesExW")
+            except Exception as e:
+                debug(f"FontEnumerator failed: {e}, falling back to Tkinter")
+                self._load_with_tkinter()
+        else:
+            # Fallback to Tkinter if FontEnumerator not available
+            self._load_with_tkinter()
+
+        if winreg is not None:
+            self._load_from_registry()
+        self._scan_font_directories()
+    
+    def _load_with_tkinter(self):
+        """Fallback method using Tkinter"""
         if Tk is None:
             debug('Tkinter not available; font registry disabled.')
             return
@@ -182,10 +235,6 @@ class FontRegistry:
             self._remember_alias(family)
         self._families = filtered
         debug(f"Loaded {len(self._families)} font families from Tkinter")
-
-        if winreg is not None:
-            self._load_from_registry()
-        self._scan_font_directories()
 
     def _load_from_registry(self):
         try:
@@ -347,9 +396,15 @@ def layout_text_lines_pil(text: str, font, max_width: int, fallback_size: int):
     bottom_padding = max(2, int(math.ceil(line_height * 0.1)))
     canvas_height = top_offset + line_height * len(lines) + bottom_padding
     return lines, canvas_width, canvas_height, line_height, top_offset
-def render_with_gdi(font_name: str, text: str, size: int, target_width: int = 0, 
+
+
+def render_with_gdi(font_name: str, text: str, size: int, target_width: int = 0,
                     postscript_name: str = None, style: str = None):
-    if Image is None:
+    """
+    GDI를 사용해 폰트를 렌더링합니다.
+    Font substitution 발생 시 None을 반환하여 PIL 폴백을 트리거합니다.
+    """
+    if Image is None or GDIRenderer is None:
         return None
 
     target_width = int(target_width or 0)
@@ -373,106 +428,22 @@ def render_with_gdi(font_name: str, text: str, size: int, target_width: int = 0,
         font_italic = 0
         debug(f"Resolver unavailable, using '{face_name}' as-is")
     
-    hdc = gdi32.CreateCompatibleDC(0)
-    if not hdc:
-        raise RuntimeError('CreateCompatibleDC failed')
-
-    hfont = None
-    hbitmap = None
-    old_font = old_bitmap = None
-
-    try:
-        logfont = LOGFONTW()
-        logfont.lfHeight = -abs(int(size))
-        logfont.lfWeight = font_weight  # Use resolved weight
-        logfont.lfCharSet = DEFAULT_CHARSET
-        logfont.lfOutPrecision = OUT_DEFAULT_PRECIS
-        logfont.lfClipPrecision = CLIP_DEFAULT_PRECIS
-        logfont.lfQuality = ANTIALIASED_QUALITY
-        logfont.lfPitchAndFamily = DEFAULT_PITCH
-        logfont.lfItalic = font_italic  # Use resolved italic flag
-        face = face_name[:LF_FACESIZE - 1]  # Use resolved face name
-        logfont.lfFaceName = face
-
-        hfont = gdi32.CreateFontIndirectW(ctypes.byref(logfont))
-        if not hfont:
-            raise RuntimeError('CreateFontIndirectW failed')
-
-        old_font = gdi32.SelectObject(hdc, hfont)
-
-        # Measure text with optional word wrapping
-        calc_rect = RECT(0, 0, target_width if target_width > 0 else 0, 0)
-        calc_flags = DT_NOPREFIX | DT_CALCRECT
-        if target_width > 0:
-            calc_flags |= DT_WORDBREAK
-        else:
-            calc_flags |= DT_SINGLELINE
-        if user32.DrawTextW(hdc, text or ' ', -1, ctypes.byref(calc_rect), calc_flags) == 0:
-            raise RuntimeError('DrawTextW failed during measurement')
-
-        measured_width = max(calc_rect.right - calc_rect.left, 1)
-        measured_height = max(calc_rect.bottom - calc_rect.top, size)
-        
-        # Use target width if provided, otherwise use measured width
-        final_width = target_width if target_width > 0 else measured_width
-        final_width = max(final_width, measured_width, 1)
-        final_height = measured_height
-
-        bmi = BITMAPINFO()
-        bmi.bmiHeader.biSize = ctypes.sizeof(BITMAPINFOHEADER)
-        bmi.bmiHeader.biWidth = final_width
-        bmi.bmiHeader.biHeight = -final_height  # top-down DIB
-        bmi.bmiHeader.biPlanes = 1
-        bmi.bmiHeader.biBitCount = 32
-        bmi.bmiHeader.biCompression = 0  # BI_RGB
-
-        bits = ctypes.c_void_p()
-        hbitmap = gdi32.CreateDIBSection(hdc, ctypes.byref(bmi), DIB_RGB_COLORS, ctypes.byref(bits), None, 0)
-        if not hbitmap:
-            raise RuntimeError('CreateDIBSection failed')
-
-        old_bitmap = gdi32.SelectObject(hdc, hbitmap)
-        gdi32.SetBkMode(hdc, 1)  # TRANSPARENT
-        gdi32.SetTextColor(hdc, 0x00FFFFFF)  # white text
-
-        # Draw text without padding
-        draw_rect = RECT(0, 0, final_width, final_height)
-        draw_flags = DT_NOPREFIX
-        if target_width > 0:
-            draw_flags |= DT_WORDBREAK
-        else:
-            draw_flags |= DT_SINGLELINE
-        if user32.DrawTextW(hdc, text or ' ', -1, ctypes.byref(draw_rect), draw_flags) == 0:
-            raise RuntimeError('DrawTextW failed during draw')
-
-        buffer = ctypes.string_at(bits, final_width * final_height * 4)
-        image = Image.frombuffer('RGBA', (final_width, final_height), buffer, 'raw', 'BGRA', 0, 1).copy()
-        if image.mode != 'RGBA':
-            image = image.convert('RGBA')
-        pixels = image.load()
-        for y in range(final_height):
-            for x in range(final_width):
-                r, g, b, a = pixels[x, y]
-                if r or g or b:
-                    alpha = max(r, g, b)
-                    pixels[x, y] = (255, 255, 255, alpha)
-                else:
-                    pixels[x, y] = (0, 0, 0, 0)
-
-        output = io.BytesIO()
-        image.save(output, format='PNG')
-        return f'data:image/png;base64,{base64.b64encode(output.getvalue()).decode("utf-8")}'
-    finally:
-        if old_font:
-            gdi32.SelectObject(hdc, old_font)
-        if old_bitmap:
-            gdi32.SelectObject(hdc, old_bitmap)
-        if hfont:
-            gdi32.DeleteObject(hfont)
-        if hbitmap:
-            gdi32.DeleteObject(hbitmap)
-        if hdc:
-            gdi32.DeleteDC(hdc)
+    # Use new GDIRenderer with substitution detection
+    renderer = GDIRenderer(debug_callback=debug)
+    image_data, substitution_detected = renderer.render(
+        face_name=face_name,
+        text=text,
+        size=size,
+        weight=font_weight,
+        italic=font_italic,
+        target_width=target_width
+    )
+    
+    if substitution_detected:
+        debug(f"Font substitution detected for '{face_name}', will fallback to PIL")
+        return None  # Signal caller to use PIL fallback
+    
+    return image_data
 
 
 REGISTRY = FontRegistry()
@@ -621,43 +592,63 @@ class FontServerHandler(BaseHTTPRequestHandler):
 
     def _render_font_image(self, font_name: str, text: str, size: int, viewport_width: int = 0,
                            postscript_name: str = None, style: str = None):
+        """
+        폰트 이미지를 렌더링합니다.
+        
+        렌더링 전략:
+        1. GDI 렌더링 시도 (빠르고 OS 기본 품질)
+        2. Font substitution 감지 시 PIL로 폴백
+        3. 폰트 파일이 있으면 PIL로 직접 렌더링
+        4. 모든 것이 실패하면 기본 폴백 이미지
+        """
         text_value = text or ' '
         requested_width = int(viewport_width or 0)
         effective_size = max(8, min(int(round(size * 1.1)), 220))
 
         if Image is None or ImageFont is None:
-            debug('Pillow not available; relying on GDI fallback.')
+            debug('Pillow not available; relying on GDI only.')
             gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width, 
                                        postscript_name, style)
             if gdi_image:
                 return gdi_image
             return self._render_fallback(text_value, requested_width, effective_size)
 
+        # Strategy: Try GDI first, fallback to PIL if substitution detected or GDI fails
         font_path = REGISTRY.resolve_path(font_name)
-        debug(f'Resolve path for {font_name}: {font_path}')
-        if not font_path:
-            try:
-                gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width,
-                                           postscript_name, style)
-                if gdi_image:
-                    return gdi_image
-            except Exception as gdi_error:
-                debug(f'GDI fallback failed for {font_name}: {gdi_error}')
+        debug(f'Font path for {font_name}: {font_path}')
+        
+        # Try GDI first (fastest, best quality for most fonts)
         try:
-            if font_path:
-                pil_font = ImageFont.truetype(font_path, effective_size)
+            gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width,
+                                       postscript_name, style)
+            if gdi_image:
+                # GDI succeeded without substitution
+                return gdi_image
             else:
-                pil_font = ImageFont.truetype(FALLBACK_FONT, effective_size)
-        except Exception:
+                # GDI returned None - substitution detected or font not found
+                debug(f'GDI rendering failed/substituted for {font_name}, trying PIL fallback')
+        except Exception as gdi_error:
+            debug(f'GDI error for {font_name}: {gdi_error}, trying PIL fallback')
+        
+        # PIL fallback - try to load font file directly
+        pil_font = None
+        if font_path:
             try:
-                gdi_image = render_with_gdi(font_name, text_value, effective_size, requested_width,
-                                           postscript_name, style)
-                if gdi_image:
-                    return gdi_image
-            except Exception as gdi_error:
-                debug(f'GDI fallback (second attempt) failed for {font_name}: {gdi_error}')
-            pil_font = ImageFont.load_default()
+                pil_font = ImageFont.truetype(font_path, effective_size)
+                debug(f'✓ PIL loaded font from: {font_path}')
+            except Exception as e:
+                debug(f'Failed to load font file {font_path}: {e}')
+        
+        # If no font path or loading failed, try default font
+        if pil_font is None:
+            try:
+                pil_font = ImageFont.truetype(FALLBACK_FONT, effective_size)
+                debug(f'Using fallback font: {FALLBACK_FONT}')
+            except Exception:
+                pil_font = ImageFont.load_default()
+                debug('Using PIL default font')
 
+        # Render with PIL
         lines, canvas_width, canvas_height, line_height, top_offset = layout_text_lines_pil(
             text_value, pil_font, requested_width, effective_size
         )

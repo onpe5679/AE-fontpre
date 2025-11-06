@@ -1,0 +1,27 @@
+[package]
+name = "windows-fonts"
+version = "1.0.0"
+edition = "2018"
+
+[lib]
+name = "_windows_fonts"
+crate-type = ["cdylib", "rlib"]
+
+[package.metadata.maturin]
+name = 'windows_fonts._windows_fonts'
+python-source = "python"
+
+[dependencies]
+pyo3 = { version = "0.17.2", features = ["extension-module", "anyhow"] }
+anyhow = "1.0"
+thiserror = "1.0"
+phf = { version = "0.11.1", features = ["macros"] }
+
+[dependencies.windows]
+version = "0.42.0"
+features = [
+    "Foundation_Numerics",
+    "Win32_System_Com",
+    "Win32_Foundation",
+    "Win32_Graphics_DirectWrite",
+]

@@ -172,7 +172,6 @@ class FontRegistry:
         self._aliases = {}
         self._families = []
         self._root = None
-        self._extracted_names = []  # All names extracted from font files
         self._load()
 
     @property
@@ -277,6 +276,9 @@ class FontRegistry:
             Path.home() / 'AppData' / 'LocalLow' / 'SandollCloud' / 'fonts'
         ]
 
+        # Track fontTools scan results
+        self._fonttools_scan_results = []
+
         visited = set()
         for directory in search_dirs:
             if not directory or not directory.exists():
@@ -290,12 +292,11 @@ class FontRegistry:
                     try:
                         all_names = extract_font_names(font_path)
                         
-                        # Track all extracted names with their source file
-                        if all_names:
-                            self._extracted_names.append({
-                                'path': str(font_path),
-                                'names': sorted(list(all_names))
-                            })
+                        # Store scan results for debug output
+                        self._fonttools_scan_results.append({
+                            'path': str(font_path),
+                            'names': sorted(all_names)
+                        })
                         
                         for name in all_names:
                             key = normalize(name)
@@ -344,22 +345,56 @@ class FontRegistry:
         debug_dir = Path('font_debug')
         debug_dir.mkdir(exist_ok=True)
         
-        # 1. Tkinter families (sorted)
-        tkinter_file = debug_dir / f'1_tkinter_families_{timestamp}.txt'
+        # 1. Tkinter families with all name variants (English + Korean + etc.)
+        tkinter_file = debug_dir / f'1_tkinter_families_with_names_{timestamp}.txt'
         with open(tkinter_file, 'w', encoding='utf-8') as f:
-            f.write(f"Tkinter Font Families ({len(self._families)} total)\n")
+            f.write(f"Tkinter Font Families - ALL NAME VARIANTS ({len(self._families)} total)\n")
             f.write("=" * 80 + "\n\n")
+            
             for i, family in enumerate(sorted(self._families), 1):
                 f.write(f"{i:4d}. {family}\n")
+                
+                # Get aliases (other names for the same font)
+                aliases = self.aliases_for(family)
+                if len(aliases) > 1:
+                    f.write(f"      Aliases: {', '.join(a for a in aliases if a != family)}\n")
+                
+                # Try to find the font file and extract all names
+                path = self.resolve_path(family)
+                if path:
+                    f.write(f"      File: {path}\n")
+                    try:
+                        # Extract all names from the font file
+                        all_names = extract_font_names(Path(path))
+                        if all_names:
+                            # Show English and Korean names
+                            eng_names = [n for n in all_names if all(ord(c) < 128 or not c.isalpha() for c in n)]
+                            kor_names = [n for n in all_names if any(ord(c) >= 0xAC00 and ord(c) <= 0xD7A3 for c in n)]
+                            
+                            if eng_names:
+                                f.write(f"      English names: {', '.join(sorted(set(eng_names))[:3])}\n")
+                            if kor_names:
+                                f.write(f"      Korean names: {', '.join(sorted(set(kor_names))[:3])}\n")
+                    except Exception as e:
+                        f.write(f"      (Could not read names: {e})\n")
+                else:
+                    f.write(f"      (No file path found)\n")
+                
+                f.write("\n")
         
-        # 2. Registry scan results
-        registry_file = debug_dir / f'2_registry_scan_{timestamp}.txt'
-        with open(registry_file, 'w', encoding='utf-8') as f:
-            f.write("Registry Font Scan Results\n")
+        # 2. fontTools scan results (English + Korean + all names extracted from font files)
+        fonttools_file = debug_dir / f'2_fonttools_scan_{timestamp}.txt'
+        with open(fonttools_file, 'w', encoding='utf-8') as f:
+            f.write("fontTools Scan Results - ALL FONT NAMES (English + Korean + etc.)\n")
             f.write("=" * 80 + "\n\n")
-            # Registry entries are already in self._cache
-            # Let's track which ones came from registry vs file scan
-            f.write("(Registry entries are merged into cache)\n")
+            f.write(f"Total font files scanned: {len(getattr(self, '_fonttools_scan_results', []))}\n\n")
+            
+            for result in getattr(self, '_fonttools_scan_results', []):
+                f.write(f"File: {result['path']}\n")
+                f.write(f"Names found ({len(result['names'])}):\n")
+                for name in result['names']:
+                    f.write(f"  - {name}\n")
+                f.write("\n")
         
         # 3. All cache entries (normalized key -> path)
         cache_file = debug_dir / f'3_cache_mapping_{timestamp}.json'

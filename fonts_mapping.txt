@@ -1,0 +1,338 @@
+=== 폰트 다국어 이름 매핑 ===
+
+한글->영어 매핑: 333개
+============================================================
+
+210 산토리니 B -> 210 Santorini B
+210 수퍼사이즈 Black -> 210 Supersize Black
+210 수퍼사이즈 Black 3D -> 210 Supersize Black 3D
+210 수퍼사이즈 Black 3D italic -> 210 Supersize Black 3D italic
+210 수퍼사이즈 Black BOX -> 210 Supersize Black BOX
+210 수퍼사이즈 Black BOX italic -> 210 Supersize Black BOX italic
+210 수퍼사이즈 Black italic -> 210 Supersize Black italic
+210 연날리기 B -> 210 Yeonnalligi B
+Adobe 명조 Std M -> Adobe Myungjo Std M
+DSA 팡팡 -> DSA pangpang
+G마켓 산스 TTF Bold -> Gmarket Sans TTF Bold
+G마켓 산스 TTF Light -> Gmarket Sans TTF Light
+G마켓 산스 TTF Medium -> Gmarket Sans TTF Medium
+KCC-간판체 -> KCC-Ganpan
+KCC-손기정체 -> KCC-Sonkeechung
+KOHI배움 -> KOHIBaeum
+Kim jung chul Myungjo Bold -> Kim jung chul Myungjo Bold
+Kim jung chul Script Bold -> Kim jung chul Script Bold
+MBC 1961 Medium -> MBC 1961 Medium
+MBC 1961굴림 Medium -> MBC 1961Gulim Medium
+Neo둥근모 -> NeoDunggeunmo
+Noto Sans CJK KR -> Noto Sans CJK KR
+Noto Sans CJK KR Black -> Noto Sans CJK KR Black
+Noto Sans CJK KR Light -> Noto Sans CJK KR Light
+Noto Sans CJK KR Medium -> Noto Sans CJK KR Medium
+Noto Sans KR -> Noto Sans KR
+Noto Serif CJK KR -> Noto Serif CJK KR
+Noto Serif CJK KR Black -> Noto Serif CJK KR Black
+Noto Serif CJK KR ExtraLight -> Noto Serif CJK KR ExtraLight
+Noto Serif CJK KR Light -> Noto Serif CJK KR Light
+Noto Serif CJK KR Medium -> Noto Serif CJK KR Medium
+Noto Serif CJK KR SemiBold -> Noto Serif CJK KR SemiBold
+Noto Serif KR -> Noto Serif KR
+Rix독립고딕_Pro Regular -> RixDongnimGothic_Pro Regular
+Rix세종로굴림_Pro Black -> RixSejongroGulim_Pro Black
+SB 어그로 Bold -> SB Aggro Bold
+SB 어그로 Light -> SB Aggro Light
+SB 어그로 Medium -> SB Aggro Medium
+SB 어그로OTF Bold -> SB AggroOTF Bold
+SB 어그로OTF Light -> SB AggroOTF Light
+SB 어그로OTF Medium -> SB AggroOTF Medium
+SD 격동명조2 01 Th Cd -> SD Gyeokdong Mj2 01 Th Cd
+SD 격동명조2 02 Lt Cd -> SD Gyeokdong Mj2 02 Lt Cd
+SD 격동명조2 03 Rg Cd -> SD Gyeokdong Mj2 03 Rg Cd
+SD 격동명조2 04 Sb Cd -> SD Gyeokdong Mj2 04 Sb Cd
+SD 격동명조2 05 Bd Cd -> SD Gyeokdong Mj2 05 Bd Cd
+SD 격동명조2 06 Th -> SD Gyeokdong Mj2 06 Th
+SD 격동명조2 07 Lt -> SD Gyeokdong Mj2 07 Lt
+SD 격동명조2 08 Rg -> SD Gyeokdong Mj2 08 Rg
+SD 격동명조2 09 Sb -> SD Gyeokdong Mj2 09 Sb
+SD 격동명조2 10 Bd -> SD Gyeokdong Mj2 10 Bd
+SD 격동명조2 11 Th Et -> SD Gyeokdong Mj2 11 Th Et
+SD 격동명조2 12 Lt Et -> SD Gyeokdong Mj2 12 Lt Et
+SD 격동명조2 13 Rg Et -> SD Gyeokdong Mj2 13 Rg Et
+SD 격동명조2 14 Sb Et -> SD Gyeokdong Mj2 14 Sb Et
+SD 격동명조2 15 Bd Et -> SD Gyeokdong Mj2 15 Bd Et
+SD 그레타산스 01 Hl -> SD Greta Sans 01 Hl
+SD 그레타산스 02 Hl It -> SD Greta Sans 02 Hl It
+SD 그레타산스 03 Th -> SD Greta Sans 03 Th
+SD 그레타산스 04 Th It -> SD Greta Sans 04 Th It
+SD 그레타산스 05 El -> SD Greta Sans 05 El
+SD 그레타산스 06 El It -> SD Greta Sans 06 El It
+SD 그레타산스 07 Lt -> SD Greta Sans 07 Lt
+SD 그레타산스 08 Lt It -> SD Greta Sans 08 Lt It
+SD 그레타산스 09 Rg -> SD Greta Sans 09 Rg
+SD 그레타산스 10 Rg It -> SD Greta Sans 10 Rg It
+SD 그레타산스 11 Md -> SD Greta Sans 11 Md
+SD 그레타산스 12 Md It -> SD Greta Sans 12 Md It
+SD 그레타산스 13 Sb -> SD Greta Sans 13 Sb
+SD 그레타산스 14 Sb It -> SD Greta Sans 14 Sb It
+SD 그레타산스 15 Bd -> SD Greta Sans 15 Bd
+SD 그레타산스 16 Bd It -> SD Greta Sans 16 Bd It
+SD 그레타산스 17 Hv -> SD Greta Sans 17 Hv
+SD 그레타산스 18 Hv It -> SD Greta Sans 18 Hv It
+SD 그레타산스 19 Bk -> SD Greta Sans 19 Bk
+SD 그레타산스 20 Bk It -> SD Greta Sans 20 Bk It
+SD 노벰버 01 Hl -> SD November 01 Hl
+SD 노벰버 02 Hl It -> SD November 02 Hl It
+SD 노벰버 03 Th -> SD November 03 Th
+SD 노벰버 04 Th It -> SD November 04 Th It
+SD 노벰버 05 El -> SD November 05 El
+SD 노벰버 06 El It -> SD November 06 El It
+SD 노벰버 07 Lt -> SD November 07 Lt
+SD 노벰버 08 Lt It -> SD November 08 Lt It
+SD 노벰버 09 Rg -> SD November 09 Rg
+SD 노벰버 10 Rg It -> SD November 10 Rg It
+SD 노벰버 11 Md -> SD November 11 Md
+SD 노벰버 12 Md It -> SD November 12 Md It
+SD 노벰버 13 Bd -> SD November 13 Bd
+SD 노벰버 14 Bd It -> SD November 14 Bd It
+SD 노벰버 15 Hv -> SD November 15 Hv
+SD 노벰버 16 Hv It -> SD November 16 Hv It
+SD 노벰버 17 Bk -> SD November 17 Bk
+SD 노벰버 18 Bk It -> SD November 18 Bk It
+SD 커오히 -> SD Cohhee
+Sandoll 4B연필 01 Light -> Sandoll 4BYeonpil 01 Light
+Sandoll 4B연필 02 Medium -> Sandoll 4BYeonpil 02 Medium
+Sandoll 4B연필 03 Bold -> Sandoll 4BYeonpil 03 Bold
+Sandoll 가웨인 01 Lt -> Sandoll Gawain 01 Lt
+Sandoll 가웨인 02 Rg -> Sandoll Gawain 02 Rg
+Sandoll 가웨인 03 Md -> Sandoll Gawain 03 Md
+Sandoll 가웨인 04 Bd -> Sandoll Gawain 04 Bd
+Sandoll 가웨인 05 Hv -> Sandoll Gawain 05 Hv
+Sandoll 개벽 01 Light -> Sandoll Kaebyeok 01 Light
+Sandoll 개벽 02 Medium -> Sandoll Kaebyeok 02 Medium
+Sandoll 개벽 03 Bold -> Sandoll Kaebyeok 03 Bold
+Sandoll 개화 01 Regular -> Sandoll Gaehwa 01 Regular
+Sandoll 개화 02 Oblique -> Sandoll Gaehwa 02 Oblique
+Sandoll 거복 01 Th -> Sandoll Geobok 01 Th
+Sandoll 거복 02 Ul -> Sandoll Geobok 02 Ul
+Sandoll 거복 03 Lt -> Sandoll Geobok 03 Lt
+Sandoll 거복 04 Rg -> Sandoll Geobok 04 Rg
+Sandoll 거복 05 Bd -> Sandoll Geobok 05 Bd
+Sandoll 거복 06 Hv -> Sandoll Geobok 06 Hv
+Sandoll 거복 07 Bk -> Sandoll Geobok 07 Bk
+Sandoll 겨울밤 -> Sandoll WinterNight
+Sandoll 격동고딕 -> Sandoll GyeokdongGothic
+Sandoll 격동고딕2 01 Hl -> Sandoll GyeokdongG2 01 Hl
+Sandoll 격동고딕2 02 Ul -> Sandoll GyeokdongG2 02 Ul
+Sandoll 격동고딕2 03 Lt -> Sandoll GyeokdongG2 03 Lt
+Sandoll 격동고딕2 04 Rg -> Sandoll GyeokdongG2 04 Rg
+Sandoll 격동고딕2 05 Bd -> Sandoll GyeokdongG2 05 Bd
+Sandoll 격동고딕2 06 Hv -> Sandoll GyeokdongG2 06 Hv
+Sandoll 격동고딕2 07 Bk -> Sandoll GyeokdongG2 07 Bk
+Sandoll 격동굴림 -> Sandoll Gyeokdonggulim
+Sandoll 고딕Neo1 01 Thin -> Sandoll GothicNeo1 01 Th
+Sandoll 고딕Neo1 02 UltraLight -> Sandoll GothicNeo1 02 Ul
+Sandoll 고딕Neo1 03 Light -> Sandoll GothicNeo1 03 Lt
+Sandoll 고딕Neo1 04 Regular -> Sandoll GothicNeo1 04 Rg
+Sandoll 고딕Neo1 05 Medium -> Sandoll GothicNeo1 05 Md
+Sandoll 고딕Neo1 06 SemiBold -> Sandoll GothicNeo1 06 Sb
+Sandoll 고딕Neo1 07 Bold -> Sandoll GothicNeo1 07 Bd
+Sandoll 고딕Neo1 08 ExtraBold -> Sandoll GothicNeo1 08 Eb
+Sandoll 고딕Neo1 09 Heavy -> Sandoll GothicNeo1 09 Hv
+Sandoll 고딕Neo1유니코드 01 Th -> Sandoll GothicNeo1Unicode 01 Th
+Sandoll 고딕Neo1유니코드 02 Ul -> Sandoll GothicNeo1Unicode 02 Ul
+Sandoll 고딕Neo1유니코드 03 Lt -> Sandoll GothicNeo1Unicode 03 Lt
+Sandoll 고딕Neo1유니코드 04 Rg -> Sandoll GothicNeo1Unicode 04 Rg
+Sandoll 고딕Neo1유니코드 05 Md -> Sandoll GothicNeo1Unicode 05 Md
+Sandoll 고딕Neo1유니코드 06 Sb -> Sandoll GothicNeo1Unicode 06 Sb
+Sandoll 고딕Neo1유니코드 07 Bd -> Sandoll GothicNeo1Unicode 07 Bd
+Sandoll 고딕Neo1유니코드 08 Eb -> Sandoll GothicNeo1Unicode 08 Eb
+Sandoll 고딕Neo1유니코드 09 Hv -> Sandoll GothicNeo1Unicode 09 Hv
+Sandoll 고딕NeoRound 01 Th -> Sandoll GothicNeoRound 01 Th
+Sandoll 고딕NeoRound 02 Ul -> Sandoll GothicNeoRound 02 Ul
+Sandoll 고딕NeoRound 03 Lt -> Sandoll GothicNeoRound 03 Lt
+Sandoll 고딕NeoRound 04 Rg -> Sandoll GothicNeoRound 04 Rg
+Sandoll 고딕NeoRound 05 Md -> Sandoll GothicNeoRound 05 Md
+Sandoll 고딕NeoRound 06 Sb -> Sandoll GothicNeoRound 06 Sb
+Sandoll 고딕NeoRound 07 Bd -> Sandoll GothicNeoRound 07 Bd
+Sandoll 고딕NeoRound 08 Eb -> Sandoll GothicNeoRound 08 Eb
+Sandoll 고딕NeoRound 09 Hv -> Sandoll GothicNeoRound 09 Hv
+Sandoll 공병각타블렛 Light -> Sandoll GongbyunggakTab Lt
+Sandoll 공병각펜 01 Light -> Sandoll GongbyunggakPen 01 Lt
+Sandoll 공병각펜 02 Medium -> Sandoll GongbyunggakPen 02 Md
+Sandoll 공병각필 01 Medium -> Sandoll GongbyunggakPil 01 Md
+Sandoll 공병각필 02 Bold -> Sandoll GongbyunggakPil 02 Bd
+Sandoll 광수 01 Light -> Sandoll Kwangsoo 01 Light
+Sandoll 광수 02 Medium -> Sandoll Kwangsoo 02 Medium
+Sandoll 광수 03 Bold -> Sandoll Kwangsoo 03 Bold
+Sandoll 광야 -> Sandoll Kwangya
+Sandoll 국대떡볶이 01 Light -> Sandoll Kukdetopokki 01 Light
+Sandoll 국대떡볶이 02 Bold -> Sandoll Kukdetopokki 02 Bold
+Sandoll 그린티라떼 01 Light -> Sandoll GreenTeaLatte 01 Light
+Sandoll 그린티라떼 02 Medium -> Sandoll GreenTeaLatte 02 Medium
+Sandoll 그린티라떼 03 Bold -> Sandoll GreenTeaLatte 03 Bold
+Sandoll 늦봄 01 Light -> Sandoll LateSpring 01 Light
+Sandoll 늦봄 02 Medium -> Sandoll LateSpring 02 Medium
+Sandoll 늦봄 03 White -> Sandoll LateSpring 03 White
+Sandoll 늦봄 04 Black -> Sandoll LateSpring 04 Black
+Sandoll 다솔 01 Light -> Sandoll Dasol 01 Light
+Sandoll 다솔 02 Medium -> Sandoll Dasol 02 Medium
+Sandoll 다솔 03 Bold -> Sandoll Dasol 03 Bold
+Sandoll 다솔 04 Bold Cond -> Sandoll Dasol 04 Bold Cond
+Sandoll 달토끼여행 01 Light -> Sandoll Daltokki 01 Light
+Sandoll 달토끼여행 02 Medium -> Sandoll Daltokki 02 Medium
+Sandoll 달토끼여행 03 Bold -> Sandoll Daltokki 03 Bold
+Sandoll 맵씨 -> Sandoll Mapssi
+Sandoll 명조 01 Light -> Sandoll Myeongjo 01 Light
+Sandoll 명조 02 Medium -> Sandoll Myeongjo 02 Medium
+Sandoll 명조 03 Bold -> Sandoll Myeongjo 03 Bold
+Sandoll 명조Neo1 01 UltraLight -> Sandoll MyeongjoNeo1 01 Ul
+Sandoll 명조Neo1 02 Light -> Sandoll MyeongjoNeo1 02 Lt
+Sandoll 명조Neo1 03 Regular -> Sandoll MyeongjoNeo1 03 Rg
+Sandoll 명조Neo1 04 Medium -> Sandoll MyeongjoNeo1 04 Md
+Sandoll 명조Neo1 05 SemiBold -> Sandoll MyeongjoNeo1 05 Sb
+Sandoll 명조Neo1 06 Bold -> Sandoll MyeongjoNeo1 06 Bd
+Sandoll 명조Neo1 07 ExtraBold -> Sandoll MyeongjoNeo1 07 Eb
+Sandoll 백종열펜 01 Light -> Sandoll BaikzongyulPen 01 Lt
+Sandoll 백종열펜 02 Medium -> Sandoll BaikzongyulPen 02 Md
+Sandoll 백종열펜 03 Bold -> Sandoll BaikzongyulPen 03 Bd
+Sandoll 백종열필 Light -> Sandoll BaikzongyulPil Lt
+Sandoll 북 01 Light -> Sandoll Book 01 Light
+Sandoll 북 02 Medium -> Sandoll Book 02 Medium
+Sandoll 북 03 Bold -> Sandoll Book 03 Bold
+Sandoll 북 04 ExtraBold -> Sandoll Book 04 ExtraBold
+Sandoll 삼립호빵체 Basic -> Sandoll Samliphopangche Basic
+Sandoll 삼립호빵체 Outline -> Sandoll Samliphopangche Outline
+Sandoll 상아 01 Light -> Sandoll Sanga 01 Light
+Sandoll 상아 02 Medium -> Sandoll Sanga 02 Medium
+Sandoll 상아 03 Bold -> Sandoll Sanga 03 Bold
+Sandoll 석금호필 01 Light -> Sandoll SeokPil 01 Light
+Sandoll 석금호필 02 Medium -> Sandoll SeokPil 02 Medium
+Sandoll 석금호필 03 Bold -> Sandoll SeokPil 03 Bold
+Sandoll 설야 01 Ul -> Sandoll Seolya 01 Ul
+Sandoll 설야 02 Lt -> Sandoll Seolya 02 Lt
+Sandoll 설야 03 Rg -> Sandoll Seolya 03 Rg
+Sandoll 설야 04 Sb -> Sandoll Seolya 04 Sb
+Sandoll 설야 05 Bd -> Sandoll Seolya 05 Bd
+Sandoll 스마일리산스 01 Lt -> Sandoll Smiley Sans 01 Lt
+Sandoll 스마일리산스 02 Sb -> Sandoll Smiley Sans 02 Sb
+Sandoll 스마일리산스 03 Hv -> Sandoll Smiley Sans 03 Hv
+Sandoll 신문제비 01 Light -> Sandoll SinmunJebi 01 Light
+Sandoll 신문제비 02 Medium -> Sandoll SinmunJebi 02 Medium
+Sandoll 신문제비 03 Bold -> Sandoll SinmunJebi 03 Bold
+Sandoll 아람 01 Light -> Sandoll Aram 01 Light
+Sandoll 아람 02 Medium -> Sandoll Aram 02 Medium
+Sandoll 아람 03 Bold -> Sandoll Aram 03 Bold
+Sandoll 아람 04 ExtraBold -> Sandoll Aram 04 ExtraBold
+Sandoll 아람 05 ExtraBold Cond -> Sandoll Aram 05 ExtraBold Cond
+Sandoll 아침 01 Light -> Sandoll Achim 01 Light
+Sandoll 아침 02 Medium -> Sandoll Achim 02 Medium
+Sandoll 아침 03 Bold -> Sandoll Achim 03 Bold
+Sandoll 오동통 Basic -> Sandoll Odongtong Basic
+Sandoll 오동통 Bling -> Sandoll Odongtong Bling
+Sandoll 오동통 Fluffy -> Sandoll Odongtong Fluffy
+Sandoll 오동통 Holiday -> Sandoll Odongtong Holiday
+Sandoll 오동통 Journey -> Sandoll Odongtong Journey
+Sandoll 오동통 Life -> Sandoll Odongtong Life
+Sandoll 이야기 01 Light -> Sandoll Iyagi 01 Light
+Sandoll 이야기 02 Medium -> Sandoll Iyagi 02 Medium
+Sandoll 이야기 03 Bold -> Sandoll Iyagi 03 Bold
+Sandoll 이야기 04 ExtraBold -> Sandoll Iyagi 04 ExtraBold
+Sandoll 크랙 -> Sandoll Crack
+Sandoll 타이프라이트 01 Light -> Sandoll Typewrite 01 Light
+Sandoll 타이프라이트 02 Medium -> Sandoll Typewrite 02 Medium
+Sandoll 타이프라이트 03 Bold -> Sandoll Typewrite 03 Bold
+Sandoll 티비스켓 -> Sandoll Tviceket
+Sandoll 푸른밤 01 Light -> Sandoll BlueNight 01 Light
+Sandoll 푸른밤 02 Bold -> Sandoll BlueNight 02 Bold
+Sandoll 하이테크 0.3 -> Sandoll Hitec 0.3
+Sandoll 하이테크 0.7 -> Sandoll Hitec 0.7
+Sandoll 향기 01 Light -> Sandoll Hyangki 01 Light
+Sandoll 향기 02 Medium -> Sandoll Hyangki 02 Medium
+Sandoll 향기 03 Bold -> Sandoll Hyangki 03 Bold
+Sandoll 호요요2 01 Thin -> Sandoll Hoyoyo2 01 Thin
+Sandoll 호요요2 02 Light -> Sandoll Hoyoyo2 02 Light
+Sandoll 호요요2 03 Regular -> Sandoll Hoyoyo2 03 Regular
+Sandoll 호요요2 04 Bold -> Sandoll Hoyoyo2 04 Bold
+Sandoll 호요요2 05 Heavy -> Sandoll Hoyoyo2 05 Heavy
+가평물결 -> Gapyeong Wave
+강원교육모두 Bold -> GangwonEduAll Bold
+강원교육모두 Light -> GangwonEduAll Light
+강원교육새음 Medium -> GangwonEduSaeeum Medium
+강원교육튼튼 -> GangwonEduPower
+강원교육현옥샘 Medium -> GangwonEduHyeonokT Medium
+굴림 -> Gulim
+굴림체 -> GulimChe
+궁서 -> Gungsuh
+궁서체 -> GungsuhChe
+나눔고딕 -> NanumGothic
+나눔고딕 ExtraBold -> NanumGothicExtraBold
+나눔고딕 Light -> NanumGothic Light
+나눔명조 -> NanumMyeongjo
+나눔명조 ExtraBold -> NanumMyeongjoExtraBold
+나눔손글씨 강부장님체 -> Nanum GangBuJangNimCe
+나눔손글씨 아빠의 연애편지 -> Nanum ABbaEuiYeonAePyeonJi
+나눔손글씨 와일드 -> Nanum WaIrDeu
+나눔스퀘어 네오 OTF Bold -> NanumSquare Neo OTF Bold
+나눔스퀘어 네오 OTF ExtraBold -> NanumSquare Neo OTF ExtraBold
+나눔스퀘어 네오 OTF Heavy -> NanumSquare Neo OTF Heavy
+나눔스퀘어 네오 OTF Light -> NanumSquare Neo OTF Light
+나눔스퀘어 네오 OTF Regular -> NanumSquare Neo OTF Regular
+더잠실 OTF 1 Thin -> The Jamsil OTF 1 Thin
+더잠실 OTF 2 Light -> The Jamsil OTF 2 Light
+더잠실 OTF 3 Regular -> The Jamsil OTF 3 Regular
+더잠실 OTF 4 Medium -> The Jamsil OTF 4 Medium
+더잠실 OTF 5 Bold -> The Jamsil OTF 5 Bold
+더잠실 OTF 6 ExtraBold -> The Jamsil OTF 6 ExtraBold
+돋움 -> Dotum
+돋움체 -> DotumChe
+둥켈산스 Expanded -> Dunkelsans v0.7 Expanded
+레시피코리아OTF Medium -> RecipekoreaOTF Medium
+말싸미815 -> Malssami815
+맑은 고딕 -> Malgun Gothic
+맑은 고딕 Semilight -> Malgun Gothic Semilight
+메이플스토리 -> Maplestory
+메이플스토리 OTF -> Maplestory OTF
+바탕 -> Batang
+바탕체 -> BatangChe
+빙그레 따옴체 -> Binggrae Taom
+빙그레 메로나체 -> Binggrae Melona
+빙그레 싸만코체 -> Binggrae Samanco
+빙그레체 -> Binggrae
+빙그레체Ⅱ -> BinggraeⅡ
+빛의 계승자 Bold -> Heir of Light Bold
+빛의 계승자 Regular -> Heir of Light Regular
+서강체 -> SOGANG UNIVERSITY
+스스로넷 손글씨 -> SSRONET Handwritten
+신라문화체(B) -> Shilla_Culture(B)
+신라문화체(M) -> Shilla_Culture(M)
+엘리스 DX널리체 OTF  Light -> Elice DX Neolli OTF Light
+엘리스 DX널리체 OTF  Medium -> Elice DX Neolli OTF Medium
+엘리스 DX널리체 OTF Bold -> Elice DX Neolli OTF Bold
+여주도자체 -> YeojuCeramic
+영주선비체 -> YEONGJUSeonbi
+이사만루체 Bold -> esamanru Bold
+이사만루체 Light -> esamanru Light
+이사만루체 Medium -> esamanru Medium
+인천교육자람 -> iceJaram Regular
+인천마이스 OTF  Light -> IncheonMICE OTF Light
+인천마이스 OTF  Medium -> IncheonMICE OTF Medium
+인천마이스 OTF Bold -> IncheonMICE OTF Bold
+자이언츠 Bold -> Giants Bold
+자이언츠 Inline -> Giants Inline
+자이언츠 Regular -> Giants Regular
+제주명조 -> JejuMyeongjo
+제주명조OTF -> JejuMyeongjoOTF
+카페24 슈퍼매직 OTF -> Cafe24 Supermagic OTF
+카페24 슈퍼매직 OTF Bold -> Cafe24 Supermagic OTF Bold
+큐트신민상 -> Cute ShinMinsang
+태백은하수체 -> TAEBAEK milkyway
+페이퍼로지 1 Thin -> Paperlogy 1 Thin
+페이퍼로지 2 ExtraLight -> Paperlogy 2 ExtraLight
+페이퍼로지 3 Light -> Paperlogy 3 Light
+페이퍼로지 4 Regular -> Paperlogy 4 Regular
+페이퍼로지 5 Medium -> Paperlogy 5 Medium
+페이퍼로지 6 SemiBold -> Paperlogy 6 SemiBold
+페이퍼로지 7 Bold -> Paperlogy 7 Bold
+페이퍼로지 8 ExtraBold -> Paperlogy 8 ExtraBold
+페이퍼로지 9 Black -> Paperlogy 9 Black
+평창 평화체 Bold -> PyeongChang Peace Bold
+평창 평화체 Light -> PyeongChang Peace Light

@@ -38,15 +38,16 @@
     
     // Get all available fonts from the system
     function getSystemFonts() {
+        var fonts = [];
+        var fontList = [];
+        
         try {
-            var fonts = [];
-            var fontList = [];
             var usedFontCollection = false;
             
             // Method 0: Try to use app.fonts (AE 22.0+)
             // NOTE: app.fonts.allFonts is a 2D array: [fontFamily][fontStyle]
             try {
-                if (app.fonts && app.fonts.allFonts) {
+                if (app && app.fonts && app.fonts.allFonts) {
                     var allFonts = app.fonts.allFonts;
                     var familyCount = allFonts.length;
                     
@@ -76,6 +77,11 @@
                                     var fullName = fontItem.fullName || fontItem.nativeFullName || "";
                                     var psName = fontItem.postScriptName || "";
                                     
+                                    // Get native (localized) names - 네이티브 이름 추가
+                                    var nativeFamilyName = fontItem.nativeFamilyName || "";
+                                    var nativeStyleName = fontItem.nativeStyleName || "";
+                                    var nativeFullName = fontItem.nativeFullName || "";
+                                    
                                     // Get font file location (may be empty for some font types)
                                     var fontPath = "";
                                     try {
@@ -93,7 +99,11 @@
                                         style: styleName,
                                         postScriptName: psName,
                                         location: fontPath,
-                                        available: true
+                                        available: true,
+                                        // Native (localized) names for Korean/Japanese/Chinese fonts
+                                        nativeFamily: nativeFamilyName,
+                                        nativeStyle: nativeStyleName,
+                                        nativeFull: nativeFullName
                                     });
                                     
                                 } catch (propError) {
@@ -119,35 +129,42 @@
                 };
             }
             
-            // Method 1: Try to get fonts from text document
-            if (app.project && app.project.activeItem) {
-                var comp = app.project.activeItem;
-                if (comp instanceof CompItem) {
-                    try {
-                        // Create temporary text layer
-                        var tempLayer = comp.layers.addText("Temp");
-                        var textProp = tempLayer.property("ADBE Text Properties").property("ADBE Text Document");
-                        var textDoc = textProp.value;
-                        
-                        // Get font list
-                        if (textDoc.fontList && textDoc.fontList.length > 0) {
-                            fontList = textDoc.fontList;
-                        }
-                        
-                        // Remove temporary layer
-                        tempLayer.remove();
-                        
-                        log("Got " + fontList.length + " fonts from text document");
-                        
-                    } catch (e) {
-                        log("Error getting fonts from text document: " + e.toString());
-                        // Clean up if layer was created
-                        try {
-                            if (tempLayer) tempLayer.remove();
-                        } catch (cleanupError) {
-                            log("Cleanup error: " + cleanupError.toString());
+            // Method 1: Try to get fonts from text document (only if app.fonts failed)
+            if (!usedFontCollection) {
+                log("Trying text document method...");
+                try {
+                    if (app && app.project && app.project.activeItem) {
+                        var comp = app.project.activeItem;
+                        if (comp instanceof CompItem) {
+                            var tempLayer = null;
+                            try {
+                                // Create temporary text layer
+                                tempLayer = comp.layers.addText("Temp");
+                                var textProp = tempLayer.property("ADBE Text Properties").property("ADBE Text Document");
+                                var textDoc = textProp.value;
+                                
+                                // Get font list
+                                if (textDoc.fontList && textDoc.fontList.length > 0) {
+                                    fontList = textDoc.fontList;
+                                    log("Got " + fontList.length + " fonts from text document");
+                                }
+                                
+                            } catch (textErr) {
+                                log("Text document method failed: " + textErr.toString());
+                            } finally {
+                                // Always try to clean up temp layer
+                                try {
+                                    if (tempLayer) {
+                                        tempLayer.remove();
+                                    }
+                                } catch (cleanupError) {
+                                    log("Cleanup error: " + cleanupError.toString());
+                                }
+                            }
                         }
                     }
+                } catch (compError) {
+                    log("Composition access failed: " + compError.toString());
                 }
             }
             
@@ -190,12 +207,28 @@
             };
             
         } catch (error) {
-            log("Error in getSystemFonts: " + error.toString());
+            log("Critical error in getSystemFonts: " + error.toString());
+            // Even on critical error, return fallback fonts to prevent empty response
+            var fallbackFonts = [
+                "Arial", "Arial Black", "Times New Roman", "Courier New",
+                "Verdana", "Georgia", "Comic Sans MS", "Trebuchet MS",
+                "Malgun Gothic", "Gulim", "Batang", "Dotum"
+            ];
+            var fallbackList = [];
+            for (var i = 0; i < fallbackFonts.length; i++) {
+                fallbackList.push({
+                    name: fallbackFonts[i],
+                    family: fallbackFonts[i],
+                    style: "Regular",
+                    available: true
+                });
+            }
             return {
-                success: false,
-                error: error.toString(),
-                fonts: [],
-                count: 0
+                success: true,
+                fonts: fallbackList,
+                count: fallbackList.length,
+                source: "error-fallback",
+                error: error.toString()
             };
         }
     }

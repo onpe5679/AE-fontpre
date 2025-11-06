@@ -1,4 +1,0 @@
-Registry Font Scan Results
-================================================================================
-
-(Registry entries are merged into cache)

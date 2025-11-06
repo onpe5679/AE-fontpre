@@ -10,6 +10,8 @@
     let selectedFont = null;
     let selectedFontId = null;
     let isInitialized = false;
+    let initRetryCount = 0;
+    const MAX_INIT_RETRIES = 5;
     let toastContainer;
     let pythonProcess = null;
     let pythonClient = null;
@@ -787,7 +789,11 @@
             requiresPython: false,
             externalOnly: false,
             pythonLookup: displayName,
-            pythonKey: normalizeFontKey(displayName)
+            pythonKey: normalizeFontKey(displayName),
+            // Native (localized) names - 네이티브 이름
+            nativeFamily: font.nativeFamily || '',
+            nativeStyle: font.nativeStyle || '',
+            nativeFull: font.nativeFull || ''
         };
 
         addAlias(fontObj, displayName);
@@ -901,14 +907,20 @@
             } else {
                 classes.push('css-render');
             }
+            
+            // Show native name if it's different from English name
+            let nativeNameHtml = '';
+            if (font.nativeFamily && font.nativeFamily !== font.family) {
+                const nativeName = font.nativeFull || (font.nativeFamily + (font.nativeStyle ? ' ' + font.nativeStyle : ''));
+                nativeNameHtml = ` <span class="font-native-name" style="color:#999;font-size:0.9em;">(${escapeHtml(nativeName)})</span>`;
+            }
 
             return `
                 <div class="${classes.join(' ')}" data-font-uid="${encodedUid}"${pythonKeyAttr}>
-                    <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span></div>
-                    <div class="font-preview">
-                        <div class="font-preview-text" style="font-size:${fontSize}px;">${escapeHtml(previewText)}</div>
-                        <img class="font-preview-image" alt="${nameText} preview">
-                    </div>
+                    <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span>${nativeNameHtml}</div>
+                <div class="font-preview">
+                    <div class="font-preview-text" style="font-size:${fontSize}px;">${escapeHtml(previewText)}</div>
+                    <img class="font-preview-image" alt="${nameText} preview">
                 </div>
             `;
         }).join('');
@@ -988,6 +1000,11 @@
             if (font.aliases && typeof font.aliases.forEach === 'function') {
                 font.aliases.forEach(alias => targets.push(alias));
             }
+            // Add native names to search targets
+            if (font.nativeFamily) targets.push(font.nativeFamily);
+            if (font.nativeStyle) targets.push(font.nativeStyle);
+            if (font.nativeFull) targets.push(font.nativeFull);
+            
             for (let i = 0; i < targets.length; i++) {
                 const target = targets[i];
                 if (target && String(target).toLowerCase().indexOf(searchTerm) !== -1) {

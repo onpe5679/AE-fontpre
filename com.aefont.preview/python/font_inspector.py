@@ -14,35 +14,14 @@ import struct
 from ctypes import wintypes
 from typing import Dict, Iterable, Optional, Set
 
+from gdi_renderer import LOGFONTW, gdi32, user32
+
 # Constants
 LF_FACESIZE = 32
 FW_NORMAL = 400
 DEFAULT_CHARSET = 1
 GDI_ERROR = 0xFFFFFFFF
 NAME_TABLE_TAG = 0x656D616E  # 'name'
-
-# Lazy DLL handles
-gdi32 = ctypes.windll.gdi32  # type: ignore[attr-defined]
-user32 = ctypes.windll.user32  # type: ignore[attr-defined]
-
-
-class LOGFONTW(ctypes.Structure):
-    _fields_ = [
-        ("lfHeight", wintypes.LONG),
-        ("lfWidth", wintypes.LONG),
-        ("lfEscapement", wintypes.LONG),
-        ("lfOrientation", wintypes.LONG),
-        ("lfWeight", wintypes.LONG),
-        ("lfItalic", wintypes.BYTE),
-        ("lfUnderline", wintypes.BYTE),
-        ("lfStrikeOut", wintypes.BYTE),
-        ("lfCharSet", wintypes.BYTE),
-        ("lfOutPrecision", wintypes.BYTE),
-        ("lfClipPrecision", wintypes.BYTE),
-        ("lfQuality", wintypes.BYTE),
-        ("lfPitchAndFamily", wintypes.BYTE),
-        ("lfFaceName", wintypes.WCHAR * LF_FACESIZE),
-    ]
 
 
 LANG_MAP = {
@@ -81,6 +60,11 @@ def _read_name_table(face_name: str) -> Optional[bytes]:
         old_font = gdi32.SelectObject(hdc, hfont)
 
         size = gdi32.GetFontData(hdc, NAME_TABLE_TAG, 0, None, 0)
+        
+        # 음수 값 처리 (Python ctypes에서 음수로 반환될 수 있음)
+        if size < 0:
+            size = size & 0xFFFFFFFF
+        
         if size in (GDI_ERROR, 0) or size > 1_048_576:
             return None
 

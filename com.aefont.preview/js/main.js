@@ -9,6 +9,36 @@
 
     const i18n = window.AEFontI18n;
     const utils = window.AEFontUtils;
+    const errorBoundary = window.AEFontErrorBoundary;
+    const disablePythonSupport = (() => {
+        try {
+            return window.localStorage && window.localStorage.getItem('AEFP_DISABLE_PYTHON') === '1';
+        } catch (error) {
+            return false;
+        }
+    })();
+
+    function reportError(origin, error) {
+        if (errorBoundary && typeof errorBoundary.notify === 'function') {
+            errorBoundary.notify(origin, error);
+        } else if (error) {
+            console.error(`[${origin}]`, error);
+        } else {
+            console.error(`[${origin}] Unknown error`);
+        }
+    }
+
+    function decodeNativeValue(value) {
+        if (value === undefined || value === null) {
+            return '';
+        }
+        try {
+            return decodeURIComponent(value);
+        } catch (error) {
+            reportError('decodeNativeValue', error);
+            return String(value);
+        }
+    }
 
     // Global variables
     let csInterface;
@@ -41,11 +71,20 @@
         });
     }
     async function initializePythonSupport() {
+        console.log('[initializePythonSupport] Starting...');
+        if (disablePythonSupport) {
+            console.info('[AE Font Preview] Python helper disabled via AEFP_DISABLE_PYTHON flag.');
+            return false;
+        }
         if (!window.AEFontPythonBridge) {
+            console.log('[initializePythonSupport] AEFontPythonBridge not available, skipping.');
             return false;
         }
         try {
-            return await AEFontPythonBridge.init();
+            console.log('[initializePythonSupport] Calling AEFontPythonBridge.init()...');
+            const result = await AEFontPythonBridge.init();
+            console.log('[initializePythonSupport] Result:', result);
+            return result;
         } catch (error) {
             console.warn('[initializePythonSupport] Failed to initialize Python helper:', error);
             return false;
@@ -266,7 +305,7 @@
 
     // Initialize the application
     async function init() {
-        console.log('Initializing AE Font Preview...');
+        console.log(`[init] Starting initialization (attempt ${initRetryCount + 1})...`);
         toastContainer = document.getElementById('toast-container');
         fontListElement = document.getElementById('font-list');
         previewTextInput = document.getElementById('preview-text');
@@ -282,16 +321,38 @@
 
         window.addEventListener('beforeunload', () => {
             if (window.AEFontPythonBridge && typeof AEFontPythonBridge.stop === 'function') {
-                AEFontPythonBridge.stop();
+                try {
+                    AEFontPythonBridge.stop();
+                } catch (error) {
+                    console.warn('[init] Error stopping Python bridge:', error);
+                }
             }
         });
 
-        await initializePythonSupport();
+        console.log('[init] Initializing Python support...');
+        try {
+            await initializePythonSupport();
+            console.log('[init] Python support initialization completed');
+        } catch (error) {
+            console.error('[init] Python support initialization failed:', error);
+        }
 
+        console.log('[init] Initializing CSInterface...');
         if (!initCSInterface()) {
-            console.error('Failed to initialize CSInterface');
-            setTimeout(init, 1000);
-            return;
+            initRetryCount++;
+            console.error(`Failed to initialize CSInterface (attempt ${initRetryCount}/${MAX_INIT_RETRIES})`);
+            
+            if (initRetryCount < MAX_INIT_RETRIES) {
+                setTimeout(init, 1000);
+                return;
+            } else {
+                console.error('Maximum initialization retries reached. Stopping.');
+                updateStatus('status-error');
+                if (fontListElement) {
+                    fontListElement.innerHTML = '<div class="no-fonts" style="color:red;">CSInterface 초기화 실패. After Effects를 재시작해주세요.</div>';
+                }
+                return;
+            }
         }
 
         loadJSXScript();
@@ -437,11 +498,14 @@
 
         // Load fonts from After Effects
     async function loadFonts() {
+        console.log('[loadFonts] Starting font load...');
         updateStatus('status-loading');
         showLoading(true);
 
         try {
+            console.log('[loadFonts] Fetching AE fonts...');
             const aeFonts = await fetchAEFonts();
+            console.log(`[loadFonts] Fetched ${aeFonts.length} fonts`);
             availableFonts = aeFonts;
 
             if (window.AEFontPythonBridge && typeof AEFontPythonBridge.clearPreviewCache === 'function') {
@@ -584,10 +648,10 @@
             externalOnly: false,
             pythonLookup: displayName,
             pythonKey: utils.normalizeFontKey(displayName),
-            // Native (localized) names - 네이티브 이름
-            nativeFamily: font.nativeFamily || '',
-            nativeStyle: font.nativeStyle || '',
-            nativeFull: font.nativeFull || ''
+            // Native (localized) names - decode from hostscript transport encoding
+            nativeFamily: decodeNativeValue(font.nativeFamily),
+            nativeStyle: decodeNativeValue(font.nativeStyle),
+            nativeFull: decodeNativeValue(font.nativeFull)
         };
 
         utils.addAlias(fontObj, displayName);
@@ -641,9 +705,10 @@
             return `
                 <div class="${classes.join(' ')}" data-font-uid="${encodedUid}"${pythonKeyAttr}>
                     <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span>${nativeNameHtml}</div>
-                <div class="font-preview">
-                    <div class="font-preview-text" style="font-size:${fontSize}px;">${utils.escapeHtml(previewText)}</div>
-                    <img class="font-preview-image" alt="${nameText} preview">
+                    <div class="font-preview">
+                        <div class="font-preview-text" style="font-size:${fontSize}px;">${utils.escapeHtml(previewText)}</div>
+                        <img class="font-preview-image" alt="${nameText} preview">
+                    </div>
                 </div>
             `;
         }).join('');
@@ -779,77 +844,80 @@
             return;
         }
 
-        const text = previewTextInput ? previewTextInput.value : '';
-        const size = fontSizeInput ? parseInt(fontSizeInput.value, 10) || 24 : 24;
-        const listRect = fontListElement.getBoundingClientRect();
-
-        const requestPayload = [];
-        const requestBindings = new Map();
-
-        document.querySelectorAll('.font-item.python-render').forEach(item => {
-            const rect = item.getBoundingClientRect();
-            if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 80) {
-                return;
-            }
-            const font = fontByUid.get(item.dataset.fontUid);
-            if (!font) {
-                return;
-            }
-            const key = font.pythonKey || utils.normalizeFontKey(font.displayName);
-            if (!key) {
-                return;
-            }
-            const previewHost = item.querySelector('.font-preview');
-            const viewportWidth = previewHost ? Math.max(0, Math.floor(previewHost.clientWidth || previewHost.getBoundingClientRect().width || 0)) : 0;
-            font._pythonViewportWidth = viewportWidth;
-            const cacheKey = (window.AEFontPythonBridge && typeof AEFontPythonBridge.buildCacheKey === 'function')
-                ? AEFontPythonBridge.buildCacheKey(key, text, size, viewportWidth)
-                : `${key}::${(text || '').slice(0, 200)}::${size}::${viewportWidth}`;
-            font.currentPythonCacheKey = cacheKey;
-            const requestId = cacheKey;
-            if (!requestBindings.has(requestId)) {
-                requestBindings.set(requestId, []);
-                requestPayload.push({
-                    name: font.pythonLookup || font.displayName,
-                    postScriptName: font.postScriptName || null,
-                    style: font.style || null,
-                    width: viewportWidth,
-                    requestId,
-                    pythonKey: key
-                });
-            }
-            requestBindings.get(requestId).push(font);
-        });
-
-        if (requestPayload.length === 0) {
-            return;
-        }
-
-        pythonPreviewBusy = true;
         try {
-            const previews = await AEFontPythonBridge.fetchBatchPreviews(requestPayload, text, size);
-            (previews || []).forEach(preview => {
-                if (!preview || !preview.image) {
+            const text = previewTextInput ? previewTextInput.value : '';
+            const size = fontSizeInput ? parseInt(fontSizeInput.value, 10) || 24 : 24;
+            const listRect = fontListElement.getBoundingClientRect();
+
+            const requestPayload = [];
+            const requestBindings = new Map();
+
+            document.querySelectorAll('.font-item.python-render').forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 80) {
                     return;
                 }
-                const requestId = preview.requestId;
-                let boundFonts = requestId ? requestBindings.get(requestId) : null;
-                if ((!boundFonts || !boundFonts.length) && preview.fontName) {
-                    const norm = utils.normalizeFontKey(preview.fontName);
-                    boundFonts = fontsByPythonKey.get(norm) || [];
-                }
-                if (!boundFonts || !boundFonts.length) {
+                const font = fontByUid.get(item.dataset.fontUid);
+                if (!font) {
                     return;
                 }
-                boundFonts.forEach(font => {
-                    const width = font._pythonViewportWidth || 0;
-                    updatePythonPreviewDom(font, preview.image);
-                });
+                const key = font.pythonKey || utils.normalizeFontKey(font.displayName);
+                if (!key) {
+                    return;
+                }
+                const previewHost = item.querySelector('.font-preview');
+                const viewportWidth = previewHost ? Math.max(0, Math.floor(previewHost.clientWidth || previewHost.getBoundingClientRect().width || 0)) : 0;
+                font._pythonViewportWidth = viewportWidth;
+                const cacheKey = (window.AEFontPythonBridge && typeof AEFontPythonBridge.buildCacheKey === 'function')
+                    ? AEFontPythonBridge.buildCacheKey(key, text, size, viewportWidth)
+                    : `${key}::${(text || '').slice(0, 200)}::${size}::${viewportWidth}`;
+                font.currentPythonCacheKey = cacheKey;
+                const requestId = cacheKey;
+                if (!requestBindings.has(requestId)) {
+                    requestBindings.set(requestId, []);
+                    requestPayload.push({
+                        name: font.pythonLookup || font.displayName,
+                        postScriptName: font.postScriptName || null,
+                        style: font.style || null,
+                        width: viewportWidth,
+                        requestId,
+                        pythonKey: key
+                    });
+                }
+                requestBindings.get(requestId).push(font);
             });
+
+            if (requestPayload.length === 0) {
+                return;
+            }
+
+            pythonPreviewBusy = true;
+            try {
+                const previews = await AEFontPythonBridge.fetchBatchPreviews(requestPayload, text, size);
+                (previews || []).forEach(preview => {
+                    if (!preview || !preview.image) {
+                        return;
+                    }
+                    const requestId = preview.requestId;
+                    let boundFonts = requestId ? requestBindings.get(requestId) : null;
+                    if ((!boundFonts || !boundFonts.length) && preview.fontName) {
+                        const norm = utils.normalizeFontKey(preview.fontName);
+                        boundFonts = fontsByPythonKey.get(norm) || [];
+                    }
+                    if (!boundFonts || !boundFonts.length) {
+                        return;
+                    }
+                    boundFonts.forEach(font => {
+                        updatePythonPreviewDom(font, preview.image);
+                    });
+                });
+            } catch (error) {
+                reportError('updatePythonPreviews/fetch', error);
+            } finally {
+                pythonPreviewBusy = false;
+            }
         } catch (error) {
-            console.error('Python preview fetch failed:', error);
-        } finally {
-            pythonPreviewBusy = false;
+            reportError('updatePythonPreviews', error);
         }
     }
 

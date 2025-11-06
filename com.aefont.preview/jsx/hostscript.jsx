@@ -20,6 +20,23 @@
             }
         }
     }
+
+    function encodeForTransport(value) {
+        if (value === undefined || value === null) {
+            return "";
+        }
+        var result = value;
+        try {
+            result = value.toString();
+        } catch (toStringError) {
+            result = "";
+        }
+        try {
+            return encodeURIComponent(result);
+        } catch (encodeError) {
+            return "";
+        }
+    }
     
     // Helper: safely read property from ExtendScript objects
     function readProp(target, keys, fallbackValue) {
@@ -78,9 +95,9 @@
                                     var psName = fontItem.postScriptName || "";
                                     
                                     // Get native (localized) names - 네이티브 이름 추가
-                                    var nativeFamilyName = fontItem.nativeFamilyName || "";
-                                    var nativeStyleName = fontItem.nativeStyleName || "";
-                                    var nativeFullName = fontItem.nativeFullName || "";
+                                    var nativeFamilyName = encodeForTransport(fontItem.nativeFamilyName || "");
+                                    var nativeStyleName = encodeForTransport(fontItem.nativeStyleName || "");
+                                    var nativeFullName = encodeForTransport(fontItem.nativeFullName || "");
                                     
                                     // Get font file location (may be empty for some font types)
                                     var fontPath = "";
@@ -191,11 +208,15 @@
             
             // Create font objects
             for (var i = 0; i < fontList.length; i++) {
+                var fallbackName = fontList[i] || "";
                 fonts.push({
                     name: fontList[i],
                     family: fontList[i],
                     style: "Regular",
-                    available: true
+                    available: true,
+                    nativeFamily: encodeForTransport(fallbackName),
+                    nativeStyle: encodeForTransport("Regular"),
+                    nativeFull: encodeForTransport(fallbackName)
                 });
             }
             

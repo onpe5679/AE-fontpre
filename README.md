@@ -162,6 +162,18 @@ com.aefontpre.preview/
 2. **폰트 유효성**: 선택된 폰트가 시스템에 설치되어 있는지 확인
 3. **컴포지션 활성화**: 활성 컴포지션이 있는지 확인
 
+### Python 폰트 헬퍼가 반복적으로 재시작하거나 패널이 새로고침될 경우
+
+- `Ctrl+F12` (Windows) 또는 `Cmd+F12` (macOS)로 CEP 로그를 확인해 에러 메시지를 확인합니다.
+- 임시로 Python 헬퍼를 비활성화하려면 패널이 열린 상태에서 개발자 콘솔(또는 `Window > Extensions > Adobe Extension Debugger`)에 아래 명령을 실행하세요.
+
+```javascript
+localStorage.setItem('AEFP_DISABLE_PYTHON', '1');
+location.reload();
+```
+
+- 다시 활성화하려면 값을 `0`으로 바꾸거나 항목을 삭제하세요.
+
 ## 개발 정보
 
 ### 기술 스택

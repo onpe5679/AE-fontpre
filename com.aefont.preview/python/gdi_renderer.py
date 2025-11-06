@@ -10,7 +10,7 @@ import ctypes
 from ctypes import wintypes
 import io
 import base64
-from typing import Optional, Tuple
+from typing import Iterable, Optional, Set, Tuple
 
 try:
     from PIL import Image
@@ -89,6 +89,12 @@ class BITMAPINFO(ctypes.Structure):
     ]
 
 
+def normalize_face_name(name: str) -> str:
+    if not name:
+        return ''
+    return ''.join(ch.lower() for ch in str(name).strip() if ch.isalnum())
+
+
 # Setup GDI32 and User32 function signatures
 gdi32 = ctypes.windll.gdi32
 user32 = ctypes.windll.user32
@@ -152,7 +158,8 @@ class GDIRenderer:
         size: int,
         weight: int = FW_NORMAL,
         italic: int = 0,
-        target_width: int = 0
+        target_width: int = 0,
+        alias_names: Optional[Iterable[str]] = None
     ) -> Tuple[Optional[str], bool]:
         """
         GDI를 사용하여 텍스트를 렌더링합니다.
@@ -185,6 +192,13 @@ class GDIRenderer:
         old_font = old_bitmap = None
         
         try:
+            alias_norms: Set[str] = {normalize_face_name(face_name)}
+            if alias_names:
+                for alias in alias_names:
+                    norm_alias = normalize_face_name(alias)
+                    if norm_alias:
+                        alias_norms.add(norm_alias)
+
             # Create LOGFONT
             logfont = LOGFONTW()
             logfont.lfHeight = -abs(int(size))
@@ -209,21 +223,25 @@ class GDIRenderer:
             actual_face = ctypes.create_unicode_buffer(LF_FACESIZE)
             result = gdi32.GetTextFaceW(hdc, LF_FACESIZE, actual_face)
             
+            substitution_detected = False
+
             if result > 0:
                 actual_name = actual_face.value
-                # Normalize comparison (case-insensitive, strip whitespace)
-                expected_norm = face_name.lower().strip()
-                actual_norm = actual_name.lower().strip()
-                
-                if expected_norm != actual_norm:
+                actual_norm = normalize_face_name(actual_name)
+                if actual_norm not in alias_norms:
+                    substitution_detected = True
                     self.debug(
-                        f"Font substitution detected: "
-                        f"requested '{face_name}' but got '{actual_name}'"
+                        f"[GDI] Font substitution detected: requested '{face_name}' but got '{actual_name}'"
                     )
-                    return None, True  # Signal substitution occurred
-                
-                self.debug(f"✓ Font verified: '{actual_name}' (weight={weight}, italic={italic})")
-            
+                else:
+                    if actual_norm != normalize_face_name(face_name):
+                        self.debug(
+                            f"[GDI] Alias match: '{actual_name}' recognized as variant of '{face_name}'"
+                        )
+                    self.debug(f"[GDI] ✓ Font verified: '{actual_name}' (weight={weight}, italic={italic})")
+            else:
+                self.debug("[GDI] GetTextFaceW returned 0; proceeding without substitution check")
+
             # Measure text
             calc_rect = RECT(0, 0, target_width if target_width > 0 else 0, 0)
             calc_flags = DT_NOPREFIX | DT_CALCRECT

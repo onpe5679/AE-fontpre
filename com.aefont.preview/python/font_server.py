@@ -24,6 +24,8 @@ from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Dict, Iterable, List, Optional, Set
 from urllib.parse import parse_qs, urlparse, unquote
+from datetime import datetime
+from pathlib import Path
 
 from font_enumerator import FontEnumerator
 from font_inspector import get_all_name_variants, get_localized_family_names
@@ -92,6 +94,7 @@ class FontRegistry:
         self._records: List[FontMeta] = []
         self._by_key: Dict[str, FontMeta] = {}
         self._load()
+        self._write_debug_files()
 
     @property
     def fonts(self) -> List[FontMeta]:
@@ -162,6 +165,34 @@ class FontRegistry:
     def catalog(self) -> List[Dict[str, object]]:
         return [meta.to_payload() for meta in self._records]
 
+    def _write_debug_files(self) -> None:
+        try:
+            debug_dir = Path('font_debug')
+            debug_dir.mkdir(exist_ok=True)
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+
+            gdi_file = debug_dir / f'gdi_families_{timestamp}.txt'
+            with gdi_file.open('w', encoding='utf-8') as handle:
+                handle.write("EnumFontFamiliesExW Results\n")
+                handle.write(f"Count: {len(self._records)}\n")
+                handle.write("=" * 80 + "\n")
+                for idx, meta in enumerate(sorted(self._records, key=lambda m: m.primary_name.lower()), 1):
+                    handle.write(f"{idx:04d}. {meta.primary_name}\n")
+                    handle.write(f"      GDI Name: {meta.gdi_name}\n")
+                    if meta.aliases:
+                        sample = ', '.join(sorted(meta.aliases))[:500]
+                        handle.write(f"      Aliases: {sample}\n")
+                    if meta.language_names:
+                        sample_langs = ', '.join(f"{lang}:{name}" for lang, name in list(meta.language_names.items())[:4])
+                        handle.write(f"      Languages: {sample_langs}\n")
+                    handle.write("\n")
+
+            catalog_file = debug_dir / f'font_catalog_{timestamp}.json'
+            with catalog_file.open('w', encoding='utf-8') as handle:
+                json.dump(self.catalog(), handle, ensure_ascii=False, indent=2)
+        except Exception as exc:
+            LOG.warning("Failed to write font registry debug files: %s", exc)
+
 
 class PreviewService:
     def __init__(self, registry: FontRegistry) -> None:
@@ -207,6 +238,7 @@ class PreviewService:
             weight=weight,
             italic=int(bool(italic)),
             target_width=width,
+            alias_names=record.aliases,
         )
         if not image:
             return None
@@ -318,10 +350,16 @@ class FontServerHandler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:  # noqa: N802
         parsed = urlparse(self.path)
-        if parsed.path != "/batch-preview":
-            self.send_error(HTTPStatus.NOT_FOUND)
+        if parsed.path == "/batch-preview":
+            self._handle_batch_preview()
+            return
+        if parsed.path == "/debug/cep-fonts":
+            self._handle_cep_font_debug()
             return
 
+        self.send_error(HTTPStatus.NOT_FOUND)
+
+    def _handle_batch_preview(self):
         payload = self._parse_json_body()
         if not payload:
             self._send_json({"error": "Invalid JSON"}, HTTPStatus.BAD_REQUEST)
@@ -340,6 +378,30 @@ class FontServerHandler(BaseHTTPRequestHandler):
 
         previews = PREVIEW.render_batch(fonts, text, size)
         self._send_json({"previews": previews, "count": len(previews)})
+
+    def _handle_cep_font_debug(self):
+        payload = self._parse_json_body()
+        if not payload:
+            self._send_json({"error": "Invalid JSON"}, HTTPStatus.BAD_REQUEST)
+            return
+
+        fonts = payload.get("fonts")
+        label = payload.get("label") or "cep"
+        if not isinstance(fonts, list):
+            self._send_json({"error": "fonts must be a list"}, HTTPStatus.BAD_REQUEST)
+            return
+
+        try:
+            debug_dir = Path('font_debug')
+            debug_dir.mkdir(exist_ok=True)
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            target = debug_dir / f'cep_fonts_{timestamp}.json'
+            with target.open('w', encoding='utf-8') as handle:
+                json.dump({"label": label, "count": len(fonts), "fonts": fonts}, handle, ensure_ascii=False, indent=2)
+            self._send_json({"status": "ok", "saved": str(target)})
+        except Exception as exc:
+            LOG.warning("Failed to write CEP font debug file: %s", exc)
+            self._send_json({"error": "write-failed"}, HTTPStatus.INTERNAL_SERVER_ERROR)
 
 
 def run_server(port: int = DEFAULT_PORT) -> None:

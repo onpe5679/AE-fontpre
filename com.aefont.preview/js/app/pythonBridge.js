@@ -86,10 +86,11 @@
         return null;
     }
 
-    function buildCacheKey(fontKey, text, size, width) {
+    function buildCacheKey(fontKey, text, size, width, styleKey) {
         const base = fontKey || '';
+        const style = styleKey || '';
         const normalizedText = (text || '').slice(0, 200);
-        return `${base}::${normalizedText}::${size}::${width}`;
+        return `${base}::${style}::${normalizedText}::${size}::${width}`;
     }
 
     async function ensureClientReady(extensionPathOverride) {
@@ -185,13 +186,14 @@
         const pending = [];
         const payload = [];
 
-        fontRequests.forEach(request => {
-            if (!request) {
-                return;
-            }
-            const baseKey = request.pythonKey || normalize(request.name || request.postScriptName || request.family);
-            const widthValue = Number.isFinite(request.width) ? Math.max(0, Math.round(request.width)) : 0;
-            const cacheKey = buildCacheKey(baseKey, text, size, widthValue);
+            fontRequests.forEach(request => {
+                if (!request) {
+                    return;
+                }
+                const baseKey = request.pythonKey || normalize(request.name || request.postScriptName || request.family);
+                const widthValue = Number.isFinite(request.width) ? Math.max(0, Math.round(request.width)) : 0;
+                const styleMarker = request.style || request.postScriptName || request.name;
+                const cacheKey = buildCacheKey(baseKey, text, size, widthValue, styleMarker);
             if (previewCache.has(cacheKey)) {
                 const cachedResult = Object.assign({}, previewCache.get(cacheKey), {
                     requestId: request.requestId || `${baseKey}__${widthValue}`,

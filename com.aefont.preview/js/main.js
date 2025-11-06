@@ -40,6 +40,38 @@
         }
     }
 
+    function sendCepFontSnapshot(label, fonts) {
+        if (!window.AEFontPythonBridge || typeof fetch !== 'function') {
+            return;
+        }
+        if (!AEFontPythonBridge.isReady() || !Array.isArray(fonts) || fonts.length === 0) {
+            return;
+        }
+        try {
+            const payload = {
+                label,
+                fonts: fonts.map(font => ({
+                    displayName: font.displayName,
+                    family: font.family,
+                    style: font.style,
+                    postScriptName: font.postScriptName,
+                    nativeFamily: font.nativeFamily,
+                    nativeStyle: font.nativeStyle,
+                    nativeFull: font.nativeFull
+                }))
+            };
+            fetch('http://127.0.0.1:8765/debug/cep-fonts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(error => {
+                console.warn('[AE Font Preview] Failed to send CEP font snapshot:', error);
+            });
+        } catch (error) {
+            reportError('sendCepFontSnapshot', error);
+        }
+    }
+
     // Global variables
     let csInterface;
     let currentLanguage = i18n.getLanguage ? i18n.getLanguage() : 'ko';
@@ -59,6 +91,7 @@
     let previewTextInput;
     let fontSizeInput;
     let applyButton;
+    let cepFontSnapshotSent = false;
 
     if (typeof i18n.onChange === 'function') {
         i18n.onChange(lang => {
@@ -530,6 +563,11 @@
 
             availableFonts.sort((a, b) => a.displayName.localeCompare(b.displayName, currentLanguage));
 
+            if (!cepFontSnapshotSent && window.AEFontPythonBridge && AEFontPythonBridge.isReady()) {
+                sendCepFontSnapshot('ae-fonts', availableFonts);
+                cepFontSnapshotSent = true;
+            }
+
             fontByUid.clear();
             fontsByPythonKey.clear();
             availableFonts.forEach(font => {
@@ -541,6 +579,21 @@
                 const primaryKey = font.pythonKey || utils.normalizeFontKey(font.displayName);
                 if (primaryKey) {
                     keys.push(primaryKey);
+                }
+                // Add native (localized) names as candidate keys for Python mapping
+                if (font.nativeFamily) {
+                    const k = utils.normalizeFontKey(font.nativeFamily);
+                    if (k) keys.push(k);
+                }
+                if (font.nativeFull) {
+                    const k = utils.normalizeFontKey(font.nativeFull);
+                    if (k) keys.push(k);
+                }
+                if (font.nativeFamily && font.nativeStyle) {
+                    const k1 = utils.normalizeFontKey(font.nativeFamily + ' ' + font.nativeStyle);
+                    const k2 = utils.normalizeFontKey(font.nativeFamily + '-' + font.nativeStyle);
+                    if (k1) keys.push(k1);
+                    if (k2) keys.push(k2);
                 }
                 const uniqueKeys = new Set(keys.filter(Boolean));
                 uniqueKeys.forEach(key => {
@@ -868,9 +921,10 @@
                 const previewHost = item.querySelector('.font-preview');
                 const viewportWidth = previewHost ? Math.max(0, Math.floor(previewHost.clientWidth || previewHost.getBoundingClientRect().width || 0)) : 0;
                 font._pythonViewportWidth = viewportWidth;
+                const styleMarker = font.postScriptName || font.id || font.style || '';
                 const cacheKey = (window.AEFontPythonBridge && typeof AEFontPythonBridge.buildCacheKey === 'function')
-                    ? AEFontPythonBridge.buildCacheKey(key, text, size, viewportWidth)
-                    : `${key}::${(text || '').slice(0, 200)}::${size}::${viewportWidth}`;
+                    ? AEFontPythonBridge.buildCacheKey(key, text, size, viewportWidth, styleMarker)
+                    : `${key}::${styleMarker}::${(text || '').slice(0, 200)}::${size}::${viewportWidth}`;
                 font.currentPythonCacheKey = cacheKey;
                 const requestId = cacheKey;
                 if (!requestBindings.has(requestId)) {
@@ -903,6 +957,14 @@
                     if ((!boundFonts || !boundFonts.length) && preview.fontName) {
                         const norm = utils.normalizeFontKey(preview.fontName);
                         boundFonts = fontsByPythonKey.get(norm) || [];
+                    }
+                    if ((!boundFonts || !boundFonts.length) && preview.pythonKey) {
+                        const normKey = utils.normalizeFontKey(preview.pythonKey);
+                        boundFonts = fontsByPythonKey.get(normKey) || boundFonts;
+                    }
+                    if ((!boundFonts || !boundFonts.length) && preview.resolvedName) {
+                        const normResolved = utils.normalizeFontKey(preview.resolvedName);
+                        boundFonts = fontsByPythonKey.get(normResolved) || boundFonts;
                     }
                     if (!boundFonts || !boundFonts.length) {
                         return;

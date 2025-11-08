@@ -201,8 +201,12 @@
                 cached.push(cachedResult);
                 return;
             }
+            const aliasList = Array.isArray(request.aliases)
+                ? request.aliases.filter(value => typeof value === 'string' && value.trim().length)
+                : [];
             const payloadEntry = {
                 name: request.name,
+                aliases: aliasList,
                 postScriptName: request.postScriptName || request.postscript || null,
                 style: request.style || null,
                 width: widthValue,

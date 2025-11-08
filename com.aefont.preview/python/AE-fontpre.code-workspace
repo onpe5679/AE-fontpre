@@ -1,0 +1,11 @@
+{
+    "settings": {
+        "chatgpt.commentCodeLensEnabled": false,
+        "workbench.colorTheme": "Monokai Dimmed"
+    },
+    "folders": [
+        {
+            "path": "../.."
+        }
+    ]
+}

@@ -1,0 +1,1848 @@
+EnumFontFamiliesExW Results
+Count: 371
+================================================================================
+0001. 109Box_tape
+      GDI Name: 109Box_tape
+      Aliases: 109Box_tape
+      Languages: mac-0000:109Box_tape, en:109Box_tape
+
+0002. 210 Santorini B
+      GDI Name: 210 Santorini B
+      Aliases: 210 Santorini B, 210 산토리니 B
+      Languages: en:210 Santorini B, ko:210 산토리니 B
+
+0003. 210 Supersize Black
+      GDI Name: 210 Supersize Black
+      Aliases: 210 Supersize Black, 210 수퍼사이즈 Black
+      Languages: en:210 Supersize Black, ko:210 수퍼사이즈 Black
+
+0004. 210 Supersize Black 3D
+      GDI Name: 210 Supersize Black 3D
+      Aliases: 210 Supersize Black 3D, 210 수퍼사이즈 Black 3D
+      Languages: en:210 Supersize Black 3D, ko:210 수퍼사이즈 Black 3D
+
+0005. 210 Supersize Black 3D italic
+      GDI Name: 210 Supersize Black 3D italic
+      Aliases: 210 Supersize Black 3D italic, 210 수퍼사이즈 Black 3D italic
+      Languages: en:210 Supersize Black 3D italic, ko:210 수퍼사이즈 Black 3D italic
+
+0006. 210 Supersize Black BOX
+      GDI Name: 210 Supersize Black BOX
+      Aliases: 210 Supersize Black BOX, 210 수퍼사이즈 Black BOX
+      Languages: en:210 Supersize Black BOX, ko:210 수퍼사이즈 Black BOX
+
+0007. 210 Supersize Black BOX italic
+      GDI Name: 210 Supersize Black BOX italic
+      Aliases: 210 Supersize Black BOX italic, 210 수퍼사이즈 Black BOX italic
+      Languages: en:210 Supersize Black BOX italic, ko:210 수퍼사이즈 Black BOX italic
+
+0008. 210 Supersize Black italic
+      GDI Name: 210 Supersize Black italic
+      Aliases: 210 Supersize Black italic, 210 수퍼사이즈 Black italic
+      Languages: en:210 Supersize Black italic, ko:210 수퍼사이즈 Black italic
+
+0009. 210 Yeonnalligi B
+      GDI Name: 210 Yeonnalligi B
+      Aliases: 210 Yeonnalligi B, 210 연날리기 B
+      Languages: en:210 Yeonnalligi B, ko:210 연날리기 B
+
+0010. Abril Fatface
+      GDI Name: Abril Fatface
+      Aliases: Abril Fatface
+      Languages: mac-0000:Abril Fatface, en:Abril Fatface
+
+0011. Adobe Myungjo Std M
+      GDI Name: Adobe Myungjo Std M
+      Aliases: Adobe Myungjo Std M, Adobe ∏Ì¡∂ Std M, Adobe 명조 Std M
+      Languages: mac-0000:Adobe Myungjo Std M, mac-0017:Adobe ∏Ì¡∂ Std M, en:Adobe Myungjo Std M, ko:Adobe 명조 Std M
+
+0012. Amari_Font_58-100
+      GDI Name: Amari_Font_58-100
+      Aliases: Amari_Font_58-100
+      Languages: mac-0000:Amari_Font_58-100, en:Amari_Font_58-100
+
+0013. Amari_Font_64-100
+      GDI Name: Amari_Font_64-100
+      Aliases: Amari_Font_64-100
+      Languages: mac-0000:Amari_Font_64-100, en:Amari_Font_64-100
+
+0014. Amari_Font_65-100
+      GDI Name: Amari_Font_65-100
+      Aliases: Amari_Font_65-100
+      Languages: mac-0000:Amari_Font_65-100, en:Amari_Font_65-100
+
+0015. Amatic SC
+      GDI Name: Amatic SC
+      Aliases: Amatic SC
+      Languages: mac-0000:Amatic SC, en:Amatic SC
+
+0016. Antro Vectra
+      GDI Name: Antro Vectra
+      Aliases: Antro Vectra
+      Languages: mac-0000:Antro Vectra, en:Antro Vectra
+
+0017. AppliMincho
+      GDI Name: AppliMincho
+      Aliases: AppliMincho, ÉAÉvÉäñæí©, アプリ明朝
+      Languages: mac-0000:AppliMincho, mac-000b:ÉAÉvÉäñæí©, en:AppliMincho, ja:アプリ明朝
+
+0018. Arial
+      GDI Name: Arial
+      Aliases: Arial
+      Languages: mac-0000:Arial, en:Arial
+
+0019. Arial Black
+      GDI Name: Arial Black
+      Aliases: Arial Black
+      Languages: mac-0000:Arial Black, en:Arial Black
+
+0020. Bahnschrift
+      GDI Name: Bahnschrift
+      Aliases: Bahnschrift
+      Languages: mac-0000:Bahnschrift, en:Bahnschrift
+
+0021. Batang
+      GDI Name: Batang
+      Aliases: Batang, 바탕
+      Languages: mac-0000:Batang, en:Batang, ko:바탕
+
+0022. BatangChe
+      GDI Name: BatangChe
+      Aliases: BatangChe, 바탕체
+      Languages: mac-0000:BatangChe, en:BatangChe, ko:바탕체
+
+0023. Bebas Neue
+      GDI Name: Bebas Neue
+      Aliases: Bebas Neue
+      Languages: mac-0000:Bebas Neue, en:Bebas Neue
+
+0024. Bigilla
+      GDI Name: Bigilla
+      Aliases: Bigilla
+      Languages: mac-0000:Bigilla, en:Bigilla
+
+0025. Binggrae
+      GDI Name: Binggrae
+      Aliases: Binggrae, ∫˘±◊◊π√º, 빙그레체
+      Languages: mac-0000:Binggrae, mac-0017:∫˘±◊◊π√º, en:Binggrae, ko:빙그레체
+
+0026. Binggrae Melona
+      GDI Name: Binggrae Melona
+      Aliases: Binggrae Melona, ∫˘±◊∑π ∏ﬁ∑Œ≥™√º, 빙그레 메로나체
+      Languages: mac-0000:Binggrae Melona, mac-0017:∫˘±◊∑π ∏ﬁ∑Œ≥™√º, en:Binggrae Melona, ko:빙그레 메로나체
+
+0027. Binggrae Samanco
+      GDI Name: Binggrae Samanco
+      Aliases: Binggrae Samanco, ∫˘±◊∑π ΩŒ∏∏ƒ⁄√º, 빙그레 싸만코체
+      Languages: mac-0000:Binggrae Samanco, mac-0017:∫˘±◊∑π ΩŒ∏∏ƒ⁄√º, en:Binggrae Samanco, ko:빙그레 싸만코체
+
+0028. Binggrae Taom
+      GDI Name: Binggrae Taom
+      Aliases: Binggrae Taom, ∫˘±◊∑π µ˚ø»√º, 빙그레 따옴체
+      Languages: mac-0000:Binggrae Taom, mac-0017:∫˘±◊∑π µ˚ø»√º, en:Binggrae Taom, ko:빙그레 따옴체
+
+0029. BinggraeⅡ
+      GDI Name: BinggraeⅡ
+      Aliases: BinggraeⅡ, 빙그레체Ⅱ
+      Languages: en:BinggraeⅡ, ko:빙그레체Ⅱ
+
+0030. Black Han Sans
+      GDI Name: Black Han Sans
+      Aliases: Black Han Sans
+      Languages: en:Black Han Sans
+
+0031. Book Antiqua
+      GDI Name: Book Antiqua
+      Aliases: Book Antiqua
+      Languages: mac-0000:Book Antiqua, en:Book Antiqua
+
+0032. Cafe24 Supermagic OTF
+      GDI Name: Cafe24 Supermagic OTF
+      Aliases: Cafe24 Supermagic OTF, 카페24 슈퍼매직 OTF
+      Languages: en:Cafe24 Supermagic OTF, ko:카페24 슈퍼매직 OTF
+
+0033. Cafe24 Supermagic OTF Bold
+      GDI Name: Cafe24 Supermagic OTF Bold
+      Aliases: Cafe24 Supermagic OTF Bold, 카페24 슈퍼매직 OTF Bold
+      Languages: en:Cafe24 Supermagic OTF Bold, ko:카페24 슈퍼매직 OTF Bold
+
+0034. Calibri
+      GDI Name: Calibri
+      Aliases: Calibri
+      Languages: mac-0000:Calibri, en:Calibri
+
+0035. Calibri Light
+      GDI Name: Calibri Light
+      Aliases: Calibri Light
+      Languages: mac-0000:Calibri Light, en:Calibri Light
+
+0036. Cambria
+      GDI Name: Cambria
+      Aliases: Cambria
+      Languages: mac-0000:Cambria, en:Cambria
+
+0037. Cambria Math
+      GDI Name: Cambria Math
+      Aliases: Cambria Math
+      Languages: mac-0000:Cambria Math, en:Cambria Math
+
+0038. Candara
+      GDI Name: Candara
+      Aliases: Candara
+      Languages: mac-0000:Candara, en:Candara
+
+0039. Cascadia Code
+      GDI Name: Cascadia Code
+      Aliases: Cascadia Code
+      Languages: en:Cascadia Code
+
+0040. Cascadia Mono
+      GDI Name: Cascadia Mono
+      Aliases: Cascadia Mono
+      Languages: en:Cascadia Mono
+
+0041. Cinque Donne 
+      GDI Name: Cinque Donne 
+      Aliases: Cinque Donne, Cinque Donne 
+      Languages: mac-0000:Cinque Donne , en:Cinque Donne 
+
+0042. Comic Sans MS
+      GDI Name: Comic Sans MS
+      Aliases: Comic Sans MS
+      Languages: mac-0000:Comic Sans MS, en:Comic Sans MS
+
+0043. Consolas
+      GDI Name: Consolas
+      Aliases: Consolas
+      Languages: mac-0000:Consolas, en:Consolas
+
+0044. Constantia
+      GDI Name: Constantia
+      Aliases: Constantia
+      Languages: mac-0000:Constantia, en:Constantia
+
+0045. CookieRunOTF Black
+      GDI Name: CookieRunOTF Black
+      Aliases: CookieRunOTF, CookieRunOTF Black
+      Languages: mac-0000:CookieRunOTF, en:CookieRunOTF Black
+
+0046. Corbel
+      GDI Name: Corbel
+      Aliases: Corbel
+      Languages: mac-0000:Corbel, en:Corbel
+
+0047. Corbel Light
+      GDI Name: Corbel Light
+      Aliases: Corbel Light
+      Languages: mac-0000:Corbel Light, en:Corbel Light
+
+0048. Cormorant Garamond
+      GDI Name: Cormorant Garamond
+      Aliases: Cormorant Garamond
+      Languages: en:Cormorant Garamond
+
+0049. Cormorant Garamond Light
+      GDI Name: Cormorant Garamond Light
+      Aliases: Cormorant Garamond Light
+      Languages: en:Cormorant Garamond Light
+
+0050. Cormorant Garamond Medium
+      GDI Name: Cormorant Garamond Medium
+      Aliases: Cormorant Garamond Medium
+      Languages: en:Cormorant Garamond Medium
+
+0051. Cormorant Garamond SemiBold
+      GDI Name: Cormorant Garamond SemiBold
+      Aliases: Cormorant Garamond SemiBold
+      Languages: en:Cormorant Garamond SemiBold
+
+0052. Courier
+      GDI Name: Courier
+      Aliases: Courier
+
+0053. Courier New
+      GDI Name: Courier New
+      Aliases: Courier New
+      Languages: mac-0000:Courier New, en:Courier New
+
+0054. Cute ShinMinsang
+      GDI Name: Cute ShinMinsang
+      Aliases: Cute ShinMinsang, 큐트신민상
+      Languages: en:Cute ShinMinsang, ko:큐트신민상
+
+0055. Dashiell Bright
+      GDI Name: Dashiell Bright
+      Aliases: Dashiell Bright
+      Languages: mac-0000:Dashiell Bright, en:Dashiell Bright
+
+0056. Dotum
+      GDI Name: Dotum
+      Aliases: Dotum, 돋움
+      Languages: mac-0000:Dotum, en:Dotum, ko:돋움
+
+0057. DotumChe
+      GDI Name: DotumChe
+      Aliases: DotumChe, 돋움체
+      Languages: mac-0000:DotumChe, en:DotumChe, ko:돋움체
+
+0058. DSA pangpang
+      GDI Name: DSA pangpang
+      Aliases: DSA pangpang, DSA ∆Œ∆Œ, DSA 팡팡
+      Languages: mac-0000:DSA pangpang, mac-0017:DSA ∆Œ∆Œ, en:DSA pangpang, ko:DSA 팡팡
+
+0059. Dunkelsans v0.7 Expanded
+      GDI Name: Dunkelsans v0.7 Expanded
+      Aliases: Dunkelsans v0.7, Dunkelsans v0.7 Expanded, µ’ƒÃªÍΩ∫ Expanded, 둥켈산스 Expanded
+      Languages: mac-0000:Dunkelsans v0.7, mac-0017:µ’ƒÃªÍΩ∫ Expanded, en:Dunkelsans v0.7 Expanded, ko:둥켈산스 Expanded
+
+0060. EB Garamond
+      GDI Name: EB Garamond
+      Aliases: EB Garamond
+      Languages: en:EB Garamond
+
+0061. EB Garamond ExtraBold
+      GDI Name: EB Garamond ExtraBold
+      Aliases: EB Garamond ExtraBold
+      Languages: en:EB Garamond ExtraBold
+
+0062. EB Garamond Medium
+      GDI Name: EB Garamond Medium
+      Aliases: EB Garamond Medium
+      Languages: en:EB Garamond Medium
+
+0063. EB Garamond SemiBold
+      GDI Name: EB Garamond SemiBold
+      Aliases: EB Garamond SemiBold
+      Languages: en:EB Garamond SemiBold
+
+0064. Ebrima
+      GDI Name: Ebrima
+      Aliases: Ebrima
+      Languages: en:Ebrima
+
+0065. Elice DX Neolli OTF Light
+      GDI Name: Elice DX Neolli OTF Light
+      Aliases: Elice DX Neolli OTF, Elice DX Neolli OTF Light, ø§∏ÆΩ∫ DX≥Œ∏Æ√º OTF, 엘리스 DX널리체 OTF  Light
+      Languages: mac-0000:Elice DX Neolli OTF, mac-0017:ø§∏ÆΩ∫ DX≥Œ∏Æ√º OTF, en:Elice DX Neolli OTF Light, ko:엘리스 DX널리체 OTF  Light
+
+0066. esamanru Bold
+      GDI Name: esamanru Bold
+      Aliases: esamanru, esamanru Bold, ¿ÃªÁ∏∏∑Á√º, 이사만루체 Bold
+      Languages: mac-0000:esamanru, mac-0017:¿ÃªÁ∏∏∑Á√º, en:esamanru Bold, ko:이사만루체 Bold
+
+0067. Fixedsys
+      GDI Name: Fixedsys
+      Aliases: Fixedsys
+
+0068. FOT-TsukuAntiqueLGo Std B
+      GDI Name: FOT-TsukuAntiqueLGo Std B
+      Aliases: FOT-TsukuAntiqueLGo Std, FOT-TsukuAntiqueLGo Std B, FOT-í}éáÉAÉìÉeÉBÅ[ÉNLÉS Std, FOT-筑紫アンティークLゴ Std B
+      Languages: mac-0000:FOT-TsukuAntiqueLGo Std, mac-000b:FOT-í}éáÉAÉìÉeÉBÅ[ÉNLÉS Std, en:FOT-TsukuAntiqueLGo Std B, ja:FOT-筑紫アンティークLゴ Std B
+
+0069. Franklin Gothic Medium
+      GDI Name: Franklin Gothic Medium
+      Aliases: Franklin Gothic Medium
+      Languages: mac-0000:Franklin Gothic Medium, en:Franklin Gothic Medium
+
+0070. Gabriola
+      GDI Name: Gabriola
+      Aliases: Gabriola
+      Languages: mac-0000:Gabriola, en:Gabriola
+
+0071. Gadugi
+      GDI Name: Gadugi
+      Aliases: Gadugi
+      Languages: mac-0000:Gadugi, en:Gadugi
+
+0072. GangwonEduAll Bold
+      GDI Name: GangwonEduAll Bold
+      Aliases: GangwonEduAll Bold, 강원교육모두 Bold
+      Languages: en:GangwonEduAll Bold, ko:강원교육모두 Bold
+
+0073. GangwonEduAll Light
+      GDI Name: GangwonEduAll Light
+      Aliases: GangwonEduAll Light, 강원교육모두 Light
+      Languages: en:GangwonEduAll Light, ko:강원교육모두 Light
+
+0074. GangwonEduHyeonokT Medium
+      GDI Name: GangwonEduHyeonokT Medium
+      Aliases: GangwonEduHyeonokT Medium, 강원교육현옥샘 Medium
+      Languages: en:GangwonEduHyeonokT Medium, ko:강원교육현옥샘 Medium
+
+0075. GangwonEduPower
+      GDI Name: GangwonEduPower
+      Aliases: GangwonEduPower, 강원교육튼튼
+      Languages: en:GangwonEduPower, ko:강원교육튼튼
+
+0076. GangwonEduSaeeum Medium
+      GDI Name: GangwonEduSaeeum Medium
+      Aliases: GangwonEduSaeeum Medium, 강원교육새음 Medium
+      Languages: en:GangwonEduSaeeum Medium, ko:강원교육새음 Medium
+
+0077. Gapyeong Wave
+      GDI Name: Gapyeong Wave
+      Aliases: Gapyeong Wave, ∞°∆Úπ∞∞·, 가평물결
+      Languages: mac-0000:Gapyeong Wave, mac-0017:∞°∆Úπ∞∞·, en:Gapyeong Wave, ko:가평물결
+
+0078. Genkaimincho
+      GDI Name: Genkaimincho
+      Aliases: Genkaimincho, åπäEñæí©, 源界明朝
+      Languages: mac-0000:Genkaimincho, mac-000b:åπäEñæí©, en:Genkaimincho, ja:源界明朝
+
+0079. Georgia
+      GDI Name: Georgia
+      Aliases: Georgia
+      Languages: mac-0000:Georgia, en:Georgia
+
+0080. Giants Bold
+      GDI Name: Giants Bold
+      Aliases: Giants, Giants Bold, ¿⁄¿Ãæ√˜, 자이언츠 Bold
+      Languages: mac-0000:Giants, mac-0017:¿⁄¿Ãæ√˜, en:Giants Bold, ko:자이언츠 Bold
+
+0081. Gmarket Sans TTF Bold
+      GDI Name: Gmarket Sans TTF Bold
+      Aliases: Gmarket Sans TTF, Gmarket Sans TTF Bold, G∏∂ƒœ ªÍΩ∫ TTF, G마켓 산스 TTF Bold
+      Languages: mac-0000:Gmarket Sans TTF, mac-0017:G∏∂ƒœ ªÍΩ∫ TTF, en:Gmarket Sans TTF Bold, ko:G마켓 산스 TTF Bold
+
+0082. Gulim
+      GDI Name: Gulim
+      Aliases: Gulim, 굴림
+      Languages: mac-0000:Gulim, en:Gulim, ko:굴림
+
+0083. GulimChe
+      GDI Name: GulimChe
+      Aliases: GulimChe, 굴림체
+      Languages: mac-0000:GulimChe, en:GulimChe, ko:굴림체
+
+0084. Gungsuh
+      GDI Name: Gungsuh
+      Aliases: Gungsuh, 궁서
+      Languages: mac-0000:Gungsuh, en:Gungsuh, ko:궁서
+
+0085. GungsuhChe
+      GDI Name: GungsuhChe
+      Aliases: GungsuhChe, 궁서체
+      Languages: mac-0000:GungsuhChe, en:GungsuhChe, ko:궁서체
+
+0086. Heir of Light Bold
+      GDI Name: Heir of Light Bold
+      Aliases: Heir of Light, Heir of Light Bold, ∫˚¿« ∞ËΩ¬¿⁄, 빛의 계승자 Bold
+      Languages: mac-0000:Heir of Light, mac-0017:∫˚¿« ∞ËΩ¬¿⁄, en:Heir of Light Bold, ko:빛의 계승자 Bold
+
+0087. iceJaram Regular
+      GDI Name: iceJaram Regular
+      Aliases: iceJaram Regular, 인천교육자람
+      Languages: mac-0000:iceJaram Regular, en:iceJaram Regular, ko:인천교육자람
+
+0088. Impact
+      GDI Name: Impact
+      Aliases: Impact
+      Languages: mac-0000:Impact, en:Impact
+
+0089. IncheonMICE OTF Light
+      GDI Name: IncheonMICE OTF Light
+      Aliases: IncheonMICE OTF, IncheonMICE OTF Light, ¿Œ√µ∏∂¿ÃΩ∫ OTF, 인천마이스 OTF  Light
+      Languages: mac-0000:IncheonMICE OTF, mac-0017:¿Œ√µ∏∂¿ÃΩ∫ OTF, en:IncheonMICE OTF Light, ko:인천마이스 OTF  Light
+
+0090. Ink Free
+      GDI Name: Ink Free
+      Aliases: Ink Free
+      Languages: mac-0000:Ink Free, en:Ink Free
+
+0091. Isego
+      GDI Name: Isego
+      Aliases: Isego, àŸê¢ÉS, 異世ゴ
+      Languages: mac-0000:Isego, mac-000b:àŸê¢ÉS, en:Isego, ja:異世ゴ
+
+0092. Isemin
+      GDI Name: Isemin
+      Aliases: Isemin, àŸê¢ñæ, 異世明
+      Languages: mac-0000:Isemin, mac-000b:àŸê¢ñæ, en:Isemin, ja:異世明
+
+0093. Javanese Text
+      GDI Name: Javanese Text
+      Aliases: Javanese Text
+      Languages: mac-0000:Javanese Text, en:Javanese Text
+
+0094. JejuMyeongjo
+      GDI Name: JejuMyeongjo
+      Aliases: JejuMyeongjo, 제주명조
+      Languages: en:JejuMyeongjo, ko:제주명조
+
+0095. JejuMyeongjoOTF
+      GDI Name: JejuMyeongjoOTF
+      Aliases: JejuMyeongjoOTF, ¡¶¡÷∏Ì¡∂OTF, 제주명조OTF
+      Languages: mac-0000:JejuMyeongjoOTF, mac-0017:¡¶¡÷∏Ì¡∂OTF, en:JejuMyeongjoOTF, ko:제주명조OTF
+
+0096. KCC-Ganpan
+      GDI Name: KCC-Ganpan
+      Aliases: KCC-Ganpan, KCC-∞£∆«√º, KCC-간판체
+      Languages: mac-0000:KCC-Ganpan, mac-0017:KCC-∞£∆«√º, en:KCC-Ganpan, ko:KCC-간판체
+
+0097. KCC-Sonkeechung
+      GDI Name: KCC-Sonkeechung
+      Aliases: KCC-Sonkeechung, KCC-º’±‚¡§√º, KCC-손기정체
+      Languages: mac-0000:KCC-Sonkeechung, mac-0017:KCC-º’±‚¡§√º, en:KCC-Sonkeechung, ko:KCC-손기정체
+
+0098. Kim jung chul Myungjo Bold
+      GDI Name: Kim jung chul Myungjo Bold
+      Aliases: Kim jung chul Myungjo, Kim jung chul Myungjo Bold
+      Languages: mac-0000:Kim jung chul Myungjo, mac-0017:Kim jung chul Myungjo, en:Kim jung chul Myungjo Bold, ko:Kim jung chul Myungjo Bold
+
+0099. Kim jung chul Script Bold
+      GDI Name: Kim jung chul Script Bold
+      Aliases: Kim jung chul Script, Kim jung chul Script Bold
+      Languages: mac-0000:Kim jung chul Script, mac-0017:Kim jung chul Script, en:Kim jung chul Script Bold, ko:Kim jung chul Script Bold
+
+0100. Kinuta Shin Enpitsu Italic StdN 2B
+      GDI Name: Kinuta Shin Enpitsu Italic StdN 2B
+      Aliases: Kinuta Shin Enpitsu Italic StdN, Kinuta Shin Enpitsu Italic StdN 2B, ãm êcÅEâîïM Italic StdN 2B, 砧 芯・鉛筆 Italic StdN 2B
+      Languages: mac-0000:Kinuta Shin Enpitsu Italic StdN 2B, mac-000b:ãm êcÅEâîïM Italic StdN 2B, en:Kinuta Shin Enpitsu Italic StdN 2B, ja:砧 芯・鉛筆 Italic StdN 2B
+
+0101. Kiwi Maru Light
+      GDI Name: Kiwi Maru Light
+      Aliases: Kiwi Maru Light
+      Languages: en:Kiwi Maru Light
+
+0102. KOHIBaeum
+      GDI Name: KOHIBaeum
+      Aliases: KOHIBaeum, KOHIπËøÚ, KOHI배움
+      Languages: mac-0000:KOHIBaeum, mac-0017:KOHIπËøÚ, en:KOHIBaeum, ko:KOHI배움
+
+0103. Kozuka Gothic Pr6N R
+      GDI Name: Kozuka Gothic Pr6N R
+      Aliases: Kozuka Gothic Pr6N R, è¨íÀÉSÉVÉbÉN Pr6N R, 小塚ゴシック Pr6N R
+      Languages: mac-0000:Kozuka Gothic Pr6N R, mac-000b:è¨íÀÉSÉVÉbÉN Pr6N R, en:Kozuka Gothic Pr6N R, ja:小塚ゴシック Pr6N R
+
+0104. Lato Thin
+      GDI Name: Lato Thin
+      Aliases: Lato, Lato Thin
+      Languages: mac-0000:Lato, en:Lato Thin
+
+0105. Leelawadee UI
+      GDI Name: Leelawadee UI
+      Aliases: Leelawadee UI
+      Languages: en:Leelawadee UI
+
+0106. Leelawadee UI Semilight
+      GDI Name: Leelawadee UI Semilight
+      Aliases: Leelawadee UI Semilight
+      Languages: en:Leelawadee UI Semilight
+
+0107. LINE Seed JP_OTF Bold
+      GDI Name: LINE Seed JP_OTF Bold
+      Aliases: LINE Seed JP_OTF, LINE Seed JP_OTF Bold
+      Languages: mac-0000:LINE Seed JP_OTF, mac-000b:LINE Seed JP_OTF Bold, en:LINE Seed JP_OTF Bold, ja:LINE Seed JP_OTF Bold
+
+0108. Lucida Console
+      GDI Name: Lucida Console
+      Aliases: Lucida Console
+      Languages: mac-0000:Lucida Console, en:Lucida Console
+
+0109. Lucida Sans Unicode
+      GDI Name: Lucida Sans Unicode
+      Aliases: Lucida Sans Unicode
+      Languages: mac-0000:Lucida Sans Unicode, en:Lucida Sans Unicode
+
+0110. M+A1 black 10/1.2
+      GDI Name: M+A1 black 10/1.2
+      Aliases: M+A1 black 10/1.2
+      Languages: en:M+A1 black 10/1.2
+
+0111. M+A1 black 10/2.0
+      GDI Name: M+A1 black 10/2.0
+      Aliases: M+A1 black 10/2.0
+      Languages: en:M+A1 black 10/2.0
+
+0112. M+A1 black 18/1.2
+      GDI Name: M+A1 black 18/1.2
+      Aliases: M+A1 black 18/1.2
+      Languages: en:M+A1 black 18/1.2
+
+0113. M+A1 black 18/2.0
+      GDI Name: M+A1 black 18/2.0
+      Aliases: M+A1 black 18/2.0
+      Languages: en:M+A1 black 18/2.0
+
+0114. M+A1 black 24/1.2
+      GDI Name: M+A1 black 24/1.2
+      Aliases: M+A1 black 24/1.2
+      Languages: en:M+A1 black 24/1.2
+
+0115. M+A1 black 24/2.0
+      GDI Name: M+A1 black 24/2.0
+      Aliases: M+A1 black 24/2.0
+      Languages: en:M+A1 black 24/2.0
+
+0116. M+A1 black 30/1.2
+      GDI Name: M+A1 black 30/1.2
+      Aliases: M+A1 black 30/1.2
+      Languages: en:M+A1 black 30/1.2
+
+0117. M+A1 black 30/2.0
+      GDI Name: M+A1 black 30/2.0
+      Aliases: M+A1 black 30/2.0
+      Languages: en:M+A1 black 30/2.0
+
+0118. M+A1 black 35/1.2
+      GDI Name: M+A1 black 35/1.2
+      Aliases: M+A1 black 35/1.2
+      Languages: en:M+A1 black 35/1.2
+
+0119. M+A1 black 35/2.0
+      GDI Name: M+A1 black 35/2.0
+      Aliases: M+A1 black 35/2.0
+      Languages: en:M+A1 black 35/2.0
+
+0120. M+A1 black 42/1.2
+      GDI Name: M+A1 black 42/1.2
+      Aliases: M+A1 black 42/1.2
+      Languages: en:M+A1 black 42/1.2
+
+0121. M+A1 black 42/2.0
+      GDI Name: M+A1 black 42/2.0
+      Aliases: M+A1 black 42/2.0
+      Languages: en:M+A1 black 42/2.0
+
+0122. M+A1 black 50/1.2
+      GDI Name: M+A1 black 50/1.2
+      Aliases: M+A1 black 50/1.2
+      Languages: en:M+A1 black 50/1.2
+
+0123. M+A1 black 50/2.0
+      GDI Name: M+A1 black 50/2.0
+      Aliases: M+A1 black 50/2.0
+      Languages: en:M+A1 black 50/2.0
+
+0124. M+A1 black 58/1.2
+      GDI Name: M+A1 black 58/1.2
+      Aliases: M+A1 black 58/1.2
+      Languages: en:M+A1 black 58/1.2
+
+0125. M+A1 black 58/2.0
+      GDI Name: M+A1 black 58/2.0
+      Aliases: M+A1 black 58/2.0
+      Languages: en:M+A1 black 58/2.0
+
+0126. M+A1 bold 10/1.2
+      GDI Name: M+A1 bold 10/1.2
+      Aliases: M+A1 bold 10/1.2
+      Languages: en:M+A1 bold 10/1.2
+
+0127. M+A1 bold 10/2.0
+      GDI Name: M+A1 bold 10/2.0
+      Aliases: M+A1 bold 10/2.0
+      Languages: en:M+A1 bold 10/2.0
+
+0128. M+A1 bold 18/1.2
+      GDI Name: M+A1 bold 18/1.2
+      Aliases: M+A1 bold 18/1.2
+      Languages: en:M+A1 bold 18/1.2
+
+0129. M+A1 bold 18/2.0
+      GDI Name: M+A1 bold 18/2.0
+      Aliases: M+A1 bold 18/2.0
+      Languages: en:M+A1 bold 18/2.0
+
+0130. M+A1 bold 24/1.2
+      GDI Name: M+A1 bold 24/1.2
+      Aliases: M+A1 bold 24/1.2
+      Languages: en:M+A1 bold 24/1.2
+
+0131. M+A1 bold 24/2.0
+      GDI Name: M+A1 bold 24/2.0
+      Aliases: M+A1 bold 24/2.0
+      Languages: en:M+A1 bold 24/2.0
+
+0132. M+A1 bold 30/1.2
+      GDI Name: M+A1 bold 30/1.2
+      Aliases: M+A1 bold 30/1.2
+      Languages: en:M+A1 bold 30/1.2
+
+0133. M+A1 bold 30/2.0
+      GDI Name: M+A1 bold 30/2.0
+      Aliases: M+A1 bold 30/2.0
+      Languages: en:M+A1 bold 30/2.0
+
+0134. M+A1 bold 35/1.2
+      GDI Name: M+A1 bold 35/1.2
+      Aliases: M+A1 bold 35/1.2
+      Languages: en:M+A1 bold 35/1.2
+
+0135. M+A1 bold 35/2.0
+      GDI Name: M+A1 bold 35/2.0
+      Aliases: M+A1 bold 35/2.0
+      Languages: en:M+A1 bold 35/2.0
+
+0136. M+A1 bold 42/1.2
+      GDI Name: M+A1 bold 42/1.2
+      Aliases: M+A1 bold 42/1.2
+      Languages: en:M+A1 bold 42/1.2
+
+0137. M+A1 bold 42/2.0
+      GDI Name: M+A1 bold 42/2.0
+      Aliases: M+A1 bold 42/2.0
+      Languages: en:M+A1 bold 42/2.0
+
+0138. M+A1 bold 50/1.2
+      GDI Name: M+A1 bold 50/1.2
+      Aliases: M+A1 bold 50/1.2
+      Languages: en:M+A1 bold 50/1.2
+
+0139. M+A1 bold 50/2.0
+      GDI Name: M+A1 bold 50/2.0
+      Aliases: M+A1 bold 50/2.0
+      Languages: en:M+A1 bold 50/2.0
+
+0140. M+A1 heavy 10/1.2
+      GDI Name: M+A1 heavy 10/1.2
+      Aliases: M+A1 heavy 10/1.2
+      Languages: en:M+A1 heavy 10/1.2
+
+0141. M+A1 heavy 10/2.0
+      GDI Name: M+A1 heavy 10/2.0
+      Aliases: M+A1 heavy 10/2.0
+      Languages: en:M+A1 heavy 10/2.0
+
+0142. M+A1 heavy 18/1.2
+      GDI Name: M+A1 heavy 18/1.2
+      Aliases: M+A1 heavy 18/1.2
+      Languages: en:M+A1 heavy 18/1.2
+
+0143. M+A1 heavy 18/2.0
+      GDI Name: M+A1 heavy 18/2.0
+      Aliases: M+A1 heavy 18/2.0
+      Languages: en:M+A1 heavy 18/2.0
+
+0144. M+A1 heavy 24/1.2
+      GDI Name: M+A1 heavy 24/1.2
+      Aliases: M+A1 heavy 24/1.2
+      Languages: en:M+A1 heavy 24/1.2
+
+0145. M+A1 heavy 24/2.0
+      GDI Name: M+A1 heavy 24/2.0
+      Aliases: M+A1 heavy 24/2.0
+      Languages: en:M+A1 heavy 24/2.0
+
+0146. M+A1 heavy 30/1.2
+      GDI Name: M+A1 heavy 30/1.2
+      Aliases: M+A1 heavy 30/1.2
+      Languages: en:M+A1 heavy 30/1.2
+
+0147. M+A1 heavy 30/2.0
+      GDI Name: M+A1 heavy 30/2.0
+      Aliases: M+A1 heavy 30/2.0
+      Languages: en:M+A1 heavy 30/2.0
+
+0148. M+A1 heavy 35/1.2
+      GDI Name: M+A1 heavy 35/1.2
+      Aliases: M+A1 heavy 35/1.2
+      Languages: en:M+A1 heavy 35/1.2
+
+0149. M+A1 heavy 35/2.0
+      GDI Name: M+A1 heavy 35/2.0
+      Aliases: M+A1 heavy 35/2.0
+      Languages: en:M+A1 heavy 35/2.0
+
+0150. M+A1 heavy 42/1.2
+      GDI Name: M+A1 heavy 42/1.2
+      Aliases: M+A1 heavy 42/1.2
+      Languages: en:M+A1 heavy 42/1.2
+
+0151. M+A1 heavy 42/2.0
+      GDI Name: M+A1 heavy 42/2.0
+      Aliases: M+A1 heavy 42/2.0
+      Languages: en:M+A1 heavy 42/2.0
+
+0152. M+A1 heavy 50/1.2
+      GDI Name: M+A1 heavy 50/1.2
+      Aliases: M+A1 heavy 50/1.2
+      Languages: en:M+A1 heavy 50/1.2
+
+0153. M+A1 heavy 50/2.0
+      GDI Name: M+A1 heavy 50/2.0
+      Aliases: M+A1 heavy 50/2.0
+      Languages: en:M+A1 heavy 50/2.0
+
+0154. M+A1 heavy 58/1.2
+      GDI Name: M+A1 heavy 58/1.2
+      Aliases: M+A1 heavy 58/1.2
+      Languages: en:M+A1 heavy 58/1.2
+
+0155. M+A1 heavy 58/2.0
+      GDI Name: M+A1 heavy 58/2.0
+      Aliases: M+A1 heavy 58/2.0
+      Languages: en:M+A1 heavy 58/2.0
+
+0156. M+A1 light 10/1.2
+      GDI Name: M+A1 light 10/1.2
+      Aliases: M+A1 light 10/1.2
+      Languages: en:M+A1 light 10/1.2
+
+0157. M+A1 light 10/2.0
+      GDI Name: M+A1 light 10/2.0
+      Aliases: M+A1 light 10/2.0
+      Languages: en:M+A1 light 10/2.0
+
+0158. M+A1 light 18/1.2
+      GDI Name: M+A1 light 18/1.2
+      Aliases: M+A1 light 18/1.2
+      Languages: en:M+A1 light 18/1.2
+
+0159. M+A1 light 18/2.0
+      GDI Name: M+A1 light 18/2.0
+      Aliases: M+A1 light 18/2.0
+      Languages: en:M+A1 light 18/2.0
+
+0160. M+A1 light 24/1.2
+      GDI Name: M+A1 light 24/1.2
+      Aliases: M+A1 light 24/1.2
+      Languages: en:M+A1 light 24/1.2
+
+0161. M+A1 light 24/2.0
+      GDI Name: M+A1 light 24/2.0
+      Aliases: M+A1 light 24/2.0
+      Languages: en:M+A1 light 24/2.0
+
+0162. M+A1 medium 10/1.2
+      GDI Name: M+A1 medium 10/1.2
+      Aliases: M+A1 medium 10/1.2
+      Languages: en:M+A1 medium 10/1.2
+
+0163. M+A1 medium 10/2.0
+      GDI Name: M+A1 medium 10/2.0
+      Aliases: M+A1 medium 10/2.0
+      Languages: en:M+A1 medium 10/2.0
+
+0164. M+A1 medium 18/1.2
+      GDI Name: M+A1 medium 18/1.2
+      Aliases: M+A1 medium 18/1.2
+      Languages: en:M+A1 medium 18/1.2
+
+0165. M+A1 medium 18/2.0
+      GDI Name: M+A1 medium 18/2.0
+      Aliases: M+A1 medium 18/2.0
+      Languages: en:M+A1 medium 18/2.0
+
+0166. M+A1 medium 24/1.2
+      GDI Name: M+A1 medium 24/1.2
+      Aliases: M+A1 medium 24/1.2
+      Languages: en:M+A1 medium 24/1.2
+
+0167. M+A1 medium 24/2.0
+      GDI Name: M+A1 medium 24/2.0
+      Aliases: M+A1 medium 24/2.0
+      Languages: en:M+A1 medium 24/2.0
+
+0168. M+A1 medium 30/1.2
+      GDI Name: M+A1 medium 30/1.2
+      Aliases: M+A1 medium 30/1.2
+      Languages: en:M+A1 medium 30/1.2
+
+0169. M+A1 medium 30/2.0
+      GDI Name: M+A1 medium 30/2.0
+      Aliases: M+A1 medium 30/2.0
+      Languages: en:M+A1 medium 30/2.0
+
+0170. M+A1 medium 35/1.2
+      GDI Name: M+A1 medium 35/1.2
+      Aliases: M+A1 medium 35/1.2
+      Languages: en:M+A1 medium 35/1.2
+
+0171. M+A1 medium 35/2.0
+      GDI Name: M+A1 medium 35/2.0
+      Aliases: M+A1 medium 35/2.0
+      Languages: en:M+A1 medium 35/2.0
+
+0172. M+A1 medium 42/1.2
+      GDI Name: M+A1 medium 42/1.2
+      Aliases: M+A1 medium 42/1.2
+      Languages: en:M+A1 medium 42/1.2
+
+0173. M+A1 medium 42/2.0
+      GDI Name: M+A1 medium 42/2.0
+      Aliases: M+A1 medium 42/2.0
+      Languages: en:M+A1 medium 42/2.0
+
+0174. M+A1 regular 10/1.2
+      GDI Name: M+A1 regular 10/1.2
+      Aliases: M+A1 regular 10/1.2
+      Languages: en:M+A1 regular 10/1.2
+
+0175. M+A1 regular 10/2.0
+      GDI Name: M+A1 regular 10/2.0
+      Aliases: M+A1 regular 10/2.0
+      Languages: en:M+A1 regular 10/2.0
+
+0176. M+A1 regular 18/1.2
+      GDI Name: M+A1 regular 18/1.2
+      Aliases: M+A1 regular 18/1.2
+      Languages: en:M+A1 regular 18/1.2
+
+0177. M+A1 regular 18/2.0
+      GDI Name: M+A1 regular 18/2.0
+      Aliases: M+A1 regular 18/2.0
+      Languages: en:M+A1 regular 18/2.0
+
+0178. M+A1 regular 24/1.2
+      GDI Name: M+A1 regular 24/1.2
+      Aliases: M+A1 regular 24/1.2
+      Languages: en:M+A1 regular 24/1.2
+
+0179. M+A1 regular 24/2.0
+      GDI Name: M+A1 regular 24/2.0
+      Aliases: M+A1 regular 24/2.0
+      Languages: en:M+A1 regular 24/2.0
+
+0180. M+A1 regular 30/1.2
+      GDI Name: M+A1 regular 30/1.2
+      Aliases: M+A1 regular 30/1.2
+      Languages: en:M+A1 regular 30/1.2
+
+0181. M+A1 regular 30/2.0
+      GDI Name: M+A1 regular 30/2.0
+      Aliases: M+A1 regular 30/2.0
+      Languages: en:M+A1 regular 30/2.0
+
+0182. M+A1 regular 35/1.2
+      GDI Name: M+A1 regular 35/1.2
+      Aliases: M+A1 regular 35/1.2
+      Languages: en:M+A1 regular 35/1.2
+
+0183. M+A1 regular 35/2.0
+      GDI Name: M+A1 regular 35/2.0
+      Aliases: M+A1 regular 35/2.0
+      Languages: en:M+A1 regular 35/2.0
+
+0184. MaboroshinoNijimiMincho
+      GDI Name: MaboroshinoNijimiMincho
+      Aliases: MaboroshinoNijimiMincho, å∂ÉmÇ…Ç∂Ç›ñæí©, 幻ノにじみ明朝
+      Languages: mac-0000:MaboroshinoNijimiMincho, mac-000b:å∂ÉmÇ…Ç∂Ç›ñæí©, en:MaboroshinoNijimiMincho, ja:幻ノにじみ明朝
+
+0185. Malgun Gothic
+      GDI Name: Malgun Gothic
+      Aliases: Malgun Gothic, 맑은 고딕
+      Languages: mac-0000:Malgun Gothic, en:Malgun Gothic, ko:맑은 고딕
+
+0186. Malgun Gothic Semilight
+      GDI Name: Malgun Gothic Semilight
+      Aliases: Malgun Gothic Semilight, 맑은 고딕 Semilight
+      Languages: mac-0000:Malgun Gothic Semilight, en:Malgun Gothic Semilight, ko:맑은 고딕 Semilight
+
+0187. Malssami815
+      GDI Name: Malssami815
+      Aliases: Malssami815, ∏ªΩŒπÃ815, 말싸미815
+      Languages: mac-0000:Malssami815, mac-0017:∏ªΩŒπÃ815, en:Malssami815, ko:말싸미815
+
+0188. Maplestory
+      GDI Name: Maplestory
+      Aliases: Maplestory, ∏ﬁ¿Ã«√Ω∫≈‰∏Æ, 메이플스토리
+      Languages: mac-0000:Maplestory, mac-0017:∏ﬁ¿Ã«√Ω∫≈‰∏Æ, en:Maplestory, ko:메이플스토리
+
+0189. Maplestory OTF
+      GDI Name: Maplestory OTF
+      Aliases: Maplestory OTF, ∏ﬁ¿Ã«√Ω∫≈‰∏Æ OTF, 메이플스토리 OTF
+      Languages: mac-0000:Maplestory OTF, mac-0017:∏ﬁ¿Ã«√Ω∫≈‰∏Æ OTF, en:Maplestory OTF, ko:메이플스토리 OTF
+
+0190. Marlett
+      GDI Name: Marlett
+      Aliases: Marlett
+      Languages: mac-0000:Marlett, en:Marlett
+
+0191. MBC 1961 Medium
+      GDI Name: MBC 1961 Medium
+      Aliases: MBC 1961 Medium
+      Languages: en:MBC 1961 Medium, ko:MBC 1961 Medium
+
+0192. MBC 1961Gulim Medium
+      GDI Name: MBC 1961Gulim Medium
+      Aliases: MBC 1961Gulim Medium, MBC 1961굴림 Medium
+      Languages: en:MBC 1961Gulim Medium, ko:MBC 1961굴림 Medium
+
+0193. Microsoft Himalaya
+      GDI Name: Microsoft Himalaya
+      Aliases: Microsoft Himalaya
+      Languages: mac-0000:Microsoft Himalaya, en:Microsoft Himalaya
+
+0194. Microsoft JhengHei
+      GDI Name: Microsoft JhengHei
+      Aliases: Microsoft JhengHei, 微軟正黑體
+      Languages: zh-Hant:微軟正黑體, en:Microsoft JhengHei, win-0c04:微軟正黑體
+
+0195. Microsoft JhengHei Light
+      GDI Name: Microsoft JhengHei Light
+      Aliases: Microsoft JhengHei Light, 微軟正黑體 Light
+      Languages: zh-Hant:微軟正黑體 Light, en:Microsoft JhengHei Light, win-0c04:微軟正黑體 Light
+
+0196. Microsoft JhengHei UI
+      GDI Name: Microsoft JhengHei UI
+      Aliases: Microsoft JhengHei UI
+      Languages: zh-Hant:Microsoft JhengHei UI, en:Microsoft JhengHei UI, win-0c04:Microsoft JhengHei UI
+
+0197. Microsoft JhengHei UI Light
+      GDI Name: Microsoft JhengHei UI Light
+      Aliases: Microsoft JhengHei UI Light
+      Languages: zh-Hant:Microsoft JhengHei UI Light, en:Microsoft JhengHei UI Light, win-0c04:Microsoft JhengHei UI Light
+
+0198. Microsoft New Tai Lue
+      GDI Name: Microsoft New Tai Lue
+      Aliases: Microsoft New Tai Lue
+      Languages: mac-0000:Microsoft New Tai Lue, en:Microsoft New Tai Lue
+
+0199. Microsoft PhagsPa
+      GDI Name: Microsoft PhagsPa
+      Aliases: Microsoft PhagsPa
+      Languages: mac-0000:Microsoft PhagsPa, en:Microsoft PhagsPa
+
+0200. Microsoft Sans Serif
+      GDI Name: Microsoft Sans Serif
+      Aliases: Microsoft Sans Serif
+      Languages: mac-0000:Microsoft Sans Serif, en:Microsoft Sans Serif
+
+0201. Microsoft Tai Le
+      GDI Name: Microsoft Tai Le
+      Aliases: Microsoft Tai Le
+      Languages: mac-0000:Microsoft Tai Le, en:Microsoft Tai Le
+
+0202. Microsoft YaHei
+      GDI Name: Microsoft YaHei
+      Aliases: Microsoft YaHei, 微软雅黑
+      Languages: en:Microsoft YaHei, zh-Hans:微软雅黑
+
+0203. Microsoft YaHei Light
+      GDI Name: Microsoft YaHei Light
+      Aliases: Microsoft YaHei Light, 微软雅黑 Light
+      Languages: en:Microsoft YaHei Light, zh-Hans:微软雅黑 Light
+
+0204. Microsoft YaHei UI
+      GDI Name: Microsoft YaHei UI
+      Aliases: Microsoft YaHei UI
+      Languages: en:Microsoft YaHei UI, zh-Hans:Microsoft YaHei UI
+
+0205. Microsoft YaHei UI Light
+      GDI Name: Microsoft YaHei UI Light
+      Aliases: Microsoft YaHei UI Light
+      Languages: en:Microsoft YaHei UI Light, zh-Hans:Microsoft YaHei UI Light
+
+0206. Microsoft Yi Baiti
+      GDI Name: Microsoft Yi Baiti
+      Aliases: Microsoft Yi Baiti
+      Languages: mac-0000:Microsoft Yi Baiti, en:Microsoft Yi Baiti
+
+0207. MingLiU-ExtB
+      GDI Name: MingLiU-ExtB
+      Aliases: MingLiU-ExtB, 細明體-ExtB
+      Languages: mac-0000:MingLiU-ExtB, zh-Hant:細明體-ExtB, en:MingLiU-ExtB, win-0c04:細明體-ExtB
+
+0208. MingLiU_HKSCS-ExtB
+      GDI Name: MingLiU_HKSCS-ExtB
+      Aliases: MingLiU_HKSCS-ExtB, 細明體_HKSCS-ExtB
+      Languages: mac-0000:MingLiU_HKSCS-ExtB, zh-Hant:細明體_HKSCS-ExtB, en:MingLiU_HKSCS-ExtB, win-0c04:細明體_HKSCS-ExtB
+
+0209. MingLiU_MSCS-ExtB
+      GDI Name: MingLiU_MSCS-ExtB
+      Aliases: MingLiU_MSCS-ExtB, 細明體_MSCS-ExtB
+      Languages: mac-0000:MingLiU_MSCS-ExtB, zh-Hant:細明體_MSCS-ExtB, en:MingLiU_MSCS-ExtB, win-0c04:細明體_MSCS-ExtB
+
+0210. Mochiy Pop One OTF ExtraBold
+      GDI Name: Mochiy Pop One OTF ExtraBold
+      Aliases: Mochiy Pop One OTF ExtraBold, ÉÇÉbÉ`Å[É|ÉbÉv One OTF ExtraBold, モッチーポップ One OTF ExtraBold
+      Languages: mac-0000:Mochiy Pop One OTF ExtraBold, mac-000b:ÉÇÉbÉ`Å[É|ÉbÉv One OTF ExtraBold, en:Mochiy Pop One OTF ExtraBold, ja:モッチーポップ One OTF ExtraBold
+
+0211. Modern
+      GDI Name: Modern
+      Aliases: Modern
+
+0212. Mongolian Baiti
+      GDI Name: Mongolian Baiti
+      Aliases: Mongolian Baiti
+      Languages: mac-0000:Mongolian Baiti, en:Mongolian Baiti
+
+0213. Montserrat
+      GDI Name: Montserrat
+      Aliases: Montserrat
+      Languages: mac-0000:Montserrat, en:Montserrat
+
+0214. MS Gothic
+      GDI Name: MS Gothic
+      Aliases: MS Gothic, ＭＳ ゴシック
+      Languages: en:MS Gothic, ja:ＭＳ ゴシック
+
+0215. MS PGothic
+      GDI Name: MS PGothic
+      Aliases: MS PGothic, ＭＳ Ｐゴシック
+      Languages: en:MS PGothic, ja:ＭＳ Ｐゴシック
+
+0216. MS Sans Serif
+      GDI Name: MS Sans Serif
+      Aliases: MS Sans Serif
+
+0217. MS Serif
+      GDI Name: MS Serif
+      Aliases: MS Serif
+
+0218. MS UI Gothic
+      GDI Name: MS UI Gothic
+      Aliases: MS UI Gothic
+      Languages: en:MS UI Gothic, ja:MS UI Gothic
+
+0219. MV Boli
+      GDI Name: MV Boli
+      Aliases: MV Boli
+      Languages: mac-0000:MV Boli, en:MV Boli
+
+0220. Myanmar Text
+      GDI Name: Myanmar Text
+      Aliases: Myanmar Text
+      Languages: mac-0000:Myanmar Text, en:Myanmar Text
+
+0221. Nanum ABbaEuiYeonAePyeonJi
+      GDI Name: Nanum ABbaEuiYeonAePyeonJi
+      Aliases: Nanum ABbaEuiYeonAePyeonJi, ≥™¥Æº’±€ææ æ∆∫¸¿« ø¨æ÷∆Ì¡ˆ, 나눔손글씨 아빠의 연애편지
+      Languages: mac-0000:Nanum ABbaEuiYeonAePyeonJi, mac-0017:≥™¥Æº’±€ææ æ∆∫¸¿« ø¨æ÷∆Ì¡ˆ, en:Nanum ABbaEuiYeonAePyeonJi, ko:나눔손글씨 아빠의 연애편지
+
+0222. Nanum GangBuJangNimCe
+      GDI Name: Nanum GangBuJangNimCe
+      Aliases: Nanum GangBuJangNimCe, ≥™¥Æº’±€ææ ∞≠∫Œ¿Â¥‘√º, 나눔손글씨 강부장님체
+      Languages: mac-0000:Nanum GangBuJangNimCe, mac-0017:≥™¥Æº’±€ææ ∞≠∫Œ¿Â¥‘√º, en:Nanum GangBuJangNimCe, ko:나눔손글씨 강부장님체
+
+0223. Nanum WaIrDeu
+      GDI Name: Nanum WaIrDeu
+      Aliases: Nanum WaIrDeu, ≥™¥Æº’±€ææ øÕ¿œµÂ, 나눔손글씨 와일드
+      Languages: mac-0000:Nanum WaIrDeu, mac-0017:≥™¥Æº’±€ææ øÕ¿œµÂ, en:Nanum WaIrDeu, ko:나눔손글씨 와일드
+
+0224. NanumGothic
+      GDI Name: NanumGothic
+      Aliases: NanumGothic, ≥™¥Æ∞ÌµÒ, 나눔고딕
+      Languages: mac-0000:NanumGothic, mac-0017:≥™¥Æ∞ÌµÒ, en:NanumGothic, ko:나눔고딕
+
+0225. NanumMyeongjo
+      GDI Name: NanumMyeongjo
+      Aliases: NanumMyeongjo, ≥™¥Æ∏Ì¡∂, 나눔명조
+      Languages: mac-0000:NanumMyeongjo, mac-0017:≥™¥Æ∏Ì¡∂, en:NanumMyeongjo, ko:나눔명조
+
+0226. NanumSquare Neo OTF Bold
+      GDI Name: NanumSquare Neo OTF Bold
+      Aliases: NanumSquare Neo OTF, NanumSquare Neo OTF Bold, ≥™¥ÆΩ∫ƒ˘æÓ ≥◊ø¿ OTF, 나눔스퀘어 네오 OTF Bold
+      Languages: mac-0000:NanumSquare Neo OTF, mac-0017:≥™¥ÆΩ∫ƒ˘æÓ ≥◊ø¿ OTF, en:NanumSquare Neo OTF Bold, ko:나눔스퀘어 네오 OTF Bold
+
+0227. NeoDunggeunmo
+      GDI Name: NeoDunggeunmo
+      Aliases: NeoDunggeunmo, Neo둥근모
+      Languages: en:NeoDunggeunmo, ko:Neo둥근모
+
+0228. NeueHaasGroteskDisp Pro
+      GDI Name: NeueHaasGroteskDisp Pro
+      Aliases: Neue Haas Grotesk Display Pro, NeueHaasGroteskDisp Pro
+      Languages: mac-0000:Neue Haas Grotesk Display Pro, en:NeueHaasGroteskDisp Pro
+
+0229. Nirmala Text
+      GDI Name: Nirmala Text
+      Aliases: Nirmala Text
+      Languages: mac-0000:Nirmala Text, en:Nirmala Text
+
+0230. Nirmala Text Semilight
+      GDI Name: Nirmala Text Semilight
+      Aliases: Nirmala Text Semilight
+      Languages: mac-0000:Nirmala Text Semilight, en:Nirmala Text Semilight
+
+0231. Nirmala UI
+      GDI Name: Nirmala UI
+      Aliases: Nirmala UI
+      Languages: mac-0000:Nirmala UI, en:Nirmala UI
+
+0232. Nirmala UI Semilight
+      GDI Name: Nirmala UI Semilight
+      Aliases: Nirmala UI Semilight
+      Languages: mac-0000:Nirmala UI Semilight, en:Nirmala UI Semilight
+
+0233. Nitti Typewriter Cameo
+      GDI Name: Nitti Typewriter Cameo
+      Aliases: Nitti Typewriter Cameo
+      Languages: mac-0000:Nitti Typewriter Cameo, en:Nitti Typewriter Cameo
+
+0234. Noto Sans CJK KR
+      GDI Name: Noto Sans CJK KR
+      Aliases: Noto Sans CJK KR
+      Languages: en:Noto Sans CJK KR, ko:Noto Sans CJK KR
+
+0235. Noto Sans CJK KR Black
+      GDI Name: Noto Sans CJK KR Black
+      Aliases: Noto Sans CJK KR Black
+      Languages: en:Noto Sans CJK KR Black, ko:Noto Sans CJK KR Black
+
+0236. Noto Sans CJK KR Light
+      GDI Name: Noto Sans CJK KR Light
+      Aliases: Noto Sans CJK KR Light
+      Languages: en:Noto Sans CJK KR Light, ko:Noto Sans CJK KR Light
+
+0237. Noto Sans CJK KR Medium
+      GDI Name: Noto Sans CJK KR Medium
+      Aliases: Noto Sans CJK KR Medium
+      Languages: en:Noto Sans CJK KR Medium, ko:Noto Sans CJK KR Medium
+
+0238. Noto Sans KR
+      GDI Name: Noto Sans KR
+      Aliases: Noto Sans KR
+      Languages: en:Noto Sans KR, ko:Noto Sans KR
+
+0239. Noto Serif CJK KR
+      GDI Name: Noto Serif CJK KR
+      Aliases: Noto Serif CJK KR
+      Languages: en:Noto Serif CJK KR, ko:Noto Serif CJK KR
+
+0240. Noto Serif CJK KR Black
+      GDI Name: Noto Serif CJK KR Black
+      Aliases: Noto Serif CJK KR Black
+      Languages: en:Noto Serif CJK KR Black, ko:Noto Serif CJK KR Black
+
+0241. Noto Serif CJK KR ExtraLight
+      GDI Name: Noto Serif CJK KR ExtraLight
+      Aliases: Noto Serif CJK KR ExtraLight
+      Languages: en:Noto Serif CJK KR ExtraLight, ko:Noto Serif CJK KR ExtraLight
+
+0242. Noto Serif CJK KR Light
+      GDI Name: Noto Serif CJK KR Light
+      Aliases: Noto Serif CJK KR Light
+      Languages: en:Noto Serif CJK KR Light, ko:Noto Serif CJK KR Light
+
+0243. Noto Serif CJK KR Medium
+      GDI Name: Noto Serif CJK KR Medium
+      Aliases: Noto Serif CJK KR Medium
+      Languages: en:Noto Serif CJK KR Medium, ko:Noto Serif CJK KR Medium
+
+0244. Noto Serif CJK KR SemiBold
+      GDI Name: Noto Serif CJK KR SemiBold
+      Aliases: Noto Serif CJK KR SemiBold
+      Languages: en:Noto Serif CJK KR SemiBold, ko:Noto Serif CJK KR SemiBold
+
+0245. Noto Serif KR
+      GDI Name: Noto Serif KR
+      Aliases: Noto Serif KR
+      Languages: en:Noto Serif KR, ko:Noto Serif KR
+
+0246. NSimSun
+      GDI Name: NSimSun
+      Aliases: NSimSun, 新宋体
+      Languages: mac-0000:NSimSun, en:NSimSun, zh-Hans:新宋体, win-1004:新宋体
+
+0247. Open Sans
+      GDI Name: Open Sans
+      Aliases: Open Sans
+      Languages: mac-0000:Open Sans, en:Open Sans
+
+0248. Palatino Linotype
+      GDI Name: Palatino Linotype
+      Aliases: Palatino Linotype
+      Languages: mac-0000:Palatino Linotype, en:Palatino Linotype
+
+0249. Paperlogy 1 Thin
+      GDI Name: Paperlogy 1 Thin
+      Aliases: Paperlogy 1 Thin, 페이퍼로지 1 Thin
+      Languages: en:Paperlogy 1 Thin, ko:페이퍼로지 1 Thin
+
+0250. Paperlogy 2 ExtraLight
+      GDI Name: Paperlogy 2 ExtraLight
+      Aliases: Paperlogy 2 ExtraLight, 페이퍼로지 2 ExtraLight
+      Languages: en:Paperlogy 2 ExtraLight, ko:페이퍼로지 2 ExtraLight
+
+0251. Paperlogy 3 Light
+      GDI Name: Paperlogy 3 Light
+      Aliases: Paperlogy 3 Light, 페이퍼로지 3 Light
+      Languages: en:Paperlogy 3 Light, ko:페이퍼로지 3 Light
+
+0252. Paperlogy 4 Regular
+      GDI Name: Paperlogy 4 Regular
+      Aliases: Paperlogy 4 Regular, 페이퍼로지 4 Regular
+      Languages: en:Paperlogy 4 Regular, ko:페이퍼로지 4 Regular
+
+0253. Paperlogy 5 Medium
+      GDI Name: Paperlogy 5 Medium
+      Aliases: Paperlogy 5 Medium, 페이퍼로지 5 Medium
+      Languages: en:Paperlogy 5 Medium, ko:페이퍼로지 5 Medium
+
+0254. Paperlogy 6 SemiBold
+      GDI Name: Paperlogy 6 SemiBold
+      Aliases: Paperlogy 6 SemiBold, 페이퍼로지 6 SemiBold
+      Languages: en:Paperlogy 6 SemiBold, ko:페이퍼로지 6 SemiBold
+
+0255. Paperlogy 7 Bold
+      GDI Name: Paperlogy 7 Bold
+      Aliases: Paperlogy 7 Bold, 페이퍼로지 7 Bold
+      Languages: en:Paperlogy 7 Bold, ko:페이퍼로지 7 Bold
+
+0256. Paperlogy 8 ExtraBold
+      GDI Name: Paperlogy 8 ExtraBold
+      Aliases: Paperlogy 8 ExtraBold, 페이퍼로지 8 ExtraBold
+      Languages: en:Paperlogy 8 ExtraBold, ko:페이퍼로지 8 ExtraBold
+
+0257. Paperlogy 9 Black
+      GDI Name: Paperlogy 9 Black
+      Aliases: Paperlogy 9 Black, 페이퍼로지 9 Black
+      Languages: en:Paperlogy 9 Black, ko:페이퍼로지 9 Black
+
+0258. Playfair Display
+      GDI Name: Playfair Display
+      Aliases: Playfair Display
+      Languages: en:Playfair Display
+
+0259. Playfair Display Black
+      GDI Name: Playfair Display Black
+      Aliases: Playfair Display Black
+      Languages: en:Playfair Display Black
+
+0260. Playfair Display ExtraBold
+      GDI Name: Playfair Display ExtraBold
+      Aliases: Playfair Display ExtraBold
+      Languages: en:Playfair Display ExtraBold
+
+0261. Playfair Display Medium
+      GDI Name: Playfair Display Medium
+      Aliases: Playfair Display Medium
+      Languages: en:Playfair Display Medium
+
+0262. Playfair Display SemiBold
+      GDI Name: Playfair Display SemiBold
+      Aliases: Playfair Display SemiBold
+      Languages: en:Playfair Display SemiBold
+
+0263. PMingLiU-ExtB
+      GDI Name: PMingLiU-ExtB
+      Aliases: PMingLiU-ExtB, 新細明體-ExtB
+      Languages: mac-0000:PMingLiU-ExtB, zh-Hant:新細明體-ExtB, en:PMingLiU-ExtB, win-0c04:新細明體-ExtB
+
+0264. Press Start 2P
+      GDI Name: Press Start 2P
+      Aliases: Press Start 2P
+      Languages: en:Press Start 2P
+
+0265. PT Serif
+      GDI Name: PT Serif
+      Aliases: PT Serif
+      Languages: mac-0000:PT Serif, en:PT Serif
+
+0266. PyeongChang Peace Bold
+      GDI Name: PyeongChang Peace Bold
+      Aliases: PyeongChang Peace, PyeongChang Peace Bold, ∆Ú√¢ ∆Ú»≠√º, 평창 평화체 Bold
+      Languages: mac-0000:PyeongChang Peace, mac-0017:∆Ú√¢ ∆Ú»≠√º, en:PyeongChang Peace Bold, ko:평창 평화체 Bold
+
+0267. RecipekoreaOTF Medium
+      GDI Name: RecipekoreaOTF Medium
+      Aliases: RecipekoreaOTF, RecipekoreaOTF Medium, ∑πΩ√««ƒ⁄∏Ææ∆OTF, 레시피코리아OTF Medium
+      Languages: mac-0000:RecipekoreaOTF, mac-0017:∑πΩ√««ƒ⁄∏Ææ∆OTF, en:RecipekoreaOTF Medium, ko:레시피코리아OTF Medium
+
+0268. RixDongnimGothic_Pro Regular
+      GDI Name: RixDongnimGothic_Pro Regular
+      Aliases: RixDongnimGothic_Pro, RixDongnimGothic_Pro Regular, Rixµ∂∏≥∞ÌµÒ_Pro, Rix독립고딕_Pro Regular
+      Languages: mac-0000:RixDongnimGothic_Pro, mac-0017:Rixµ∂∏≥∞ÌµÒ_Pro, en:RixDongnimGothic_Pro Regular, ko:Rix독립고딕_Pro Regular
+
+0269. RixSejongroGulim_Pro Black
+      GDI Name: RixSejongroGulim_Pro Black
+      Aliases: RixSejongroGulim_Pro, RixSejongroGulim_Pro Black, Rixºº¡æ∑Œ±º∏≤_Pro, Rix세종로굴림_Pro Black
+      Languages: mac-0000:RixSejongroGulim_Pro, mac-0017:Rixºº¡æ∑Œ±º∏≤_Pro, en:RixSejongroGulim_Pro Black, ko:Rix세종로굴림_Pro Black
+
+0270. Roboto
+      GDI Name: Roboto
+      Aliases: Roboto
+      Languages: mac-0000:Roboto, en:Roboto
+
+0271. Roc Grotesk
+      GDI Name: Roc Grotesk
+      Aliases: Roc Grotesk
+      Languages: mac-0000:Roc Grotesk, en:Roc Grotesk
+
+0272. Roman
+      GDI Name: Roman
+      Aliases: Roman
+
+0273. Sandoll 4BYeonpil 01 Light
+      GDI Name: Sandoll 4BYeonpil 01 Light
+      Aliases: Sandoll 4BYeonpil, Sandoll 4BYeonpil 01 Light, Sandoll 4Bø¨«, Sandoll 4B연필 01 Light
+      Languages: mac-0000:Sandoll 4BYeonpil, mac-0017:Sandoll 4Bø¨« , en:Sandoll 4BYeonpil 01 Light, ko:Sandoll 4B연필 01 Light
+
+0274. Sandoll Achim 01 Light
+      GDI Name: Sandoll Achim 01 Light
+      Aliases: Sandoll Achim, Sandoll Achim 01 Light, Sandoll æ∆ƒß, Sandoll 아침 01 Light
+      Languages: mac-0000:Sandoll Achim, mac-0017:Sandoll æ∆ƒß, en:Sandoll Achim 01 Light, ko:Sandoll 아침 01 Light
+
+0275. Sandoll BaikzongyulPen 01 Lt
+      GDI Name: Sandoll BaikzongyulPen 01 Lt
+      Aliases: Sandoll BaikzongyulPen, Sandoll BaikzongyulPen 01 Lt, Sandoll πÈ¡æø≠∆Ê, Sandoll 백종열펜 01 Light
+      Languages: mac-0000:Sandoll BaikzongyulPen, mac-0017:Sandoll πÈ¡æø≠∆Ê, en:Sandoll BaikzongyulPen 01 Lt, ko:Sandoll 백종열펜 01 Light
+
+0276. Sandoll BaikzongyulPil Lt
+      GDI Name: Sandoll BaikzongyulPil Lt
+      Aliases: Sandoll BaikzongyulPil, Sandoll BaikzongyulPil Lt, Sandoll πÈ¡æø≠«, Sandoll 백종열필 Light
+      Languages: mac-0000:Sandoll BaikzongyulPil, mac-0017:Sandoll πÈ¡æø≠« , en:Sandoll BaikzongyulPil Lt, ko:Sandoll 백종열필 Light
+
+0277. Sandoll Book 01 Light
+      GDI Name: Sandoll Book 01 Light
+      Aliases: Sandoll Book, Sandoll Book 01 Light, Sandoll ∫œ, Sandoll 북 01 Light
+      Languages: mac-0000:Sandoll Book, mac-0017:Sandoll ∫œ, en:Sandoll Book 01 Light, ko:Sandoll 북 01 Light
+
+0278. Sandoll Daltokki 01 Light
+      GDI Name: Sandoll Daltokki 01 Light
+      Aliases: Sandoll Daltokki, Sandoll Daltokki 01 Light, Sandoll ¥ﬁ≈‰≥¢ø©«‡, Sandoll 달토끼여행 01 Light
+      Languages: mac-0000:Sandoll Daltokki, mac-0017:Sandoll ¥ﬁ≈‰≥¢ø©«‡, en:Sandoll Daltokki 01 Light, ko:Sandoll 달토끼여행 01 Light
+
+0279. Sandoll Dasol 01 Light
+      GDI Name: Sandoll Dasol 01 Light
+      Aliases: Sandoll Dasol, Sandoll Dasol 01 Light, Sandoll ¥Ÿº÷, Sandoll 다솔 01 Light
+      Languages: mac-0000:Sandoll Dasol, mac-0017:Sandoll ¥Ÿº÷, en:Sandoll Dasol 01 Light, ko:Sandoll 다솔 01 Light
+
+0280. Sandoll Gaehwa 01 Regular
+      GDI Name: Sandoll Gaehwa 01 Regular
+      Aliases: Sandoll Gaehwa, Sandoll Gaehwa 01 Regular, Sandoll ∞≥»≠, Sandoll 개화 01 Regular
+      Languages: mac-0000:Sandoll Gaehwa, mac-0017:Sandoll ∞≥»≠, en:Sandoll Gaehwa 01 Regular, ko:Sandoll 개화 01 Regular
+
+0281. Sandoll Gawain 01 Lt
+      GDI Name: Sandoll Gawain 01 Lt
+      Aliases: Sandoll Gawain, Sandoll Gawain 01 Lt, Sandoll ∞°ø˛¿Œ, Sandoll 가웨인 01 Lt
+      Languages: mac-0000:Sandoll Gawain, mac-0017:Sandoll ∞°ø˛¿Œ, en:Sandoll Gawain 01 Lt, ko:Sandoll 가웨인 01 Lt
+
+0282. Sandoll Geobok 01 Th
+      GDI Name: Sandoll Geobok 01 Th
+      Aliases: Sandoll Geobok, Sandoll Geobok 01 Th, Sandoll ∞≈∫π, Sandoll 거복 01 Th
+      Languages: mac-0000:Sandoll Geobok, mac-0017:Sandoll ∞≈∫π, en:Sandoll Geobok 01 Th, ko:Sandoll 거복 01 Th
+
+0283. Sandoll GongbyunggakPen 01 Lt
+      GDI Name: Sandoll GongbyunggakPen 01 Lt
+      Aliases: Sandoll GongbyunggakPen, Sandoll GongbyunggakPen 01 Lt, Sandoll ∞¯∫¥∞¢∆Ê, Sandoll 공병각펜 01 Light
+      Languages: mac-0000:Sandoll GongbyunggakPen, mac-0017:Sandoll ∞¯∫¥∞¢∆Ê, en:Sandoll GongbyunggakPen 01 Lt, ko:Sandoll 공병각펜 01 Light
+
+0284. Sandoll GongbyunggakTab Lt
+      GDI Name: Sandoll GongbyunggakTab Lt
+      Aliases: Sandoll GongbyunggakTab, Sandoll GongbyunggakTab Lt, Sandoll ∞¯∫¥∞¢≈∏∫Ì∑ø, Sandoll 공병각타블렛 Light
+      Languages: mac-0000:Sandoll GongbyunggakTab, mac-0017:Sandoll ∞¯∫¥∞¢≈∏∫Ì∑ø, en:Sandoll GongbyunggakTab Lt, ko:Sandoll 공병각타블렛 Light
+
+0285. Sandoll GothicNeo1 01 Th
+      GDI Name: Sandoll GothicNeo1 01 Th
+      Aliases: Sandoll GothicNeo1, Sandoll GothicNeo1 01 Th, Sandoll ∞ÌµÒNeo1, Sandoll 고딕Neo1 01 Thin
+      Languages: mac-0000:Sandoll GothicNeo1, mac-0017:Sandoll ∞ÌµÒNeo1, en:Sandoll GothicNeo1 01 Th, ko:Sandoll 고딕Neo1 01 Thin
+
+0286. Sandoll GothicNeo1Unicode 01 Th
+      GDI Name: Sandoll GothicNeo1Unicode 01 Th
+      Aliases: Sandoll GothicNeo1Unicode, Sandoll GothicNeo1Unicode 01 Th, Sandoll ∞ÌµÒNeo1¿Ø¥œƒ⁄µÂ, Sandoll 고딕Neo1유니코드 01 Th
+      Languages: mac-0000:Sandoll GothicNeo1Unicode, mac-0017:Sandoll ∞ÌµÒNeo1¿Ø¥œƒ⁄µÂ, en:Sandoll GothicNeo1Unicode 01 Th, ko:Sandoll 고딕Neo1유니코드 01 Th
+
+0287. Sandoll GothicNeoRound 01 Th
+      GDI Name: Sandoll GothicNeoRound 01 Th
+      Aliases: Sandoll GothicNeoRound, Sandoll GothicNeoRound 01 Th, Sandoll ∞ÌµÒNeoRound, Sandoll 고딕NeoRound 01 Th
+      Languages: mac-0000:Sandoll GothicNeoRound, mac-0017:Sandoll ∞ÌµÒNeoRound, en:Sandoll GothicNeoRound 01 Th, ko:Sandoll 고딕NeoRound 01 Th
+
+0288. Sandoll GreenTeaLatte 01 Light
+      GDI Name: Sandoll GreenTeaLatte 01 Light
+      Aliases: Sandoll GreenTeaLatte, Sandoll GreenTeaLatte 01 Light, Sandoll ±◊∏∞∆º∂Û∂º, Sandoll 그린티라떼 01 Light
+      Languages: mac-0000:Sandoll GreenTeaLatte, mac-0017:Sandoll ±◊∏∞∆º∂Û∂º, en:Sandoll GreenTeaLatte 01 Light, ko:Sandoll 그린티라떼 01 Light
+
+0289. Sandoll GyeokdongG2 01 Hl
+      GDI Name: Sandoll GyeokdongG2 01 Hl
+      Aliases: Sandoll GyeokdongG2, Sandoll GyeokdongG2 01 Hl, Sandoll ∞›µø∞ÌµÒ2, Sandoll 격동고딕2 01 Hl
+      Languages: mac-0000:Sandoll GyeokdongG2, mac-0017:Sandoll ∞›µø∞ÌµÒ2, en:Sandoll GyeokdongG2 01 Hl, ko:Sandoll 격동고딕2 01 Hl
+
+0290. Sandoll GyeokdongGothic
+      GDI Name: Sandoll GyeokdongGothic
+      Aliases: Sandoll GyeokdongGothic, Sandoll ∞›µø∞ÌµÒ, Sandoll 격동고딕
+      Languages: mac-0000:Sandoll GyeokdongGothic, mac-0017:Sandoll ∞›µø∞ÌµÒ, en:Sandoll GyeokdongGothic, ko:Sandoll 격동고딕
+
+0291. Sandoll Gyeokdonggulim
+      GDI Name: Sandoll Gyeokdonggulim
+      Aliases: Sandoll Gyeokdonggulim, Sandoll ∞›µø±º∏≤, Sandoll 격동굴림
+      Languages: mac-0000:Sandoll Gyeokdonggulim, mac-0017:Sandoll ∞›µø±º∏≤, en:Sandoll Gyeokdonggulim, ko:Sandoll 격동굴림
+
+0292. Sandoll Hitec 0.3
+      GDI Name: Sandoll Hitec 0.3
+      Aliases: Sandoll Hitec, Sandoll Hitec 0.3, Sandoll «œ¿Ã≈◊≈©, Sandoll 하이테크 0.3
+      Languages: mac-0000:Sandoll Hitec, mac-0017:Sandoll «œ¿Ã≈◊≈©, en:Sandoll Hitec 0.3, ko:Sandoll 하이테크 0.3
+
+0293. Sandoll Hoyoyo2 01 Thin
+      GDI Name: Sandoll Hoyoyo2 01 Thin
+      Aliases: Sandoll Hoyoyo2, Sandoll Hoyoyo2 01 Thin, Sandoll »£ø‰ø‰2, Sandoll 호요요2 01 Thin
+      Languages: mac-0000:Sandoll Hoyoyo2, mac-0017:Sandoll »£ø‰ø‰2, en:Sandoll Hoyoyo2 01 Thin, ko:Sandoll 호요요2 01 Thin
+
+0294. Sandoll Iyagi 01 Light
+      GDI Name: Sandoll Iyagi 01 Light
+      Aliases: Sandoll Iyagi, Sandoll Iyagi 01 Light, Sandoll ¿Ãæﬂ±‚, Sandoll 이야기 01 Light
+      Languages: mac-0000:Sandoll Iyagi, mac-0017:Sandoll ¿Ãæﬂ±‚, en:Sandoll Iyagi 01 Light, ko:Sandoll 이야기 01 Light
+
+0295. Sandoll Kaebyeok 01 Light
+      GDI Name: Sandoll Kaebyeok 01 Light
+      Aliases: Sandoll Kaebyeok, Sandoll Kaebyeok 01 Light, Sandoll ∞≥∫Æ, Sandoll 개벽 01 Light
+      Languages: mac-0000:Sandoll Kaebyeok, mac-0017:Sandoll ∞≥∫Æ, en:Sandoll Kaebyeok 01 Light, ko:Sandoll 개벽 01 Light
+
+0296. Sandoll Kukdetopokki 01 Light
+      GDI Name: Sandoll Kukdetopokki 01 Light
+      Aliases: Sandoll Kukdetopokki, Sandoll Kukdetopokki 01 Light, Sandoll ±π¥Î∂±∫∫¿Ã, Sandoll 국대떡볶이 01 Light
+      Languages: mac-0000:Sandoll Kukdetopokki, mac-0017:Sandoll ±π¥Î∂±∫∫¿Ã, en:Sandoll Kukdetopokki 01 Light, ko:Sandoll 국대떡볶이 01 Light
+
+0297. Sandoll Kwangsoo 01 Light
+      GDI Name: Sandoll Kwangsoo 01 Light
+      Aliases: Sandoll Kwangsoo, Sandoll Kwangsoo 01 Light, Sandoll ±§ºˆ, Sandoll 광수 01 Light
+      Languages: mac-0000:Sandoll Kwangsoo, mac-0017:Sandoll ±§ºˆ, en:Sandoll Kwangsoo 01 Light, ko:Sandoll 광수 01 Light
+
+0298. Sandoll Kwangya
+      GDI Name: Sandoll Kwangya
+      Aliases: Sandoll Kwangya, Sandoll ±§æﬂ, Sandoll 광야
+      Languages: mac-0000:Sandoll Kwangya, mac-0017:Sandoll ±§æﬂ, en:Sandoll Kwangya, ko:Sandoll 광야
+
+0299. Sandoll LateSpring 01 Light
+      GDI Name: Sandoll LateSpring 01 Light
+      Aliases: Sandoll LateSpring, Sandoll LateSpring 01 Light, Sandoll ¥ ∫Ω, Sandoll 늦봄 01 Light
+      Languages: mac-0000:Sandoll LateSpring, mac-0017:Sandoll ¥ ∫Ω, en:Sandoll LateSpring 01 Light, ko:Sandoll 늦봄 01 Light
+
+0300. Sandoll Mapssi
+      GDI Name: Sandoll Mapssi
+      Aliases: Sandoll Mapssi, Sandoll ∏ ææ, Sandoll 맵씨
+      Languages: mac-0000:Sandoll Mapssi, mac-0017:Sandoll ∏ ææ, en:Sandoll Mapssi, ko:Sandoll 맵씨
+
+0301. Sandoll Myeongjo 01 Light
+      GDI Name: Sandoll Myeongjo 01 Light
+      Aliases: Sandoll Myeongjo, Sandoll Myeongjo 01 Light, Sandoll ∏Ì¡∂, Sandoll 명조 01 Light
+      Languages: mac-0000:Sandoll Myeongjo, mac-0017:Sandoll ∏Ì¡∂, en:Sandoll Myeongjo 01 Light, ko:Sandoll 명조 01 Light
+
+0302. Sandoll MyeongjoNeo1 01 Ul
+      GDI Name: Sandoll MyeongjoNeo1 01 Ul
+      Aliases: Sandoll MyeongjoNeo1, Sandoll MyeongjoNeo1 01 Ul, Sandoll ∏Ì¡∂Neo1, Sandoll 명조Neo1 01 UltraLight
+      Languages: mac-0000:Sandoll MyeongjoNeo1, mac-0017:Sandoll ∏Ì¡∂Neo1, en:Sandoll MyeongjoNeo1 01 Ul, ko:Sandoll 명조Neo1 01 UltraLight
+
+0303. Sandoll Odongtong Basic
+      GDI Name: Sandoll Odongtong Basic
+      Aliases: Sandoll Odongtong, Sandoll Odongtong Basic, Sandoll ø¿µø≈Î, Sandoll 오동통 Basic
+      Languages: mac-0000:Sandoll Odongtong, mac-0017:Sandoll ø¿µø≈Î, en:Sandoll Odongtong Basic, ko:Sandoll 오동통 Basic
+
+0304. Sandoll Samliphopangche Basic
+      GDI Name: Sandoll Samliphopangche Basic
+      Aliases: Sandoll Samliphopangche, Sandoll Samliphopangche Basic, Sandoll ªÔ∏≥»£ªß√º, Sandoll 삼립호빵체 Basic
+      Languages: mac-0000:Sandoll Samliphopangche, mac-0017:Sandoll ªÔ∏≥»£ªß√º, en:Sandoll Samliphopangche Basic, ko:Sandoll 삼립호빵체 Basic
+
+0305. Sandoll Sanga 01 Light
+      GDI Name: Sandoll Sanga 01 Light
+      Aliases: Sandoll Sanga, Sandoll Sanga 01 Light, Sandoll ªÛæ∆, Sandoll 상아 01 Light
+      Languages: mac-0000:Sandoll Sanga, mac-0017:Sandoll ªÛæ∆, en:Sandoll Sanga 01 Light, ko:Sandoll 상아 01 Light
+
+0306. Sandoll SeokPil 01 Light
+      GDI Name: Sandoll SeokPil 01 Light
+      Aliases: Sandoll SeokPil, Sandoll SeokPil 01 Light, Sandoll ºÆ±›»£«, Sandoll 석금호필 01 Light
+      Languages: mac-0000:Sandoll SeokPil, mac-0017:Sandoll ºÆ±›»£« , en:Sandoll SeokPil 01 Light, ko:Sandoll 석금호필 01 Light
+
+0307. Sandoll Seolya 01 Ul
+      GDI Name: Sandoll Seolya 01 Ul
+      Aliases: Sandoll Seolya, Sandoll Seolya 01 Ul, Sandoll º≥æﬂ, Sandoll 설야 01 Ul
+      Languages: mac-0000:Sandoll Seolya, mac-0017:Sandoll º≥æﬂ, en:Sandoll Seolya 01 Ul, ko:Sandoll 설야 01 Ul
+
+0308. Sandoll SinmunJebi 01 Light
+      GDI Name: Sandoll SinmunJebi 01 Light
+      Aliases: Sandoll SinmunJebi, Sandoll SinmunJebi 01 Light, Sandoll Ω≈πÆ¡¶∫Ò, Sandoll 신문제비 01 Light
+      Languages: mac-0000:Sandoll SinmunJebi, mac-0017:Sandoll Ω≈πÆ¡¶∫Ò, en:Sandoll SinmunJebi 01 Light, ko:Sandoll 신문제비 01 Light
+
+0309. Sandoll Smiley Sans 01 Lt
+      GDI Name: Sandoll Smiley Sans 01 Lt
+      Aliases: Sandoll Smiley Sans, Sandoll Smiley Sans 01 Lt, Sandoll Ω∫∏∂¿œ∏ÆªÍΩ∫, Sandoll 스마일리산스 01 Lt
+      Languages: mac-0000:Sandoll Smiley Sans, mac-0017:Sandoll Ω∫∏∂¿œ∏ÆªÍΩ∫, en:Sandoll Smiley Sans 01 Lt, ko:Sandoll 스마일리산스 01 Lt
+
+0310. Sandoll Tviceket
+      GDI Name: Sandoll Tviceket
+      Aliases: Sandoll Tviceket, Sandoll ∆º∫ÒΩ∫ƒœ, Sandoll 티비스켓
+      Languages: mac-0000:Sandoll Tviceket, mac-0017:Sandoll ∆º∫ÒΩ∫ƒœ, en:Sandoll Tviceket, ko:Sandoll 티비스켓
+
+0311. Sandoll Typewrite 01 Light
+      GDI Name: Sandoll Typewrite 01 Light
+      Aliases: Sandoll Typewrite, Sandoll Typewrite 01 Light, Sandoll ≈∏¿Ã«¡∂Û¿Ã∆Æ, Sandoll 타이프라이트 01 Light
+      Languages: mac-0000:Sandoll Typewrite, mac-0017:Sandoll ≈∏¿Ã«¡∂Û¿Ã∆Æ, en:Sandoll Typewrite 01 Light, ko:Sandoll 타이프라이트 01 Light
+
+0312. Sandoll WinterNight
+      GDI Name: Sandoll WinterNight
+      Aliases: Sandoll WinterNight, Sandoll ∞‹øÔπ„, Sandoll 겨울밤
+      Languages: mac-0000:Sandoll WinterNight, mac-0017:Sandoll ∞‹øÔπ„, en:Sandoll WinterNight, ko:Sandoll 겨울밤
+
+0313. Sans Serif Collection
+      GDI Name: Sans Serif Collection
+      Aliases: Sans Serif Collection
+      Languages: en:Sans Serif Collection
+
+0314. SB Aggro Bold
+      GDI Name: SB Aggro Bold
+      Aliases: SB Aggro Bold, SB 어그로 Bold
+      Languages: en:SB Aggro Bold, ko:SB 어그로 Bold
+
+0315. SB Aggro Light
+      GDI Name: SB Aggro Light
+      Aliases: SB Aggro Light, SB 어그로 Light
+      Languages: en:SB Aggro Light, ko:SB 어그로 Light
+
+0316. SB Aggro Medium
+      GDI Name: SB Aggro Medium
+      Aliases: SB Aggro Medium, SB 어그로 Medium
+      Languages: en:SB Aggro Medium, ko:SB 어그로 Medium
+
+0317. SB AggroOTF Bold
+      GDI Name: SB AggroOTF Bold
+      Aliases: SB AggroOTF, SB AggroOTF Bold, SB æÓ±◊∑ŒOTF, SB 어그로OTF Bold
+      Languages: mac-0000:SB AggroOTF, mac-0017:SB æÓ±◊∑ŒOTF, en:SB AggroOTF Bold, ko:SB 어그로OTF Bold
+
+0318. Script
+      GDI Name: Script
+      Aliases: Script
+
+0319. SD Cohhee
+      GDI Name: SD Cohhee
+      Aliases: SD Cohhee, SD ƒøø¿»˜, SD 커오히
+      Languages: mac-0000:SD Cohhee, mac-0017:SD ƒøø¿»˜, en:SD Cohhee, ko:SD 커오히
+
+0320. SD Greta Sans 01 Hl
+      GDI Name: SD Greta Sans 01 Hl
+      Aliases: SD Greta Sans, SD Greta Sans 01 Hl, SD ±◊∑π≈∏ªÍΩ∫, SD 그레타산스 01 Hl
+      Languages: mac-0000:SD Greta Sans, mac-0017:SD ±◊∑π≈∏ªÍΩ∫, en:SD Greta Sans 01 Hl, ko:SD 그레타산스 01 Hl
+
+0321. SD Gyeokdong Mj2 01 Th Cd
+      GDI Name: SD Gyeokdong Mj2 01 Th Cd
+      Aliases: SD Gyeokdong Mj2, SD Gyeokdong Mj2 01 Th Cd, SD ∞›µø∏Ì¡∂2, SD 격동명조2 01 Th Cd
+      Languages: mac-0000:SD Gyeokdong Mj2, mac-0017:SD ∞›µø∏Ì¡∂2, en:SD Gyeokdong Mj2 01 Th Cd, ko:SD 격동명조2 01 Th Cd
+
+0322. SD November 01 Hl
+      GDI Name: SD November 01 Hl
+      Aliases: SD November, SD November 01 Hl, SD ≥Î∫®πˆ, SD 노벰버 01 Hl
+      Languages: mac-0000:SD November, mac-0017:SD ≥Î∫®πˆ, en:SD November 01 Hl, ko:SD 노벰버 01 Hl
+
+0323. Segoe Fluent Icons
+      GDI Name: Segoe Fluent Icons
+      Aliases: Segoe Fluent Icons
+      Languages: mac-0000:Segoe Fluent Icons, en:Segoe Fluent Icons
+
+0324. Segoe MDL2 Assets
+      GDI Name: Segoe MDL2 Assets
+      Aliases: Segoe MDL2 Assets
+      Languages: mac-0000:Segoe MDL2 Assets, en:Segoe MDL2 Assets
+
+0325. Segoe Print
+      GDI Name: Segoe Print
+      Aliases: Segoe Print
+      Languages: mac-0000:Segoe Print, en:Segoe Print
+
+0326. Segoe Script
+      GDI Name: Segoe Script
+      Aliases: Segoe Script
+      Languages: mac-0000:Segoe Script, en:Segoe Script
+
+0327. Segoe UI
+      GDI Name: Segoe UI
+      Aliases: Segoe UI
+      Languages: en:Segoe UI
+
+0328. Segoe UI Black
+      GDI Name: Segoe UI Black
+      Aliases: Segoe UI Black
+      Languages: en:Segoe UI Black
+
+0329. Segoe UI Emoji
+      GDI Name: Segoe UI Emoji
+      Aliases: Segoe UI Emoji
+      Languages: mac-0000:Segoe UI Emoji, en:Segoe UI Emoji
+
+0330. Segoe UI Historic
+      GDI Name: Segoe UI Historic
+      Aliases: Segoe UI Historic
+      Languages: mac-0000:Segoe UI Historic, en:Segoe UI Historic
+
+0331. Segoe UI Light
+      GDI Name: Segoe UI Light
+      Aliases: Segoe UI Light
+      Languages: en:Segoe UI Light
+
+0332. Segoe UI Semibold
+      GDI Name: Segoe UI Semibold
+      Aliases: Segoe UI Semibold
+      Languages: en:Segoe UI Semibold
+
+0333. Segoe UI Semilight
+      GDI Name: Segoe UI Semilight
+      Aliases: Segoe UI Semilight
+      Languages: en:Segoe UI Semilight
+
+0334. Segoe UI Symbol
+      GDI Name: Segoe UI Symbol
+      Aliases: Segoe UI Symbol
+      Languages: en:Segoe UI Symbol
+
+0335. Segoe UI Variable
+      GDI Name: Segoe UI Variable
+      Aliases: Segoe UI Variable, Segoe UI Variable Display
+      Languages: mac-0000:Segoe UI Variable, en:Segoe UI Variable
+
+0336. Seimei Kana Free
+      GDI Name: Seimei Kana Free
+      Aliases: Seimei Kana Free, ê¥ñæÇ©Ç» Free(Book), 清明かな Free(Book)
+      Languages: mac-0000:Seimei Kana Free, mac-000b:ê¥ñæÇ©Ç» Free(Book), en:Seimei Kana Free, ja:清明かな Free(Book)
+
+0337. Seimin Kana Classic Trial ExLight
+      GDI Name: Seimin Kana Classic Trial ExLight
+      Aliases: 3,1,0x411,\52E2\84EE\660E\671D\30C8\30E9\30A4\30A2\30EB, Seimin Kana Classic Trial ExLig, Seimin Kana Classic Trial ExLight, 勢蓮明朝トライアル
+      Languages: mac-0000:3,1,0x411,\52E2\84EE\660E\671D\30C8\30E9\30A4\30A2\30EB, en:Seimin Kana Classic Trial ExLight, ja:勢蓮明朝トライアル
+
+0338. Shilla_Culture(B)
+      GDI Name: Shilla_Culture(B)
+      Aliases: Shilla_Culture(B), 신라문화체(B)
+      Languages: mac-0000:Shilla_Culture(B), en:Shilla_Culture(B), ko:신라문화체(B)
+
+0339. Shilla_Culture(M)
+      GDI Name: Shilla_Culture(M)
+      Aliases: Shilla_Culture(M), 신라문화체(M)
+      Languages: mac-0000:Shilla_Culture(M), en:Shilla_Culture(M), ko:신라문화체(M)
+
+0340. SimSun
+      GDI Name: SimSun
+      Aliases: SimSun, 宋体
+      Languages: mac-0000:SimSun, en:SimSun, zh-Hans:宋体, win-1004:宋体
+
+0341. SimSun-ExtB
+      GDI Name: SimSun-ExtB
+      Aliases: SimSun-ExtB
+      Languages: mac-0000:SimSun-ExtB, en:SimSun-ExtB
+
+0342. SimSun-ExtG
+      GDI Name: SimSun-ExtG
+      Aliases: SimSun-ExtG
+      Languages: en:SimSun-ExtG
+
+0343. Sitka Text
+      GDI Name: Sitka Text
+      Aliases: Sitka Banner, Sitka Text
+      Languages: mac-0000:Sitka Text, en:Sitka Text
+
+0344. Small Fonts
+      GDI Name: Small Fonts
+      Aliases: Small Fonts
+
+0345. SOGANG UNIVERSITY
+      GDI Name: SOGANG UNIVERSITY
+      Aliases: SOGANG UNIVERSITY, º≠∞≠√º, 서강체
+      Languages: mac-0000:SOGANG UNIVERSITY, mac-0017:º≠∞≠√º, en:SOGANG UNIVERSITY, ko:서강체
+
+0346. SoukouMincho
+      GDI Name: SoukouMincho
+      Aliases: SoukouMincho, ëïçbñæí©, 装甲明朝
+      Languages: mac-0000:SoukouMincho, mac-000b:ëïçbñæí©, en:SoukouMincho, ja:装甲明朝
+
+0347. Spoqa Han Sans Neo
+      GDI Name: Spoqa Han Sans Neo
+      Aliases: Spoqa Han Sans Neo
+      Languages: mac-0000:Spoqa Han Sans Neo, en:Spoqa Han Sans Neo
+
+0348. SSRONET Handwritten
+      GDI Name: SSRONET Handwritten
+      Aliases: SSRONET Handwritten, Ω∫Ω∫∑Œ≥› º’±€ææ, 스스로넷 손글씨
+      Languages: mac-0000:SSRONET Handwritten, mac-0017:Ω∫Ω∫∑Œ≥› º’±€ææ, en:SSRONET Handwritten, ko:스스로넷 손글씨
+
+0349. Sylfaen
+      GDI Name: Sylfaen
+      Aliases: Sylfaen
+      Languages: mac-0000:Sylfaen, en:Sylfaen
+
+0350. Symbol
+      GDI Name: Symbol
+      Aliases: Symbol
+      Languages: mac-0000:Symbol, en:Symbol
+
+0351. System
+      GDI Name: System
+      Aliases: System
+
+0352. TAEBAEK milkyway
+      GDI Name: TAEBAEK milkyway
+      Aliases: TAEBAEK milkyway, ≈¬πÈ¿∫«œºˆ√º, 태백은하수체
+      Languages: mac-0000:TAEBAEK milkyway, mac-0017:≈¬πÈ¿∫«œºˆ√º, en:TAEBAEK milkyway, ko:태백은하수체
+
+0353. Tahoma
+      GDI Name: Tahoma
+      Aliases: Tahoma
+      Languages: en:Tahoma
+
+0354. Terminal
+      GDI Name: Terminal
+      Aliases: Terminal
+
+0355. The Jamsil OTF 1 Thin
+      GDI Name: The Jamsil OTF 1 Thin
+      Aliases: The Jamsil OTF, The Jamsil OTF 1 Thin, ¥ı¿·Ω« OTF, 더잠실 OTF 1 Thin
+      Languages: mac-0000:The Jamsil OTF, mac-0017:¥ı¿·Ω« OTF, en:The Jamsil OTF 1 Thin, ko:더잠실 OTF 1 Thin
+
+0356. Times New Roman
+      GDI Name: Times New Roman
+      Aliases: Times New Roman
+      Languages: mac-0000:Times New Roman, en:Times New Roman
+
+0357. Trebuchet MS
+      GDI Name: Trebuchet MS
+      Aliases: Trebuchet MS
+      Languages: mac-0000:Trebuchet MS, en:Trebuchet MS
+
+0358. Verdana
+      GDI Name: Verdana
+      Aliases: Verdana
+      Languages: mac-0000:Verdana, en:Verdana
+
+0359. Webdings
+      GDI Name: Webdings
+      Aliases: Webdings
+      Languages: mac-0000:Webdings, en:Webdings
+
+0360. Wingdings
+      GDI Name: Wingdings
+      Aliases: Wingdings
+      Languages: mac-0000:Wingdings, en:Wingdings
+
+0361. YeojuCeramic
+      GDI Name: YeojuCeramic
+      Aliases: YeojuCeramic, ø©¡÷µµ¿⁄√º, 여주도자체
+      Languages: mac-0000:YeojuCeramic, mac-0017:ø©¡÷µµ¿⁄√º, en:YeojuCeramic, ko:여주도자체
+
+0362. YEONGJUSeonbi
+      GDI Name: YEONGJUSeonbi
+      Aliases: YEONGJUSeonbi, øµ¡÷º±∫Ò√º, 영주선비체
+      Languages: mac-0000:YEONGJUSeonbi, mac-0017:øµ¡÷º±∫Ò√º, en:YEONGJUSeonbi, ko:영주선비체
+
+0363. Yu Gothic
+      GDI Name: Yu Gothic
+      Aliases: Yu Gothic, 游ゴシック
+      Languages: en:Yu Gothic, ja:游ゴシック
+
+0364. Yu Gothic Light
+      GDI Name: Yu Gothic Light
+      Aliases: Yu Gothic Light, 游ゴシック Light
+      Languages: en:Yu Gothic Light, ja:游ゴシック Light
+
+0365. Yu Gothic Medium
+      GDI Name: Yu Gothic Medium
+      Aliases: Yu Gothic Medium, 游ゴシック Medium
+      Languages: en:Yu Gothic Medium, ja:游ゴシック Medium
+
+0366. Yu Gothic UI
+      GDI Name: Yu Gothic UI
+      Aliases: Yu Gothic UI
+      Languages: en:Yu Gothic UI
+
+0367. Yu Gothic UI Light
+      GDI Name: Yu Gothic UI Light
+      Aliases: Yu Gothic UI Light
+      Languages: en:Yu Gothic UI Light
+
+0368. Yu Gothic UI Semibold
+      GDI Name: Yu Gothic UI Semibold
+      Aliases: Yu Gothic UI Semibold
+      Languages: en:Yu Gothic UI Semibold
+
+0369. Yu Gothic UI Semilight
+      GDI Name: Yu Gothic UI Semilight
+      Aliases: Yu Gothic UI Semilight
+      Languages: en:Yu Gothic UI Semilight
+
+0370. ZeroGothic
+      GDI Name: ZeroGothic
+      Aliases: ZeroGothic, óÎÉSÉVÉbÉN, 零ゴシック
+      Languages: mac-0000:ZeroGothic, mac-000b:óÎÉSÉVÉbÉN, en:ZeroGothic, ja:零ゴシック
+
+0371. ZWAdobeF
+      GDI Name: ZWAdobeF
+      Aliases: ZWAdobeF
+      Languages: mac-0000:ZWAdobeF, en:ZWAdobeF
+

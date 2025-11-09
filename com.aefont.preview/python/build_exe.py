@@ -59,11 +59,7 @@ def build_exe():
         "--clean",                # Clean cache
         "--noconfirm",            # Overwrite without asking
         
-        # Hidden imports (Tkinter sometimes needs help)
-        "--hidden-import=tkinter",
-        "--hidden-import=tkinter.font",
-        "--hidden-import=PIL._tkinter_finder",
-        
+        # Hidden imports (no Tkinter dependency required)
         # Add data files (none needed for this script)
         
         # Optimize

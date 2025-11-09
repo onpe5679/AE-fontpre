@@ -107,10 +107,16 @@ com.aefontpre.preview/
 ├── css/
 │   └── styles.css        # 스타일시트
 ├── js/
-│   ├── CSInterface.js    # Adobe CEP API 라이브러리
-│   └── main.js          # 메인 JavaScript 로직
-└── jsx/
-    └── hostscript.jsx    # ExtendScript 백엔드
+│   ├── app/              # 프런트엔드 모듈 (i18n, Python 브리지, 유틸)
+│   ├── services/         # Python 헬퍼 통신 모듈
+│   ├── fontLoader.js     # 웹폰트 로딩 유틸
+│   ├── fontRender.js     # 렌더링 계획 계산
+│   └── main.js           # UI 오케스트레이션
+├── jsx/
+│   └── hostscript.jsx    # ExtendScript 백엔드
+└── python/
+    ├── font_server.py    # Windows GDI 기반 로컬 폰트 서버
+    └── font_inspector.py # GDI name 테이블 파서
 ```
 
 ## 주요 기능 상세
@@ -120,7 +126,7 @@ com.aefontpre.preview/
 플러그인은 두 가지 방법으로 폰트 목록을 가져옵니다:
 
 1. **After Effects 텍스트 레이어**: 임시 텍스트 레이어를 생성하여 시스템 폰트 목록 가져오기
-2. **폴백 목록**: 위 방법이 실패할 경우 일반적인 시스템 폰트 목록 사용
+2. **Python GDI 헬퍼**: CEP(Chromium)가 렌더링하지 못하는 FR_PRIVATE/동적 폰트는 로컬 Python 서버가 GDI로 직접 렌더링한 이미지를 제공합니다.
 
 ### 지원되는 폰트
 
@@ -155,6 +161,18 @@ com.aefontpre.preview/
 1. **레이어 선택**: 텍스트 레이어가 선택되었는지 확인
 2. **폰트 유효성**: 선택된 폰트가 시스템에 설치되어 있는지 확인
 3. **컴포지션 활성화**: 활성 컴포지션이 있는지 확인
+
+### Python 폰트 헬퍼가 반복적으로 재시작하거나 패널이 새로고침될 경우
+
+- `Ctrl+F12` (Windows) 또는 `Cmd+F12` (macOS)로 CEP 로그를 확인해 에러 메시지를 확인합니다.
+- 임시로 Python 헬퍼를 비활성화하려면 패널이 열린 상태에서 개발자 콘솔(또는 `Window > Extensions > Adobe Extension Debugger`)에 아래 명령을 실행하세요.
+
+```javascript
+localStorage.setItem('AEFP_DISABLE_PYTHON', '1');
+location.reload();
+```
+
+- 다시 활성화하려면 값을 `0`으로 바꾸거나 항목을 삭제하세요.
 
 ## 개발 정보
 

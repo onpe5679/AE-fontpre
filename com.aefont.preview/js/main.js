@@ -2,21 +2,87 @@
 (function() {
     'use strict';
 
+    if (!window.AEFontI18n || !window.AEFontUtils) {
+        console.error('[AE Font Preview] Missing shared modules.');
+        return;
+    }
+
+    const i18n = window.AEFontI18n;
+    const utils = window.AEFontUtils;
+    const errorBoundary = window.AEFontErrorBoundary;
+    const disablePythonSupport = (() => {
+        try {
+            return window.localStorage && window.localStorage.getItem('AEFP_DISABLE_PYTHON') === '1';
+        } catch (error) {
+            return false;
+        }
+    })();
+
+    function reportError(origin, error) {
+        if (errorBoundary && typeof errorBoundary.notify === 'function') {
+            errorBoundary.notify(origin, error);
+        } else if (error) {
+            console.error(`[${origin}]`, error);
+        } else {
+            console.error(`[${origin}] Unknown error`);
+        }
+    }
+
+    function decodeNativeValue(value) {
+        if (value === undefined || value === null) {
+            return '';
+        }
+        try {
+            return decodeURIComponent(value);
+        } catch (error) {
+            reportError('decodeNativeValue', error);
+            return String(value);
+        }
+    }
+
+    function sendCepFontSnapshot(label, fonts) {
+        if (!window.AEFontPythonBridge || typeof fetch !== 'function') {
+            return;
+        }
+        if (!AEFontPythonBridge.isReady() || !Array.isArray(fonts) || fonts.length === 0) {
+            return;
+        }
+        try {
+            const payload = {
+                label,
+                fonts: fonts.map(font => ({
+                    displayName: font.displayName,
+                    family: font.family,
+                    style: font.style,
+                    postScriptName: font.postScriptName,
+                    nativeFamily: font.nativeFamily,
+                    nativeStyle: font.nativeStyle,
+                    nativeFull: font.nativeFull
+                }))
+            };
+            fetch('http://127.0.0.1:8765/debug/cep-fonts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(error => {
+                console.warn('[AE Font Preview] Failed to send CEP font snapshot:', error);
+            });
+        } catch (error) {
+            reportError('sendCepFontSnapshot', error);
+        }
+    }
+
     // Global variables
     let csInterface;
-    let currentLanguage = 'ko';
+    let currentLanguage = i18n.getLanguage ? i18n.getLanguage() : 'ko';
     let availableFonts = [];
     let fontFamilies = [];
     let selectedFont = null;
     let selectedFontId = null;
     let isInitialized = false;
+    let initRetryCount = 0;
+    const MAX_INIT_RETRIES = 5;
     let toastContainer;
-    let pythonProcess = null;
-    let pythonClient = null;
-    let pythonReady = false;
-    let pythonCatalogAll = new Map();
-    const pythonAliasIndex = new Map();
-    const pythonPreviewCache = new Map();
     let pythonUpdateTimer = null;
     let pythonPreviewBusy = false;
     const fontByUid = new Map();
@@ -25,220 +91,37 @@
     let previewTextInput;
     let fontSizeInput;
     let applyButton;
+    let cepFontSnapshotSent = false;
 
-    // Multi-language support
-    const translations = {
-        ko: {
-            'app-title': '폰트 프리뷰',
-            'text-label': '미리보기 텍스트:',
-            'size-label': '폰트 크기:',
-            'search-label': '폰트 검색:',
-            'refresh-text': '폰트 새로고침',
-            'apply-text': '선택된 폰트 적용',
-            'font-list-title': '폰트 목록',
-            'loading-text': '폰트 목록을 불러오는 중...',
-            'status-ready': '준비 완료',
-            'status-loading': '폰트 목록 로딩 중...',
-            'status-applying': '폰트 적용 중...',
-            'status-error': '오류 발생',
-            'no-fonts': '사용 가능한 폰트가 없습니다',
-            'font-count': '{count}개 폰트',
-            'placeholder-text': '미리보기할 텍스트를 입력하세요...',
-            'placeholder-search': '폰트 이름으로 검색...',
-            'load-text': '텍스트 불러오기',
-            'status-fetching-text': '텍스트 불러오는 중...',
-            'toast-apply-success': '{count}개의 레이어에 적용했습니다.',
-            'toast-apply-success-single': '{count}개의 레이어에 적용했습니다.',
-            'toast-load-success': '텍스트를 불러왔습니다.',
-            'toast-load-fail': '텍스트를 불러올 수 없습니다.',
-            'toast-apply-fail': '폰트 적용 실패',
-            'toast-parse-fail': '응답을 파싱할 수 없습니다.'
-        },
-        en: {
-            'app-title': 'Font Preview',
-            'text-label': 'Preview Text:',
-            'size-label': 'Font Size:',
-            'search-label': 'Search Font:',
-            'refresh-text': 'Refresh Fonts',
-            'apply-text': 'Apply Selected Font',
-            'font-list-title': 'Font List',
-            'loading-text': 'Loading font list...',
-            'status-ready': 'Ready',
-            'status-loading': 'Loading fonts...',
-            'status-applying': 'Applying font...',
-            'status-error': 'Error occurred',
-            'no-fonts': 'No fonts available',
-            'font-count': '{count} fonts',
-            'placeholder-text': 'Enter preview text...',
-            'placeholder-search': 'Search by font name...',
-            'load-text': 'Fetch Text',
-            'status-fetching-text': 'Fetching text...',
-            'toast-apply-success': 'Applied to {count} layers.',
-            'toast-apply-success-single': 'Applied to {count} layer.',
-            'toast-load-success': 'Loaded layer text.',
-            'toast-load-fail': 'Could not load text.',
-            'toast-apply-fail': 'Failed to apply font',
-            'toast-parse-fail': 'Could not parse response.'
-        },
-        ja: {
-            'app-title': 'フォントプレビュー',
-            'text-label': 'プレビューテキスト:',
-            'size-label': 'フォントサイズ:',
-            'search-label': 'フォント検索:',
-            'refresh-text': 'フォント更新',
-            'apply-text': '選択フォント適用',
-            'font-list-title': 'フォント一覧',
-            'loading-text': 'フォント一覧を読み込み中...',
-            'status-ready': '準備完了',
-            'status-loading': 'フォント読み込み中...',
-            'status-applying': 'フォント適用中...',
-            'status-error': 'エラー発生',
-            'no-fonts': '利用可能なフォントがありません',
-            'font-count': '{count}個のフォント',
-            'placeholder-text': 'プレビューテキストを入力...',
-            'placeholder-search': 'フォント名で検索...',
-            'load-text': 'テキスト取得',
-            'status-fetching-text': 'テキスト取得中...',
-            'toast-apply-success': '{count}個のレイヤーに適用しました。',
-            'toast-apply-success-single': '{count}個のレイヤーに適用しました。',
-            'toast-load-success': 'テキストを読み込みました。',
-            'toast-load-fail': 'テキストを取得できません。',
-            'toast-apply-fail': 'フォントの適用に失敗しました',
-            'toast-parse-fail': 'レスポンスを解析できません。'
-        }
-    };
-
-    function translate(key, fallback) {
-        const pack = translations[currentLanguage] || translations.ko;
-        if (pack && Object.prototype.hasOwnProperty.call(pack, key)) {
-            return pack[key];
-        }
-        if (fallback !== undefined) {
-            return fallback;
-        }
-        return key;
-    }
-
-    function formatTranslation(key, params = {}) {
-        let template = translate(key, key);
-        Object.keys(params).forEach(paramKey => {
-            const pattern = new RegExp(`\\{${paramKey}\\}`, 'g');
-            template = template.replace(pattern, params[paramKey]);
-        });
-        return template;
-    }
-
-    function normalizeFontKey(name) {
-        if (!name && name !== 0) {
-            return '';
-        }
-        return String(name)
-            .toLowerCase()
-            .replace(/\s+/g, '')
-            .replace(/[_-]/g, '');
-    }
-
-    function addAlias(font, alias) {
-        if (!alias && alias !== 0) {
-            return;
-        }
-        const value = String(alias).trim();
-        if (!value) {
-            return;
-        }
-        if (!font.aliases) {
-            font.aliases = new Set();
-        }
-        if (!font.normalizedAliases) {
-            font.normalizedAliases = new Set();
-        }
-        font.aliases.add(value);
-        const normalized = normalizeFontKey(value);
-        if (normalized) {
-            font.normalizedAliases.add(normalized);
-        }
-    }
-
-    function rebuildPythonAliasIndex() {
-        pythonAliasIndex.clear();
-        if (!pythonCatalogAll || typeof pythonCatalogAll.forEach !== 'function') {
-            return;
-        }
-        pythonCatalogAll.forEach(meta => {
-            if (!meta) {
-                return;
+    if (typeof i18n.onChange === 'function') {
+        i18n.onChange(lang => {
+            currentLanguage = lang;
+            try {
+                updateFontCount();
+            } catch (error) {
+                console.warn('[AE Font Preview] Failed to update font count on language change:', error);
             }
-            const key = meta.key || normalizeFontKey(meta.name);
-            if (key && !pythonAliasIndex.has(key)) {
-                pythonAliasIndex.set(key, meta);
-            }
-            const list = Array.isArray(meta.normalizedAliases) ? meta.normalizedAliases : [];
-            list.forEach(alias => {
-                if (!alias) {
-                    return;
-                }
-                if (!pythonAliasIndex.has(alias)) {
-                    pythonAliasIndex.set(alias, meta);
-                }
-            });
         });
     }
-
-    // Simple HTML escape helpers to guard against unsafe font names
-    function escapeHtml(text) {
-        if (text === null || text === undefined) {
-            return '';
-        }
-        return String(text)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-    }
-
-    function escapeAttr(text) {
-        if (text === null || text === undefined) {
-            return '';
-        }
-        return String(text)
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-    }
-
     async function initializePythonSupport() {
-        if (typeof PythonProcessManager === 'undefined' || typeof PythonPreviewClient === 'undefined') {
+        console.log('[initializePythonSupport] Starting...');
+        if (disablePythonSupport) {
+            console.info('[AE Font Preview] Python helper disabled via AEFP_DISABLE_PYTHON flag.');
             return false;
         }
-
-        let extensionPath;
+        if (!window.AEFontPythonBridge) {
+            console.log('[initializePythonSupport] AEFontPythonBridge not available, skipping.');
+            return false;
+        }
         try {
-            if (typeof window.CSInterface === 'function') {
-                const tempInterface = new window.CSInterface();
-                extensionPath = tempInterface.getSystemPath('extension');
-            }
+            console.log('[initializePythonSupport] Calling AEFontPythonBridge.init()...');
+            const result = await AEFontPythonBridge.init();
+            console.log('[initializePythonSupport] Result:', result);
+            return result;
         } catch (error) {
-            console.warn('[initializePythonSupport] Unable to resolve extension path:', error);
-        }
-
-        pythonProcess = new PythonProcessManager();
-        const started = pythonProcess.start(extensionPath);
-        if (!started) {
+            console.warn('[initializePythonSupport] Failed to initialize Python helper:', error);
             return false;
         }
-
-        pythonClient = new PythonPreviewClient();
-        const ready = await pythonClient.waitUntilReady();
-        if (!ready) {
-            pythonProcess.stop();
-            return false;
-        }
-
-        pythonCatalogAll = await pythonClient.fetchFontCatalog();
-        rebuildPythonAliasIndex();
-        pythonReady = true;
-        return true;
     }
 
     function applyPlanToFontItem(font, fontItem) {
@@ -455,7 +338,7 @@
 
     // Initialize the application
     async function init() {
-        console.log('Initializing AE Font Preview...');
+        console.log(`[init] Starting initialization (attempt ${initRetryCount + 1})...`);
         toastContainer = document.getElementById('toast-container');
         fontListElement = document.getElementById('font-list');
         previewTextInput = document.getElementById('preview-text');
@@ -470,17 +353,39 @@
         }
 
         window.addEventListener('beforeunload', () => {
-            if (pythonProcess) {
-                pythonProcess.stop();
+            if (window.AEFontPythonBridge && typeof AEFontPythonBridge.stop === 'function') {
+                try {
+                    AEFontPythonBridge.stop();
+                } catch (error) {
+                    console.warn('[init] Error stopping Python bridge:', error);
+                }
             }
         });
 
-        await initializePythonSupport();
+        console.log('[init] Initializing Python support...');
+        try {
+            await initializePythonSupport();
+            console.log('[init] Python support initialization completed');
+        } catch (error) {
+            console.error('[init] Python support initialization failed:', error);
+        }
 
+        console.log('[init] Initializing CSInterface...');
         if (!initCSInterface()) {
-            console.error('Failed to initialize CSInterface');
-            setTimeout(init, 1000);
-            return;
+            initRetryCount++;
+            console.error(`Failed to initialize CSInterface (attempt ${initRetryCount}/${MAX_INIT_RETRIES})`);
+            
+            if (initRetryCount < MAX_INIT_RETRIES) {
+                setTimeout(init, 1000);
+                return;
+            } else {
+                console.error('Maximum initialization retries reached. Stopping.');
+                updateStatus('status-error');
+                if (fontListElement) {
+                    fontListElement.innerHTML = '<div class="no-fonts" style="color:red;">CSInterface 초기화 실패. After Effects를 재시작해주세요.</div>';
+                }
+                return;
+            }
         }
 
         loadJSXScript();
@@ -576,45 +481,27 @@
 
     // Load language
     function loadLanguage(lang) {
-        currentLanguage = lang;
-        const texts = translations[lang];
-        
-        if (!texts) return;
-
-        const languageSelect = document.getElementById('language-select');
-        if (languageSelect && languageSelect.value !== lang) {
-            languageSelect.value = lang;
+        const target = lang || currentLanguage || 'ko';
+        if (typeof i18n.setLanguage === 'function' && target !== currentLanguage) {
+            i18n.setLanguage(target, { applyToDom: false });
         }
-
-        // Update all translatable elements
-        Object.keys(texts).forEach(key => {
-            const element = document.getElementById(key);
-            if (element) {
-                if (key === 'placeholder-text') {
-                    document.getElementById('preview-text').placeholder = texts[key];
-                } else if (key === 'placeholder-search') {
-                    document.getElementById('search-font').placeholder = texts[key];
-                } else {
-                    element.textContent = texts[key];
-                }
-            }
-        });
-
-        // Update font count
+        currentLanguage = typeof i18n.getLanguage === 'function' ? i18n.getLanguage() : target;
+        if (typeof i18n.applyToDom === 'function') {
+            i18n.applyToDom(currentLanguage);
+        }
         updateFontCount();
     }
 
     // Update status text
     function updateStatus(statusKey, params = {}) {
-        const statusText = translations[currentLanguage][statusKey] || statusKey;
-        let finalText = statusText;
-        
-        // Replace parameters
-        Object.keys(params).forEach(key => {
-            finalText = finalText.replace(`{${key}}`, params[key]);
-        });
-        
-        document.getElementById('status-text').textContent = finalText;
+        const element = document.getElementById('status-text');
+        if (!element) {
+            return;
+        }
+        const text = typeof i18n.format === 'function'
+            ? i18n.format(statusKey, params)
+            : statusKey;
+        element.textContent = text;
     }
 
     function showToast(message, type = 'info') {
@@ -644,20 +531,26 @@
 
         // Load fonts from After Effects
     async function loadFonts() {
+        console.log('[loadFonts] Starting font load...');
         updateStatus('status-loading');
         showLoading(true);
 
         try {
+            console.log('[loadFonts] Fetching AE fonts...');
             const aeFonts = await fetchAEFonts();
+            console.log(`[loadFonts] Fetched ${aeFonts.length} fonts`);
             availableFonts = aeFonts;
-            pythonPreviewCache.clear();
 
-            if (pythonReady) {
-                mergePythonFonts();
+            if (window.AEFontPythonBridge && typeof AEFontPythonBridge.clearPreviewCache === 'function') {
+                AEFontPythonBridge.clearPreviewCache();
+            }
+
+            if (window.AEFontPythonBridge && AEFontPythonBridge.isReady()) {
+                AEFontPythonBridge.mergeFonts(availableFonts);
             } else {
                 availableFonts.forEach(font => {
                     font.pythonLookup = font.displayName;
-                    font.pythonKey = normalizeFontKey(font.displayName);
+                    font.pythonKey = utils.normalizeFontKey(font.displayName);
                     font.canApply = font.canApply !== false;
                 });
             }
@@ -670,6 +563,11 @@
 
             availableFonts.sort((a, b) => a.displayName.localeCompare(b.displayName, currentLanguage));
 
+            if (!cepFontSnapshotSent && window.AEFontPythonBridge && AEFontPythonBridge.isReady()) {
+                sendCepFontSnapshot('ae-fonts', availableFonts);
+                cepFontSnapshotSent = true;
+            }
+
             fontByUid.clear();
             fontsByPythonKey.clear();
             availableFonts.forEach(font => {
@@ -678,9 +576,24 @@
                 if (font.normalizedAliases && font.normalizedAliases.size) {
                     keys.push(...font.normalizedAliases);
                 }
-                const primaryKey = font.pythonKey || normalizeFontKey(font.displayName);
+                const primaryKey = font.pythonKey || utils.normalizeFontKey(font.displayName);
                 if (primaryKey) {
                     keys.push(primaryKey);
+                }
+                // Add native (localized) names as candidate keys for Python mapping
+                if (font.nativeFamily) {
+                    const k = utils.normalizeFontKey(font.nativeFamily);
+                    if (k) keys.push(k);
+                }
+                if (font.nativeFull) {
+                    const k = utils.normalizeFontKey(font.nativeFull);
+                    if (k) keys.push(k);
+                }
+                if (font.nativeFamily && font.nativeStyle) {
+                    const k1 = utils.normalizeFontKey(font.nativeFamily + ' ' + font.nativeStyle);
+                    const k2 = utils.normalizeFontKey(font.nativeFamily + '-' + font.nativeStyle);
+                    if (k1) keys.push(k1);
+                    if (k2) keys.push(k2);
                 }
                 const uniqueKeys = new Set(keys.filter(Boolean));
                 uniqueKeys.forEach(key => {
@@ -787,92 +700,25 @@
             requiresPython: false,
             externalOnly: false,
             pythonLookup: displayName,
-            pythonKey: normalizeFontKey(displayName)
+            pythonKey: utils.normalizeFontKey(displayName),
+            // Native (localized) names - decode from hostscript transport encoding
+            nativeFamily: decodeNativeValue(font.nativeFamily),
+            nativeStyle: decodeNativeValue(font.nativeStyle),
+            nativeFull: decodeNativeValue(font.nativeFull)
         };
 
-        addAlias(fontObj, displayName);
-        addAlias(fontObj, familyName);
-        addAlias(fontObj, postScriptName);
+        utils.addAlias(fontObj, displayName);
+        utils.addAlias(fontObj, familyName);
+        utils.addAlias(fontObj, postScriptName);
         if (styleName) {
-            addAlias(fontObj, `${familyName} ${styleName}`);
-            addAlias(fontObj, `${displayName} ${styleName}`);
-            addAlias(fontObj, `${familyName}-${styleName}`);
-            addAlias(fontObj, `${displayName}-${styleName}`);
+            utils.addAlias(fontObj, `${familyName} ${styleName}`);
+            utils.addAlias(fontObj, `${displayName} ${styleName}`);
+            utils.addAlias(fontObj, `${familyName}-${styleName}`);
+            utils.addAlias(fontObj, `${displayName}-${styleName}`);
         }
-        cssFamilies.forEach(candidate => addAlias(fontObj, candidate));
+        cssFamilies.forEach(candidate => utils.addAlias(fontObj, candidate));
 
         return fontObj;
-    }
-
-    function mergePythonFonts() {
-        if (!pythonReady || !(pythonCatalogAll instanceof Map) || pythonCatalogAll.size === 0) {
-            return;
-        }
-
-        rebuildPythonAliasIndex();
-        availableFonts.forEach(font => {
-            const meta = findPythonMetaForFont(font);
-            if (meta) {
-                font.pythonInfo = meta;
-                font.pythonLookup = meta.name;
-                font.pythonKey = meta.key;
-                font.paths = meta.paths || [];
-                if (Array.isArray(meta.aliases)) {
-                    meta.aliases.forEach(alias => addAlias(font, alias));
-                }
-                if (Array.isArray(meta.normalizedAliases)) {
-                    meta.normalizedAliases.forEach(alias => {
-                        if (alias) {
-                            font.normalizedAliases.add(alias);
-                        }
-                    });
-                }
-                font.externalOnly = false;
-                font.canApply = true;
-                if (meta.forceBitmap) {
-                    font.requiresPython = true;
-                }
-            }
-        });
-    }
-
-    function findPythonMetaForFont(font) {
-        if (!pythonCatalogAll || pythonCatalogAll.size === 0) {
-            return null;
-        }
-        const candidateKeys = new Set();
-        const addCandidate = value => {
-            const key = normalizeFontKey(value);
-            if (key) {
-                candidateKeys.add(key);
-            }
-        };
-
-        addCandidate(font.pythonKey);
-        addCandidate(font.displayName);
-        addCandidate(font.family);
-        addCandidate(font.postScriptName);
-
-        if (font.aliases && typeof font.aliases.forEach === 'function') {
-            font.aliases.forEach(alias => addCandidate(alias));
-        }
-        if (font.normalizedAliases && typeof font.normalizedAliases.forEach === 'function') {
-            font.normalizedAliases.forEach(key => {
-                if (key) {
-                    candidateKeys.add(key);
-                }
-            });
-        }
-
-        for (const key of candidateKeys) {
-            if (pythonCatalogAll.has(key)) {
-                return pythonCatalogAll.get(key);
-            }
-            if (pythonAliasIndex.has(key)) {
-                return pythonAliasIndex.get(key);
-            }
-        }
-        return null;
     }
 
     // Display fonts in the list
@@ -886,27 +732,34 @@
         const fontSize = fontSizeInput ? fontSizeInput.value : '24';
 
         if (!fonts.length) {
-            listElement.innerHTML = `<div class="no-fonts">${translate('no-fonts', 'No fonts available')}</div>`;
+            listElement.innerHTML = `<div class="no-fonts">${i18n.translate('no-fonts', 'No fonts available')}</div>`;
             return;
         }
 
         const html = fonts.map(font => {
-            const encodedUid = escapeAttr(font.uid);
-            const nameText = escapeHtml(font.displayName);
-            const styleText = escapeHtml(font.style || '');
-            const pythonKeyAttr = font.pythonKey ? ` data-python-key="${escapeAttr(font.pythonKey)}"` : '';
+            const encodedUid = utils.escapeAttr(font.uid);
+            const nameText = utils.escapeHtml(font.displayName);
+            const styleText = utils.escapeHtml(font.style || '');
+            const pythonKeyAttr = font.pythonKey ? ` data-python-key="${utils.escapeAttr(font.pythonKey)}"` : '';
             const classes = ['font-item'];
             if (font.requiresPython) {
                 classes.push('python-render');
             } else {
                 classes.push('css-render');
             }
+            
+            // Show native name if it's different from English name
+            let nativeNameHtml = '';
+            if (font.nativeFamily && font.nativeFamily !== font.family) {
+                const nativeName = font.nativeFull || (font.nativeFamily + (font.nativeStyle ? ' ' + font.nativeStyle : ''));
+                nativeNameHtml = ` <span class="font-native-name" style="color:#999;font-size:0.9em;">(${utils.escapeHtml(nativeName)})</span>`;
+            }
 
             return `
                 <div class="${classes.join(' ')}" data-font-uid="${encodedUid}"${pythonKeyAttr}>
-                    <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span></div>
+                    <div class="font-name">${nameText}<span class="font-style"> ${styleText}</span>${nativeNameHtml}</div>
                     <div class="font-preview">
-                        <div class="font-preview-text" style="font-size:${fontSize}px;">${escapeHtml(previewText)}</div>
+                        <div class="font-preview-text" style="font-size:${fontSize}px;">${utils.escapeHtml(previewText)}</div>
                         <img class="font-preview-image" alt="${nameText} preview">
                     </div>
                 </div>
@@ -988,6 +841,11 @@
             if (font.aliases && typeof font.aliases.forEach === 'function') {
                 font.aliases.forEach(alias => targets.push(alias));
             }
+            // Add native names to search targets
+            if (font.nativeFamily) targets.push(font.nativeFamily);
+            if (font.nativeStyle) targets.push(font.nativeStyle);
+            if (font.nativeFull) targets.push(font.nativeFull);
+            
             for (let i = 0; i < targets.length; i++) {
                 const target = targets[i];
                 if (target && String(target).toLowerCase().indexOf(searchTerm) !== -1) {
@@ -1014,7 +872,7 @@
     }
 
     function schedulePythonPreviewUpdate(immediate = false) {
-        if (!pythonReady) {
+        if (!window.AEFontPythonBridge || !AEFontPythonBridge.isReady()) {
             return;
         }
         if (immediate) {
@@ -1030,101 +888,98 @@
         }
         pythonUpdateTimer = setTimeout(updatePythonPreviews, 300);
     }
-    function buildPythonCacheKey(fontKey, text, size, width) {
-        const normalizedWidth = Number.isFinite(width) ? Math.round(width) : 0;
-        return `${fontKey}__${size}__${normalizedWidth}__${text}`;
-    }
 
     async function updatePythonPreviews() {
-        if (!pythonReady || !pythonClient || pythonPreviewBusy) {
+        if (!window.AEFontPythonBridge || !AEFontPythonBridge.isReady() || pythonPreviewBusy) {
             return;
         }
         if (!fontListElement) {
             return;
         }
 
-        const text = previewTextInput ? previewTextInput.value : '';
-        const size = fontSizeInput ? parseInt(fontSizeInput.value, 10) || 24 : 24;
-        const listRect = fontListElement.getBoundingClientRect();
-
-        const requestPayload = [];
-        const requestBindings = new Map();
-
-        document.querySelectorAll('.font-item.python-render').forEach(item => {
-            const rect = item.getBoundingClientRect();
-            if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 80) {
-                return;
-            }
-            const font = fontByUid.get(item.dataset.fontUid);
-            if (!font) {
-                return;
-            }
-            const key = font.pythonKey || normalizeFontKey(font.displayName);
-            if (!key) {
-                return;
-            }
-             const previewHost = item.querySelector('.font-preview');
-            const viewportWidth = previewHost ? Math.max(0, Math.floor(previewHost.clientWidth || previewHost.getBoundingClientRect().width || 0)) : 0;
-            font._pythonViewportWidth = viewportWidth;
-            const cacheKey = buildPythonCacheKey(key, text, size, viewportWidth);
-            font.currentPythonCacheKey = cacheKey;
-            const cached = pythonPreviewCache.get(cacheKey);
-            if (cached) {
-                updatePythonPreviewDom(font, cached);
-           return;
-            }
-            const requestId = cacheKey;
-            if (!requestBindings.has(requestId)) {
-                requestBindings.set(requestId, []);
-                // Debug: Check what we're sending
-                console.log('[DEBUG] Sending to Python:', {
-                    name: font.displayName,
-                    postScriptName: font.postScriptName,
-                    style: font.style,
-                    hasPS: !!font.postScriptName
-                });
-                requestPayload.push({
-                    name: font.pythonLookup || font.displayName,
-                    postScriptName: font.postScriptName || null,
-                    style: font.style || null,
-                    width: viewportWidth,
-                    requestId
-                });
-            }
-            requestBindings.get(requestId).push(font);
-        });
-
-        if (requestPayload.length === 0) {
-            return;
-        }
-
-        pythonPreviewBusy = true;
         try {
-            const previews = await pythonClient.fetchBatchPreviews(requestPayload, text, size);
-            (previews || []).forEach(preview => {
-                if (!preview || !preview.image) {
+            const text = previewTextInput ? previewTextInput.value : '';
+            const size = fontSizeInput ? parseInt(fontSizeInput.value, 10) || 24 : 24;
+            const listRect = fontListElement.getBoundingClientRect();
+
+            const requestPayload = [];
+            const requestBindings = new Map();
+
+            document.querySelectorAll('.font-item.python-render').forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 80) {
                     return;
                 }
-               const requestId = preview.requestId;
-                let boundFonts = requestId ? requestBindings.get(requestId) : null;
-                if ((!boundFonts || !boundFonts.length) && preview.fontName) {
-                    const norm = normalizeFontKey(preview.fontName);
-                    boundFonts = fontsByPythonKey.get(norm) || [];
-                }
-                if (!boundFonts || !boundFonts.length) {
+                const font = fontByUid.get(item.dataset.fontUid);
+                if (!font) {
                     return;
                 }
-              boundFonts.forEach(font => {
-                    const width = font._pythonViewportWidth || 0;
-                    const cacheKey = buildPythonCacheKey(font.pythonKey || normalizeFontKey(font.displayName), text, size, width);
-                    pythonPreviewCache.set(cacheKey, preview.image);
-                    updatePythonPreviewDom(font, preview.image);
-                });
+                const key = font.pythonKey || utils.normalizeFontKey(font.displayName);
+                if (!key) {
+                    return;
+                }
+                const previewHost = item.querySelector('.font-preview');
+                const viewportWidth = previewHost ? Math.max(0, Math.floor(previewHost.clientWidth || previewHost.getBoundingClientRect().width || 0)) : 0;
+                font._pythonViewportWidth = viewportWidth;
+                const styleMarker = font.postScriptName || font.id || font.style || '';
+                const cacheKey = (window.AEFontPythonBridge && typeof AEFontPythonBridge.buildCacheKey === 'function')
+                    ? AEFontPythonBridge.buildCacheKey(key, text, size, viewportWidth, styleMarker)
+                    : `${key}::${styleMarker}::${(text || '').slice(0, 200)}::${size}::${viewportWidth}`;
+                font.currentPythonCacheKey = cacheKey;
+                const requestId = cacheKey;
+                if (!requestBindings.has(requestId)) {
+                    requestBindings.set(requestId, []);
+                    requestPayload.push({
+                        name: font.pythonLookup || font.displayName,
+                        postScriptName: font.postScriptName || null,
+                        style: font.style || null,
+                        width: viewportWidth,
+                        requestId,
+                        pythonKey: key
+                    });
+                }
+                requestBindings.get(requestId).push(font);
             });
+
+            if (requestPayload.length === 0) {
+                return;
+            }
+
+            pythonPreviewBusy = true;
+            try {
+                const previews = await AEFontPythonBridge.fetchBatchPreviews(requestPayload, text, size);
+                (previews || []).forEach(preview => {
+                    if (!preview || !preview.image) {
+                        return;
+                    }
+                    const requestId = preview.requestId;
+                    let boundFonts = requestId ? requestBindings.get(requestId) : null;
+                    if ((!boundFonts || !boundFonts.length) && preview.fontName) {
+                        const norm = utils.normalizeFontKey(preview.fontName);
+                        boundFonts = fontsByPythonKey.get(norm) || [];
+                    }
+                    if ((!boundFonts || !boundFonts.length) && preview.pythonKey) {
+                        const normKey = utils.normalizeFontKey(preview.pythonKey);
+                        boundFonts = fontsByPythonKey.get(normKey) || boundFonts;
+                    }
+                    if ((!boundFonts || !boundFonts.length) && preview.resolvedName) {
+                        const normResolved = utils.normalizeFontKey(preview.resolvedName);
+                        boundFonts = fontsByPythonKey.get(normResolved) || boundFonts;
+                    }
+                    if (!boundFonts || !boundFonts.length) {
+                        return;
+                    }
+                    boundFonts.forEach(font => {
+                        updatePythonPreviewDom(font, preview.image);
+                    });
+                });
+            } catch (error) {
+                reportError('updatePythonPreviews/fetch', error);
+            } finally {
+                pythonPreviewBusy = false;
+            }
         } catch (error) {
-            console.error('Python preview fetch failed:', error);
-        } finally {
-            pythonPreviewBusy = false;
+            reportError('updatePythonPreviews', error);
         }
     }
 
@@ -1154,13 +1009,13 @@
             updateStatus('status-ready');
             try {
                 if (!result || result === 'undefined') {
-                    showToast(translate('toast-load-fail'), 'warning');
+                    showToast(i18n.translate('toast-load-fail'), 'warning');
                     return;
                 }
 
                 if (typeof result === 'string' && result.indexOf('EvalScript error') !== -1) {
                     console.warn('EvalScript error during load text:', result);
-                    showToast(translate('toast-load-fail'), 'warning');
+                    showToast(i18n.translate('toast-load-fail'), 'warning');
                     return;
                 }
 
@@ -1169,22 +1024,28 @@
                     const preview = document.getElementById('preview-text');
                     preview.value = response.text || '';
                     updateFontPreviews();
-                    showToast(translate('toast-load-success'), 'success');
+                    showToast(i18n.translate('toast-load-success'), 'success');
                 } else {
                     console.warn('Load text failed:', response.error);
-                    showToast(`${translate('toast-load-fail')} (${response.error || 'N/A'})`, 'warning');
+                    showToast(`${i18n.translate('toast-load-fail')} (${response.error || 'N/A'})`, 'warning');
                 }
             } catch (error) {
                 console.error('Failed to parse load text response:', error, result);
-                showToast(translate('toast-load-fail'), 'error');
+                showToast(i18n.translate('toast-load-fail'), 'error');
             }
         });
     }
 
     // Update font count
     function updateFontCount(count = availableFonts.length) {
-        const countText = translations[currentLanguage]['font-count'].replace('{count}', count);
-        document.getElementById('font-count').textContent = countText;
+        const element = document.getElementById('font-count');
+        if (!element) {
+            return;
+        }
+        const text = typeof i18n.format === 'function'
+            ? i18n.format('font-count', { count })
+            : `${count}`;
+        element.textContent = text;
     }
 
     // Show/hide loading indicator
@@ -1198,9 +1059,14 @@
                 loading = document.createElement('div');
                 loading.id = 'loading';
                 loading.className = 'loading';
-                loading.innerHTML = `<span>${translations[currentLanguage]['loading-text'] || 'Loading...'}</span>`;
+                loading.innerHTML = `<span>${i18n.translate('loading-text', 'Loading...')}</span>`;
                 fontList.innerHTML = '';
                 fontList.appendChild(loading);
+            } else {
+                const label = loading.querySelector('span');
+                if (label) {
+                    label.textContent = i18n.translate('loading-text', 'Loading...');
+                }
             }
             loading.style.display = 'flex';
         } else if (loading) {
@@ -1234,16 +1100,16 @@
                     updateStatus('status-ready');
                     const appliedCount = response.appliedCount || 0;
                     const key = appliedCount === 1 ? 'toast-apply-success-single' : 'toast-apply-success';
-                    const message = formatTranslation(key, { count: appliedCount });
+                    const message = i18n.format(key, { count: appliedCount });
                     showToast(message, 'success');
                 } else {
                     updateStatus('status-error');
-                    showToast(`${translate('toast-apply-fail')}: ${response.error}`, 'error');
+                    showToast(`${i18n.translate('toast-apply-fail')}: ${response.error}`, 'error');
                 }
             } catch (parseError) {
                 console.error('Parse error:', parseError);
                 updateStatus('status-error');
-                showToast(translate('toast-parse-fail'), 'error');
+                showToast(i18n.translate('toast-parse-fail'), 'error');
             }
         });
     }

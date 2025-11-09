@@ -116,12 +116,12 @@
             }
         }
 
-        const started = processManager.start(extensionPath);
+        const started = await processManager.start(extensionPath);
         if (!started) {
             return false;
         }
 
-        client = new PreviewClient();
+        client = new PreviewClient(processManager.getBaseUrl());
         const alive = await client.waitUntilReady();
         if (!alive) {
             processManager.stop();

@@ -19,9 +19,11 @@ import json
 import logging
 import os
 import sys
+import io
 from dataclasses import dataclass, field
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import argparse
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 from urllib.parse import parse_qs, urlparse, unquote
 from datetime import datetime
@@ -31,6 +33,45 @@ from font_enumerator import FontEnumerator
 from font_inspector import get_all_name_variants, get_localized_family_names
 from font_name_resolver import parse_style_flags
 from gdi_renderer import GDIRenderer
+
+
+def _reconfigure_stdio() -> None:
+    """Ensure stdout/stderr can emit UTF-8 safely on Windows consoles.
+
+    Falls back to replacing unencodable characters if necessary.
+    """
+    try:
+        if hasattr(sys.stdout, "reconfigure"):
+            try:
+                sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+                sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+            except Exception:
+                pass
+        else:
+            # For older Python builds
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+            sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+    except Exception:
+        # Best-effort only
+        pass
+
+
+def get_debug_dir() -> Path:
+    """Return a user-writable directory for debug artifacts."""
+    root = os.environ.get("LOCALAPPDATA") or os.environ.get("APPDATA")
+    if not root:
+        root = str(Path.home())
+    base = Path(root) / "AEFontPreview" / "font_debug"
+    try:
+        base.mkdir(parents=True, exist_ok=True)
+    except Exception:
+        # As a last resort, use current working directory
+        base = Path("font_debug")
+        base.mkdir(exist_ok=True)
+    return base
+
+
+_reconfigure_stdio()
 
 LOG = logging.getLogger("font_server")
 logging.basicConfig(
@@ -168,8 +209,7 @@ class FontRegistry:
 
     def _write_debug_files(self) -> None:
         try:
-            debug_dir = Path('font_debug')
-            debug_dir.mkdir(exist_ok=True)
+            debug_dir = get_debug_dir()
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 
             gdi_file = debug_dir / f'gdi_families_{timestamp}.txt'
@@ -199,7 +239,7 @@ class PreviewService:
     def __init__(self, registry: FontRegistry) -> None:
         self.registry = registry
         self.renderer = GDIRenderer(LOG.info)
-        self._gdi_log = Path('font_debug')
+        self._gdi_log = get_debug_dir()
 
     def render_entry(
         self,
@@ -488,8 +528,7 @@ class FontServerHandler(BaseHTTPRequestHandler):
             return
 
         try:
-            debug_dir = Path('font_debug')
-            debug_dir.mkdir(exist_ok=True)
+            debug_dir = get_debug_dir()
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             target = debug_dir / f'cep_fonts_{timestamp}.json'
             with target.open('w', encoding='utf-8') as handle:
@@ -500,8 +539,15 @@ class FontServerHandler(BaseHTTPRequestHandler):
             self._send_json({"error": "write-failed"}, HTTPStatus.INTERNAL_SERVER_ERROR)
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="AE Font Preview helper server")
+    parser.add_argument("--port", type=int, default=DEFAULT_PORT, help="Port to listen on")
+    return parser.parse_args()
+
+
 def run_server(port: int = DEFAULT_PORT) -> None:
     server = HTTPServer(("127.0.0.1", port), FontServerHandler)
+    print(f"PORT:{port}", flush=True)
     LOG.info("Font server listening on http://127.0.0.1:%d", port)
     try:
         server.serve_forever()
@@ -512,11 +558,5 @@ def run_server(port: int = DEFAULT_PORT) -> None:
 
 
 if __name__ == "__main__":
-    chosen_port = DEFAULT_PORT
-    if len(sys.argv) > 1:
-        try:
-            chosen_port = int(sys.argv[1])
-        except ValueError:
-            LOG.warning("Invalid port argument '%s', using %d", sys.argv[1], DEFAULT_PORT)
-            chosen_port = DEFAULT_PORT
-    run_server(chosen_port)
+    args = parse_args()
+    run_server(args.port)

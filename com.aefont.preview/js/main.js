@@ -146,8 +146,16 @@
                     textNode.style.fontSize = `${fontSizeInput.value}px`;
                 }
             }
-            if (imageNode && font.pythonImage) {
-                imageNode.src = font.pythonImage;
+            if (imageNode) {
+                if (font.pythonImage) {
+                    imageNode.src = font.pythonImage;
+                    imageNode.classList.add('is-visible');
+                    // If we already have a cached python image, mark as loaded so CSS shows it
+                    fontItem.classList.add('python-loaded');
+                } else {
+                    imageNode.removeAttribute('src');
+                    imageNode.classList.remove('is-visible');
+                }
             }
             return;
         }
@@ -180,6 +188,7 @@
         }
         if (imageNode) {
             imageNode.removeAttribute('src');
+            imageNode.classList.remove('is-visible');
         }
 
         fontItem.dataset.renderSource = plan.renderSource;
@@ -918,6 +927,17 @@
                 if (!key) {
                     return;
                 }
+                // Avoid flicker: keep current image visible while requesting a new one
+                // Only reset if there's no currently visible image
+                const resetImg = item.querySelector('.font-preview-image');
+                const hasVisible = item.classList.contains('python-loaded') && resetImg && resetImg.classList.contains('is-visible') && !!resetImg.src;
+                if (!hasVisible) {
+                    item.classList.remove('python-loaded');
+                    if (resetImg) {
+                        resetImg.classList.remove('is-visible');
+                        resetImg.removeAttribute('src');
+                    }
+                }
                 const previewHost = item.querySelector('.font-preview');
                 const viewportWidth = previewHost ? Math.max(0, Math.floor(previewHost.clientWidth || previewHost.getBoundingClientRect().width || 0)) : 0;
                 font._pythonViewportWidth = viewportWidth;
@@ -926,6 +946,10 @@
                     ? AEFontPythonBridge.buildCacheKey(key, text, size, viewportWidth, styleMarker)
                     : `${key}::${styleMarker}::${(text || '').slice(0, 200)}::${size}::${viewportWidth}`;
                 font.currentPythonCacheKey = cacheKey;
+                // Skip re-request if this exact cacheKey previously failed (e.g., due to substitution)
+                if (font._pythonFailedCacheKey === cacheKey) {
+                    return;
+                }
                 const requestId = cacheKey;
                 if (!requestBindings.has(requestId)) {
                     requestBindings.set(requestId, []);
@@ -978,11 +1002,13 @@
             pythonPreviewBusy = true;
             try {
                 const previews = await AEFontPythonBridge.fetchBatchPreviews(requestPayload, text, size);
+                const successIds = new Set();
                 (previews || []).forEach(preview => {
                     if (!preview || !preview.image) {
                         return;
                     }
                     const requestId = preview.requestId;
+                    if (requestId) successIds.add(requestId);
                     let boundFonts = requestId ? requestBindings.get(requestId) : null;
                     if ((!boundFonts || !boundFonts.length) && preview.fontName) {
                         const norm = utils.normalizeFontKey(preview.fontName);
@@ -1001,7 +1027,17 @@
                     }
                     boundFonts.forEach(font => {
                         updatePythonPreviewDom(font, preview.image);
+                        // Track success key so future logic can know the last good render params
+                        font._pythonSuccessCacheKey = font.currentPythonCacheKey;
                     });
+                });
+                // Mark non-returned requestIds as failed for the current cache key to avoid re-requests
+                requestBindings.forEach((fonts, requestId) => {
+                    if (!successIds.has(requestId)) {
+                        fonts.forEach(f => {
+                            f._pythonFailedCacheKey = requestId;
+                        });
+                    }
                 });
             } catch (error) {
                 reportError('updatePythonPreviews/fetch', error);
@@ -1026,6 +1062,7 @@
             img.src = image;
             font.pythonImage = image;
             item.classList.add('python-loaded');
+            img.classList.add('is-visible');
         }
     }
 

@@ -1,0 +1,8155 @@
+[
+  {
+    "name": "109Box_tape",
+    "family": "109Box_tape",
+    "style": "Regular",
+    "postScriptName": "109Box_tape",
+    "gdiName": "109Box_tape",
+    "aliases": [
+      "109Box_tape"
+    ],
+    "normalizedAliases": [
+      "109boxtape"
+    ],
+    "languageNames": {
+      "mac-0000": "109Box_tape",
+      "en": "109Box_tape"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "109boxtape"
+  },
+  {
+    "name": "210 Santorini B",
+    "family": "210 Santorini B",
+    "style": "Regular",
+    "postScriptName": "210 산토리니 B",
+    "gdiName": "210 산토리니 B",
+    "aliases": [
+      "210 Santorini B",
+      "210 산토리니 B"
+    ],
+    "normalizedAliases": [
+      "210santorinib",
+      "210산토리니b"
+    ],
+    "languageNames": {
+      "en": "210 Santorini B",
+      "ko": "210 산토리니 B"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210산토리니b"
+  },
+  {
+    "name": "210 Santorini B italic",
+    "family": "210 Santorini B italic",
+    "style": "Regular",
+    "postScriptName": "210 산토리니 B italic",
+    "gdiName": "210 산토리니 B italic",
+    "aliases": [
+      "210 Santorini B italic",
+      "210 산토리니 B italic"
+    ],
+    "normalizedAliases": [
+      "210santorinibitalic",
+      "210산토리니bitalic"
+    ],
+    "languageNames": {
+      "en": "210 Santorini B italic",
+      "ko": "210 산토리니 B italic"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210산토리니bitalic"
+  },
+  {
+    "name": "210 Supersize Black",
+    "family": "210 Supersize Black",
+    "style": "Regular",
+    "postScriptName": "210 수퍼사이즈 Black",
+    "gdiName": "210 수퍼사이즈 Black",
+    "aliases": [
+      "210 Supersize Black",
+      "210 수퍼사이즈 Black"
+    ],
+    "normalizedAliases": [
+      "210supersizeblack",
+      "210수퍼사이즈black"
+    ],
+    "languageNames": {
+      "en": "210 Supersize Black",
+      "ko": "210 수퍼사이즈 Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210수퍼사이즈black"
+  },
+  {
+    "name": "210 Supersize Black 3D",
+    "family": "210 Supersize Black 3D",
+    "style": "Regular",
+    "postScriptName": "210 수퍼사이즈 Black 3D",
+    "gdiName": "210 수퍼사이즈 Black 3D",
+    "aliases": [
+      "210 Supersize Black 3D",
+      "210 수퍼사이즈 Black 3D"
+    ],
+    "normalizedAliases": [
+      "210supersizeblack3d",
+      "210수퍼사이즈black3d"
+    ],
+    "languageNames": {
+      "en": "210 Supersize Black 3D",
+      "ko": "210 수퍼사이즈 Black 3D"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210수퍼사이즈black3d"
+  },
+  {
+    "name": "210 Supersize Black 3D italic",
+    "family": "210 Supersize Black 3D italic",
+    "style": "Regular",
+    "postScriptName": "210 수퍼사이즈 Black 3D italic",
+    "gdiName": "210 수퍼사이즈 Black 3D italic",
+    "aliases": [
+      "210 Supersize Black 3D italic",
+      "210 수퍼사이즈 Black 3D italic"
+    ],
+    "normalizedAliases": [
+      "210supersizeblack3ditalic",
+      "210수퍼사이즈black3ditalic"
+    ],
+    "languageNames": {
+      "en": "210 Supersize Black 3D italic",
+      "ko": "210 수퍼사이즈 Black 3D italic"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210수퍼사이즈black3ditalic"
+  },
+  {
+    "name": "210 Supersize Black BOX",
+    "family": "210 Supersize Black BOX",
+    "style": "Regular",
+    "postScriptName": "210 수퍼사이즈 Black BOX",
+    "gdiName": "210 수퍼사이즈 Black BOX",
+    "aliases": [
+      "210 Supersize Black BOX",
+      "210 수퍼사이즈 Black BOX"
+    ],
+    "normalizedAliases": [
+      "210supersizeblackbox",
+      "210수퍼사이즈blackbox"
+    ],
+    "languageNames": {
+      "en": "210 Supersize Black BOX",
+      "ko": "210 수퍼사이즈 Black BOX"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210수퍼사이즈blackbox"
+  },
+  {
+    "name": "210 Supersize Black BOX italic",
+    "family": "210 Supersize Black BOX italic",
+    "style": "Regular",
+    "postScriptName": "210 수퍼사이즈 Black BOX italic",
+    "gdiName": "210 수퍼사이즈 Black BOX italic",
+    "aliases": [
+      "210 Supersize Black BOX italic",
+      "210 수퍼사이즈 Black BOX italic"
+    ],
+    "normalizedAliases": [
+      "210supersizeblackboxitalic",
+      "210수퍼사이즈blackboxitalic"
+    ],
+    "languageNames": {
+      "en": "210 Supersize Black BOX italic",
+      "ko": "210 수퍼사이즈 Black BOX italic"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210수퍼사이즈blackboxitalic"
+  },
+  {
+    "name": "210 Supersize Black italic",
+    "family": "210 Supersize Black italic",
+    "style": "Regular",
+    "postScriptName": "210 수퍼사이즈 Black italic",
+    "gdiName": "210 수퍼사이즈 Black italic",
+    "aliases": [
+      "210 Supersize Black italic",
+      "210 수퍼사이즈 Black italic"
+    ],
+    "normalizedAliases": [
+      "210supersizeblackitalic",
+      "210수퍼사이즈blackitalic"
+    ],
+    "languageNames": {
+      "en": "210 Supersize Black italic",
+      "ko": "210 수퍼사이즈 Black italic"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210수퍼사이즈blackitalic"
+  },
+  {
+    "name": "210 Yeonnalligi B",
+    "family": "210 Yeonnalligi B",
+    "style": "Regular",
+    "postScriptName": "210 연날리기 B",
+    "gdiName": "210 연날리기 B",
+    "aliases": [
+      "210 Yeonnalligi B",
+      "210 연날리기 B"
+    ],
+    "normalizedAliases": [
+      "210yeonnalligib",
+      "210연날리기b"
+    ],
+    "languageNames": {
+      "en": "210 Yeonnalligi B",
+      "ko": "210 연날리기 B"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "210연날리기b"
+  },
+  {
+    "name": "Abril Fatface",
+    "family": "Abril Fatface",
+    "style": "Regular",
+    "postScriptName": "Abril Fatface",
+    "gdiName": "Abril Fatface",
+    "aliases": [
+      "Abril Fatface"
+    ],
+    "normalizedAliases": [
+      "abrilfatface"
+    ],
+    "languageNames": {
+      "mac-0000": "Abril Fatface",
+      "en": "Abril Fatface"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "abrilfatface"
+  },
+  {
+    "name": "Adobe Myungjo Std M",
+    "family": "Adobe Myungjo Std M",
+    "style": "Regular",
+    "postScriptName": "Adobe 명조 Std M",
+    "gdiName": "Adobe 명조 Std M",
+    "aliases": [
+      "Adobe Myungjo Std M",
+      "Adobe ∏Ì¡∂ Std M",
+      "Adobe 명조 Std M"
+    ],
+    "normalizedAliases": [
+      "adobemyungjostdm",
+      "adobeìstdm",
+      "adobe명조stdm"
+    ],
+    "languageNames": {
+      "mac-0000": "Adobe Myungjo Std M",
+      "mac-0017": "Adobe ∏Ì¡∂ Std M",
+      "en": "Adobe Myungjo Std M",
+      "ko": "Adobe 명조 Std M"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "adobe명조stdm"
+  },
+  {
+    "name": "Amari_Font_58-100",
+    "family": "Amari_Font_58-100",
+    "style": "Regular",
+    "postScriptName": "Amari_Font_58-100",
+    "gdiName": "Amari_Font_58-100",
+    "aliases": [
+      "Amari_Font_58-100"
+    ],
+    "normalizedAliases": [
+      "amarifont58100"
+    ],
+    "languageNames": {
+      "mac-0000": "Amari_Font_58-100",
+      "en": "Amari_Font_58-100"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "amarifont58100"
+  },
+  {
+    "name": "Amari_Font_64-100",
+    "family": "Amari_Font_64-100",
+    "style": "Regular",
+    "postScriptName": "Amari_Font_64-100",
+    "gdiName": "Amari_Font_64-100",
+    "aliases": [
+      "Amari_Font_64-100"
+    ],
+    "normalizedAliases": [
+      "amarifont64100"
+    ],
+    "languageNames": {
+      "mac-0000": "Amari_Font_64-100",
+      "en": "Amari_Font_64-100"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "amarifont64100"
+  },
+  {
+    "name": "Amari_Font_65-100",
+    "family": "Amari_Font_65-100",
+    "style": "Regular",
+    "postScriptName": "Amari_Font_65-100",
+    "gdiName": "Amari_Font_65-100",
+    "aliases": [
+      "Amari_Font_65-100"
+    ],
+    "normalizedAliases": [
+      "amarifont65100"
+    ],
+    "languageNames": {
+      "mac-0000": "Amari_Font_65-100",
+      "en": "Amari_Font_65-100"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "amarifont65100"
+  },
+  {
+    "name": "Amatic SC",
+    "family": "Amatic SC",
+    "style": "Regular",
+    "postScriptName": "Amatic SC",
+    "gdiName": "Amatic SC",
+    "aliases": [
+      "Amatic SC"
+    ],
+    "normalizedAliases": [
+      "amaticsc"
+    ],
+    "languageNames": {
+      "mac-0000": "Amatic SC",
+      "en": "Amatic SC"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "amaticsc"
+  },
+  {
+    "name": "Antro Vectra",
+    "family": "Antro Vectra",
+    "style": "Regular",
+    "postScriptName": "Antro Vectra",
+    "gdiName": "Antro Vectra",
+    "aliases": [
+      "Antro Vectra"
+    ],
+    "normalizedAliases": [
+      "antrovectra"
+    ],
+    "languageNames": {
+      "mac-0000": "Antro Vectra",
+      "en": "Antro Vectra"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "antrovectra"
+  },
+  {
+    "name": "AppliMincho",
+    "family": "AppliMincho",
+    "style": "Regular",
+    "postScriptName": "AppliMincho",
+    "gdiName": "AppliMincho",
+    "aliases": [
+      "AppliMincho",
+      "ÉAÉvÉäñæí©",
+      "アプリ明朝"
+    ],
+    "normalizedAliases": [
+      "applimincho",
+      "éaévéäñæí",
+      "アプリ明朝"
+    ],
+    "languageNames": {
+      "mac-0000": "AppliMincho",
+      "mac-000b": "ÉAÉvÉäñæí©",
+      "en": "AppliMincho",
+      "ja": "アプリ明朝"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "applimincho"
+  },
+  {
+    "name": "Arial",
+    "family": "Arial",
+    "style": "Regular",
+    "postScriptName": "Arial",
+    "gdiName": "Arial",
+    "aliases": [
+      "Arial"
+    ],
+    "normalizedAliases": [
+      "arial"
+    ],
+    "languageNames": {
+      "mac-0000": "Arial",
+      "en": "Arial"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "arial"
+  },
+  {
+    "name": "Arial Black",
+    "family": "Arial Black",
+    "style": "Regular",
+    "postScriptName": "Arial Black",
+    "gdiName": "Arial Black",
+    "aliases": [
+      "Arial Black"
+    ],
+    "normalizedAliases": [
+      "arialblack"
+    ],
+    "languageNames": {
+      "mac-0000": "Arial Black",
+      "en": "Arial Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "arialblack"
+  },
+  {
+    "name": "Bahnschrift",
+    "family": "Bahnschrift",
+    "style": "Regular",
+    "postScriptName": "Bahnschrift",
+    "gdiName": "Bahnschrift",
+    "aliases": [
+      "Bahnschrift"
+    ],
+    "normalizedAliases": [
+      "bahnschrift"
+    ],
+    "languageNames": {
+      "mac-0000": "Bahnschrift",
+      "en": "Bahnschrift"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "bahnschrift"
+  },
+  {
+    "name": "Batang",
+    "family": "Batang",
+    "style": "Regular",
+    "postScriptName": "바탕",
+    "gdiName": "바탕",
+    "aliases": [
+      "Batang",
+      "바탕"
+    ],
+    "normalizedAliases": [
+      "batang",
+      "바탕"
+    ],
+    "languageNames": {
+      "mac-0000": "Batang",
+      "en": "Batang",
+      "ko": "바탕"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "바탕"
+  },
+  {
+    "name": "BatangChe",
+    "family": "BatangChe",
+    "style": "Regular",
+    "postScriptName": "바탕체",
+    "gdiName": "바탕체",
+    "aliases": [
+      "BatangChe",
+      "바탕체"
+    ],
+    "normalizedAliases": [
+      "batangche",
+      "바탕체"
+    ],
+    "languageNames": {
+      "mac-0000": "BatangChe",
+      "en": "BatangChe",
+      "ko": "바탕체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "바탕체"
+  },
+  {
+    "name": "Bebas Neue",
+    "family": "Bebas Neue",
+    "style": "Regular",
+    "postScriptName": "Bebas Neue",
+    "gdiName": "Bebas Neue",
+    "aliases": [
+      "Bebas Neue"
+    ],
+    "normalizedAliases": [
+      "bebasneue"
+    ],
+    "languageNames": {
+      "mac-0000": "Bebas Neue",
+      "en": "Bebas Neue"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "bebasneue"
+  },
+  {
+    "name": "Bigilla",
+    "family": "Bigilla",
+    "style": "Regular",
+    "postScriptName": "Bigilla",
+    "gdiName": "Bigilla",
+    "aliases": [
+      "Bigilla"
+    ],
+    "normalizedAliases": [
+      "bigilla"
+    ],
+    "languageNames": {
+      "mac-0000": "Bigilla",
+      "en": "Bigilla"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "bigilla"
+  },
+  {
+    "name": "Binggrae",
+    "family": "Binggrae",
+    "style": "Regular",
+    "postScriptName": "빙그레체",
+    "gdiName": "빙그레체",
+    "aliases": [
+      "Binggrae",
+      "∫˘±◊◊π√º",
+      "빙그레체"
+    ],
+    "normalizedAliases": [
+      "binggrae",
+      "πº",
+      "빙그레체"
+    ],
+    "languageNames": {
+      "mac-0000": "Binggrae",
+      "mac-0017": "∫˘±◊◊π√º",
+      "en": "Binggrae",
+      "ko": "빙그레체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "빙그레체"
+  },
+  {
+    "name": "Binggrae Melona",
+    "family": "Binggrae Melona",
+    "style": "Regular",
+    "postScriptName": "빙그레 메로나체",
+    "gdiName": "빙그레 메로나체",
+    "aliases": [
+      "Binggrae Melona",
+      "∫˘±◊∑π ∏ﬁ∑Œ≥™√º",
+      "빙그레 메로나체"
+    ],
+    "normalizedAliases": [
+      "binggraemelona",
+      "πﬁœº",
+      "빙그레메로나체"
+    ],
+    "languageNames": {
+      "mac-0000": "Binggrae Melona",
+      "mac-0017": "∫˘±◊∑π ∏ﬁ∑Œ≥™√º",
+      "en": "Binggrae Melona",
+      "ko": "빙그레 메로나체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "빙그레메로나체"
+  },
+  {
+    "name": "Binggrae Samanco",
+    "family": "Binggrae Samanco",
+    "style": "Regular",
+    "postScriptName": "빙그레 싸만코체",
+    "gdiName": "빙그레 싸만코체",
+    "aliases": [
+      "Binggrae Samanco",
+      "∫˘±◊∑π ΩŒ∏∏ƒ⁄√º",
+      "빙그레 싸만코체"
+    ],
+    "normalizedAliases": [
+      "binggraesamanco",
+      "πωœƒº",
+      "빙그레싸만코체"
+    ],
+    "languageNames": {
+      "mac-0000": "Binggrae Samanco",
+      "mac-0017": "∫˘±◊∑π ΩŒ∏∏ƒ⁄√º",
+      "en": "Binggrae Samanco",
+      "ko": "빙그레 싸만코체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "빙그레싸만코체"
+  },
+  {
+    "name": "Binggrae Taom",
+    "family": "Binggrae Taom",
+    "style": "Regular",
+    "postScriptName": "빙그레 따옴체",
+    "gdiName": "빙그레 따옴체",
+    "aliases": [
+      "Binggrae Taom",
+      "∫˘±◊∑π µ˚ø»√º",
+      "빙그레 따옴체"
+    ],
+    "normalizedAliases": [
+      "binggraetaom",
+      "πµøº",
+      "빙그레따옴체"
+    ],
+    "languageNames": {
+      "mac-0000": "Binggrae Taom",
+      "mac-0017": "∫˘±◊∑π µ˚ø»√º",
+      "en": "Binggrae Taom",
+      "ko": "빙그레 따옴체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "빙그레따옴체"
+  },
+  {
+    "name": "BinggraeⅡ",
+    "family": "BinggraeⅡ",
+    "style": "Regular",
+    "postScriptName": "빙그레체Ⅱ",
+    "gdiName": "빙그레체Ⅱ",
+    "aliases": [
+      "BinggraeⅡ",
+      "빙그레체Ⅱ"
+    ],
+    "normalizedAliases": [
+      "binggraeⅱ",
+      "빙그레체ⅱ"
+    ],
+    "languageNames": {
+      "en": "BinggraeⅡ",
+      "ko": "빙그레체Ⅱ"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "빙그레체ⅱ"
+  },
+  {
+    "name": "Black Han Sans",
+    "family": "Black Han Sans",
+    "style": "Regular",
+    "postScriptName": "Black Han Sans",
+    "gdiName": "Black Han Sans",
+    "aliases": [
+      "Black Han Sans"
+    ],
+    "normalizedAliases": [
+      "blackhansans"
+    ],
+    "languageNames": {
+      "en": "Black Han Sans"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "blackhansans"
+  },
+  {
+    "name": "Book Antiqua",
+    "family": "Book Antiqua",
+    "style": "Regular",
+    "postScriptName": "Book Antiqua",
+    "gdiName": "Book Antiqua",
+    "aliases": [
+      "Book Antiqua"
+    ],
+    "normalizedAliases": [
+      "bookantiqua"
+    ],
+    "languageNames": {
+      "mac-0000": "Book Antiqua",
+      "en": "Book Antiqua"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "bookantiqua"
+  },
+  {
+    "name": "Cafe24 Supermagic OTF",
+    "family": "Cafe24 Supermagic OTF",
+    "style": "Regular",
+    "postScriptName": "카페24 슈퍼매직 OTF",
+    "gdiName": "카페24 슈퍼매직 OTF",
+    "aliases": [
+      "Cafe24 Supermagic OTF",
+      "카페24 슈퍼매직 OTF"
+    ],
+    "normalizedAliases": [
+      "cafe24supermagicotf",
+      "카페24슈퍼매직otf"
+    ],
+    "languageNames": {
+      "en": "Cafe24 Supermagic OTF",
+      "ko": "카페24 슈퍼매직 OTF"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "카페24슈퍼매직otf"
+  },
+  {
+    "name": "Cafe24 Supermagic OTF Bold",
+    "family": "Cafe24 Supermagic OTF Bold",
+    "style": "Regular",
+    "postScriptName": "카페24 슈퍼매직 OTF Bold",
+    "gdiName": "카페24 슈퍼매직 OTF Bold",
+    "aliases": [
+      "Cafe24 Supermagic OTF Bold",
+      "카페24 슈퍼매직 OTF Bold"
+    ],
+    "normalizedAliases": [
+      "cafe24supermagicotfbold",
+      "카페24슈퍼매직otfbold"
+    ],
+    "languageNames": {
+      "en": "Cafe24 Supermagic OTF Bold",
+      "ko": "카페24 슈퍼매직 OTF Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "카페24슈퍼매직otfbold"
+  },
+  {
+    "name": "Calibri",
+    "family": "Calibri",
+    "style": "Regular",
+    "postScriptName": "Calibri",
+    "gdiName": "Calibri",
+    "aliases": [
+      "Calibri"
+    ],
+    "normalizedAliases": [
+      "calibri"
+    ],
+    "languageNames": {
+      "mac-0000": "Calibri",
+      "en": "Calibri"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "calibri"
+  },
+  {
+    "name": "Calibri Light",
+    "family": "Calibri Light",
+    "style": "Regular",
+    "postScriptName": "Calibri Light",
+    "gdiName": "Calibri Light",
+    "aliases": [
+      "Calibri Light"
+    ],
+    "normalizedAliases": [
+      "calibrilight"
+    ],
+    "languageNames": {
+      "mac-0000": "Calibri Light",
+      "en": "Calibri Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "calibrilight"
+  },
+  {
+    "name": "Cambria",
+    "family": "Cambria",
+    "style": "Regular",
+    "postScriptName": "Cambria",
+    "gdiName": "Cambria",
+    "aliases": [
+      "Cambria"
+    ],
+    "normalizedAliases": [
+      "cambria"
+    ],
+    "languageNames": {
+      "mac-0000": "Cambria",
+      "en": "Cambria"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cambria"
+  },
+  {
+    "name": "Cambria Math",
+    "family": "Cambria Math",
+    "style": "Regular",
+    "postScriptName": "Cambria Math",
+    "gdiName": "Cambria Math",
+    "aliases": [
+      "Cambria Math"
+    ],
+    "normalizedAliases": [
+      "cambriamath"
+    ],
+    "languageNames": {
+      "mac-0000": "Cambria Math",
+      "en": "Cambria Math"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cambriamath"
+  },
+  {
+    "name": "Candara",
+    "family": "Candara",
+    "style": "Regular",
+    "postScriptName": "Candara",
+    "gdiName": "Candara",
+    "aliases": [
+      "Candara"
+    ],
+    "normalizedAliases": [
+      "candara"
+    ],
+    "languageNames": {
+      "mac-0000": "Candara",
+      "en": "Candara"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "candara"
+  },
+  {
+    "name": "Cascadia Code",
+    "family": "Cascadia Code",
+    "style": "Regular",
+    "postScriptName": "Cascadia Code",
+    "gdiName": "Cascadia Code",
+    "aliases": [
+      "Cascadia Code"
+    ],
+    "normalizedAliases": [
+      "cascadiacode"
+    ],
+    "languageNames": {
+      "en": "Cascadia Code"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cascadiacode"
+  },
+  {
+    "name": "Cascadia Mono",
+    "family": "Cascadia Mono",
+    "style": "Regular",
+    "postScriptName": "Cascadia Mono",
+    "gdiName": "Cascadia Mono",
+    "aliases": [
+      "Cascadia Mono"
+    ],
+    "normalizedAliases": [
+      "cascadiamono"
+    ],
+    "languageNames": {
+      "en": "Cascadia Mono"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cascadiamono"
+  },
+  {
+    "name": "Cinque Donne ",
+    "family": "Cinque Donne ",
+    "style": "Regular",
+    "postScriptName": "Cinque Donne ",
+    "gdiName": "Cinque Donne ",
+    "aliases": [
+      "Cinque Donne",
+      "Cinque Donne "
+    ],
+    "normalizedAliases": [
+      "cinquedonne"
+    ],
+    "languageNames": {
+      "mac-0000": "Cinque Donne ",
+      "en": "Cinque Donne "
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cinquedonne"
+  },
+  {
+    "name": "Comic Sans MS",
+    "family": "Comic Sans MS",
+    "style": "Regular",
+    "postScriptName": "Comic Sans MS",
+    "gdiName": "Comic Sans MS",
+    "aliases": [
+      "Comic Sans MS"
+    ],
+    "normalizedAliases": [
+      "comicsansms"
+    ],
+    "languageNames": {
+      "mac-0000": "Comic Sans MS",
+      "en": "Comic Sans MS"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "comicsansms"
+  },
+  {
+    "name": "Consolas",
+    "family": "Consolas",
+    "style": "Regular",
+    "postScriptName": "Consolas",
+    "gdiName": "Consolas",
+    "aliases": [
+      "Consolas"
+    ],
+    "normalizedAliases": [
+      "consolas"
+    ],
+    "languageNames": {
+      "mac-0000": "Consolas",
+      "en": "Consolas"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "consolas"
+  },
+  {
+    "name": "Constantia",
+    "family": "Constantia",
+    "style": "Regular",
+    "postScriptName": "Constantia",
+    "gdiName": "Constantia",
+    "aliases": [
+      "Constantia"
+    ],
+    "normalizedAliases": [
+      "constantia"
+    ],
+    "languageNames": {
+      "mac-0000": "Constantia",
+      "en": "Constantia"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "constantia"
+  },
+  {
+    "name": "CookieRunOTF Black",
+    "family": "CookieRunOTF Black",
+    "style": "Regular",
+    "postScriptName": "CookieRunOTF Black",
+    "gdiName": "CookieRunOTF Black",
+    "aliases": [
+      "CookieRunOTF",
+      "CookieRunOTF Black"
+    ],
+    "normalizedAliases": [
+      "cookierunotf",
+      "cookierunotfblack"
+    ],
+    "languageNames": {
+      "mac-0000": "CookieRunOTF",
+      "en": "CookieRunOTF Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cookierunotfblack"
+  },
+  {
+    "name": "Corbel",
+    "family": "Corbel",
+    "style": "Regular",
+    "postScriptName": "Corbel",
+    "gdiName": "Corbel",
+    "aliases": [
+      "Corbel"
+    ],
+    "normalizedAliases": [
+      "corbel"
+    ],
+    "languageNames": {
+      "mac-0000": "Corbel",
+      "en": "Corbel"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "corbel"
+  },
+  {
+    "name": "Corbel Light",
+    "family": "Corbel Light",
+    "style": "Regular",
+    "postScriptName": "Corbel Light",
+    "gdiName": "Corbel Light",
+    "aliases": [
+      "Corbel Light"
+    ],
+    "normalizedAliases": [
+      "corbellight"
+    ],
+    "languageNames": {
+      "mac-0000": "Corbel Light",
+      "en": "Corbel Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "corbellight"
+  },
+  {
+    "name": "Cormorant Garamond",
+    "family": "Cormorant Garamond",
+    "style": "Regular",
+    "postScriptName": "Cormorant Garamond",
+    "gdiName": "Cormorant Garamond",
+    "aliases": [
+      "Cormorant Garamond"
+    ],
+    "normalizedAliases": [
+      "cormorantgaramond"
+    ],
+    "languageNames": {
+      "en": "Cormorant Garamond"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cormorantgaramond"
+  },
+  {
+    "name": "Cormorant Garamond Light",
+    "family": "Cormorant Garamond Light",
+    "style": "Regular",
+    "postScriptName": "Cormorant Garamond Light",
+    "gdiName": "Cormorant Garamond Light",
+    "aliases": [
+      "Cormorant Garamond Light"
+    ],
+    "normalizedAliases": [
+      "cormorantgaramondlight"
+    ],
+    "languageNames": {
+      "en": "Cormorant Garamond Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cormorantgaramondlight"
+  },
+  {
+    "name": "Cormorant Garamond Medium",
+    "family": "Cormorant Garamond Medium",
+    "style": "Regular",
+    "postScriptName": "Cormorant Garamond Medium",
+    "gdiName": "Cormorant Garamond Medium",
+    "aliases": [
+      "Cormorant Garamond Medium"
+    ],
+    "normalizedAliases": [
+      "cormorantgaramondmedium"
+    ],
+    "languageNames": {
+      "en": "Cormorant Garamond Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cormorantgaramondmedium"
+  },
+  {
+    "name": "Cormorant Garamond SemiBold",
+    "family": "Cormorant Garamond SemiBold",
+    "style": "Regular",
+    "postScriptName": "Cormorant Garamond SemiBold",
+    "gdiName": "Cormorant Garamond SemiBold",
+    "aliases": [
+      "Cormorant Garamond SemiBold"
+    ],
+    "normalizedAliases": [
+      "cormorantgaramondsemibold"
+    ],
+    "languageNames": {
+      "en": "Cormorant Garamond SemiBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "cormorantgaramondsemibold"
+  },
+  {
+    "name": "Courier",
+    "family": "Courier",
+    "style": "Regular",
+    "postScriptName": "Courier",
+    "gdiName": "Courier",
+    "aliases": [
+      "Courier"
+    ],
+    "normalizedAliases": [
+      "courier"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "courier"
+  },
+  {
+    "name": "Courier New",
+    "family": "Courier New",
+    "style": "Regular",
+    "postScriptName": "Courier New",
+    "gdiName": "Courier New",
+    "aliases": [
+      "Courier New"
+    ],
+    "normalizedAliases": [
+      "couriernew"
+    ],
+    "languageNames": {
+      "mac-0000": "Courier New",
+      "en": "Courier New"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "couriernew"
+  },
+  {
+    "name": "Cute ShinMinsang",
+    "family": "Cute ShinMinsang",
+    "style": "Regular",
+    "postScriptName": "큐트신민상",
+    "gdiName": "큐트신민상",
+    "aliases": [
+      "Cute ShinMinsang",
+      "큐트신민상"
+    ],
+    "normalizedAliases": [
+      "cuteshinminsang",
+      "큐트신민상"
+    ],
+    "languageNames": {
+      "en": "Cute ShinMinsang",
+      "ko": "큐트신민상"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "큐트신민상"
+  },
+  {
+    "name": "Dashiell Bright",
+    "family": "Dashiell Bright",
+    "style": "Regular",
+    "postScriptName": "Dashiell Bright",
+    "gdiName": "Dashiell Bright",
+    "aliases": [
+      "Dashiell Bright"
+    ],
+    "normalizedAliases": [
+      "dashiellbright"
+    ],
+    "languageNames": {
+      "mac-0000": "Dashiell Bright",
+      "en": "Dashiell Bright"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "dashiellbright"
+  },
+  {
+    "name": "Dotum",
+    "family": "Dotum",
+    "style": "Regular",
+    "postScriptName": "돋움",
+    "gdiName": "돋움",
+    "aliases": [
+      "Dotum",
+      "돋움"
+    ],
+    "normalizedAliases": [
+      "dotum",
+      "돋움"
+    ],
+    "languageNames": {
+      "mac-0000": "Dotum",
+      "en": "Dotum",
+      "ko": "돋움"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "돋움"
+  },
+  {
+    "name": "DotumChe",
+    "family": "DotumChe",
+    "style": "Regular",
+    "postScriptName": "돋움체",
+    "gdiName": "돋움체",
+    "aliases": [
+      "DotumChe",
+      "돋움체"
+    ],
+    "normalizedAliases": [
+      "dotumche",
+      "돋움체"
+    ],
+    "languageNames": {
+      "mac-0000": "DotumChe",
+      "en": "DotumChe",
+      "ko": "돋움체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "돋움체"
+  },
+  {
+    "name": "DSA pangpang",
+    "family": "DSA pangpang",
+    "style": "Regular",
+    "postScriptName": "DSA 팡팡",
+    "gdiName": "DSA 팡팡",
+    "aliases": [
+      "DSA pangpang",
+      "DSA ∆Œ∆Œ",
+      "DSA 팡팡"
+    ],
+    "normalizedAliases": [
+      "dsapangpang",
+      "dsaœœ",
+      "dsa팡팡"
+    ],
+    "languageNames": {
+      "mac-0000": "DSA pangpang",
+      "mac-0017": "DSA ∆Œ∆Œ",
+      "en": "DSA pangpang",
+      "ko": "DSA 팡팡"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "dsa팡팡"
+  },
+  {
+    "name": "Dunkelsans v0.7 Expanded",
+    "family": "Dunkelsans v0.7 Expanded",
+    "style": "Regular",
+    "postScriptName": "둥켈산스 Expanded",
+    "gdiName": "둥켈산스 Expanded",
+    "aliases": [
+      "Dunkelsans v0.7",
+      "Dunkelsans v0.7 Expanded",
+      "µ’ƒÃªÍΩ∫ Expanded",
+      "둥켈산스 Expanded"
+    ],
+    "normalizedAliases": [
+      "dunkelsansv07",
+      "dunkelsansv07expanded",
+      "µƒãªíωexpanded",
+      "둥켈산스expanded"
+    ],
+    "languageNames": {
+      "mac-0000": "Dunkelsans v0.7",
+      "mac-0017": "µ’ƒÃªÍΩ∫ Expanded",
+      "en": "Dunkelsans v0.7 Expanded",
+      "ko": "둥켈산스 Expanded"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "둥켈산스expanded"
+  },
+  {
+    "name": "EB Garamond",
+    "family": "EB Garamond",
+    "style": "Regular",
+    "postScriptName": "EB Garamond",
+    "gdiName": "EB Garamond",
+    "aliases": [
+      "EB Garamond"
+    ],
+    "normalizedAliases": [
+      "ebgaramond"
+    ],
+    "languageNames": {
+      "en": "EB Garamond"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ebgaramond"
+  },
+  {
+    "name": "EB Garamond ExtraBold",
+    "family": "EB Garamond ExtraBold",
+    "style": "Regular",
+    "postScriptName": "EB Garamond ExtraBold",
+    "gdiName": "EB Garamond ExtraBold",
+    "aliases": [
+      "EB Garamond ExtraBold"
+    ],
+    "normalizedAliases": [
+      "ebgaramondextrabold"
+    ],
+    "languageNames": {
+      "en": "EB Garamond ExtraBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ebgaramondextrabold"
+  },
+  {
+    "name": "EB Garamond Medium",
+    "family": "EB Garamond Medium",
+    "style": "Regular",
+    "postScriptName": "EB Garamond Medium",
+    "gdiName": "EB Garamond Medium",
+    "aliases": [
+      "EB Garamond Medium"
+    ],
+    "normalizedAliases": [
+      "ebgaramondmedium"
+    ],
+    "languageNames": {
+      "en": "EB Garamond Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ebgaramondmedium"
+  },
+  {
+    "name": "EB Garamond SemiBold",
+    "family": "EB Garamond SemiBold",
+    "style": "Regular",
+    "postScriptName": "EB Garamond SemiBold",
+    "gdiName": "EB Garamond SemiBold",
+    "aliases": [
+      "EB Garamond SemiBold"
+    ],
+    "normalizedAliases": [
+      "ebgaramondsemibold"
+    ],
+    "languageNames": {
+      "en": "EB Garamond SemiBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ebgaramondsemibold"
+  },
+  {
+    "name": "Ebrima",
+    "family": "Ebrima",
+    "style": "Regular",
+    "postScriptName": "Ebrima",
+    "gdiName": "Ebrima",
+    "aliases": [
+      "Ebrima"
+    ],
+    "normalizedAliases": [
+      "ebrima"
+    ],
+    "languageNames": {
+      "en": "Ebrima"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ebrima"
+  },
+  {
+    "name": "Elice DX Neolli OTF Light",
+    "family": "Elice DX Neolli OTF Light",
+    "style": "Regular",
+    "postScriptName": "엘리스 DX널리체 OTF  Light",
+    "gdiName": "엘리스 DX널리체 OTF  Light",
+    "aliases": [
+      "Elice DX Neolli OTF",
+      "Elice DX Neolli OTF Light",
+      "ø§∏ÆΩ∫ DX≥Œ∏Æ√º OTF",
+      "엘리스 DX널리체 OTF  Light"
+    ],
+    "normalizedAliases": [
+      "elicedxneolliotf",
+      "elicedxneolliotflight",
+      "øæωdxœæºotf",
+      "엘리스dx널리체otflight"
+    ],
+    "languageNames": {
+      "mac-0000": "Elice DX Neolli OTF",
+      "mac-0017": "ø§∏ÆΩ∫ DX≥Œ∏Æ√º OTF",
+      "en": "Elice DX Neolli OTF Light",
+      "ko": "엘리스 DX널리체 OTF  Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "엘리스dx널리체otflight"
+  },
+  {
+    "name": "esamanru Bold",
+    "family": "esamanru Bold",
+    "style": "Regular",
+    "postScriptName": "이사만루체 Bold",
+    "gdiName": "이사만루체 Bold",
+    "aliases": [
+      "esamanru",
+      "esamanru Bold",
+      "¿ÃªÁ∏∏∑Á√º",
+      "이사만루체 Bold"
+    ],
+    "normalizedAliases": [
+      "esamanru",
+      "esamanrubold",
+      "ãªááº",
+      "이사만루체bold"
+    ],
+    "languageNames": {
+      "mac-0000": "esamanru",
+      "mac-0017": "¿ÃªÁ∏∏∑Á√º",
+      "en": "esamanru Bold",
+      "ko": "이사만루체 Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "이사만루체bold"
+  },
+  {
+    "name": "Fixedsys",
+    "family": "Fixedsys",
+    "style": "Regular",
+    "postScriptName": "Fixedsys",
+    "gdiName": "Fixedsys",
+    "aliases": [
+      "Fixedsys"
+    ],
+    "normalizedAliases": [
+      "fixedsys"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "fixedsys"
+  },
+  {
+    "name": "FOT-TsukuAntiqueLGo Std B",
+    "family": "FOT-TsukuAntiqueLGo Std B",
+    "style": "Regular",
+    "postScriptName": "FOT-TsukuAntiqueLGo Std B",
+    "gdiName": "FOT-TsukuAntiqueLGo Std B",
+    "aliases": [
+      "FOT-TsukuAntiqueLGo Std",
+      "FOT-TsukuAntiqueLGo Std B",
+      "FOT-í}éáÉAÉìÉeÉBÅ[ÉNLÉS Std",
+      "FOT-筑紫アンティークLゴ Std B"
+    ],
+    "normalizedAliases": [
+      "fottsukuantiquelgostd",
+      "fottsukuantiquelgostdb",
+      "fotíéáéaéìéeébåénlésstd",
+      "fot筑紫アンティークlゴstdb"
+    ],
+    "languageNames": {
+      "mac-0000": "FOT-TsukuAntiqueLGo Std",
+      "mac-000b": "FOT-í}éáÉAÉìÉeÉBÅ[ÉNLÉS Std",
+      "en": "FOT-TsukuAntiqueLGo Std B",
+      "ja": "FOT-筑紫アンティークLゴ Std B"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "fottsukuantiquelgostdb"
+  },
+  {
+    "name": "Franklin Gothic Medium",
+    "family": "Franklin Gothic Medium",
+    "style": "Regular",
+    "postScriptName": "Franklin Gothic Medium",
+    "gdiName": "Franklin Gothic Medium",
+    "aliases": [
+      "Franklin Gothic Medium"
+    ],
+    "normalizedAliases": [
+      "franklingothicmedium"
+    ],
+    "languageNames": {
+      "mac-0000": "Franklin Gothic Medium",
+      "en": "Franklin Gothic Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "franklingothicmedium"
+  },
+  {
+    "name": "Gabriola",
+    "family": "Gabriola",
+    "style": "Regular",
+    "postScriptName": "Gabriola",
+    "gdiName": "Gabriola",
+    "aliases": [
+      "Gabriola"
+    ],
+    "normalizedAliases": [
+      "gabriola"
+    ],
+    "languageNames": {
+      "mac-0000": "Gabriola",
+      "en": "Gabriola"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "gabriola"
+  },
+  {
+    "name": "Gadugi",
+    "family": "Gadugi",
+    "style": "Regular",
+    "postScriptName": "Gadugi",
+    "gdiName": "Gadugi",
+    "aliases": [
+      "Gadugi"
+    ],
+    "normalizedAliases": [
+      "gadugi"
+    ],
+    "languageNames": {
+      "mac-0000": "Gadugi",
+      "en": "Gadugi"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "gadugi"
+  },
+  {
+    "name": "GangwonEduAll Bold",
+    "family": "GangwonEduAll Bold",
+    "style": "Regular",
+    "postScriptName": "강원교육모두 Bold",
+    "gdiName": "강원교육모두 Bold",
+    "aliases": [
+      "GangwonEduAll Bold",
+      "강원교육모두 Bold"
+    ],
+    "normalizedAliases": [
+      "gangwoneduallbold",
+      "강원교육모두bold"
+    ],
+    "languageNames": {
+      "en": "GangwonEduAll Bold",
+      "ko": "강원교육모두 Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "강원교육모두bold"
+  },
+  {
+    "name": "GangwonEduAll Light",
+    "family": "GangwonEduAll Light",
+    "style": "Regular",
+    "postScriptName": "강원교육모두 Light",
+    "gdiName": "강원교육모두 Light",
+    "aliases": [
+      "GangwonEduAll Light",
+      "강원교육모두 Light"
+    ],
+    "normalizedAliases": [
+      "gangwonedualllight",
+      "강원교육모두light"
+    ],
+    "languageNames": {
+      "en": "GangwonEduAll Light",
+      "ko": "강원교육모두 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "강원교육모두light"
+  },
+  {
+    "name": "GangwonEduHyeonokT Medium",
+    "family": "GangwonEduHyeonokT Medium",
+    "style": "Regular",
+    "postScriptName": "강원교육현옥샘 Medium",
+    "gdiName": "강원교육현옥샘 Medium",
+    "aliases": [
+      "GangwonEduHyeonokT Medium",
+      "강원교육현옥샘 Medium"
+    ],
+    "normalizedAliases": [
+      "gangwoneduhyeonoktmedium",
+      "강원교육현옥샘medium"
+    ],
+    "languageNames": {
+      "en": "GangwonEduHyeonokT Medium",
+      "ko": "강원교육현옥샘 Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "강원교육현옥샘medium"
+  },
+  {
+    "name": "GangwonEduPower",
+    "family": "GangwonEduPower",
+    "style": "Regular",
+    "postScriptName": "강원교육튼튼",
+    "gdiName": "강원교육튼튼",
+    "aliases": [
+      "GangwonEduPower",
+      "강원교육튼튼"
+    ],
+    "normalizedAliases": [
+      "gangwonedupower",
+      "강원교육튼튼"
+    ],
+    "languageNames": {
+      "en": "GangwonEduPower",
+      "ko": "강원교육튼튼"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "강원교육튼튼"
+  },
+  {
+    "name": "GangwonEduSaeeum Medium",
+    "family": "GangwonEduSaeeum Medium",
+    "style": "Regular",
+    "postScriptName": "강원교육새음 Medium",
+    "gdiName": "강원교육새음 Medium",
+    "aliases": [
+      "GangwonEduSaeeum Medium",
+      "강원교육새음 Medium"
+    ],
+    "normalizedAliases": [
+      "gangwonedusaeeummedium",
+      "강원교육새음medium"
+    ],
+    "languageNames": {
+      "en": "GangwonEduSaeeum Medium",
+      "ko": "강원교육새음 Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "강원교육새음medium"
+  },
+  {
+    "name": "Gapyeong Wave",
+    "family": "Gapyeong Wave",
+    "style": "Regular",
+    "postScriptName": "가평물결",
+    "gdiName": "가평물결",
+    "aliases": [
+      "Gapyeong Wave",
+      "∞°∆Úπ∞∞·",
+      "가평물결"
+    ],
+    "normalizedAliases": [
+      "gapyeongwave",
+      "úπ",
+      "가평물결"
+    ],
+    "languageNames": {
+      "mac-0000": "Gapyeong Wave",
+      "mac-0017": "∞°∆Úπ∞∞·",
+      "en": "Gapyeong Wave",
+      "ko": "가평물결"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "가평물결"
+  },
+  {
+    "name": "Genkaimincho",
+    "family": "Genkaimincho",
+    "style": "Regular",
+    "postScriptName": "Genkaimincho",
+    "gdiName": "Genkaimincho",
+    "aliases": [
+      "Genkaimincho",
+      "åπäEñæí©",
+      "源界明朝"
+    ],
+    "normalizedAliases": [
+      "genkaimincho",
+      "åπäeñæí",
+      "源界明朝"
+    ],
+    "languageNames": {
+      "mac-0000": "Genkaimincho",
+      "mac-000b": "åπäEñæí©",
+      "en": "Genkaimincho",
+      "ja": "源界明朝"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "genkaimincho"
+  },
+  {
+    "name": "Georgia",
+    "family": "Georgia",
+    "style": "Regular",
+    "postScriptName": "Georgia",
+    "gdiName": "Georgia",
+    "aliases": [
+      "Georgia"
+    ],
+    "normalizedAliases": [
+      "georgia"
+    ],
+    "languageNames": {
+      "mac-0000": "Georgia",
+      "en": "Georgia"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "georgia"
+  },
+  {
+    "name": "Giants Bold",
+    "family": "Giants Bold",
+    "style": "Regular",
+    "postScriptName": "자이언츠 Bold",
+    "gdiName": "자이언츠 Bold",
+    "aliases": [
+      "Giants",
+      "Giants Bold",
+      "¿⁄¿Ãæ√˜",
+      "자이언츠 Bold"
+    ],
+    "normalizedAliases": [
+      "giants",
+      "giantsbold",
+      "ãæ",
+      "자이언츠bold"
+    ],
+    "languageNames": {
+      "mac-0000": "Giants",
+      "mac-0017": "¿⁄¿Ãæ√˜",
+      "en": "Giants Bold",
+      "ko": "자이언츠 Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "자이언츠bold"
+  },
+  {
+    "name": "Gmarket Sans TTF Bold",
+    "family": "Gmarket Sans TTF Bold",
+    "style": "Regular",
+    "postScriptName": "G마켓 산스 TTF Bold",
+    "gdiName": "G마켓 산스 TTF Bold",
+    "aliases": [
+      "Gmarket Sans TTF",
+      "Gmarket Sans TTF Bold",
+      "G∏∂ƒœ ªÍΩ∫ TTF",
+      "G마켓 산스 TTF Bold"
+    ],
+    "normalizedAliases": [
+      "gmarketsansttf",
+      "gmarketsansttfbold",
+      "gƒœªíωttf",
+      "g마켓산스ttfbold"
+    ],
+    "languageNames": {
+      "mac-0000": "Gmarket Sans TTF",
+      "mac-0017": "G∏∂ƒœ ªÍΩ∫ TTF",
+      "en": "Gmarket Sans TTF Bold",
+      "ko": "G마켓 산스 TTF Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "g마켓산스ttfbold"
+  },
+  {
+    "name": "Gulim",
+    "family": "Gulim",
+    "style": "Regular",
+    "postScriptName": "굴림",
+    "gdiName": "굴림",
+    "aliases": [
+      "Gulim",
+      "굴림"
+    ],
+    "normalizedAliases": [
+      "gulim",
+      "굴림"
+    ],
+    "languageNames": {
+      "mac-0000": "Gulim",
+      "en": "Gulim",
+      "ko": "굴림"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "굴림"
+  },
+  {
+    "name": "GulimChe",
+    "family": "GulimChe",
+    "style": "Regular",
+    "postScriptName": "굴림체",
+    "gdiName": "굴림체",
+    "aliases": [
+      "GulimChe",
+      "굴림체"
+    ],
+    "normalizedAliases": [
+      "gulimche",
+      "굴림체"
+    ],
+    "languageNames": {
+      "mac-0000": "GulimChe",
+      "en": "GulimChe",
+      "ko": "굴림체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "굴림체"
+  },
+  {
+    "name": "Gungsuh",
+    "family": "Gungsuh",
+    "style": "Regular",
+    "postScriptName": "궁서",
+    "gdiName": "궁서",
+    "aliases": [
+      "Gungsuh",
+      "궁서"
+    ],
+    "normalizedAliases": [
+      "gungsuh",
+      "궁서"
+    ],
+    "languageNames": {
+      "mac-0000": "Gungsuh",
+      "en": "Gungsuh",
+      "ko": "궁서"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "궁서"
+  },
+  {
+    "name": "GungsuhChe",
+    "family": "GungsuhChe",
+    "style": "Regular",
+    "postScriptName": "궁서체",
+    "gdiName": "궁서체",
+    "aliases": [
+      "GungsuhChe",
+      "궁서체"
+    ],
+    "normalizedAliases": [
+      "gungsuhche",
+      "궁서체"
+    ],
+    "languageNames": {
+      "mac-0000": "GungsuhChe",
+      "en": "GungsuhChe",
+      "ko": "궁서체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "궁서체"
+  },
+  {
+    "name": "Heir of Light Bold",
+    "family": "Heir of Light Bold",
+    "style": "Regular",
+    "postScriptName": "빛의 계승자 Bold",
+    "gdiName": "빛의 계승자 Bold",
+    "aliases": [
+      "Heir of Light",
+      "Heir of Light Bold",
+      "∫˚¿« ∞ËΩ¬¿⁄",
+      "빛의 계승자 Bold"
+    ],
+    "normalizedAliases": [
+      "heiroflight",
+      "heiroflightbold",
+      "ëω",
+      "빛의계승자bold"
+    ],
+    "languageNames": {
+      "mac-0000": "Heir of Light",
+      "mac-0017": "∫˚¿« ∞ËΩ¬¿⁄",
+      "en": "Heir of Light Bold",
+      "ko": "빛의 계승자 Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "빛의계승자bold"
+  },
+  {
+    "name": "iceJaram Regular",
+    "family": "iceJaram Regular",
+    "style": "Regular",
+    "postScriptName": "인천교육자람",
+    "gdiName": "인천교육자람",
+    "aliases": [
+      "iceJaram Regular",
+      "인천교육자람"
+    ],
+    "normalizedAliases": [
+      "icejaramregular",
+      "인천교육자람"
+    ],
+    "languageNames": {
+      "mac-0000": "iceJaram Regular",
+      "en": "iceJaram Regular",
+      "ko": "인천교육자람"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "인천교육자람"
+  },
+  {
+    "name": "Impact",
+    "family": "Impact",
+    "style": "Regular",
+    "postScriptName": "Impact",
+    "gdiName": "Impact",
+    "aliases": [
+      "Impact"
+    ],
+    "normalizedAliases": [
+      "impact"
+    ],
+    "languageNames": {
+      "mac-0000": "Impact",
+      "en": "Impact"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "impact"
+  },
+  {
+    "name": "IncheonMICE OTF Light",
+    "family": "IncheonMICE OTF Light",
+    "style": "Regular",
+    "postScriptName": "인천마이스 OTF  Light",
+    "gdiName": "인천마이스 OTF  Light",
+    "aliases": [
+      "IncheonMICE OTF",
+      "IncheonMICE OTF Light",
+      "¿Œ√µ∏∂¿ÃΩ∫ OTF",
+      "인천마이스 OTF  Light"
+    ],
+    "normalizedAliases": [
+      "incheonmiceotf",
+      "incheonmiceotflight",
+      "œµãωotf",
+      "인천마이스otflight"
+    ],
+    "languageNames": {
+      "mac-0000": "IncheonMICE OTF",
+      "mac-0017": "¿Œ√µ∏∂¿ÃΩ∫ OTF",
+      "en": "IncheonMICE OTF Light",
+      "ko": "인천마이스 OTF  Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "인천마이스otflight"
+  },
+  {
+    "name": "Ink Free",
+    "family": "Ink Free",
+    "style": "Regular",
+    "postScriptName": "Ink Free",
+    "gdiName": "Ink Free",
+    "aliases": [
+      "Ink Free"
+    ],
+    "normalizedAliases": [
+      "inkfree"
+    ],
+    "languageNames": {
+      "mac-0000": "Ink Free",
+      "en": "Ink Free"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "inkfree"
+  },
+  {
+    "name": "Isego",
+    "family": "Isego",
+    "style": "Regular",
+    "postScriptName": "Isego",
+    "gdiName": "Isego",
+    "aliases": [
+      "Isego",
+      "àŸê¢ÉS",
+      "異世ゴ"
+    ],
+    "normalizedAliases": [
+      "isego",
+      "àÿêés",
+      "異世ゴ"
+    ],
+    "languageNames": {
+      "mac-0000": "Isego",
+      "mac-000b": "àŸê¢ÉS",
+      "en": "Isego",
+      "ja": "異世ゴ"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "isego"
+  },
+  {
+    "name": "Isemin",
+    "family": "Isemin",
+    "style": "Regular",
+    "postScriptName": "Isemin",
+    "gdiName": "Isemin",
+    "aliases": [
+      "Isemin",
+      "àŸê¢ñæ",
+      "異世明"
+    ],
+    "normalizedAliases": [
+      "isemin",
+      "àÿêñæ",
+      "異世明"
+    ],
+    "languageNames": {
+      "mac-0000": "Isemin",
+      "mac-000b": "àŸê¢ñæ",
+      "en": "Isemin",
+      "ja": "異世明"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "isemin"
+  },
+  {
+    "name": "Javanese Text",
+    "family": "Javanese Text",
+    "style": "Regular",
+    "postScriptName": "Javanese Text",
+    "gdiName": "Javanese Text",
+    "aliases": [
+      "Javanese Text"
+    ],
+    "normalizedAliases": [
+      "javanesetext"
+    ],
+    "languageNames": {
+      "mac-0000": "Javanese Text",
+      "en": "Javanese Text"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "javanesetext"
+  },
+  {
+    "name": "JejuMyeongjo",
+    "family": "JejuMyeongjo",
+    "style": "Regular",
+    "postScriptName": "제주명조",
+    "gdiName": "제주명조",
+    "aliases": [
+      "JejuMyeongjo",
+      "제주명조"
+    ],
+    "normalizedAliases": [
+      "jejumyeongjo",
+      "제주명조"
+    ],
+    "languageNames": {
+      "en": "JejuMyeongjo",
+      "ko": "제주명조"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "제주명조"
+  },
+  {
+    "name": "JejuMyeongjoOTF",
+    "family": "JejuMyeongjoOTF",
+    "style": "Regular",
+    "postScriptName": "제주명조OTF",
+    "gdiName": "제주명조OTF",
+    "aliases": [
+      "JejuMyeongjoOTF",
+      "¡¶¡÷∏Ì¡∂OTF",
+      "제주명조OTF"
+    ],
+    "normalizedAliases": [
+      "jejumyeongjootf",
+      "ìotf",
+      "제주명조otf"
+    ],
+    "languageNames": {
+      "mac-0000": "JejuMyeongjoOTF",
+      "mac-0017": "¡¶¡÷∏Ì¡∂OTF",
+      "en": "JejuMyeongjoOTF",
+      "ko": "제주명조OTF"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "제주명조otf"
+  },
+  {
+    "name": "KCC-Ganpan",
+    "family": "KCC-Ganpan",
+    "style": "Regular",
+    "postScriptName": "KCC-간판체",
+    "gdiName": "KCC-간판체",
+    "aliases": [
+      "KCC-Ganpan",
+      "KCC-∞£∆«√º",
+      "KCC-간판체"
+    ],
+    "normalizedAliases": [
+      "kccganpan",
+      "kccº",
+      "kcc간판체"
+    ],
+    "languageNames": {
+      "mac-0000": "KCC-Ganpan",
+      "mac-0017": "KCC-∞£∆«√º",
+      "en": "KCC-Ganpan",
+      "ko": "KCC-간판체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "kcc간판체"
+  },
+  {
+    "name": "KCC-Sonkeechung",
+    "family": "KCC-Sonkeechung",
+    "style": "Regular",
+    "postScriptName": "KCC-손기정체",
+    "gdiName": "KCC-손기정체",
+    "aliases": [
+      "KCC-Sonkeechung",
+      "KCC-º’±‚¡§√º",
+      "KCC-손기정체"
+    ],
+    "normalizedAliases": [
+      "kccsonkeechung",
+      "kccºº",
+      "kcc손기정체"
+    ],
+    "languageNames": {
+      "mac-0000": "KCC-Sonkeechung",
+      "mac-0017": "KCC-º’±‚¡§√º",
+      "en": "KCC-Sonkeechung",
+      "ko": "KCC-손기정체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "kcc손기정체"
+  },
+  {
+    "name": "Kim jung chul Myungjo Bold",
+    "family": "Kim jung chul Myungjo Bold",
+    "style": "Regular",
+    "postScriptName": "Kim jung chul Myungjo Bold",
+    "gdiName": "Kim jung chul Myungjo Bold",
+    "aliases": [
+      "Kim jung chul Myungjo",
+      "Kim jung chul Myungjo Bold"
+    ],
+    "normalizedAliases": [
+      "kimjungchulmyungjo",
+      "kimjungchulmyungjobold"
+    ],
+    "languageNames": {
+      "mac-0000": "Kim jung chul Myungjo",
+      "mac-0017": "Kim jung chul Myungjo",
+      "en": "Kim jung chul Myungjo Bold",
+      "ko": "Kim jung chul Myungjo Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "kimjungchulmyungjobold"
+  },
+  {
+    "name": "Kim jung chul Script Bold",
+    "family": "Kim jung chul Script Bold",
+    "style": "Regular",
+    "postScriptName": "Kim jung chul Script Bold",
+    "gdiName": "Kim jung chul Script Bold",
+    "aliases": [
+      "Kim jung chul Script",
+      "Kim jung chul Script Bold"
+    ],
+    "normalizedAliases": [
+      "kimjungchulscript",
+      "kimjungchulscriptbold"
+    ],
+    "languageNames": {
+      "mac-0000": "Kim jung chul Script",
+      "mac-0017": "Kim jung chul Script",
+      "en": "Kim jung chul Script Bold",
+      "ko": "Kim jung chul Script Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "kimjungchulscriptbold"
+  },
+  {
+    "name": "Kinuta Shin Enpitsu Italic StdN 2B",
+    "family": "Kinuta Shin Enpitsu Italic StdN 2B",
+    "style": "Regular",
+    "postScriptName": "Kinuta Shin Enpitsu Italic StdN",
+    "gdiName": "Kinuta Shin Enpitsu Italic StdN",
+    "aliases": [
+      "Kinuta Shin Enpitsu Italic StdN",
+      "Kinuta Shin Enpitsu Italic StdN 2B",
+      "ãm êcÅEâîïM Italic StdN 2B",
+      "砧 芯・鉛筆 Italic StdN 2B"
+    ],
+    "normalizedAliases": [
+      "kinutashinenpitsuitalicstdn",
+      "kinutashinenpitsuitalicstdn2b",
+      "ãmêcåeâîïmitalicstdn2b",
+      "砧芯鉛筆italicstdn2b"
+    ],
+    "languageNames": {
+      "mac-0000": "Kinuta Shin Enpitsu Italic StdN 2B",
+      "mac-000b": "ãm êcÅEâîïM Italic StdN 2B",
+      "en": "Kinuta Shin Enpitsu Italic StdN 2B",
+      "ja": "砧 芯・鉛筆 Italic StdN 2B"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "kinutashinenpitsuitalicstdn"
+  },
+  {
+    "name": "Kiwi Maru Light",
+    "family": "Kiwi Maru Light",
+    "style": "Regular",
+    "postScriptName": "Kiwi Maru Light",
+    "gdiName": "Kiwi Maru Light",
+    "aliases": [
+      "Kiwi Maru Light"
+    ],
+    "normalizedAliases": [
+      "kiwimarulight"
+    ],
+    "languageNames": {
+      "en": "Kiwi Maru Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "kiwimarulight"
+  },
+  {
+    "name": "KOHIBaeum",
+    "family": "KOHIBaeum",
+    "style": "Regular",
+    "postScriptName": "KOHI배움",
+    "gdiName": "KOHI배움",
+    "aliases": [
+      "KOHIBaeum",
+      "KOHIπËøÚ",
+      "KOHI배움"
+    ],
+    "normalizedAliases": [
+      "kohibaeum",
+      "kohiπëøú",
+      "kohi배움"
+    ],
+    "languageNames": {
+      "mac-0000": "KOHIBaeum",
+      "mac-0017": "KOHIπËøÚ",
+      "en": "KOHIBaeum",
+      "ko": "KOHI배움"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "kohi배움"
+  },
+  {
+    "name": "Kozuka Gothic Pr6N R",
+    "family": "Kozuka Gothic Pr6N R",
+    "style": "Regular",
+    "postScriptName": "Kozuka Gothic Pr6N R",
+    "gdiName": "Kozuka Gothic Pr6N R",
+    "aliases": [
+      "Kozuka Gothic Pr6N R",
+      "è¨íÀÉSÉVÉbÉN Pr6N R",
+      "小塚ゴシック Pr6N R"
+    ],
+    "normalizedAliases": [
+      "kozukagothicpr6nr",
+      "èíàésévébénpr6nr",
+      "小塚ゴシックpr6nr"
+    ],
+    "languageNames": {
+      "mac-0000": "Kozuka Gothic Pr6N R",
+      "mac-000b": "è¨íÀÉSÉVÉbÉN Pr6N R",
+      "en": "Kozuka Gothic Pr6N R",
+      "ja": "小塚ゴシック Pr6N R"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "kozukagothicpr6nr"
+  },
+  {
+    "name": "Lato Thin",
+    "family": "Lato Thin",
+    "style": "Regular",
+    "postScriptName": "Lato Thin",
+    "gdiName": "Lato Thin",
+    "aliases": [
+      "Lato",
+      "Lato Thin"
+    ],
+    "normalizedAliases": [
+      "lato",
+      "latothin"
+    ],
+    "languageNames": {
+      "mac-0000": "Lato",
+      "en": "Lato Thin"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "latothin"
+  },
+  {
+    "name": "Leelawadee UI",
+    "family": "Leelawadee UI",
+    "style": "Regular",
+    "postScriptName": "Leelawadee UI",
+    "gdiName": "Leelawadee UI",
+    "aliases": [
+      "Leelawadee UI"
+    ],
+    "normalizedAliases": [
+      "leelawadeeui"
+    ],
+    "languageNames": {
+      "en": "Leelawadee UI"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "leelawadeeui"
+  },
+  {
+    "name": "Leelawadee UI Semilight",
+    "family": "Leelawadee UI Semilight",
+    "style": "Regular",
+    "postScriptName": "Leelawadee UI Semilight",
+    "gdiName": "Leelawadee UI Semilight",
+    "aliases": [
+      "Leelawadee UI Semilight"
+    ],
+    "normalizedAliases": [
+      "leelawadeeuisemilight"
+    ],
+    "languageNames": {
+      "en": "Leelawadee UI Semilight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "leelawadeeuisemilight"
+  },
+  {
+    "name": "LINE Seed JP_OTF Bold",
+    "family": "LINE Seed JP_OTF Bold",
+    "style": "Regular",
+    "postScriptName": "LINE Seed JP_OTF Bold",
+    "gdiName": "LINE Seed JP_OTF Bold",
+    "aliases": [
+      "LINE Seed JP_OTF",
+      "LINE Seed JP_OTF Bold"
+    ],
+    "normalizedAliases": [
+      "lineseedjpotf",
+      "lineseedjpotfbold"
+    ],
+    "languageNames": {
+      "mac-0000": "LINE Seed JP_OTF",
+      "mac-000b": "LINE Seed JP_OTF Bold",
+      "en": "LINE Seed JP_OTF Bold",
+      "ja": "LINE Seed JP_OTF Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "lineseedjpotfbold"
+  },
+  {
+    "name": "Lucida Console",
+    "family": "Lucida Console",
+    "style": "Regular",
+    "postScriptName": "Lucida Console",
+    "gdiName": "Lucida Console",
+    "aliases": [
+      "Lucida Console"
+    ],
+    "normalizedAliases": [
+      "lucidaconsole"
+    ],
+    "languageNames": {
+      "mac-0000": "Lucida Console",
+      "en": "Lucida Console"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "lucidaconsole"
+  },
+  {
+    "name": "Lucida Sans Unicode",
+    "family": "Lucida Sans Unicode",
+    "style": "Regular",
+    "postScriptName": "Lucida Sans Unicode",
+    "gdiName": "Lucida Sans Unicode",
+    "aliases": [
+      "Lucida Sans Unicode"
+    ],
+    "normalizedAliases": [
+      "lucidasansunicode"
+    ],
+    "languageNames": {
+      "mac-0000": "Lucida Sans Unicode",
+      "en": "Lucida Sans Unicode"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "lucidasansunicode"
+  },
+  {
+    "name": "M+A1 black 10/1.2",
+    "family": "M+A1 black 10/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 10/1.2",
+    "gdiName": "M+A1 black 10/1.2",
+    "aliases": [
+      "M+A1 black 10/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1black1012"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 10/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black1012"
+  },
+  {
+    "name": "M+A1 black 10/2.0",
+    "family": "M+A1 black 10/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 10/2.0",
+    "gdiName": "M+A1 black 10/2.0",
+    "aliases": [
+      "M+A1 black 10/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1black1020"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 10/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black1020"
+  },
+  {
+    "name": "M+A1 black 18/1.2",
+    "family": "M+A1 black 18/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 18/1.2",
+    "gdiName": "M+A1 black 18/1.2",
+    "aliases": [
+      "M+A1 black 18/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1black1812"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 18/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black1812"
+  },
+  {
+    "name": "M+A1 black 18/2.0",
+    "family": "M+A1 black 18/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 18/2.0",
+    "gdiName": "M+A1 black 18/2.0",
+    "aliases": [
+      "M+A1 black 18/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1black1820"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 18/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black1820"
+  },
+  {
+    "name": "M+A1 black 24/1.2",
+    "family": "M+A1 black 24/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 24/1.2",
+    "gdiName": "M+A1 black 24/1.2",
+    "aliases": [
+      "M+A1 black 24/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1black2412"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 24/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black2412"
+  },
+  {
+    "name": "M+A1 black 24/2.0",
+    "family": "M+A1 black 24/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 24/2.0",
+    "gdiName": "M+A1 black 24/2.0",
+    "aliases": [
+      "M+A1 black 24/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1black2420"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 24/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black2420"
+  },
+  {
+    "name": "M+A1 black 30/1.2",
+    "family": "M+A1 black 30/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 30/1.2",
+    "gdiName": "M+A1 black 30/1.2",
+    "aliases": [
+      "M+A1 black 30/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1black3012"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 30/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black3012"
+  },
+  {
+    "name": "M+A1 black 30/2.0",
+    "family": "M+A1 black 30/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 30/2.0",
+    "gdiName": "M+A1 black 30/2.0",
+    "aliases": [
+      "M+A1 black 30/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1black3020"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 30/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black3020"
+  },
+  {
+    "name": "M+A1 black 35/1.2",
+    "family": "M+A1 black 35/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 35/1.2",
+    "gdiName": "M+A1 black 35/1.2",
+    "aliases": [
+      "M+A1 black 35/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1black3512"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 35/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black3512"
+  },
+  {
+    "name": "M+A1 black 35/2.0",
+    "family": "M+A1 black 35/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 35/2.0",
+    "gdiName": "M+A1 black 35/2.0",
+    "aliases": [
+      "M+A1 black 35/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1black3520"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 35/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black3520"
+  },
+  {
+    "name": "M+A1 black 42/1.2",
+    "family": "M+A1 black 42/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 42/1.2",
+    "gdiName": "M+A1 black 42/1.2",
+    "aliases": [
+      "M+A1 black 42/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1black4212"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 42/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black4212"
+  },
+  {
+    "name": "M+A1 black 42/2.0",
+    "family": "M+A1 black 42/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 42/2.0",
+    "gdiName": "M+A1 black 42/2.0",
+    "aliases": [
+      "M+A1 black 42/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1black4220"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 42/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black4220"
+  },
+  {
+    "name": "M+A1 black 50/1.2",
+    "family": "M+A1 black 50/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 50/1.2",
+    "gdiName": "M+A1 black 50/1.2",
+    "aliases": [
+      "M+A1 black 50/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1black5012"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 50/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black5012"
+  },
+  {
+    "name": "M+A1 black 50/2.0",
+    "family": "M+A1 black 50/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 50/2.0",
+    "gdiName": "M+A1 black 50/2.0",
+    "aliases": [
+      "M+A1 black 50/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1black5020"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 50/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black5020"
+  },
+  {
+    "name": "M+A1 black 58/1.2",
+    "family": "M+A1 black 58/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 58/1.2",
+    "gdiName": "M+A1 black 58/1.2",
+    "aliases": [
+      "M+A1 black 58/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1black5812"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 58/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black5812"
+  },
+  {
+    "name": "M+A1 black 58/2.0",
+    "family": "M+A1 black 58/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 black 58/2.0",
+    "gdiName": "M+A1 black 58/2.0",
+    "aliases": [
+      "M+A1 black 58/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1black5820"
+    ],
+    "languageNames": {
+      "en": "M+A1 black 58/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1black5820"
+  },
+  {
+    "name": "M+A1 bold 10/1.2",
+    "family": "M+A1 bold 10/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 10/1.2",
+    "gdiName": "M+A1 bold 10/1.2",
+    "aliases": [
+      "M+A1 bold 10/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1bold1012"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 10/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold1012"
+  },
+  {
+    "name": "M+A1 bold 10/2.0",
+    "family": "M+A1 bold 10/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 10/2.0",
+    "gdiName": "M+A1 bold 10/2.0",
+    "aliases": [
+      "M+A1 bold 10/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1bold1020"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 10/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold1020"
+  },
+  {
+    "name": "M+A1 bold 18/1.2",
+    "family": "M+A1 bold 18/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 18/1.2",
+    "gdiName": "M+A1 bold 18/1.2",
+    "aliases": [
+      "M+A1 bold 18/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1bold1812"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 18/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold1812"
+  },
+  {
+    "name": "M+A1 bold 18/2.0",
+    "family": "M+A1 bold 18/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 18/2.0",
+    "gdiName": "M+A1 bold 18/2.0",
+    "aliases": [
+      "M+A1 bold 18/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1bold1820"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 18/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold1820"
+  },
+  {
+    "name": "M+A1 bold 24/1.2",
+    "family": "M+A1 bold 24/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 24/1.2",
+    "gdiName": "M+A1 bold 24/1.2",
+    "aliases": [
+      "M+A1 bold 24/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1bold2412"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 24/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold2412"
+  },
+  {
+    "name": "M+A1 bold 24/2.0",
+    "family": "M+A1 bold 24/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 24/2.0",
+    "gdiName": "M+A1 bold 24/2.0",
+    "aliases": [
+      "M+A1 bold 24/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1bold2420"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 24/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold2420"
+  },
+  {
+    "name": "M+A1 bold 30/1.2",
+    "family": "M+A1 bold 30/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 30/1.2",
+    "gdiName": "M+A1 bold 30/1.2",
+    "aliases": [
+      "M+A1 bold 30/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1bold3012"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 30/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold3012"
+  },
+  {
+    "name": "M+A1 bold 30/2.0",
+    "family": "M+A1 bold 30/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 30/2.0",
+    "gdiName": "M+A1 bold 30/2.0",
+    "aliases": [
+      "M+A1 bold 30/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1bold3020"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 30/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold3020"
+  },
+  {
+    "name": "M+A1 bold 35/1.2",
+    "family": "M+A1 bold 35/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 35/1.2",
+    "gdiName": "M+A1 bold 35/1.2",
+    "aliases": [
+      "M+A1 bold 35/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1bold3512"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 35/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold3512"
+  },
+  {
+    "name": "M+A1 bold 35/2.0",
+    "family": "M+A1 bold 35/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 35/2.0",
+    "gdiName": "M+A1 bold 35/2.0",
+    "aliases": [
+      "M+A1 bold 35/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1bold3520"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 35/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold3520"
+  },
+  {
+    "name": "M+A1 bold 42/1.2",
+    "family": "M+A1 bold 42/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 42/1.2",
+    "gdiName": "M+A1 bold 42/1.2",
+    "aliases": [
+      "M+A1 bold 42/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1bold4212"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 42/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold4212"
+  },
+  {
+    "name": "M+A1 bold 42/2.0",
+    "family": "M+A1 bold 42/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 42/2.0",
+    "gdiName": "M+A1 bold 42/2.0",
+    "aliases": [
+      "M+A1 bold 42/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1bold4220"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 42/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold4220"
+  },
+  {
+    "name": "M+A1 bold 50/1.2",
+    "family": "M+A1 bold 50/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 50/1.2",
+    "gdiName": "M+A1 bold 50/1.2",
+    "aliases": [
+      "M+A1 bold 50/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1bold5012"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 50/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold5012"
+  },
+  {
+    "name": "M+A1 bold 50/2.0",
+    "family": "M+A1 bold 50/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 bold 50/2.0",
+    "gdiName": "M+A1 bold 50/2.0",
+    "aliases": [
+      "M+A1 bold 50/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1bold5020"
+    ],
+    "languageNames": {
+      "en": "M+A1 bold 50/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1bold5020"
+  },
+  {
+    "name": "M+A1 heavy 10/1.2",
+    "family": "M+A1 heavy 10/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 10/1.2",
+    "gdiName": "M+A1 heavy 10/1.2",
+    "aliases": [
+      "M+A1 heavy 10/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1heavy1012"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 10/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy1012"
+  },
+  {
+    "name": "M+A1 heavy 10/2.0",
+    "family": "M+A1 heavy 10/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 10/2.0",
+    "gdiName": "M+A1 heavy 10/2.0",
+    "aliases": [
+      "M+A1 heavy 10/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1heavy1020"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 10/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy1020"
+  },
+  {
+    "name": "M+A1 heavy 18/1.2",
+    "family": "M+A1 heavy 18/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 18/1.2",
+    "gdiName": "M+A1 heavy 18/1.2",
+    "aliases": [
+      "M+A1 heavy 18/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1heavy1812"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 18/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy1812"
+  },
+  {
+    "name": "M+A1 heavy 18/2.0",
+    "family": "M+A1 heavy 18/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 18/2.0",
+    "gdiName": "M+A1 heavy 18/2.0",
+    "aliases": [
+      "M+A1 heavy 18/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1heavy1820"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 18/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy1820"
+  },
+  {
+    "name": "M+A1 heavy 24/1.2",
+    "family": "M+A1 heavy 24/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 24/1.2",
+    "gdiName": "M+A1 heavy 24/1.2",
+    "aliases": [
+      "M+A1 heavy 24/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1heavy2412"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 24/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy2412"
+  },
+  {
+    "name": "M+A1 heavy 24/2.0",
+    "family": "M+A1 heavy 24/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 24/2.0",
+    "gdiName": "M+A1 heavy 24/2.0",
+    "aliases": [
+      "M+A1 heavy 24/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1heavy2420"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 24/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy2420"
+  },
+  {
+    "name": "M+A1 heavy 30/1.2",
+    "family": "M+A1 heavy 30/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 30/1.2",
+    "gdiName": "M+A1 heavy 30/1.2",
+    "aliases": [
+      "M+A1 heavy 30/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1heavy3012"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 30/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy3012"
+  },
+  {
+    "name": "M+A1 heavy 30/2.0",
+    "family": "M+A1 heavy 30/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 30/2.0",
+    "gdiName": "M+A1 heavy 30/2.0",
+    "aliases": [
+      "M+A1 heavy 30/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1heavy3020"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 30/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy3020"
+  },
+  {
+    "name": "M+A1 heavy 35/1.2",
+    "family": "M+A1 heavy 35/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 35/1.2",
+    "gdiName": "M+A1 heavy 35/1.2",
+    "aliases": [
+      "M+A1 heavy 35/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1heavy3512"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 35/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy3512"
+  },
+  {
+    "name": "M+A1 heavy 35/2.0",
+    "family": "M+A1 heavy 35/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 35/2.0",
+    "gdiName": "M+A1 heavy 35/2.0",
+    "aliases": [
+      "M+A1 heavy 35/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1heavy3520"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 35/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy3520"
+  },
+  {
+    "name": "M+A1 heavy 42/1.2",
+    "family": "M+A1 heavy 42/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 42/1.2",
+    "gdiName": "M+A1 heavy 42/1.2",
+    "aliases": [
+      "M+A1 heavy 42/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1heavy4212"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 42/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy4212"
+  },
+  {
+    "name": "M+A1 heavy 42/2.0",
+    "family": "M+A1 heavy 42/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 42/2.0",
+    "gdiName": "M+A1 heavy 42/2.0",
+    "aliases": [
+      "M+A1 heavy 42/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1heavy4220"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 42/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy4220"
+  },
+  {
+    "name": "M+A1 heavy 50/1.2",
+    "family": "M+A1 heavy 50/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 50/1.2",
+    "gdiName": "M+A1 heavy 50/1.2",
+    "aliases": [
+      "M+A1 heavy 50/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1heavy5012"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 50/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy5012"
+  },
+  {
+    "name": "M+A1 heavy 50/2.0",
+    "family": "M+A1 heavy 50/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 50/2.0",
+    "gdiName": "M+A1 heavy 50/2.0",
+    "aliases": [
+      "M+A1 heavy 50/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1heavy5020"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 50/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy5020"
+  },
+  {
+    "name": "M+A1 heavy 58/1.2",
+    "family": "M+A1 heavy 58/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 58/1.2",
+    "gdiName": "M+A1 heavy 58/1.2",
+    "aliases": [
+      "M+A1 heavy 58/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1heavy5812"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 58/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy5812"
+  },
+  {
+    "name": "M+A1 heavy 58/2.0",
+    "family": "M+A1 heavy 58/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 heavy 58/2.0",
+    "gdiName": "M+A1 heavy 58/2.0",
+    "aliases": [
+      "M+A1 heavy 58/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1heavy5820"
+    ],
+    "languageNames": {
+      "en": "M+A1 heavy 58/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1heavy5820"
+  },
+  {
+    "name": "M+A1 light 10/1.2",
+    "family": "M+A1 light 10/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 light 10/1.2",
+    "gdiName": "M+A1 light 10/1.2",
+    "aliases": [
+      "M+A1 light 10/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1light1012"
+    ],
+    "languageNames": {
+      "en": "M+A1 light 10/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1light1012"
+  },
+  {
+    "name": "M+A1 light 10/2.0",
+    "family": "M+A1 light 10/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 light 10/2.0",
+    "gdiName": "M+A1 light 10/2.0",
+    "aliases": [
+      "M+A1 light 10/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1light1020"
+    ],
+    "languageNames": {
+      "en": "M+A1 light 10/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1light1020"
+  },
+  {
+    "name": "M+A1 light 18/1.2",
+    "family": "M+A1 light 18/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 light 18/1.2",
+    "gdiName": "M+A1 light 18/1.2",
+    "aliases": [
+      "M+A1 light 18/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1light1812"
+    ],
+    "languageNames": {
+      "en": "M+A1 light 18/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1light1812"
+  },
+  {
+    "name": "M+A1 light 18/2.0",
+    "family": "M+A1 light 18/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 light 18/2.0",
+    "gdiName": "M+A1 light 18/2.0",
+    "aliases": [
+      "M+A1 light 18/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1light1820"
+    ],
+    "languageNames": {
+      "en": "M+A1 light 18/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1light1820"
+  },
+  {
+    "name": "M+A1 light 24/1.2",
+    "family": "M+A1 light 24/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 light 24/1.2",
+    "gdiName": "M+A1 light 24/1.2",
+    "aliases": [
+      "M+A1 light 24/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1light2412"
+    ],
+    "languageNames": {
+      "en": "M+A1 light 24/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1light2412"
+  },
+  {
+    "name": "M+A1 light 24/2.0",
+    "family": "M+A1 light 24/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 light 24/2.0",
+    "gdiName": "M+A1 light 24/2.0",
+    "aliases": [
+      "M+A1 light 24/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1light2420"
+    ],
+    "languageNames": {
+      "en": "M+A1 light 24/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1light2420"
+  },
+  {
+    "name": "M+A1 medium 10/1.2",
+    "family": "M+A1 medium 10/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 10/1.2",
+    "gdiName": "M+A1 medium 10/1.2",
+    "aliases": [
+      "M+A1 medium 10/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1medium1012"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 10/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium1012"
+  },
+  {
+    "name": "M+A1 medium 10/2.0",
+    "family": "M+A1 medium 10/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 10/2.0",
+    "gdiName": "M+A1 medium 10/2.0",
+    "aliases": [
+      "M+A1 medium 10/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1medium1020"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 10/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium1020"
+  },
+  {
+    "name": "M+A1 medium 18/1.2",
+    "family": "M+A1 medium 18/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 18/1.2",
+    "gdiName": "M+A1 medium 18/1.2",
+    "aliases": [
+      "M+A1 medium 18/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1medium1812"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 18/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium1812"
+  },
+  {
+    "name": "M+A1 medium 18/2.0",
+    "family": "M+A1 medium 18/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 18/2.0",
+    "gdiName": "M+A1 medium 18/2.0",
+    "aliases": [
+      "M+A1 medium 18/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1medium1820"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 18/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium1820"
+  },
+  {
+    "name": "M+A1 medium 24/1.2",
+    "family": "M+A1 medium 24/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 24/1.2",
+    "gdiName": "M+A1 medium 24/1.2",
+    "aliases": [
+      "M+A1 medium 24/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1medium2412"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 24/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium2412"
+  },
+  {
+    "name": "M+A1 medium 24/2.0",
+    "family": "M+A1 medium 24/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 24/2.0",
+    "gdiName": "M+A1 medium 24/2.0",
+    "aliases": [
+      "M+A1 medium 24/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1medium2420"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 24/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium2420"
+  },
+  {
+    "name": "M+A1 medium 30/1.2",
+    "family": "M+A1 medium 30/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 30/1.2",
+    "gdiName": "M+A1 medium 30/1.2",
+    "aliases": [
+      "M+A1 medium 30/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1medium3012"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 30/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium3012"
+  },
+  {
+    "name": "M+A1 medium 30/2.0",
+    "family": "M+A1 medium 30/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 30/2.0",
+    "gdiName": "M+A1 medium 30/2.0",
+    "aliases": [
+      "M+A1 medium 30/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1medium3020"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 30/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium3020"
+  },
+  {
+    "name": "M+A1 medium 35/1.2",
+    "family": "M+A1 medium 35/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 35/1.2",
+    "gdiName": "M+A1 medium 35/1.2",
+    "aliases": [
+      "M+A1 medium 35/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1medium3512"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 35/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium3512"
+  },
+  {
+    "name": "M+A1 medium 35/2.0",
+    "family": "M+A1 medium 35/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 35/2.0",
+    "gdiName": "M+A1 medium 35/2.0",
+    "aliases": [
+      "M+A1 medium 35/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1medium3520"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 35/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium3520"
+  },
+  {
+    "name": "M+A1 medium 42/1.2",
+    "family": "M+A1 medium 42/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 42/1.2",
+    "gdiName": "M+A1 medium 42/1.2",
+    "aliases": [
+      "M+A1 medium 42/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1medium4212"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 42/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium4212"
+  },
+  {
+    "name": "M+A1 medium 42/2.0",
+    "family": "M+A1 medium 42/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 medium 42/2.0",
+    "gdiName": "M+A1 medium 42/2.0",
+    "aliases": [
+      "M+A1 medium 42/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1medium4220"
+    ],
+    "languageNames": {
+      "en": "M+A1 medium 42/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1medium4220"
+  },
+  {
+    "name": "M+A1 regular 10/1.2",
+    "family": "M+A1 regular 10/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 10/1.2",
+    "gdiName": "M+A1 regular 10/1.2",
+    "aliases": [
+      "M+A1 regular 10/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1regular1012"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 10/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular1012"
+  },
+  {
+    "name": "M+A1 regular 10/2.0",
+    "family": "M+A1 regular 10/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 10/2.0",
+    "gdiName": "M+A1 regular 10/2.0",
+    "aliases": [
+      "M+A1 regular 10/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1regular1020"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 10/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular1020"
+  },
+  {
+    "name": "M+A1 regular 18/1.2",
+    "family": "M+A1 regular 18/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 18/1.2",
+    "gdiName": "M+A1 regular 18/1.2",
+    "aliases": [
+      "M+A1 regular 18/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1regular1812"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 18/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular1812"
+  },
+  {
+    "name": "M+A1 regular 18/2.0",
+    "family": "M+A1 regular 18/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 18/2.0",
+    "gdiName": "M+A1 regular 18/2.0",
+    "aliases": [
+      "M+A1 regular 18/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1regular1820"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 18/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular1820"
+  },
+  {
+    "name": "M+A1 regular 24/1.2",
+    "family": "M+A1 regular 24/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 24/1.2",
+    "gdiName": "M+A1 regular 24/1.2",
+    "aliases": [
+      "M+A1 regular 24/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1regular2412"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 24/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular2412"
+  },
+  {
+    "name": "M+A1 regular 24/2.0",
+    "family": "M+A1 regular 24/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 24/2.0",
+    "gdiName": "M+A1 regular 24/2.0",
+    "aliases": [
+      "M+A1 regular 24/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1regular2420"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 24/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular2420"
+  },
+  {
+    "name": "M+A1 regular 30/1.2",
+    "family": "M+A1 regular 30/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 30/1.2",
+    "gdiName": "M+A1 regular 30/1.2",
+    "aliases": [
+      "M+A1 regular 30/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1regular3012"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 30/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular3012"
+  },
+  {
+    "name": "M+A1 regular 30/2.0",
+    "family": "M+A1 regular 30/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 30/2.0",
+    "gdiName": "M+A1 regular 30/2.0",
+    "aliases": [
+      "M+A1 regular 30/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1regular3020"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 30/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular3020"
+  },
+  {
+    "name": "M+A1 regular 35/1.2",
+    "family": "M+A1 regular 35/1.2",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 35/1.2",
+    "gdiName": "M+A1 regular 35/1.2",
+    "aliases": [
+      "M+A1 regular 35/1.2"
+    ],
+    "normalizedAliases": [
+      "ma1regular3512"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 35/1.2"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular3512"
+  },
+  {
+    "name": "M+A1 regular 35/2.0",
+    "family": "M+A1 regular 35/2.0",
+    "style": "Regular",
+    "postScriptName": "M+A1 regular 35/2.0",
+    "gdiName": "M+A1 regular 35/2.0",
+    "aliases": [
+      "M+A1 regular 35/2.0"
+    ],
+    "normalizedAliases": [
+      "ma1regular3520"
+    ],
+    "languageNames": {
+      "en": "M+A1 regular 35/2.0"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ma1regular3520"
+  },
+  {
+    "name": "MaboroshinoNijimiMincho",
+    "family": "MaboroshinoNijimiMincho",
+    "style": "Regular",
+    "postScriptName": "MaboroshinoNijimiMincho",
+    "gdiName": "MaboroshinoNijimiMincho",
+    "aliases": [
+      "MaboroshinoNijimiMincho",
+      "å∂ÉmÇ…Ç∂Ç›ñæí©",
+      "幻ノにじみ明朝"
+    ],
+    "normalizedAliases": [
+      "maboroshinonijimimincho",
+      "åémçççñæí",
+      "幻ノにじみ明朝"
+    ],
+    "languageNames": {
+      "mac-0000": "MaboroshinoNijimiMincho",
+      "mac-000b": "å∂ÉmÇ…Ç∂Ç›ñæí©",
+      "en": "MaboroshinoNijimiMincho",
+      "ja": "幻ノにじみ明朝"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "maboroshinonijimimincho"
+  },
+  {
+    "name": "Malgun Gothic",
+    "family": "Malgun Gothic",
+    "style": "Regular",
+    "postScriptName": "맑은 고딕",
+    "gdiName": "맑은 고딕",
+    "aliases": [
+      "Malgun Gothic",
+      "맑은 고딕"
+    ],
+    "normalizedAliases": [
+      "malgungothic",
+      "맑은고딕"
+    ],
+    "languageNames": {
+      "mac-0000": "Malgun Gothic",
+      "en": "Malgun Gothic",
+      "ko": "맑은 고딕"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "맑은고딕"
+  },
+  {
+    "name": "Malgun Gothic Semilight",
+    "family": "Malgun Gothic Semilight",
+    "style": "Regular",
+    "postScriptName": "맑은 고딕 Semilight",
+    "gdiName": "맑은 고딕 Semilight",
+    "aliases": [
+      "Malgun Gothic Semilight",
+      "맑은 고딕 Semilight"
+    ],
+    "normalizedAliases": [
+      "malgungothicsemilight",
+      "맑은고딕semilight"
+    ],
+    "languageNames": {
+      "mac-0000": "Malgun Gothic Semilight",
+      "en": "Malgun Gothic Semilight",
+      "ko": "맑은 고딕 Semilight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "맑은고딕semilight"
+  },
+  {
+    "name": "Malssami815",
+    "family": "Malssami815",
+    "style": "Regular",
+    "postScriptName": "말싸미815",
+    "gdiName": "말싸미815",
+    "aliases": [
+      "Malssami815",
+      "∏ªΩŒπÃ815",
+      "말싸미815"
+    ],
+    "normalizedAliases": [
+      "malssami815",
+      "ªωœπã815",
+      "말싸미815"
+    ],
+    "languageNames": {
+      "mac-0000": "Malssami815",
+      "mac-0017": "∏ªΩŒπÃ815",
+      "en": "Malssami815",
+      "ko": "말싸미815"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "말싸미815"
+  },
+  {
+    "name": "Maplestory",
+    "family": "Maplestory",
+    "style": "Regular",
+    "postScriptName": "메이플스토리",
+    "gdiName": "메이플스토리",
+    "aliases": [
+      "Maplestory",
+      "∏ﬁ¿Ã«√Ω∫≈‰∏Æ",
+      "메이플스토리"
+    ],
+    "normalizedAliases": [
+      "maplestory",
+      "메이플스토리",
+      "ﬁãωæ"
+    ],
+    "languageNames": {
+      "mac-0000": "Maplestory",
+      "mac-0017": "∏ﬁ¿Ã«√Ω∫≈‰∏Æ",
+      "en": "Maplestory",
+      "ko": "메이플스토리"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "메이플스토리"
+  },
+  {
+    "name": "Maplestory OTF",
+    "family": "Maplestory OTF",
+    "style": "Regular",
+    "postScriptName": "메이플스토리 OTF",
+    "gdiName": "메이플스토리 OTF",
+    "aliases": [
+      "Maplestory OTF",
+      "∏ﬁ¿Ã«√Ω∫≈‰∏Æ OTF",
+      "메이플스토리 OTF"
+    ],
+    "normalizedAliases": [
+      "maplestoryotf",
+      "메이플스토리otf",
+      "ﬁãωæotf"
+    ],
+    "languageNames": {
+      "mac-0000": "Maplestory OTF",
+      "mac-0017": "∏ﬁ¿Ã«√Ω∫≈‰∏Æ OTF",
+      "en": "Maplestory OTF",
+      "ko": "메이플스토리 OTF"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "메이플스토리otf"
+  },
+  {
+    "name": "Marlett",
+    "family": "Marlett",
+    "style": "Regular",
+    "postScriptName": "Marlett",
+    "gdiName": "Marlett",
+    "aliases": [
+      "Marlett"
+    ],
+    "normalizedAliases": [
+      "marlett"
+    ],
+    "languageNames": {
+      "mac-0000": "Marlett",
+      "en": "Marlett"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "marlett"
+  },
+  {
+    "name": "MBC 1961 Medium",
+    "family": "MBC 1961 Medium",
+    "style": "Regular",
+    "postScriptName": "MBC 1961 Medium",
+    "gdiName": "MBC 1961 Medium",
+    "aliases": [
+      "MBC 1961 Medium"
+    ],
+    "normalizedAliases": [
+      "mbc1961medium"
+    ],
+    "languageNames": {
+      "en": "MBC 1961 Medium",
+      "ko": "MBC 1961 Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mbc1961medium"
+  },
+  {
+    "name": "MBC 1961Gulim Medium",
+    "family": "MBC 1961Gulim Medium",
+    "style": "Regular",
+    "postScriptName": "MBC 1961굴림 Medium",
+    "gdiName": "MBC 1961굴림 Medium",
+    "aliases": [
+      "MBC 1961Gulim Medium",
+      "MBC 1961굴림 Medium"
+    ],
+    "normalizedAliases": [
+      "mbc1961gulimmedium",
+      "mbc1961굴림medium"
+    ],
+    "languageNames": {
+      "en": "MBC 1961Gulim Medium",
+      "ko": "MBC 1961굴림 Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mbc1961굴림medium"
+  },
+  {
+    "name": "Microsoft Himalaya",
+    "family": "Microsoft Himalaya",
+    "style": "Regular",
+    "postScriptName": "Microsoft Himalaya",
+    "gdiName": "Microsoft Himalaya",
+    "aliases": [
+      "Microsoft Himalaya"
+    ],
+    "normalizedAliases": [
+      "microsofthimalaya"
+    ],
+    "languageNames": {
+      "mac-0000": "Microsoft Himalaya",
+      "en": "Microsoft Himalaya"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsofthimalaya"
+  },
+  {
+    "name": "Microsoft JhengHei",
+    "family": "Microsoft JhengHei",
+    "style": "Regular",
+    "postScriptName": "Microsoft JhengHei",
+    "gdiName": "Microsoft JhengHei",
+    "aliases": [
+      "Microsoft JhengHei",
+      "微軟正黑體"
+    ],
+    "normalizedAliases": [
+      "microsoftjhenghei",
+      "微軟正黑體"
+    ],
+    "languageNames": {
+      "zh-Hant": "微軟正黑體",
+      "en": "Microsoft JhengHei",
+      "win-0c04": "微軟正黑體"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftjhenghei"
+  },
+  {
+    "name": "Microsoft JhengHei Light",
+    "family": "Microsoft JhengHei Light",
+    "style": "Regular",
+    "postScriptName": "Microsoft JhengHei Light",
+    "gdiName": "Microsoft JhengHei Light",
+    "aliases": [
+      "Microsoft JhengHei Light",
+      "微軟正黑體 Light"
+    ],
+    "normalizedAliases": [
+      "microsoftjhengheilight",
+      "微軟正黑體light"
+    ],
+    "languageNames": {
+      "zh-Hant": "微軟正黑體 Light",
+      "en": "Microsoft JhengHei Light",
+      "win-0c04": "微軟正黑體 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftjhengheilight"
+  },
+  {
+    "name": "Microsoft JhengHei UI",
+    "family": "Microsoft JhengHei UI",
+    "style": "Regular",
+    "postScriptName": "Microsoft JhengHei UI",
+    "gdiName": "Microsoft JhengHei UI",
+    "aliases": [
+      "Microsoft JhengHei UI"
+    ],
+    "normalizedAliases": [
+      "microsoftjhengheiui"
+    ],
+    "languageNames": {
+      "zh-Hant": "Microsoft JhengHei UI",
+      "en": "Microsoft JhengHei UI",
+      "win-0c04": "Microsoft JhengHei UI"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftjhengheiui"
+  },
+  {
+    "name": "Microsoft JhengHei UI Light",
+    "family": "Microsoft JhengHei UI Light",
+    "style": "Regular",
+    "postScriptName": "Microsoft JhengHei UI Light",
+    "gdiName": "Microsoft JhengHei UI Light",
+    "aliases": [
+      "Microsoft JhengHei UI Light"
+    ],
+    "normalizedAliases": [
+      "microsoftjhengheiuilight"
+    ],
+    "languageNames": {
+      "zh-Hant": "Microsoft JhengHei UI Light",
+      "en": "Microsoft JhengHei UI Light",
+      "win-0c04": "Microsoft JhengHei UI Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftjhengheiuilight"
+  },
+  {
+    "name": "Microsoft New Tai Lue",
+    "family": "Microsoft New Tai Lue",
+    "style": "Regular",
+    "postScriptName": "Microsoft New Tai Lue",
+    "gdiName": "Microsoft New Tai Lue",
+    "aliases": [
+      "Microsoft New Tai Lue"
+    ],
+    "normalizedAliases": [
+      "microsoftnewtailue"
+    ],
+    "languageNames": {
+      "mac-0000": "Microsoft New Tai Lue",
+      "en": "Microsoft New Tai Lue"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftnewtailue"
+  },
+  {
+    "name": "Microsoft PhagsPa",
+    "family": "Microsoft PhagsPa",
+    "style": "Regular",
+    "postScriptName": "Microsoft PhagsPa",
+    "gdiName": "Microsoft PhagsPa",
+    "aliases": [
+      "Microsoft PhagsPa"
+    ],
+    "normalizedAliases": [
+      "microsoftphagspa"
+    ],
+    "languageNames": {
+      "mac-0000": "Microsoft PhagsPa",
+      "en": "Microsoft PhagsPa"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftphagspa"
+  },
+  {
+    "name": "Microsoft Sans Serif",
+    "family": "Microsoft Sans Serif",
+    "style": "Regular",
+    "postScriptName": "Microsoft Sans Serif",
+    "gdiName": "Microsoft Sans Serif",
+    "aliases": [
+      "Microsoft Sans Serif"
+    ],
+    "normalizedAliases": [
+      "microsoftsansserif"
+    ],
+    "languageNames": {
+      "mac-0000": "Microsoft Sans Serif",
+      "en": "Microsoft Sans Serif"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftsansserif"
+  },
+  {
+    "name": "Microsoft Tai Le",
+    "family": "Microsoft Tai Le",
+    "style": "Regular",
+    "postScriptName": "Microsoft Tai Le",
+    "gdiName": "Microsoft Tai Le",
+    "aliases": [
+      "Microsoft Tai Le"
+    ],
+    "normalizedAliases": [
+      "microsofttaile"
+    ],
+    "languageNames": {
+      "mac-0000": "Microsoft Tai Le",
+      "en": "Microsoft Tai Le"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsofttaile"
+  },
+  {
+    "name": "Microsoft YaHei",
+    "family": "Microsoft YaHei",
+    "style": "Regular",
+    "postScriptName": "Microsoft YaHei",
+    "gdiName": "Microsoft YaHei",
+    "aliases": [
+      "Microsoft YaHei",
+      "微软雅黑"
+    ],
+    "normalizedAliases": [
+      "microsoftyahei",
+      "微软雅黑"
+    ],
+    "languageNames": {
+      "en": "Microsoft YaHei",
+      "zh-Hans": "微软雅黑"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftyahei"
+  },
+  {
+    "name": "Microsoft YaHei Light",
+    "family": "Microsoft YaHei Light",
+    "style": "Regular",
+    "postScriptName": "Microsoft YaHei Light",
+    "gdiName": "Microsoft YaHei Light",
+    "aliases": [
+      "Microsoft YaHei Light",
+      "微软雅黑 Light"
+    ],
+    "normalizedAliases": [
+      "microsoftyaheilight",
+      "微软雅黑light"
+    ],
+    "languageNames": {
+      "en": "Microsoft YaHei Light",
+      "zh-Hans": "微软雅黑 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftyaheilight"
+  },
+  {
+    "name": "Microsoft YaHei UI",
+    "family": "Microsoft YaHei UI",
+    "style": "Regular",
+    "postScriptName": "Microsoft YaHei UI",
+    "gdiName": "Microsoft YaHei UI",
+    "aliases": [
+      "Microsoft YaHei UI"
+    ],
+    "normalizedAliases": [
+      "microsoftyaheiui"
+    ],
+    "languageNames": {
+      "en": "Microsoft YaHei UI",
+      "zh-Hans": "Microsoft YaHei UI"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftyaheiui"
+  },
+  {
+    "name": "Microsoft YaHei UI Light",
+    "family": "Microsoft YaHei UI Light",
+    "style": "Regular",
+    "postScriptName": "Microsoft YaHei UI Light",
+    "gdiName": "Microsoft YaHei UI Light",
+    "aliases": [
+      "Microsoft YaHei UI Light"
+    ],
+    "normalizedAliases": [
+      "microsoftyaheiuilight"
+    ],
+    "languageNames": {
+      "en": "Microsoft YaHei UI Light",
+      "zh-Hans": "Microsoft YaHei UI Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftyaheiuilight"
+  },
+  {
+    "name": "Microsoft Yi Baiti",
+    "family": "Microsoft Yi Baiti",
+    "style": "Regular",
+    "postScriptName": "Microsoft Yi Baiti",
+    "gdiName": "Microsoft Yi Baiti",
+    "aliases": [
+      "Microsoft Yi Baiti"
+    ],
+    "normalizedAliases": [
+      "microsoftyibaiti"
+    ],
+    "languageNames": {
+      "mac-0000": "Microsoft Yi Baiti",
+      "en": "Microsoft Yi Baiti"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "microsoftyibaiti"
+  },
+  {
+    "name": "MingLiU-ExtB",
+    "family": "MingLiU-ExtB",
+    "style": "Regular",
+    "postScriptName": "MingLiU-ExtB",
+    "gdiName": "MingLiU-ExtB",
+    "aliases": [
+      "MingLiU-ExtB",
+      "細明體-ExtB"
+    ],
+    "normalizedAliases": [
+      "mingliuextb",
+      "細明體extb"
+    ],
+    "languageNames": {
+      "mac-0000": "MingLiU-ExtB",
+      "zh-Hant": "細明體-ExtB",
+      "en": "MingLiU-ExtB",
+      "win-0c04": "細明體-ExtB"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mingliuextb"
+  },
+  {
+    "name": "MingLiU_HKSCS-ExtB",
+    "family": "MingLiU_HKSCS-ExtB",
+    "style": "Regular",
+    "postScriptName": "MingLiU_HKSCS-ExtB",
+    "gdiName": "MingLiU_HKSCS-ExtB",
+    "aliases": [
+      "MingLiU_HKSCS-ExtB",
+      "細明體_HKSCS-ExtB"
+    ],
+    "normalizedAliases": [
+      "mingliuhkscsextb",
+      "細明體hkscsextb"
+    ],
+    "languageNames": {
+      "mac-0000": "MingLiU_HKSCS-ExtB",
+      "zh-Hant": "細明體_HKSCS-ExtB",
+      "en": "MingLiU_HKSCS-ExtB",
+      "win-0c04": "細明體_HKSCS-ExtB"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mingliuhkscsextb"
+  },
+  {
+    "name": "MingLiU_MSCS-ExtB",
+    "family": "MingLiU_MSCS-ExtB",
+    "style": "Regular",
+    "postScriptName": "MingLiU_MSCS-ExtB",
+    "gdiName": "MingLiU_MSCS-ExtB",
+    "aliases": [
+      "MingLiU_MSCS-ExtB",
+      "細明體_MSCS-ExtB"
+    ],
+    "normalizedAliases": [
+      "mingliumscsextb",
+      "細明體mscsextb"
+    ],
+    "languageNames": {
+      "mac-0000": "MingLiU_MSCS-ExtB",
+      "zh-Hant": "細明體_MSCS-ExtB",
+      "en": "MingLiU_MSCS-ExtB",
+      "win-0c04": "細明體_MSCS-ExtB"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mingliumscsextb"
+  },
+  {
+    "name": "Mochiy Pop One OTF ExtraBold",
+    "family": "Mochiy Pop One OTF ExtraBold",
+    "style": "Regular",
+    "postScriptName": "Mochiy Pop One OTF ExtraBold",
+    "gdiName": "Mochiy Pop One OTF ExtraBold",
+    "aliases": [
+      "Mochiy Pop One OTF ExtraBold",
+      "ÉÇÉbÉ`Å[É|ÉbÉv One OTF ExtraBold",
+      "モッチーポップ One OTF ExtraBold"
+    ],
+    "normalizedAliases": [
+      "mochiypoponeotfextrabold",
+      "éçébéåéébévoneotfextrabold",
+      "モッチーポップoneotfextrabold"
+    ],
+    "languageNames": {
+      "mac-0000": "Mochiy Pop One OTF ExtraBold",
+      "mac-000b": "ÉÇÉbÉ`Å[É|ÉbÉv One OTF ExtraBold",
+      "en": "Mochiy Pop One OTF ExtraBold",
+      "ja": "モッチーポップ One OTF ExtraBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mochiypoponeotfextrabold"
+  },
+  {
+    "name": "Modern",
+    "family": "Modern",
+    "style": "Regular",
+    "postScriptName": "Modern",
+    "gdiName": "Modern",
+    "aliases": [
+      "Modern"
+    ],
+    "normalizedAliases": [
+      "modern"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "modern"
+  },
+  {
+    "name": "Mongolian Baiti",
+    "family": "Mongolian Baiti",
+    "style": "Regular",
+    "postScriptName": "Mongolian Baiti",
+    "gdiName": "Mongolian Baiti",
+    "aliases": [
+      "Mongolian Baiti"
+    ],
+    "normalizedAliases": [
+      "mongolianbaiti"
+    ],
+    "languageNames": {
+      "mac-0000": "Mongolian Baiti",
+      "en": "Mongolian Baiti"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mongolianbaiti"
+  },
+  {
+    "name": "Montserrat",
+    "family": "Montserrat",
+    "style": "Regular",
+    "postScriptName": "Montserrat",
+    "gdiName": "Montserrat",
+    "aliases": [
+      "Montserrat"
+    ],
+    "normalizedAliases": [
+      "montserrat"
+    ],
+    "languageNames": {
+      "mac-0000": "Montserrat",
+      "en": "Montserrat"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "montserrat"
+  },
+  {
+    "name": "MS Gothic",
+    "family": "MS Gothic",
+    "style": "Regular",
+    "postScriptName": "MS Gothic",
+    "gdiName": "MS Gothic",
+    "aliases": [
+      "MS Gothic",
+      "ＭＳ ゴシック"
+    ],
+    "normalizedAliases": [
+      "msgothic",
+      "ｍｓゴシック"
+    ],
+    "languageNames": {
+      "en": "MS Gothic",
+      "ja": "ＭＳ ゴシック"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "msgothic"
+  },
+  {
+    "name": "MS PGothic",
+    "family": "MS PGothic",
+    "style": "Regular",
+    "postScriptName": "MS PGothic",
+    "gdiName": "MS PGothic",
+    "aliases": [
+      "MS PGothic",
+      "ＭＳ Ｐゴシック"
+    ],
+    "normalizedAliases": [
+      "mspgothic",
+      "ｍｓｐゴシック"
+    ],
+    "languageNames": {
+      "en": "MS PGothic",
+      "ja": "ＭＳ Ｐゴシック"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mspgothic"
+  },
+  {
+    "name": "MS Sans Serif",
+    "family": "MS Sans Serif",
+    "style": "Regular",
+    "postScriptName": "MS Sans Serif",
+    "gdiName": "MS Sans Serif",
+    "aliases": [
+      "MS Sans Serif"
+    ],
+    "normalizedAliases": [
+      "mssansserif"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mssansserif"
+  },
+  {
+    "name": "MS Serif",
+    "family": "MS Serif",
+    "style": "Regular",
+    "postScriptName": "MS Serif",
+    "gdiName": "MS Serif",
+    "aliases": [
+      "MS Serif"
+    ],
+    "normalizedAliases": [
+      "msserif"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "msserif"
+  },
+  {
+    "name": "MS UI Gothic",
+    "family": "MS UI Gothic",
+    "style": "Regular",
+    "postScriptName": "MS UI Gothic",
+    "gdiName": "MS UI Gothic",
+    "aliases": [
+      "MS UI Gothic"
+    ],
+    "normalizedAliases": [
+      "msuigothic"
+    ],
+    "languageNames": {
+      "en": "MS UI Gothic",
+      "ja": "MS UI Gothic"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "msuigothic"
+  },
+  {
+    "name": "MV Boli",
+    "family": "MV Boli",
+    "style": "Regular",
+    "postScriptName": "MV Boli",
+    "gdiName": "MV Boli",
+    "aliases": [
+      "MV Boli"
+    ],
+    "normalizedAliases": [
+      "mvboli"
+    ],
+    "languageNames": {
+      "mac-0000": "MV Boli",
+      "en": "MV Boli"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "mvboli"
+  },
+  {
+    "name": "Myanmar Text",
+    "family": "Myanmar Text",
+    "style": "Regular",
+    "postScriptName": "Myanmar Text",
+    "gdiName": "Myanmar Text",
+    "aliases": [
+      "Myanmar Text"
+    ],
+    "normalizedAliases": [
+      "myanmartext"
+    ],
+    "languageNames": {
+      "mac-0000": "Myanmar Text",
+      "en": "Myanmar Text"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "myanmartext"
+  },
+  {
+    "name": "Nanum ABbaEuiYeonAePyeonJi",
+    "family": "Nanum ABbaEuiYeonAePyeonJi",
+    "style": "Regular",
+    "postScriptName": "나눔손글씨 아빠의 연애편지",
+    "gdiName": "나눔손글씨 아빠의 연애편지",
+    "aliases": [
+      "Nanum ABbaEuiYeonAePyeonJi",
+      "≥™¥Æº’±€ææ æ∆∫¸¿« ø¨æ÷∆Ì¡ˆ",
+      "나눔손글씨 아빠의 연애편지"
+    ],
+    "normalizedAliases": [
+      "nanumabbaeuiyeonaepyeonji",
+      "æºæææøæìˆ",
+      "나눔손글씨아빠의연애편지"
+    ],
+    "languageNames": {
+      "mac-0000": "Nanum ABbaEuiYeonAePyeonJi",
+      "mac-0017": "≥™¥Æº’±€ææ æ∆∫¸¿« ø¨æ÷∆Ì¡ˆ",
+      "en": "Nanum ABbaEuiYeonAePyeonJi",
+      "ko": "나눔손글씨 아빠의 연애편지"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "나눔손글씨아빠의연애편지"
+  },
+  {
+    "name": "Nanum GangBuJangNimCe",
+    "family": "Nanum GangBuJangNimCe",
+    "style": "Regular",
+    "postScriptName": "나눔손글씨 강부장님체",
+    "gdiName": "나눔손글씨 강부장님체",
+    "aliases": [
+      "Nanum GangBuJangNimCe",
+      "≥™¥Æº’±€ææ ∞≠∫Œ¿Â¥‘√º",
+      "나눔손글씨 강부장님체"
+    ],
+    "normalizedAliases": [
+      "nanumgangbujangnimce",
+      "æºææœâº",
+      "나눔손글씨강부장님체"
+    ],
+    "languageNames": {
+      "mac-0000": "Nanum GangBuJangNimCe",
+      "mac-0017": "≥™¥Æº’±€ææ ∞≠∫Œ¿Â¥‘√º",
+      "en": "Nanum GangBuJangNimCe",
+      "ko": "나눔손글씨 강부장님체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "나눔손글씨강부장님체"
+  },
+  {
+    "name": "Nanum WaIrDeu",
+    "family": "Nanum WaIrDeu",
+    "style": "Regular",
+    "postScriptName": "나눔손글씨 와일드",
+    "gdiName": "나눔손글씨 와일드",
+    "aliases": [
+      "Nanum WaIrDeu",
+      "≥™¥Æº’±€ææ øÕ¿œµÂ",
+      "나눔손글씨 와일드"
+    ],
+    "normalizedAliases": [
+      "nanumwairdeu",
+      "æºææøõœµâ",
+      "나눔손글씨와일드"
+    ],
+    "languageNames": {
+      "mac-0000": "Nanum WaIrDeu",
+      "mac-0017": "≥™¥Æº’±€ææ øÕ¿œµÂ",
+      "en": "Nanum WaIrDeu",
+      "ko": "나눔손글씨 와일드"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "나눔손글씨와일드"
+  },
+  {
+    "name": "NanumGothic",
+    "family": "NanumGothic",
+    "style": "Regular",
+    "postScriptName": "나눔고딕",
+    "gdiName": "나눔고딕",
+    "aliases": [
+      "NanumGothic",
+      "≥™¥Æ∞ÌµÒ",
+      "나눔고딕"
+    ],
+    "normalizedAliases": [
+      "nanumgothic",
+      "æìµò",
+      "나눔고딕"
+    ],
+    "languageNames": {
+      "mac-0000": "NanumGothic",
+      "mac-0017": "≥™¥Æ∞ÌµÒ",
+      "en": "NanumGothic",
+      "ko": "나눔고딕"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "나눔고딕"
+  },
+  {
+    "name": "NanumMyeongjo",
+    "family": "NanumMyeongjo",
+    "style": "Regular",
+    "postScriptName": "나눔명조",
+    "gdiName": "나눔명조",
+    "aliases": [
+      "NanumMyeongjo",
+      "≥™¥Æ∏Ì¡∂",
+      "나눔명조"
+    ],
+    "normalizedAliases": [
+      "nanummyeongjo",
+      "æì",
+      "나눔명조"
+    ],
+    "languageNames": {
+      "mac-0000": "NanumMyeongjo",
+      "mac-0017": "≥™¥Æ∏Ì¡∂",
+      "en": "NanumMyeongjo",
+      "ko": "나눔명조"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "나눔명조"
+  },
+  {
+    "name": "NanumSquare Neo OTF Bold",
+    "family": "NanumSquare Neo OTF Bold",
+    "style": "Regular",
+    "postScriptName": "나눔스퀘어 네오 OTF Bold",
+    "gdiName": "나눔스퀘어 네오 OTF Bold",
+    "aliases": [
+      "NanumSquare Neo OTF",
+      "NanumSquare Neo OTF Bold",
+      "≥™¥ÆΩ∫ƒ˘æÓ ≥◊ø¿ OTF",
+      "나눔스퀘어 네오 OTF Bold"
+    ],
+    "normalizedAliases": [
+      "nanumsquareneootf",
+      "nanumsquareneootfbold",
+      "æωƒæóøotf",
+      "나눔스퀘어네오otfbold"
+    ],
+    "languageNames": {
+      "mac-0000": "NanumSquare Neo OTF",
+      "mac-0017": "≥™¥ÆΩ∫ƒ˘æÓ ≥◊ø¿ OTF",
+      "en": "NanumSquare Neo OTF Bold",
+      "ko": "나눔스퀘어 네오 OTF Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "나눔스퀘어네오otfbold"
+  },
+  {
+    "name": "NeoDunggeunmo",
+    "family": "NeoDunggeunmo",
+    "style": "Regular",
+    "postScriptName": "Neo둥근모",
+    "gdiName": "Neo둥근모",
+    "aliases": [
+      "NeoDunggeunmo",
+      "Neo둥근모"
+    ],
+    "normalizedAliases": [
+      "neodunggeunmo",
+      "neo둥근모"
+    ],
+    "languageNames": {
+      "en": "NeoDunggeunmo",
+      "ko": "Neo둥근모"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "neo둥근모"
+  },
+  {
+    "name": "NeueHaasGroteskDisp Pro",
+    "family": "NeueHaasGroteskDisp Pro",
+    "style": "Regular",
+    "postScriptName": "NeueHaasGroteskDisp Pro",
+    "gdiName": "NeueHaasGroteskDisp Pro",
+    "aliases": [
+      "Neue Haas Grotesk Display Pro",
+      "NeueHaasGroteskDisp Pro"
+    ],
+    "normalizedAliases": [
+      "neuehaasgroteskdisplaypro",
+      "neuehaasgroteskdisppro"
+    ],
+    "languageNames": {
+      "mac-0000": "Neue Haas Grotesk Display Pro",
+      "en": "NeueHaasGroteskDisp Pro"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "neuehaasgroteskdisppro"
+  },
+  {
+    "name": "Nirmala Text",
+    "family": "Nirmala Text",
+    "style": "Regular",
+    "postScriptName": "Nirmala Text",
+    "gdiName": "Nirmala Text",
+    "aliases": [
+      "Nirmala Text"
+    ],
+    "normalizedAliases": [
+      "nirmalatext"
+    ],
+    "languageNames": {
+      "mac-0000": "Nirmala Text",
+      "en": "Nirmala Text"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "nirmalatext"
+  },
+  {
+    "name": "Nirmala Text Semilight",
+    "family": "Nirmala Text Semilight",
+    "style": "Regular",
+    "postScriptName": "Nirmala Text Semilight",
+    "gdiName": "Nirmala Text Semilight",
+    "aliases": [
+      "Nirmala Text Semilight"
+    ],
+    "normalizedAliases": [
+      "nirmalatextsemilight"
+    ],
+    "languageNames": {
+      "mac-0000": "Nirmala Text Semilight",
+      "en": "Nirmala Text Semilight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "nirmalatextsemilight"
+  },
+  {
+    "name": "Nirmala UI",
+    "family": "Nirmala UI",
+    "style": "Regular",
+    "postScriptName": "Nirmala UI",
+    "gdiName": "Nirmala UI",
+    "aliases": [
+      "Nirmala UI"
+    ],
+    "normalizedAliases": [
+      "nirmalaui"
+    ],
+    "languageNames": {
+      "mac-0000": "Nirmala UI",
+      "en": "Nirmala UI"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "nirmalaui"
+  },
+  {
+    "name": "Nirmala UI Semilight",
+    "family": "Nirmala UI Semilight",
+    "style": "Regular",
+    "postScriptName": "Nirmala UI Semilight",
+    "gdiName": "Nirmala UI Semilight",
+    "aliases": [
+      "Nirmala UI Semilight"
+    ],
+    "normalizedAliases": [
+      "nirmalauisemilight"
+    ],
+    "languageNames": {
+      "mac-0000": "Nirmala UI Semilight",
+      "en": "Nirmala UI Semilight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "nirmalauisemilight"
+  },
+  {
+    "name": "Nitti Typewriter Cameo",
+    "family": "Nitti Typewriter Cameo",
+    "style": "Regular",
+    "postScriptName": "Nitti Typewriter Cameo",
+    "gdiName": "Nitti Typewriter Cameo",
+    "aliases": [
+      "Nitti Typewriter Cameo"
+    ],
+    "normalizedAliases": [
+      "nittitypewritercameo"
+    ],
+    "languageNames": {
+      "mac-0000": "Nitti Typewriter Cameo",
+      "en": "Nitti Typewriter Cameo"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "nittitypewritercameo"
+  },
+  {
+    "name": "Noto Sans CJK KR",
+    "family": "Noto Sans CJK KR",
+    "style": "Regular",
+    "postScriptName": "Noto Sans CJK KR",
+    "gdiName": "Noto Sans CJK KR",
+    "aliases": [
+      "Noto Sans CJK KR"
+    ],
+    "normalizedAliases": [
+      "notosanscjkkr"
+    ],
+    "languageNames": {
+      "en": "Noto Sans CJK KR",
+      "ko": "Noto Sans CJK KR"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notosanscjkkr"
+  },
+  {
+    "name": "Noto Sans CJK KR Black",
+    "family": "Noto Sans CJK KR Black",
+    "style": "Regular",
+    "postScriptName": "Noto Sans CJK KR Black",
+    "gdiName": "Noto Sans CJK KR Black",
+    "aliases": [
+      "Noto Sans CJK KR Black"
+    ],
+    "normalizedAliases": [
+      "notosanscjkkrblack"
+    ],
+    "languageNames": {
+      "en": "Noto Sans CJK KR Black",
+      "ko": "Noto Sans CJK KR Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notosanscjkkrblack"
+  },
+  {
+    "name": "Noto Sans CJK KR Light",
+    "family": "Noto Sans CJK KR Light",
+    "style": "Regular",
+    "postScriptName": "Noto Sans CJK KR Light",
+    "gdiName": "Noto Sans CJK KR Light",
+    "aliases": [
+      "Noto Sans CJK KR Light"
+    ],
+    "normalizedAliases": [
+      "notosanscjkkrlight"
+    ],
+    "languageNames": {
+      "en": "Noto Sans CJK KR Light",
+      "ko": "Noto Sans CJK KR Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notosanscjkkrlight"
+  },
+  {
+    "name": "Noto Sans CJK KR Medium",
+    "family": "Noto Sans CJK KR Medium",
+    "style": "Regular",
+    "postScriptName": "Noto Sans CJK KR Medium",
+    "gdiName": "Noto Sans CJK KR Medium",
+    "aliases": [
+      "Noto Sans CJK KR Medium"
+    ],
+    "normalizedAliases": [
+      "notosanscjkkrmedium"
+    ],
+    "languageNames": {
+      "en": "Noto Sans CJK KR Medium",
+      "ko": "Noto Sans CJK KR Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notosanscjkkrmedium"
+  },
+  {
+    "name": "Noto Sans KR",
+    "family": "Noto Sans KR",
+    "style": "Regular",
+    "postScriptName": "Noto Sans KR",
+    "gdiName": "Noto Sans KR",
+    "aliases": [
+      "Noto Sans KR"
+    ],
+    "normalizedAliases": [
+      "notosanskr"
+    ],
+    "languageNames": {
+      "en": "Noto Sans KR",
+      "ko": "Noto Sans KR"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notosanskr"
+  },
+  {
+    "name": "Noto Serif CJK KR",
+    "family": "Noto Serif CJK KR",
+    "style": "Regular",
+    "postScriptName": "Noto Serif CJK KR",
+    "gdiName": "Noto Serif CJK KR",
+    "aliases": [
+      "Noto Serif CJK KR"
+    ],
+    "normalizedAliases": [
+      "notoserifcjkkr"
+    ],
+    "languageNames": {
+      "en": "Noto Serif CJK KR",
+      "ko": "Noto Serif CJK KR"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notoserifcjkkr"
+  },
+  {
+    "name": "Noto Serif CJK KR Black",
+    "family": "Noto Serif CJK KR Black",
+    "style": "Regular",
+    "postScriptName": "Noto Serif CJK KR Black",
+    "gdiName": "Noto Serif CJK KR Black",
+    "aliases": [
+      "Noto Serif CJK KR Black"
+    ],
+    "normalizedAliases": [
+      "notoserifcjkkrblack"
+    ],
+    "languageNames": {
+      "en": "Noto Serif CJK KR Black",
+      "ko": "Noto Serif CJK KR Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notoserifcjkkrblack"
+  },
+  {
+    "name": "Noto Serif CJK KR ExtraLight",
+    "family": "Noto Serif CJK KR ExtraLight",
+    "style": "Regular",
+    "postScriptName": "Noto Serif CJK KR ExtraLight",
+    "gdiName": "Noto Serif CJK KR ExtraLight",
+    "aliases": [
+      "Noto Serif CJK KR ExtraLight"
+    ],
+    "normalizedAliases": [
+      "notoserifcjkkrextralight"
+    ],
+    "languageNames": {
+      "en": "Noto Serif CJK KR ExtraLight",
+      "ko": "Noto Serif CJK KR ExtraLight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notoserifcjkkrextralight"
+  },
+  {
+    "name": "Noto Serif CJK KR Light",
+    "family": "Noto Serif CJK KR Light",
+    "style": "Regular",
+    "postScriptName": "Noto Serif CJK KR Light",
+    "gdiName": "Noto Serif CJK KR Light",
+    "aliases": [
+      "Noto Serif CJK KR Light"
+    ],
+    "normalizedAliases": [
+      "notoserifcjkkrlight"
+    ],
+    "languageNames": {
+      "en": "Noto Serif CJK KR Light",
+      "ko": "Noto Serif CJK KR Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notoserifcjkkrlight"
+  },
+  {
+    "name": "Noto Serif CJK KR Medium",
+    "family": "Noto Serif CJK KR Medium",
+    "style": "Regular",
+    "postScriptName": "Noto Serif CJK KR Medium",
+    "gdiName": "Noto Serif CJK KR Medium",
+    "aliases": [
+      "Noto Serif CJK KR Medium"
+    ],
+    "normalizedAliases": [
+      "notoserifcjkkrmedium"
+    ],
+    "languageNames": {
+      "en": "Noto Serif CJK KR Medium",
+      "ko": "Noto Serif CJK KR Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notoserifcjkkrmedium"
+  },
+  {
+    "name": "Noto Serif CJK KR SemiBold",
+    "family": "Noto Serif CJK KR SemiBold",
+    "style": "Regular",
+    "postScriptName": "Noto Serif CJK KR SemiBold",
+    "gdiName": "Noto Serif CJK KR SemiBold",
+    "aliases": [
+      "Noto Serif CJK KR SemiBold"
+    ],
+    "normalizedAliases": [
+      "notoserifcjkkrsemibold"
+    ],
+    "languageNames": {
+      "en": "Noto Serif CJK KR SemiBold",
+      "ko": "Noto Serif CJK KR SemiBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notoserifcjkkrsemibold"
+  },
+  {
+    "name": "Noto Serif KR",
+    "family": "Noto Serif KR",
+    "style": "Regular",
+    "postScriptName": "Noto Serif KR",
+    "gdiName": "Noto Serif KR",
+    "aliases": [
+      "Noto Serif KR"
+    ],
+    "normalizedAliases": [
+      "notoserifkr"
+    ],
+    "languageNames": {
+      "en": "Noto Serif KR",
+      "ko": "Noto Serif KR"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "notoserifkr"
+  },
+  {
+    "name": "NSimSun",
+    "family": "NSimSun",
+    "style": "Regular",
+    "postScriptName": "NSimSun",
+    "gdiName": "NSimSun",
+    "aliases": [
+      "NSimSun",
+      "新宋体"
+    ],
+    "normalizedAliases": [
+      "nsimsun",
+      "新宋体"
+    ],
+    "languageNames": {
+      "mac-0000": "NSimSun",
+      "en": "NSimSun",
+      "zh-Hans": "新宋体",
+      "win-1004": "新宋体"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "nsimsun"
+  },
+  {
+    "name": "Open Sans",
+    "family": "Open Sans",
+    "style": "Regular",
+    "postScriptName": "Open Sans",
+    "gdiName": "Open Sans",
+    "aliases": [
+      "Open Sans"
+    ],
+    "normalizedAliases": [
+      "opensans"
+    ],
+    "languageNames": {
+      "mac-0000": "Open Sans",
+      "en": "Open Sans"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "opensans"
+  },
+  {
+    "name": "Palatino Linotype",
+    "family": "Palatino Linotype",
+    "style": "Regular",
+    "postScriptName": "Palatino Linotype",
+    "gdiName": "Palatino Linotype",
+    "aliases": [
+      "Palatino Linotype"
+    ],
+    "normalizedAliases": [
+      "palatinolinotype"
+    ],
+    "languageNames": {
+      "mac-0000": "Palatino Linotype",
+      "en": "Palatino Linotype"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "palatinolinotype"
+  },
+  {
+    "name": "Paperlogy 1 Thin",
+    "family": "Paperlogy 1 Thin",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 1 Thin",
+    "gdiName": "페이퍼로지 1 Thin",
+    "aliases": [
+      "Paperlogy 1 Thin",
+      "페이퍼로지 1 Thin"
+    ],
+    "normalizedAliases": [
+      "paperlogy1thin",
+      "페이퍼로지1thin"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 1 Thin",
+      "ko": "페이퍼로지 1 Thin"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지1thin"
+  },
+  {
+    "name": "Paperlogy 2 ExtraLight",
+    "family": "Paperlogy 2 ExtraLight",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 2 ExtraLight",
+    "gdiName": "페이퍼로지 2 ExtraLight",
+    "aliases": [
+      "Paperlogy 2 ExtraLight",
+      "페이퍼로지 2 ExtraLight"
+    ],
+    "normalizedAliases": [
+      "paperlogy2extralight",
+      "페이퍼로지2extralight"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 2 ExtraLight",
+      "ko": "페이퍼로지 2 ExtraLight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지2extralight"
+  },
+  {
+    "name": "Paperlogy 3 Light",
+    "family": "Paperlogy 3 Light",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 3 Light",
+    "gdiName": "페이퍼로지 3 Light",
+    "aliases": [
+      "Paperlogy 3 Light",
+      "페이퍼로지 3 Light"
+    ],
+    "normalizedAliases": [
+      "paperlogy3light",
+      "페이퍼로지3light"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 3 Light",
+      "ko": "페이퍼로지 3 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지3light"
+  },
+  {
+    "name": "Paperlogy 4 Regular",
+    "family": "Paperlogy 4 Regular",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 4 Regular",
+    "gdiName": "페이퍼로지 4 Regular",
+    "aliases": [
+      "Paperlogy 4 Regular",
+      "페이퍼로지 4 Regular"
+    ],
+    "normalizedAliases": [
+      "paperlogy4regular",
+      "페이퍼로지4regular"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 4 Regular",
+      "ko": "페이퍼로지 4 Regular"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지4regular"
+  },
+  {
+    "name": "Paperlogy 5 Medium",
+    "family": "Paperlogy 5 Medium",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 5 Medium",
+    "gdiName": "페이퍼로지 5 Medium",
+    "aliases": [
+      "Paperlogy 5 Medium",
+      "페이퍼로지 5 Medium"
+    ],
+    "normalizedAliases": [
+      "paperlogy5medium",
+      "페이퍼로지5medium"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 5 Medium",
+      "ko": "페이퍼로지 5 Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지5medium"
+  },
+  {
+    "name": "Paperlogy 6 SemiBold",
+    "family": "Paperlogy 6 SemiBold",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 6 SemiBold",
+    "gdiName": "페이퍼로지 6 SemiBold",
+    "aliases": [
+      "Paperlogy 6 SemiBold",
+      "페이퍼로지 6 SemiBold"
+    ],
+    "normalizedAliases": [
+      "paperlogy6semibold",
+      "페이퍼로지6semibold"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 6 SemiBold",
+      "ko": "페이퍼로지 6 SemiBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지6semibold"
+  },
+  {
+    "name": "Paperlogy 7 Bold",
+    "family": "Paperlogy 7 Bold",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 7 Bold",
+    "gdiName": "페이퍼로지 7 Bold",
+    "aliases": [
+      "Paperlogy 7 Bold",
+      "페이퍼로지 7 Bold"
+    ],
+    "normalizedAliases": [
+      "paperlogy7bold",
+      "페이퍼로지7bold"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 7 Bold",
+      "ko": "페이퍼로지 7 Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지7bold"
+  },
+  {
+    "name": "Paperlogy 8 ExtraBold",
+    "family": "Paperlogy 8 ExtraBold",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 8 ExtraBold",
+    "gdiName": "페이퍼로지 8 ExtraBold",
+    "aliases": [
+      "Paperlogy 8 ExtraBold",
+      "페이퍼로지 8 ExtraBold"
+    ],
+    "normalizedAliases": [
+      "paperlogy8extrabold",
+      "페이퍼로지8extrabold"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 8 ExtraBold",
+      "ko": "페이퍼로지 8 ExtraBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지8extrabold"
+  },
+  {
+    "name": "Paperlogy 9 Black",
+    "family": "Paperlogy 9 Black",
+    "style": "Regular",
+    "postScriptName": "페이퍼로지 9 Black",
+    "gdiName": "페이퍼로지 9 Black",
+    "aliases": [
+      "Paperlogy 9 Black",
+      "페이퍼로지 9 Black"
+    ],
+    "normalizedAliases": [
+      "paperlogy9black",
+      "페이퍼로지9black"
+    ],
+    "languageNames": {
+      "en": "Paperlogy 9 Black",
+      "ko": "페이퍼로지 9 Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "페이퍼로지9black"
+  },
+  {
+    "name": "Playfair Display",
+    "family": "Playfair Display",
+    "style": "Regular",
+    "postScriptName": "Playfair Display",
+    "gdiName": "Playfair Display",
+    "aliases": [
+      "Playfair Display"
+    ],
+    "normalizedAliases": [
+      "playfairdisplay"
+    ],
+    "languageNames": {
+      "en": "Playfair Display"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "playfairdisplay"
+  },
+  {
+    "name": "Playfair Display Black",
+    "family": "Playfair Display Black",
+    "style": "Regular",
+    "postScriptName": "Playfair Display Black",
+    "gdiName": "Playfair Display Black",
+    "aliases": [
+      "Playfair Display Black"
+    ],
+    "normalizedAliases": [
+      "playfairdisplayblack"
+    ],
+    "languageNames": {
+      "en": "Playfair Display Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "playfairdisplayblack"
+  },
+  {
+    "name": "Playfair Display ExtraBold",
+    "family": "Playfair Display ExtraBold",
+    "style": "Regular",
+    "postScriptName": "Playfair Display ExtraBold",
+    "gdiName": "Playfair Display ExtraBold",
+    "aliases": [
+      "Playfair Display ExtraBold"
+    ],
+    "normalizedAliases": [
+      "playfairdisplayextrabold"
+    ],
+    "languageNames": {
+      "en": "Playfair Display ExtraBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "playfairdisplayextrabold"
+  },
+  {
+    "name": "Playfair Display Medium",
+    "family": "Playfair Display Medium",
+    "style": "Regular",
+    "postScriptName": "Playfair Display Medium",
+    "gdiName": "Playfair Display Medium",
+    "aliases": [
+      "Playfair Display Medium"
+    ],
+    "normalizedAliases": [
+      "playfairdisplaymedium"
+    ],
+    "languageNames": {
+      "en": "Playfair Display Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "playfairdisplaymedium"
+  },
+  {
+    "name": "Playfair Display SemiBold",
+    "family": "Playfair Display SemiBold",
+    "style": "Regular",
+    "postScriptName": "Playfair Display SemiBold",
+    "gdiName": "Playfair Display SemiBold",
+    "aliases": [
+      "Playfair Display SemiBold"
+    ],
+    "normalizedAliases": [
+      "playfairdisplaysemibold"
+    ],
+    "languageNames": {
+      "en": "Playfair Display SemiBold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "playfairdisplaysemibold"
+  },
+  {
+    "name": "PMingLiU-ExtB",
+    "family": "PMingLiU-ExtB",
+    "style": "Regular",
+    "postScriptName": "PMingLiU-ExtB",
+    "gdiName": "PMingLiU-ExtB",
+    "aliases": [
+      "PMingLiU-ExtB",
+      "新細明體-ExtB"
+    ],
+    "normalizedAliases": [
+      "pmingliuextb",
+      "新細明體extb"
+    ],
+    "languageNames": {
+      "mac-0000": "PMingLiU-ExtB",
+      "zh-Hant": "新細明體-ExtB",
+      "en": "PMingLiU-ExtB",
+      "win-0c04": "新細明體-ExtB"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "pmingliuextb"
+  },
+  {
+    "name": "Press Start 2P",
+    "family": "Press Start 2P",
+    "style": "Regular",
+    "postScriptName": "Press Start 2P",
+    "gdiName": "Press Start 2P",
+    "aliases": [
+      "Press Start 2P"
+    ],
+    "normalizedAliases": [
+      "pressstart2p"
+    ],
+    "languageNames": {
+      "en": "Press Start 2P"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "pressstart2p"
+  },
+  {
+    "name": "PT Serif",
+    "family": "PT Serif",
+    "style": "Regular",
+    "postScriptName": "PT Serif",
+    "gdiName": "PT Serif",
+    "aliases": [
+      "PT Serif"
+    ],
+    "normalizedAliases": [
+      "ptserif"
+    ],
+    "languageNames": {
+      "mac-0000": "PT Serif",
+      "en": "PT Serif"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "ptserif"
+  },
+  {
+    "name": "PyeongChang Peace Bold",
+    "family": "PyeongChang Peace Bold",
+    "style": "Regular",
+    "postScriptName": "평창 평화체 Bold",
+    "gdiName": "평창 평화체 Bold",
+    "aliases": [
+      "PyeongChang Peace",
+      "PyeongChang Peace Bold",
+      "∆Ú√¢ ∆Ú»≠√º",
+      "평창 평화체 Bold"
+    ],
+    "normalizedAliases": [
+      "pyeongchangpeace",
+      "pyeongchangpeacebold",
+      "úúº",
+      "평창평화체bold"
+    ],
+    "languageNames": {
+      "mac-0000": "PyeongChang Peace",
+      "mac-0017": "∆Ú√¢ ∆Ú»≠√º",
+      "en": "PyeongChang Peace Bold",
+      "ko": "평창 평화체 Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "평창평화체bold"
+  },
+  {
+    "name": "RecipekoreaOTF Medium",
+    "family": "RecipekoreaOTF Medium",
+    "style": "Regular",
+    "postScriptName": "레시피코리아OTF Medium",
+    "gdiName": "레시피코리아OTF Medium",
+    "aliases": [
+      "RecipekoreaOTF",
+      "RecipekoreaOTF Medium",
+      "∑πΩ√««ƒ⁄∏Ææ∆OTF",
+      "레시피코리아OTF Medium"
+    ],
+    "normalizedAliases": [
+      "recipekoreaotf",
+      "recipekoreaotfmedium",
+      "πωƒææotf",
+      "레시피코리아otfmedium"
+    ],
+    "languageNames": {
+      "mac-0000": "RecipekoreaOTF",
+      "mac-0017": "∑πΩ√««ƒ⁄∏Ææ∆OTF",
+      "en": "RecipekoreaOTF Medium",
+      "ko": "레시피코리아OTF Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "레시피코리아otfmedium"
+  },
+  {
+    "name": "RixDongnimGothic_Pro Regular",
+    "family": "RixDongnimGothic_Pro Regular",
+    "style": "Regular",
+    "postScriptName": "Rix독립고딕_Pro Regular",
+    "gdiName": "Rix독립고딕_Pro Regular",
+    "aliases": [
+      "RixDongnimGothic_Pro",
+      "RixDongnimGothic_Pro Regular",
+      "Rixµ∂∏≥∞ÌµÒ_Pro",
+      "Rix독립고딕_Pro Regular"
+    ],
+    "normalizedAliases": [
+      "rixdongnimgothicpro",
+      "rixdongnimgothicproregular",
+      "rixµìµòpro",
+      "rix독립고딕proregular"
+    ],
+    "languageNames": {
+      "mac-0000": "RixDongnimGothic_Pro",
+      "mac-0017": "Rixµ∂∏≥∞ÌµÒ_Pro",
+      "en": "RixDongnimGothic_Pro Regular",
+      "ko": "Rix독립고딕_Pro Regular"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "rix독립고딕proregular"
+  },
+  {
+    "name": "RixSejongroGulim_Pro Black",
+    "family": "RixSejongroGulim_Pro Black",
+    "style": "Regular",
+    "postScriptName": "Rix세종로굴림_Pro Black",
+    "gdiName": "Rix세종로굴림_Pro Black",
+    "aliases": [
+      "RixSejongroGulim_Pro",
+      "RixSejongroGulim_Pro Black",
+      "Rixºº¡æ∑Œ±º∏≤_Pro",
+      "Rix세종로굴림_Pro Black"
+    ],
+    "normalizedAliases": [
+      "rixsejongrogulimpro",
+      "rixsejongrogulimproblack",
+      "rixººæœºpro",
+      "rix세종로굴림problack"
+    ],
+    "languageNames": {
+      "mac-0000": "RixSejongroGulim_Pro",
+      "mac-0017": "Rixºº¡æ∑Œ±º∏≤_Pro",
+      "en": "RixSejongroGulim_Pro Black",
+      "ko": "Rix세종로굴림_Pro Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "rix세종로굴림problack"
+  },
+  {
+    "name": "Roboto",
+    "family": "Roboto",
+    "style": "Regular",
+    "postScriptName": "Roboto",
+    "gdiName": "Roboto",
+    "aliases": [
+      "Roboto"
+    ],
+    "normalizedAliases": [
+      "roboto"
+    ],
+    "languageNames": {
+      "mac-0000": "Roboto",
+      "en": "Roboto"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "roboto"
+  },
+  {
+    "name": "Roc Grotesk",
+    "family": "Roc Grotesk",
+    "style": "Regular",
+    "postScriptName": "Roc Grotesk",
+    "gdiName": "Roc Grotesk",
+    "aliases": [
+      "Roc Grotesk"
+    ],
+    "normalizedAliases": [
+      "rocgrotesk"
+    ],
+    "languageNames": {
+      "mac-0000": "Roc Grotesk",
+      "en": "Roc Grotesk"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "rocgrotesk"
+  },
+  {
+    "name": "Roman",
+    "family": "Roman",
+    "style": "Regular",
+    "postScriptName": "Roman",
+    "gdiName": "Roman",
+    "aliases": [
+      "Roman"
+    ],
+    "normalizedAliases": [
+      "roman"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "roman"
+  },
+  {
+    "name": "Sandoll 4BYeonpil 01 Light",
+    "family": "Sandoll 4BYeonpil 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 4B연필 01 Light",
+    "gdiName": "Sandoll 4B연필 01 Light",
+    "aliases": [
+      "Sandoll 4BYeonpil",
+      "Sandoll 4BYeonpil 01 Light",
+      "Sandoll 4Bø¨«",
+      "Sandoll 4B연필 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandoll4byeonpil",
+      "sandoll4byeonpil01light",
+      "sandoll4bø",
+      "sandoll4b연필01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll 4BYeonpil",
+      "mac-0017": "Sandoll 4Bø¨« ",
+      "en": "Sandoll 4BYeonpil 01 Light",
+      "ko": "Sandoll 4B연필 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll4b연필01light"
+  },
+  {
+    "name": "Sandoll Achim 01 Light",
+    "family": "Sandoll Achim 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 아침 01 Light",
+    "gdiName": "Sandoll 아침 01 Light",
+    "aliases": [
+      "Sandoll Achim",
+      "Sandoll Achim 01 Light",
+      "Sandoll æ∆ƒß",
+      "Sandoll 아침 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollachim",
+      "sandollachim01light",
+      "sandollæƒß",
+      "sandoll아침01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Achim",
+      "mac-0017": "Sandoll æ∆ƒß",
+      "en": "Sandoll Achim 01 Light",
+      "ko": "Sandoll 아침 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll아침01light"
+  },
+  {
+    "name": "Sandoll BaikzongyulPen 01 Lt",
+    "family": "Sandoll BaikzongyulPen 01 Lt",
+    "style": "Regular",
+    "postScriptName": "Sandoll 백종열펜 01 Light",
+    "gdiName": "Sandoll 백종열펜 01 Light",
+    "aliases": [
+      "Sandoll BaikzongyulPen",
+      "Sandoll BaikzongyulPen 01 Lt",
+      "Sandoll πÈ¡æø≠∆Ê",
+      "Sandoll 백종열펜 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollbaikzongyulpen",
+      "sandollbaikzongyulpen01lt",
+      "sandollπèæøê",
+      "sandoll백종열펜01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll BaikzongyulPen",
+      "mac-0017": "Sandoll πÈ¡æø≠∆Ê",
+      "en": "Sandoll BaikzongyulPen 01 Lt",
+      "ko": "Sandoll 백종열펜 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll백종열펜01light"
+  },
+  {
+    "name": "Sandoll BaikzongyulPil Lt",
+    "family": "Sandoll BaikzongyulPil Lt",
+    "style": "Regular",
+    "postScriptName": "Sandoll 백종열필 Light",
+    "gdiName": "Sandoll 백종열필 Light",
+    "aliases": [
+      "Sandoll BaikzongyulPil",
+      "Sandoll BaikzongyulPil Lt",
+      "Sandoll πÈ¡æø≠«",
+      "Sandoll 백종열필 Light"
+    ],
+    "normalizedAliases": [
+      "sandollbaikzongyulpil",
+      "sandollbaikzongyulpillt",
+      "sandollπèæø",
+      "sandoll백종열필light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll BaikzongyulPil",
+      "mac-0017": "Sandoll πÈ¡æø≠« ",
+      "en": "Sandoll BaikzongyulPil Lt",
+      "ko": "Sandoll 백종열필 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll백종열필light"
+  },
+  {
+    "name": "Sandoll Book 01 Light",
+    "family": "Sandoll Book 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 북 01 Light",
+    "gdiName": "Sandoll 북 01 Light",
+    "aliases": [
+      "Sandoll Book",
+      "Sandoll Book 01 Light",
+      "Sandoll ∫œ",
+      "Sandoll 북 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollbook",
+      "sandollbook01light",
+      "sandollœ",
+      "sandoll북01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Book",
+      "mac-0017": "Sandoll ∫œ",
+      "en": "Sandoll Book 01 Light",
+      "ko": "Sandoll 북 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll북01light"
+  },
+  {
+    "name": "Sandoll Daltokki 01 Light",
+    "family": "Sandoll Daltokki 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 달토끼여행 01 Light",
+    "gdiName": "Sandoll 달토끼여행 01 Light",
+    "aliases": [
+      "Sandoll Daltokki",
+      "Sandoll Daltokki 01 Light",
+      "Sandoll ¥ﬁ≈‰≥¢ø©«‡",
+      "Sandoll 달토끼여행 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandolldaltokki",
+      "sandolldaltokki01light",
+      "sandoll달토끼여행01light",
+      "sandollﬁø"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Daltokki",
+      "mac-0017": "Sandoll ¥ﬁ≈‰≥¢ø©«‡",
+      "en": "Sandoll Daltokki 01 Light",
+      "ko": "Sandoll 달토끼여행 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll달토끼여행01light"
+  },
+  {
+    "name": "Sandoll Dasol 01 Light",
+    "family": "Sandoll Dasol 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 다솔 01 Light",
+    "gdiName": "Sandoll 다솔 01 Light",
+    "aliases": [
+      "Sandoll Dasol",
+      "Sandoll Dasol 01 Light",
+      "Sandoll ¥Ÿº÷",
+      "Sandoll 다솔 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandolldasol",
+      "sandolldasol01light",
+      "sandollÿº",
+      "sandoll다솔01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Dasol",
+      "mac-0017": "Sandoll ¥Ÿº÷",
+      "en": "Sandoll Dasol 01 Light",
+      "ko": "Sandoll 다솔 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll다솔01light"
+  },
+  {
+    "name": "Sandoll Gaehwa 01 Regular",
+    "family": "Sandoll Gaehwa 01 Regular",
+    "style": "Regular",
+    "postScriptName": "Sandoll 개화 01 Regular",
+    "gdiName": "Sandoll 개화 01 Regular",
+    "aliases": [
+      "Sandoll Gaehwa",
+      "Sandoll Gaehwa 01 Regular",
+      "Sandoll ∞≥»≠",
+      "Sandoll 개화 01 Regular"
+    ],
+    "normalizedAliases": [
+      "sandoll",
+      "sandollgaehwa",
+      "sandollgaehwa01regular",
+      "sandoll개화01regular"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Gaehwa",
+      "mac-0017": "Sandoll ∞≥»≠",
+      "en": "Sandoll Gaehwa 01 Regular",
+      "ko": "Sandoll 개화 01 Regular"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll개화01regular"
+  },
+  {
+    "name": "Sandoll Gawain 01 Lt",
+    "family": "Sandoll Gawain 01 Lt",
+    "style": "Regular",
+    "postScriptName": "Sandoll 가웨인 01 Lt",
+    "gdiName": "Sandoll 가웨인 01 Lt",
+    "aliases": [
+      "Sandoll Gawain",
+      "Sandoll Gawain 01 Lt",
+      "Sandoll ∞°ø˛¿Œ",
+      "Sandoll 가웨인 01 Lt"
+    ],
+    "normalizedAliases": [
+      "sandollgawain",
+      "sandollgawain01lt",
+      "sandolløœ",
+      "sandoll가웨인01lt"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Gawain",
+      "mac-0017": "Sandoll ∞°ø˛¿Œ",
+      "en": "Sandoll Gawain 01 Lt",
+      "ko": "Sandoll 가웨인 01 Lt"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll가웨인01lt"
+  },
+  {
+    "name": "Sandoll Geobok 01 Th",
+    "family": "Sandoll Geobok 01 Th",
+    "style": "Regular",
+    "postScriptName": "Sandoll 거복 01 Th",
+    "gdiName": "Sandoll 거복 01 Th",
+    "aliases": [
+      "Sandoll Geobok",
+      "Sandoll Geobok 01 Th",
+      "Sandoll ∞≈∫π",
+      "Sandoll 거복 01 Th"
+    ],
+    "normalizedAliases": [
+      "sandollgeobok",
+      "sandollgeobok01th",
+      "sandollπ",
+      "sandoll거복01th"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Geobok",
+      "mac-0017": "Sandoll ∞≈∫π",
+      "en": "Sandoll Geobok 01 Th",
+      "ko": "Sandoll 거복 01 Th"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll거복01th"
+  },
+  {
+    "name": "Sandoll GongbyunggakPen 01 Lt",
+    "family": "Sandoll GongbyunggakPen 01 Lt",
+    "style": "Regular",
+    "postScriptName": "Sandoll 공병각펜 01 Light",
+    "gdiName": "Sandoll 공병각펜 01 Light",
+    "aliases": [
+      "Sandoll GongbyunggakPen",
+      "Sandoll GongbyunggakPen 01 Lt",
+      "Sandoll ∞¯∫¥∞¢∆Ê",
+      "Sandoll 공병각펜 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollgongbyunggakpen",
+      "sandollgongbyunggakpen01lt",
+      "sandollê",
+      "sandoll공병각펜01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll GongbyunggakPen",
+      "mac-0017": "Sandoll ∞¯∫¥∞¢∆Ê",
+      "en": "Sandoll GongbyunggakPen 01 Lt",
+      "ko": "Sandoll 공병각펜 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll공병각펜01light"
+  },
+  {
+    "name": "Sandoll GongbyunggakTab Lt",
+    "family": "Sandoll GongbyunggakTab Lt",
+    "style": "Regular",
+    "postScriptName": "Sandoll 공병각타블렛 Light",
+    "gdiName": "Sandoll 공병각타블렛 Light",
+    "aliases": [
+      "Sandoll GongbyunggakTab",
+      "Sandoll GongbyunggakTab Lt",
+      "Sandoll ∞¯∫¥∞¢≈∏∫Ì∑ø",
+      "Sandoll 공병각타블렛 Light"
+    ],
+    "normalizedAliases": [
+      "sandollgongbyunggaktab",
+      "sandollgongbyunggaktablt",
+      "sandollìø",
+      "sandoll공병각타블렛light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll GongbyunggakTab",
+      "mac-0017": "Sandoll ∞¯∫¥∞¢≈∏∫Ì∑ø",
+      "en": "Sandoll GongbyunggakTab Lt",
+      "ko": "Sandoll 공병각타블렛 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll공병각타블렛light"
+  },
+  {
+    "name": "Sandoll GothicNeo1 01 Th",
+    "family": "Sandoll GothicNeo1 01 Th",
+    "style": "Regular",
+    "postScriptName": "Sandoll 고딕Neo1 01 Thin",
+    "gdiName": "Sandoll 고딕Neo1 01 Thin",
+    "aliases": [
+      "Sandoll GothicNeo1",
+      "Sandoll GothicNeo1 01 Th",
+      "Sandoll ∞ÌµÒNeo1",
+      "Sandoll 고딕Neo1 01 Thin"
+    ],
+    "normalizedAliases": [
+      "sandollgothicneo1",
+      "sandollgothicneo101th",
+      "sandollìµòneo1",
+      "sandoll고딕neo101thin"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll GothicNeo1",
+      "mac-0017": "Sandoll ∞ÌµÒNeo1",
+      "en": "Sandoll GothicNeo1 01 Th",
+      "ko": "Sandoll 고딕Neo1 01 Thin"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll고딕neo101thin"
+  },
+  {
+    "name": "Sandoll GothicNeo1Unicode 01 Th",
+    "family": "Sandoll GothicNeo1Unicode 01 Th",
+    "style": "Regular",
+    "postScriptName": "Sandoll 고딕Neo1유니코드 01 Th",
+    "gdiName": "Sandoll 고딕Neo1유니코드 01 Th",
+    "aliases": [
+      "Sandoll GothicNeo1Unicode",
+      "Sandoll GothicNeo1Unicode 01 Th",
+      "Sandoll ∞ÌµÒNeo1¿Ø¥œƒ⁄µÂ",
+      "Sandoll 고딕Neo1유니코드 01 Th"
+    ],
+    "normalizedAliases": [
+      "sandollgothicneo1unicode",
+      "sandollgothicneo1unicode01th",
+      "sandollìµòneo1øœƒµâ",
+      "sandoll고딕neo1유니코드01th"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll GothicNeo1Unicode",
+      "mac-0017": "Sandoll ∞ÌµÒNeo1¿Ø¥œƒ⁄µÂ",
+      "en": "Sandoll GothicNeo1Unicode 01 Th",
+      "ko": "Sandoll 고딕Neo1유니코드 01 Th"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll고딕neo1유니코드01th"
+  },
+  {
+    "name": "Sandoll GothicNeoRound 01 Th",
+    "family": "Sandoll GothicNeoRound 01 Th",
+    "style": "Regular",
+    "postScriptName": "Sandoll 고딕NeoRound 01 Th",
+    "gdiName": "Sandoll 고딕NeoRound 01 Th",
+    "aliases": [
+      "Sandoll GothicNeoRound",
+      "Sandoll GothicNeoRound 01 Th",
+      "Sandoll ∞ÌµÒNeoRound",
+      "Sandoll 고딕NeoRound 01 Th"
+    ],
+    "normalizedAliases": [
+      "sandollgothicneoround",
+      "sandollgothicneoround01th",
+      "sandollìµòneoround",
+      "sandoll고딕neoround01th"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll GothicNeoRound",
+      "mac-0017": "Sandoll ∞ÌµÒNeoRound",
+      "en": "Sandoll GothicNeoRound 01 Th",
+      "ko": "Sandoll 고딕NeoRound 01 Th"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll고딕neoround01th"
+  },
+  {
+    "name": "Sandoll GreenTeaLatte 01 Light",
+    "family": "Sandoll GreenTeaLatte 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 그린티라떼 01 Light",
+    "gdiName": "Sandoll 그린티라떼 01 Light",
+    "aliases": [
+      "Sandoll GreenTeaLatte",
+      "Sandoll GreenTeaLatte 01 Light",
+      "Sandoll ±◊∏∞∆º∂Û∂º",
+      "Sandoll 그린티라떼 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollgreentealatte",
+      "sandollgreentealatte01light",
+      "sandollºûº",
+      "sandoll그린티라떼01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll GreenTeaLatte",
+      "mac-0017": "Sandoll ±◊∏∞∆º∂Û∂º",
+      "en": "Sandoll GreenTeaLatte 01 Light",
+      "ko": "Sandoll 그린티라떼 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll그린티라떼01light"
+  },
+  {
+    "name": "Sandoll GyeokdongG2 01 Hl",
+    "family": "Sandoll GyeokdongG2 01 Hl",
+    "style": "Regular",
+    "postScriptName": "Sandoll 격동고딕2 01 Hl",
+    "gdiName": "Sandoll 격동고딕2 01 Hl",
+    "aliases": [
+      "Sandoll GyeokdongG2",
+      "Sandoll GyeokdongG2 01 Hl",
+      "Sandoll ∞›µø∞ÌµÒ2",
+      "Sandoll 격동고딕2 01 Hl"
+    ],
+    "normalizedAliases": [
+      "sandollgyeokdongg2",
+      "sandollgyeokdongg201hl",
+      "sandollµøìµò2",
+      "sandoll격동고딕201hl"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll GyeokdongG2",
+      "mac-0017": "Sandoll ∞›µø∞ÌµÒ2",
+      "en": "Sandoll GyeokdongG2 01 Hl",
+      "ko": "Sandoll 격동고딕2 01 Hl"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll격동고딕201hl"
+  },
+  {
+    "name": "Sandoll GyeokdongGothic",
+    "family": "Sandoll GyeokdongGothic",
+    "style": "Regular",
+    "postScriptName": "Sandoll 격동고딕",
+    "gdiName": "Sandoll 격동고딕",
+    "aliases": [
+      "Sandoll GyeokdongGothic",
+      "Sandoll ∞›µø∞ÌµÒ",
+      "Sandoll 격동고딕"
+    ],
+    "normalizedAliases": [
+      "sandollgyeokdonggothic",
+      "sandollµøìµò",
+      "sandoll격동고딕"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll GyeokdongGothic",
+      "mac-0017": "Sandoll ∞›µø∞ÌµÒ",
+      "en": "Sandoll GyeokdongGothic",
+      "ko": "Sandoll 격동고딕"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll격동고딕"
+  },
+  {
+    "name": "Sandoll Gyeokdonggulim",
+    "family": "Sandoll Gyeokdonggulim",
+    "style": "Regular",
+    "postScriptName": "Sandoll 격동굴림",
+    "gdiName": "Sandoll 격동굴림",
+    "aliases": [
+      "Sandoll Gyeokdonggulim",
+      "Sandoll ∞›µø±º∏≤",
+      "Sandoll 격동굴림"
+    ],
+    "normalizedAliases": [
+      "sandollgyeokdonggulim",
+      "sandollµøº",
+      "sandoll격동굴림"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Gyeokdonggulim",
+      "mac-0017": "Sandoll ∞›µø±º∏≤",
+      "en": "Sandoll Gyeokdonggulim",
+      "ko": "Sandoll 격동굴림"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll격동굴림"
+  },
+  {
+    "name": "Sandoll Hitec 0.3",
+    "family": "Sandoll Hitec 0.3",
+    "style": "Regular",
+    "postScriptName": "Sandoll 하이테크 0.3",
+    "gdiName": "Sandoll 하이테크 0.3",
+    "aliases": [
+      "Sandoll Hitec",
+      "Sandoll Hitec 0.3",
+      "Sandoll «œ¿Ã≈◊≈©",
+      "Sandoll 하이테크 0.3"
+    ],
+    "normalizedAliases": [
+      "sandollhitec",
+      "sandollhitec03",
+      "sandollœã",
+      "sandoll하이테크03"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Hitec",
+      "mac-0017": "Sandoll «œ¿Ã≈◊≈©",
+      "en": "Sandoll Hitec 0.3",
+      "ko": "Sandoll 하이테크 0.3"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll하이테크03"
+  },
+  {
+    "name": "Sandoll Hoyoyo2 01 Thin",
+    "family": "Sandoll Hoyoyo2 01 Thin",
+    "style": "Regular",
+    "postScriptName": "Sandoll 호요요2 01 Thin",
+    "gdiName": "Sandoll 호요요2 01 Thin",
+    "aliases": [
+      "Sandoll Hoyoyo2",
+      "Sandoll Hoyoyo2 01 Thin",
+      "Sandoll »£ø‰ø‰2",
+      "Sandoll 호요요2 01 Thin"
+    ],
+    "normalizedAliases": [
+      "sandollhoyoyo2",
+      "sandollhoyoyo201thin",
+      "sandolløø2",
+      "sandoll호요요201thin"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Hoyoyo2",
+      "mac-0017": "Sandoll »£ø‰ø‰2",
+      "en": "Sandoll Hoyoyo2 01 Thin",
+      "ko": "Sandoll 호요요2 01 Thin"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll호요요201thin"
+  },
+  {
+    "name": "Sandoll Iyagi 01 Light",
+    "family": "Sandoll Iyagi 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 이야기 01 Light",
+    "gdiName": "Sandoll 이야기 01 Light",
+    "aliases": [
+      "Sandoll Iyagi",
+      "Sandoll Iyagi 01 Light",
+      "Sandoll ¿Ãæﬂ±‚",
+      "Sandoll 이야기 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandolliyagi",
+      "sandolliyagi01light",
+      "sandollãæﬂ",
+      "sandoll이야기01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Iyagi",
+      "mac-0017": "Sandoll ¿Ãæﬂ±‚",
+      "en": "Sandoll Iyagi 01 Light",
+      "ko": "Sandoll 이야기 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll이야기01light"
+  },
+  {
+    "name": "Sandoll Kaebyeok 01 Light",
+    "family": "Sandoll Kaebyeok 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 개벽 01 Light",
+    "gdiName": "Sandoll 개벽 01 Light",
+    "aliases": [
+      "Sandoll Kaebyeok",
+      "Sandoll Kaebyeok 01 Light",
+      "Sandoll ∞≥∫Æ",
+      "Sandoll 개벽 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollkaebyeok",
+      "sandollkaebyeok01light",
+      "sandollæ",
+      "sandoll개벽01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Kaebyeok",
+      "mac-0017": "Sandoll ∞≥∫Æ",
+      "en": "Sandoll Kaebyeok 01 Light",
+      "ko": "Sandoll 개벽 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll개벽01light"
+  },
+  {
+    "name": "Sandoll Kukdetopokki 01 Light",
+    "family": "Sandoll Kukdetopokki 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 국대떡볶이 01 Light",
+    "gdiName": "Sandoll 국대떡볶이 01 Light",
+    "aliases": [
+      "Sandoll Kukdetopokki",
+      "Sandoll Kukdetopokki 01 Light",
+      "Sandoll ±π¥Î∂±∫∫¿Ã",
+      "Sandoll 국대떡볶이 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollkukdetopokki",
+      "sandollkukdetopokki01light",
+      "sandollπîã",
+      "sandoll국대떡볶이01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Kukdetopokki",
+      "mac-0017": "Sandoll ±π¥Î∂±∫∫¿Ã",
+      "en": "Sandoll Kukdetopokki 01 Light",
+      "ko": "Sandoll 국대떡볶이 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll국대떡볶이01light"
+  },
+  {
+    "name": "Sandoll Kwangsoo 01 Light",
+    "family": "Sandoll Kwangsoo 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 광수 01 Light",
+    "gdiName": "Sandoll 광수 01 Light",
+    "aliases": [
+      "Sandoll Kwangsoo",
+      "Sandoll Kwangsoo 01 Light",
+      "Sandoll ±§ºˆ",
+      "Sandoll 광수 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollkwangsoo",
+      "sandollkwangsoo01light",
+      "sandollºˆ",
+      "sandoll광수01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Kwangsoo",
+      "mac-0017": "Sandoll ±§ºˆ",
+      "en": "Sandoll Kwangsoo 01 Light",
+      "ko": "Sandoll 광수 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll광수01light"
+  },
+  {
+    "name": "Sandoll Kwangya",
+    "family": "Sandoll Kwangya",
+    "style": "Regular",
+    "postScriptName": "Sandoll 광야",
+    "gdiName": "Sandoll 광야",
+    "aliases": [
+      "Sandoll Kwangya",
+      "Sandoll ±§æﬂ",
+      "Sandoll 광야"
+    ],
+    "normalizedAliases": [
+      "sandollkwangya",
+      "sandollæﬂ",
+      "sandoll광야"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Kwangya",
+      "mac-0017": "Sandoll ±§æﬂ",
+      "en": "Sandoll Kwangya",
+      "ko": "Sandoll 광야"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll광야"
+  },
+  {
+    "name": "Sandoll LateSpring 01 Light",
+    "family": "Sandoll LateSpring 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 늦봄 01 Light",
+    "gdiName": "Sandoll 늦봄 01 Light",
+    "aliases": [
+      "Sandoll LateSpring",
+      "Sandoll LateSpring 01 Light",
+      "Sandoll ¥ ∫Ω",
+      "Sandoll 늦봄 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandolllatespring",
+      "sandolllatespring01light",
+      "sandollω",
+      "sandoll늦봄01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll LateSpring",
+      "mac-0017": "Sandoll ¥ ∫Ω",
+      "en": "Sandoll LateSpring 01 Light",
+      "ko": "Sandoll 늦봄 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll늦봄01light"
+  },
+  {
+    "name": "Sandoll Mapssi",
+    "family": "Sandoll Mapssi",
+    "style": "Regular",
+    "postScriptName": "Sandoll 맵씨",
+    "gdiName": "Sandoll 맵씨",
+    "aliases": [
+      "Sandoll Mapssi",
+      "Sandoll ∏ ææ",
+      "Sandoll 맵씨"
+    ],
+    "normalizedAliases": [
+      "sandollmapssi",
+      "sandollææ",
+      "sandoll맵씨"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Mapssi",
+      "mac-0017": "Sandoll ∏ ææ",
+      "en": "Sandoll Mapssi",
+      "ko": "Sandoll 맵씨"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll맵씨"
+  },
+  {
+    "name": "Sandoll Myeongjo 01 Light",
+    "family": "Sandoll Myeongjo 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 명조 01 Light",
+    "gdiName": "Sandoll 명조 01 Light",
+    "aliases": [
+      "Sandoll Myeongjo",
+      "Sandoll Myeongjo 01 Light",
+      "Sandoll ∏Ì¡∂",
+      "Sandoll 명조 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollmyeongjo",
+      "sandollmyeongjo01light",
+      "sandollì",
+      "sandoll명조01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Myeongjo",
+      "mac-0017": "Sandoll ∏Ì¡∂",
+      "en": "Sandoll Myeongjo 01 Light",
+      "ko": "Sandoll 명조 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll명조01light"
+  },
+  {
+    "name": "Sandoll MyeongjoNeo1 01 Ul",
+    "family": "Sandoll MyeongjoNeo1 01 Ul",
+    "style": "Regular",
+    "postScriptName": "Sandoll 명조Neo1 01 UltraLight",
+    "gdiName": "Sandoll 명조Neo1 01 UltraLight",
+    "aliases": [
+      "Sandoll MyeongjoNeo1",
+      "Sandoll MyeongjoNeo1 01 Ul",
+      "Sandoll ∏Ì¡∂Neo1",
+      "Sandoll 명조Neo1 01 UltraLight"
+    ],
+    "normalizedAliases": [
+      "sandollmyeongjoneo1",
+      "sandollmyeongjoneo101ul",
+      "sandollìneo1",
+      "sandoll명조neo101ultralight"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll MyeongjoNeo1",
+      "mac-0017": "Sandoll ∏Ì¡∂Neo1",
+      "en": "Sandoll MyeongjoNeo1 01 Ul",
+      "ko": "Sandoll 명조Neo1 01 UltraLight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll명조neo101ultralight"
+  },
+  {
+    "name": "Sandoll Odongtong Basic",
+    "family": "Sandoll Odongtong Basic",
+    "style": "Regular",
+    "postScriptName": "Sandoll 오동통 Basic",
+    "gdiName": "Sandoll 오동통 Basic",
+    "aliases": [
+      "Sandoll Odongtong",
+      "Sandoll Odongtong Basic",
+      "Sandoll ø¿µø≈Î",
+      "Sandoll 오동통 Basic"
+    ],
+    "normalizedAliases": [
+      "sandollodongtong",
+      "sandollodongtongbasic",
+      "sandolløµøî",
+      "sandoll오동통basic"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Odongtong",
+      "mac-0017": "Sandoll ø¿µø≈Î",
+      "en": "Sandoll Odongtong Basic",
+      "ko": "Sandoll 오동통 Basic"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll오동통basic"
+  },
+  {
+    "name": "Sandoll Samliphopangche Basic",
+    "family": "Sandoll Samliphopangche Basic",
+    "style": "Regular",
+    "postScriptName": "Sandoll 삼립호빵체 Basic",
+    "gdiName": "Sandoll 삼립호빵체 Basic",
+    "aliases": [
+      "Sandoll Samliphopangche",
+      "Sandoll Samliphopangche Basic",
+      "Sandoll ªÔ∏≥»£ªß√º",
+      "Sandoll 삼립호빵체 Basic"
+    ],
+    "normalizedAliases": [
+      "sandollsamliphopangche",
+      "sandollsamliphopangchebasic",
+      "sandollªôªßº",
+      "sandoll삼립호빵체basic"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Samliphopangche",
+      "mac-0017": "Sandoll ªÔ∏≥»£ªß√º",
+      "en": "Sandoll Samliphopangche Basic",
+      "ko": "Sandoll 삼립호빵체 Basic"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll삼립호빵체basic"
+  },
+  {
+    "name": "Sandoll Sanga 01 Light",
+    "family": "Sandoll Sanga 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 상아 01 Light",
+    "gdiName": "Sandoll 상아 01 Light",
+    "aliases": [
+      "Sandoll Sanga",
+      "Sandoll Sanga 01 Light",
+      "Sandoll ªÛæ∆",
+      "Sandoll 상아 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollsanga",
+      "sandollsanga01light",
+      "sandollªûæ",
+      "sandoll상아01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Sanga",
+      "mac-0017": "Sandoll ªÛæ∆",
+      "en": "Sandoll Sanga 01 Light",
+      "ko": "Sandoll 상아 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll상아01light"
+  },
+  {
+    "name": "Sandoll SeokPil 01 Light",
+    "family": "Sandoll SeokPil 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 석금호필 01 Light",
+    "gdiName": "Sandoll 석금호필 01 Light",
+    "aliases": [
+      "Sandoll SeokPil",
+      "Sandoll SeokPil 01 Light",
+      "Sandoll ºÆ±›»£«",
+      "Sandoll 석금호필 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollseokpil",
+      "sandollseokpil01light",
+      "sandollºæ",
+      "sandoll석금호필01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll SeokPil",
+      "mac-0017": "Sandoll ºÆ±›»£« ",
+      "en": "Sandoll SeokPil 01 Light",
+      "ko": "Sandoll 석금호필 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll석금호필01light"
+  },
+  {
+    "name": "Sandoll Seolya 01 Ul",
+    "family": "Sandoll Seolya 01 Ul",
+    "style": "Regular",
+    "postScriptName": "Sandoll 설야 01 Ul",
+    "gdiName": "Sandoll 설야 01 Ul",
+    "aliases": [
+      "Sandoll Seolya",
+      "Sandoll Seolya 01 Ul",
+      "Sandoll º≥æﬂ",
+      "Sandoll 설야 01 Ul"
+    ],
+    "normalizedAliases": [
+      "sandollseolya",
+      "sandollseolya01ul",
+      "sandollºæﬂ",
+      "sandoll설야01ul"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Seolya",
+      "mac-0017": "Sandoll º≥æﬂ",
+      "en": "Sandoll Seolya 01 Ul",
+      "ko": "Sandoll 설야 01 Ul"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll설야01ul"
+  },
+  {
+    "name": "Sandoll SinmunJebi 01 Light",
+    "family": "Sandoll SinmunJebi 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 신문제비 01 Light",
+    "gdiName": "Sandoll 신문제비 01 Light",
+    "aliases": [
+      "Sandoll SinmunJebi",
+      "Sandoll SinmunJebi 01 Light",
+      "Sandoll Ω≈πÆ¡¶∫Ò",
+      "Sandoll 신문제비 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandollsinmunjebi",
+      "sandollsinmunjebi01light",
+      "sandollωπæò",
+      "sandoll신문제비01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll SinmunJebi",
+      "mac-0017": "Sandoll Ω≈πÆ¡¶∫Ò",
+      "en": "Sandoll SinmunJebi 01 Light",
+      "ko": "Sandoll 신문제비 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll신문제비01light"
+  },
+  {
+    "name": "Sandoll Smiley Sans 01 Lt",
+    "family": "Sandoll Smiley Sans 01 Lt",
+    "style": "Regular",
+    "postScriptName": "Sandoll 스마일리산스 01 Lt",
+    "gdiName": "Sandoll 스마일리산스 01 Lt",
+    "aliases": [
+      "Sandoll Smiley Sans",
+      "Sandoll Smiley Sans 01 Lt",
+      "Sandoll Ω∫∏∂¿œ∏ÆªÍΩ∫",
+      "Sandoll 스마일리산스 01 Lt"
+    ],
+    "normalizedAliases": [
+      "sandollsmileysans",
+      "sandollsmileysans01lt",
+      "sandollωœæªíω",
+      "sandoll스마일리산스01lt"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Smiley Sans",
+      "mac-0017": "Sandoll Ω∫∏∂¿œ∏ÆªÍΩ∫",
+      "en": "Sandoll Smiley Sans 01 Lt",
+      "ko": "Sandoll 스마일리산스 01 Lt"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll스마일리산스01lt"
+  },
+  {
+    "name": "Sandoll Tviceket",
+    "family": "Sandoll Tviceket",
+    "style": "Regular",
+    "postScriptName": "Sandoll 티비스켓",
+    "gdiName": "Sandoll 티비스켓",
+    "aliases": [
+      "Sandoll Tviceket",
+      "Sandoll ∆º∫ÒΩ∫ƒœ",
+      "Sandoll 티비스켓"
+    ],
+    "normalizedAliases": [
+      "sandolltviceket",
+      "sandollºòωƒœ",
+      "sandoll티비스켓"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Tviceket",
+      "mac-0017": "Sandoll ∆º∫ÒΩ∫ƒœ",
+      "en": "Sandoll Tviceket",
+      "ko": "Sandoll 티비스켓"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll티비스켓"
+  },
+  {
+    "name": "Sandoll Typewrite 01 Light",
+    "family": "Sandoll Typewrite 01 Light",
+    "style": "Regular",
+    "postScriptName": "Sandoll 타이프라이트 01 Light",
+    "gdiName": "Sandoll 타이프라이트 01 Light",
+    "aliases": [
+      "Sandoll Typewrite",
+      "Sandoll Typewrite 01 Light",
+      "Sandoll ≈∏¿Ã«¡∂Û¿Ã∆Æ",
+      "Sandoll 타이프라이트 01 Light"
+    ],
+    "normalizedAliases": [
+      "sandolltypewrite",
+      "sandolltypewrite01light",
+      "sandollãûãæ",
+      "sandoll타이프라이트01light"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll Typewrite",
+      "mac-0017": "Sandoll ≈∏¿Ã«¡∂Û¿Ã∆Æ",
+      "en": "Sandoll Typewrite 01 Light",
+      "ko": "Sandoll 타이프라이트 01 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll타이프라이트01light"
+  },
+  {
+    "name": "Sandoll WinterNight",
+    "family": "Sandoll WinterNight",
+    "style": "Regular",
+    "postScriptName": "Sandoll 겨울밤",
+    "gdiName": "Sandoll 겨울밤",
+    "aliases": [
+      "Sandoll WinterNight",
+      "Sandoll ∞‹øÔπ„",
+      "Sandoll 겨울밤"
+    ],
+    "normalizedAliases": [
+      "sandollwinternight",
+      "sandolløôπ",
+      "sandoll겨울밤"
+    ],
+    "languageNames": {
+      "mac-0000": "Sandoll WinterNight",
+      "mac-0017": "Sandoll ∞‹øÔπ„",
+      "en": "Sandoll WinterNight",
+      "ko": "Sandoll 겨울밤"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sandoll겨울밤"
+  },
+  {
+    "name": "Sans Serif Collection",
+    "family": "Sans Serif Collection",
+    "style": "Regular",
+    "postScriptName": "Sans Serif Collection",
+    "gdiName": "Sans Serif Collection",
+    "aliases": [
+      "Sans Serif Collection"
+    ],
+    "normalizedAliases": [
+      "sansserifcollection"
+    ],
+    "languageNames": {
+      "en": "Sans Serif Collection"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sansserifcollection"
+  },
+  {
+    "name": "SB Aggro Bold",
+    "family": "SB Aggro Bold",
+    "style": "Regular",
+    "postScriptName": "SB 어그로 Bold",
+    "gdiName": "SB 어그로 Bold",
+    "aliases": [
+      "SB Aggro Bold",
+      "SB 어그로 Bold"
+    ],
+    "normalizedAliases": [
+      "sbaggrobold",
+      "sb어그로bold"
+    ],
+    "languageNames": {
+      "en": "SB Aggro Bold",
+      "ko": "SB 어그로 Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sb어그로bold"
+  },
+  {
+    "name": "SB Aggro Light",
+    "family": "SB Aggro Light",
+    "style": "Regular",
+    "postScriptName": "SB 어그로 Light",
+    "gdiName": "SB 어그로 Light",
+    "aliases": [
+      "SB Aggro Light",
+      "SB 어그로 Light"
+    ],
+    "normalizedAliases": [
+      "sbaggrolight",
+      "sb어그로light"
+    ],
+    "languageNames": {
+      "en": "SB Aggro Light",
+      "ko": "SB 어그로 Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sb어그로light"
+  },
+  {
+    "name": "SB Aggro Medium",
+    "family": "SB Aggro Medium",
+    "style": "Regular",
+    "postScriptName": "SB 어그로 Medium",
+    "gdiName": "SB 어그로 Medium",
+    "aliases": [
+      "SB Aggro Medium",
+      "SB 어그로 Medium"
+    ],
+    "normalizedAliases": [
+      "sbaggromedium",
+      "sb어그로medium"
+    ],
+    "languageNames": {
+      "en": "SB Aggro Medium",
+      "ko": "SB 어그로 Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sb어그로medium"
+  },
+  {
+    "name": "SB AggroOTF Bold",
+    "family": "SB AggroOTF Bold",
+    "style": "Regular",
+    "postScriptName": "SB 어그로OTF Bold",
+    "gdiName": "SB 어그로OTF Bold",
+    "aliases": [
+      "SB AggroOTF",
+      "SB AggroOTF Bold",
+      "SB æÓ±◊∑ŒOTF",
+      "SB 어그로OTF Bold"
+    ],
+    "normalizedAliases": [
+      "sbaggrootf",
+      "sbaggrootfbold",
+      "sbæóœotf",
+      "sb어그로otfbold"
+    ],
+    "languageNames": {
+      "mac-0000": "SB AggroOTF",
+      "mac-0017": "SB æÓ±◊∑ŒOTF",
+      "en": "SB AggroOTF Bold",
+      "ko": "SB 어그로OTF Bold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sb어그로otfbold"
+  },
+  {
+    "name": "Script",
+    "family": "Script",
+    "style": "Regular",
+    "postScriptName": "Script",
+    "gdiName": "Script",
+    "aliases": [
+      "Script"
+    ],
+    "normalizedAliases": [
+      "script"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "script"
+  },
+  {
+    "name": "SD Cohhee",
+    "family": "SD Cohhee",
+    "style": "Regular",
+    "postScriptName": "SD 커오히",
+    "gdiName": "SD 커오히",
+    "aliases": [
+      "SD Cohhee",
+      "SD ƒøø¿»˜",
+      "SD 커오히"
+    ],
+    "normalizedAliases": [
+      "sdcohhee",
+      "sdƒøø",
+      "sd커오히"
+    ],
+    "languageNames": {
+      "mac-0000": "SD Cohhee",
+      "mac-0017": "SD ƒøø¿»˜",
+      "en": "SD Cohhee",
+      "ko": "SD 커오히"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sd커오히"
+  },
+  {
+    "name": "SD Greta Sans 01 Hl",
+    "family": "SD Greta Sans 01 Hl",
+    "style": "Regular",
+    "postScriptName": "SD 그레타산스 01 Hl",
+    "gdiName": "SD 그레타산스 01 Hl",
+    "aliases": [
+      "SD Greta Sans",
+      "SD Greta Sans 01 Hl",
+      "SD ±◊∑π≈∏ªÍΩ∫",
+      "SD 그레타산스 01 Hl"
+    ],
+    "normalizedAliases": [
+      "sdgretasans",
+      "sdgretasans01hl",
+      "sdπªíω",
+      "sd그레타산스01hl"
+    ],
+    "languageNames": {
+      "mac-0000": "SD Greta Sans",
+      "mac-0017": "SD ±◊∑π≈∏ªÍΩ∫",
+      "en": "SD Greta Sans 01 Hl",
+      "ko": "SD 그레타산스 01 Hl"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sd그레타산스01hl"
+  },
+  {
+    "name": "SD Gyeokdong Mj2 01 Th Cd",
+    "family": "SD Gyeokdong Mj2 01 Th Cd",
+    "style": "Regular",
+    "postScriptName": "SD 격동명조2 01 Th Cd",
+    "gdiName": "SD 격동명조2 01 Th Cd",
+    "aliases": [
+      "SD Gyeokdong Mj2",
+      "SD Gyeokdong Mj2 01 Th Cd",
+      "SD ∞›µø∏Ì¡∂2",
+      "SD 격동명조2 01 Th Cd"
+    ],
+    "normalizedAliases": [
+      "sdgyeokdongmj2",
+      "sdgyeokdongmj201thcd",
+      "sdµøì2",
+      "sd격동명조201thcd"
+    ],
+    "languageNames": {
+      "mac-0000": "SD Gyeokdong Mj2",
+      "mac-0017": "SD ∞›µø∏Ì¡∂2",
+      "en": "SD Gyeokdong Mj2 01 Th Cd",
+      "ko": "SD 격동명조2 01 Th Cd"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sd격동명조201thcd"
+  },
+  {
+    "name": "SD November 01 Hl",
+    "family": "SD November 01 Hl",
+    "style": "Regular",
+    "postScriptName": "SD 노벰버 01 Hl",
+    "gdiName": "SD 노벰버 01 Hl",
+    "aliases": [
+      "SD November",
+      "SD November 01 Hl",
+      "SD ≥Î∫®πˆ",
+      "SD 노벰버 01 Hl"
+    ],
+    "normalizedAliases": [
+      "sdnovember",
+      "sdnovember01hl",
+      "sdîπˆ",
+      "sd노벰버01hl"
+    ],
+    "languageNames": {
+      "mac-0000": "SD November",
+      "mac-0017": "SD ≥Î∫®πˆ",
+      "en": "SD November 01 Hl",
+      "ko": "SD 노벰버 01 Hl"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sd노벰버01hl"
+  },
+  {
+    "name": "Segoe Fluent Icons",
+    "family": "Segoe Fluent Icons",
+    "style": "Regular",
+    "postScriptName": "Segoe Fluent Icons",
+    "gdiName": "Segoe Fluent Icons",
+    "aliases": [
+      "Segoe Fluent Icons"
+    ],
+    "normalizedAliases": [
+      "segoefluenticons"
+    ],
+    "languageNames": {
+      "mac-0000": "Segoe Fluent Icons",
+      "en": "Segoe Fluent Icons"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoefluenticons"
+  },
+  {
+    "name": "Segoe MDL2 Assets",
+    "family": "Segoe MDL2 Assets",
+    "style": "Regular",
+    "postScriptName": "Segoe MDL2 Assets",
+    "gdiName": "Segoe MDL2 Assets",
+    "aliases": [
+      "Segoe MDL2 Assets"
+    ],
+    "normalizedAliases": [
+      "segoemdl2assets"
+    ],
+    "languageNames": {
+      "mac-0000": "Segoe MDL2 Assets",
+      "en": "Segoe MDL2 Assets"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoemdl2assets"
+  },
+  {
+    "name": "Segoe Print",
+    "family": "Segoe Print",
+    "style": "Regular",
+    "postScriptName": "Segoe Print",
+    "gdiName": "Segoe Print",
+    "aliases": [
+      "Segoe Print"
+    ],
+    "normalizedAliases": [
+      "segoeprint"
+    ],
+    "languageNames": {
+      "mac-0000": "Segoe Print",
+      "en": "Segoe Print"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeprint"
+  },
+  {
+    "name": "Segoe Script",
+    "family": "Segoe Script",
+    "style": "Regular",
+    "postScriptName": "Segoe Script",
+    "gdiName": "Segoe Script",
+    "aliases": [
+      "Segoe Script"
+    ],
+    "normalizedAliases": [
+      "segoescript"
+    ],
+    "languageNames": {
+      "mac-0000": "Segoe Script",
+      "en": "Segoe Script"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoescript"
+  },
+  {
+    "name": "Segoe UI",
+    "family": "Segoe UI",
+    "style": "Regular",
+    "postScriptName": "Segoe UI",
+    "gdiName": "Segoe UI",
+    "aliases": [
+      "Segoe UI"
+    ],
+    "normalizedAliases": [
+      "segoeui"
+    ],
+    "languageNames": {
+      "en": "Segoe UI"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeui"
+  },
+  {
+    "name": "Segoe UI Black",
+    "family": "Segoe UI Black",
+    "style": "Regular",
+    "postScriptName": "Segoe UI Black",
+    "gdiName": "Segoe UI Black",
+    "aliases": [
+      "Segoe UI Black"
+    ],
+    "normalizedAliases": [
+      "segoeuiblack"
+    ],
+    "languageNames": {
+      "en": "Segoe UI Black"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeuiblack"
+  },
+  {
+    "name": "Segoe UI Emoji",
+    "family": "Segoe UI Emoji",
+    "style": "Regular",
+    "postScriptName": "Segoe UI Emoji",
+    "gdiName": "Segoe UI Emoji",
+    "aliases": [
+      "Segoe UI Emoji"
+    ],
+    "normalizedAliases": [
+      "segoeuiemoji"
+    ],
+    "languageNames": {
+      "mac-0000": "Segoe UI Emoji",
+      "en": "Segoe UI Emoji"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeuiemoji"
+  },
+  {
+    "name": "Segoe UI Historic",
+    "family": "Segoe UI Historic",
+    "style": "Regular",
+    "postScriptName": "Segoe UI Historic",
+    "gdiName": "Segoe UI Historic",
+    "aliases": [
+      "Segoe UI Historic"
+    ],
+    "normalizedAliases": [
+      "segoeuihistoric"
+    ],
+    "languageNames": {
+      "mac-0000": "Segoe UI Historic",
+      "en": "Segoe UI Historic"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeuihistoric"
+  },
+  {
+    "name": "Segoe UI Light",
+    "family": "Segoe UI Light",
+    "style": "Regular",
+    "postScriptName": "Segoe UI Light",
+    "gdiName": "Segoe UI Light",
+    "aliases": [
+      "Segoe UI Light"
+    ],
+    "normalizedAliases": [
+      "segoeuilight"
+    ],
+    "languageNames": {
+      "en": "Segoe UI Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeuilight"
+  },
+  {
+    "name": "Segoe UI Semibold",
+    "family": "Segoe UI Semibold",
+    "style": "Regular",
+    "postScriptName": "Segoe UI Semibold",
+    "gdiName": "Segoe UI Semibold",
+    "aliases": [
+      "Segoe UI Semibold"
+    ],
+    "normalizedAliases": [
+      "segoeuisemibold"
+    ],
+    "languageNames": {
+      "en": "Segoe UI Semibold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeuisemibold"
+  },
+  {
+    "name": "Segoe UI Semilight",
+    "family": "Segoe UI Semilight",
+    "style": "Regular",
+    "postScriptName": "Segoe UI Semilight",
+    "gdiName": "Segoe UI Semilight",
+    "aliases": [
+      "Segoe UI Semilight"
+    ],
+    "normalizedAliases": [
+      "segoeuisemilight"
+    ],
+    "languageNames": {
+      "en": "Segoe UI Semilight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeuisemilight"
+  },
+  {
+    "name": "Segoe UI Symbol",
+    "family": "Segoe UI Symbol",
+    "style": "Regular",
+    "postScriptName": "Segoe UI Symbol",
+    "gdiName": "Segoe UI Symbol",
+    "aliases": [
+      "Segoe UI Symbol"
+    ],
+    "normalizedAliases": [
+      "segoeuisymbol"
+    ],
+    "languageNames": {
+      "en": "Segoe UI Symbol"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeuisymbol"
+  },
+  {
+    "name": "Segoe UI Variable",
+    "family": "Segoe UI Variable",
+    "style": "Regular",
+    "postScriptName": "Segoe UI Variable Display",
+    "gdiName": "Segoe UI Variable Display",
+    "aliases": [
+      "Segoe UI Variable",
+      "Segoe UI Variable Display"
+    ],
+    "normalizedAliases": [
+      "segoeuivariable",
+      "segoeuivariabledisplay"
+    ],
+    "languageNames": {
+      "mac-0000": "Segoe UI Variable",
+      "en": "Segoe UI Variable"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "segoeuivariabledisplay"
+  },
+  {
+    "name": "Seimei Kana Free",
+    "family": "Seimei Kana Free",
+    "style": "Regular",
+    "postScriptName": "Seimei Kana Free",
+    "gdiName": "Seimei Kana Free",
+    "aliases": [
+      "Seimei Kana Free",
+      "ê¥ñæÇ©Ç» Free(Book)",
+      "清明かな Free(Book)"
+    ],
+    "normalizedAliases": [
+      "seimeikanafree",
+      "êñæççfreebook",
+      "清明かなfreebook"
+    ],
+    "languageNames": {
+      "mac-0000": "Seimei Kana Free",
+      "mac-000b": "ê¥ñæÇ©Ç» Free(Book)",
+      "en": "Seimei Kana Free",
+      "ja": "清明かな Free(Book)"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "seimeikanafree"
+  },
+  {
+    "name": "Seimin Kana Classic Trial ExLight",
+    "family": "Seimin Kana Classic Trial ExLight",
+    "style": "Regular",
+    "postScriptName": "Seimin Kana Classic Trial ExLig",
+    "gdiName": "Seimin Kana Classic Trial ExLig",
+    "aliases": [
+      "3,1,0x411,\\52E2\\84EE\\660E\\671D\\30C8\\30E9\\30A4\\30A2\\30EB",
+      "Seimin Kana Classic Trial ExLig",
+      "Seimin Kana Classic Trial ExLight",
+      "勢蓮明朝トライアル"
+    ],
+    "normalizedAliases": [
+      "310x41152e284ee660e671d30c830e930a430a230eb",
+      "seiminkanaclassictrialexlig",
+      "seiminkanaclassictrialexlight",
+      "勢蓮明朝トライアル"
+    ],
+    "languageNames": {
+      "mac-0000": "3,1,0x411,\\52E2\\84EE\\660E\\671D\\30C8\\30E9\\30A4\\30A2\\30EB",
+      "en": "Seimin Kana Classic Trial ExLight",
+      "ja": "勢蓮明朝トライアル"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "seiminkanaclassictrialexlig"
+  },
+  {
+    "name": "Shilla_Culture(B)",
+    "family": "Shilla_Culture(B)",
+    "style": "Regular",
+    "postScriptName": "신라문화체(B)",
+    "gdiName": "신라문화체(B)",
+    "aliases": [
+      "Shilla_Culture(B)",
+      "신라문화체(B)"
+    ],
+    "normalizedAliases": [
+      "shillacultureb",
+      "신라문화체b"
+    ],
+    "languageNames": {
+      "mac-0000": "Shilla_Culture(B)",
+      "en": "Shilla_Culture(B)",
+      "ko": "신라문화체(B)"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "신라문화체b"
+  },
+  {
+    "name": "Shilla_Culture(M)",
+    "family": "Shilla_Culture(M)",
+    "style": "Regular",
+    "postScriptName": "신라문화체(M)",
+    "gdiName": "신라문화체(M)",
+    "aliases": [
+      "Shilla_Culture(M)",
+      "신라문화체(M)"
+    ],
+    "normalizedAliases": [
+      "shillaculturem",
+      "신라문화체m"
+    ],
+    "languageNames": {
+      "mac-0000": "Shilla_Culture(M)",
+      "en": "Shilla_Culture(M)",
+      "ko": "신라문화체(M)"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "신라문화체m"
+  },
+  {
+    "name": "SimSun",
+    "family": "SimSun",
+    "style": "Regular",
+    "postScriptName": "SimSun",
+    "gdiName": "SimSun",
+    "aliases": [
+      "SimSun",
+      "宋体"
+    ],
+    "normalizedAliases": [
+      "simsun",
+      "宋体"
+    ],
+    "languageNames": {
+      "mac-0000": "SimSun",
+      "en": "SimSun",
+      "zh-Hans": "宋体",
+      "win-1004": "宋体"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "simsun"
+  },
+  {
+    "name": "SimSun-ExtB",
+    "family": "SimSun-ExtB",
+    "style": "Regular",
+    "postScriptName": "SimSun-ExtB",
+    "gdiName": "SimSun-ExtB",
+    "aliases": [
+      "SimSun-ExtB"
+    ],
+    "normalizedAliases": [
+      "simsunextb"
+    ],
+    "languageNames": {
+      "mac-0000": "SimSun-ExtB",
+      "en": "SimSun-ExtB"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "simsunextb"
+  },
+  {
+    "name": "SimSun-ExtG",
+    "family": "SimSun-ExtG",
+    "style": "Regular",
+    "postScriptName": "SimSun-ExtG",
+    "gdiName": "SimSun-ExtG",
+    "aliases": [
+      "SimSun-ExtG"
+    ],
+    "normalizedAliases": [
+      "simsunextg"
+    ],
+    "languageNames": {
+      "en": "SimSun-ExtG"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "simsunextg"
+  },
+  {
+    "name": "Sitka Text",
+    "family": "Sitka Text",
+    "style": "Regular",
+    "postScriptName": "Sitka Banner",
+    "gdiName": "Sitka Banner",
+    "aliases": [
+      "Sitka Banner",
+      "Sitka Text"
+    ],
+    "normalizedAliases": [
+      "sitkabanner",
+      "sitkatext"
+    ],
+    "languageNames": {
+      "mac-0000": "Sitka Text",
+      "en": "Sitka Text"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sitkabanner"
+  },
+  {
+    "name": "Small Fonts",
+    "family": "Small Fonts",
+    "style": "Regular",
+    "postScriptName": "Small Fonts",
+    "gdiName": "Small Fonts",
+    "aliases": [
+      "Small Fonts"
+    ],
+    "normalizedAliases": [
+      "smallfonts"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "smallfonts"
+  },
+  {
+    "name": "SOGANG UNIVERSITY",
+    "family": "SOGANG UNIVERSITY",
+    "style": "Regular",
+    "postScriptName": "서강체",
+    "gdiName": "서강체",
+    "aliases": [
+      "SOGANG UNIVERSITY",
+      "º≠∞≠√º",
+      "서강체"
+    ],
+    "normalizedAliases": [
+      "soganguniversity",
+      "ºº",
+      "서강체"
+    ],
+    "languageNames": {
+      "mac-0000": "SOGANG UNIVERSITY",
+      "mac-0017": "º≠∞≠√º",
+      "en": "SOGANG UNIVERSITY",
+      "ko": "서강체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "서강체"
+  },
+  {
+    "name": "SoukouMincho",
+    "family": "SoukouMincho",
+    "style": "Regular",
+    "postScriptName": "SoukouMincho",
+    "gdiName": "SoukouMincho",
+    "aliases": [
+      "SoukouMincho",
+      "ëïçbñæí©",
+      "装甲明朝"
+    ],
+    "normalizedAliases": [
+      "soukoumincho",
+      "ëïçbñæí",
+      "装甲明朝"
+    ],
+    "languageNames": {
+      "mac-0000": "SoukouMincho",
+      "mac-000b": "ëïçbñæí©",
+      "en": "SoukouMincho",
+      "ja": "装甲明朝"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "soukoumincho"
+  },
+  {
+    "name": "Spoqa Han Sans Neo",
+    "family": "Spoqa Han Sans Neo",
+    "style": "Regular",
+    "postScriptName": "Spoqa Han Sans Neo",
+    "gdiName": "Spoqa Han Sans Neo",
+    "aliases": [
+      "Spoqa Han Sans Neo"
+    ],
+    "normalizedAliases": [
+      "spoqahansansneo"
+    ],
+    "languageNames": {
+      "mac-0000": "Spoqa Han Sans Neo",
+      "en": "Spoqa Han Sans Neo"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "spoqahansansneo"
+  },
+  {
+    "name": "SSRONET Handwritten",
+    "family": "SSRONET Handwritten",
+    "style": "Regular",
+    "postScriptName": "스스로넷 손글씨",
+    "gdiName": "스스로넷 손글씨",
+    "aliases": [
+      "SSRONET Handwritten",
+      "Ω∫Ω∫∑Œ≥› º’±€ææ",
+      "스스로넷 손글씨"
+    ],
+    "normalizedAliases": [
+      "ssronethandwritten",
+      "ωωœºææ",
+      "스스로넷손글씨"
+    ],
+    "languageNames": {
+      "mac-0000": "SSRONET Handwritten",
+      "mac-0017": "Ω∫Ω∫∑Œ≥› º’±€ææ",
+      "en": "SSRONET Handwritten",
+      "ko": "스스로넷 손글씨"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "스스로넷손글씨"
+  },
+  {
+    "name": "Sylfaen",
+    "family": "Sylfaen",
+    "style": "Regular",
+    "postScriptName": "Sylfaen",
+    "gdiName": "Sylfaen",
+    "aliases": [
+      "Sylfaen"
+    ],
+    "normalizedAliases": [
+      "sylfaen"
+    ],
+    "languageNames": {
+      "mac-0000": "Sylfaen",
+      "en": "Sylfaen"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "sylfaen"
+  },
+  {
+    "name": "Symbol",
+    "family": "Symbol",
+    "style": "Regular",
+    "postScriptName": "Symbol",
+    "gdiName": "Symbol",
+    "aliases": [
+      "Symbol"
+    ],
+    "normalizedAliases": [
+      "symbol"
+    ],
+    "languageNames": {
+      "mac-0000": "Symbol",
+      "en": "Symbol"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "symbol"
+  },
+  {
+    "name": "System",
+    "family": "System",
+    "style": "Regular",
+    "postScriptName": "System",
+    "gdiName": "System",
+    "aliases": [
+      "System"
+    ],
+    "normalizedAliases": [
+      "system"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "system"
+  },
+  {
+    "name": "TAEBAEK milkyway",
+    "family": "TAEBAEK milkyway",
+    "style": "Regular",
+    "postScriptName": "태백은하수체",
+    "gdiName": "태백은하수체",
+    "aliases": [
+      "TAEBAEK milkyway",
+      "≈¬πÈ¿∫«œºˆ√º",
+      "태백은하수체"
+    ],
+    "normalizedAliases": [
+      "taebaekmilkyway",
+      "πèœºˆº",
+      "태백은하수체"
+    ],
+    "languageNames": {
+      "mac-0000": "TAEBAEK milkyway",
+      "mac-0017": "≈¬πÈ¿∫«œºˆ√º",
+      "en": "TAEBAEK milkyway",
+      "ko": "태백은하수체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "태백은하수체"
+  },
+  {
+    "name": "Tahoma",
+    "family": "Tahoma",
+    "style": "Regular",
+    "postScriptName": "Tahoma",
+    "gdiName": "Tahoma",
+    "aliases": [
+      "Tahoma"
+    ],
+    "normalizedAliases": [
+      "tahoma"
+    ],
+    "languageNames": {
+      "en": "Tahoma"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "tahoma"
+  },
+  {
+    "name": "Terminal",
+    "family": "Terminal",
+    "style": "Regular",
+    "postScriptName": "Terminal",
+    "gdiName": "Terminal",
+    "aliases": [
+      "Terminal"
+    ],
+    "normalizedAliases": [
+      "terminal"
+    ],
+    "languageNames": {},
+    "forceBitmap": false,
+    "paths": [],
+    "key": "terminal"
+  },
+  {
+    "name": "The Jamsil OTF 1 Thin",
+    "family": "The Jamsil OTF 1 Thin",
+    "style": "Regular",
+    "postScriptName": "더잠실 OTF 1 Thin",
+    "gdiName": "더잠실 OTF 1 Thin",
+    "aliases": [
+      "The Jamsil OTF",
+      "The Jamsil OTF 1 Thin",
+      "¥ı¿·Ω« OTF",
+      "더잠실 OTF 1 Thin"
+    ],
+    "normalizedAliases": [
+      "thejamsilotf",
+      "thejamsilotf1thin",
+      "ıωotf",
+      "더잠실otf1thin"
+    ],
+    "languageNames": {
+      "mac-0000": "The Jamsil OTF",
+      "mac-0017": "¥ı¿·Ω« OTF",
+      "en": "The Jamsil OTF 1 Thin",
+      "ko": "더잠실 OTF 1 Thin"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "더잠실otf1thin"
+  },
+  {
+    "name": "Times New Roman",
+    "family": "Times New Roman",
+    "style": "Regular",
+    "postScriptName": "Times New Roman",
+    "gdiName": "Times New Roman",
+    "aliases": [
+      "Times New Roman"
+    ],
+    "normalizedAliases": [
+      "timesnewroman"
+    ],
+    "languageNames": {
+      "mac-0000": "Times New Roman",
+      "en": "Times New Roman"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "timesnewroman"
+  },
+  {
+    "name": "Trebuchet MS",
+    "family": "Trebuchet MS",
+    "style": "Regular",
+    "postScriptName": "Trebuchet MS",
+    "gdiName": "Trebuchet MS",
+    "aliases": [
+      "Trebuchet MS"
+    ],
+    "normalizedAliases": [
+      "trebuchetms"
+    ],
+    "languageNames": {
+      "mac-0000": "Trebuchet MS",
+      "en": "Trebuchet MS"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "trebuchetms"
+  },
+  {
+    "name": "Verdana",
+    "family": "Verdana",
+    "style": "Regular",
+    "postScriptName": "Verdana",
+    "gdiName": "Verdana",
+    "aliases": [
+      "Verdana"
+    ],
+    "normalizedAliases": [
+      "verdana"
+    ],
+    "languageNames": {
+      "mac-0000": "Verdana",
+      "en": "Verdana"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "verdana"
+  },
+  {
+    "name": "Webdings",
+    "family": "Webdings",
+    "style": "Regular",
+    "postScriptName": "Webdings",
+    "gdiName": "Webdings",
+    "aliases": [
+      "Webdings"
+    ],
+    "normalizedAliases": [
+      "webdings"
+    ],
+    "languageNames": {
+      "mac-0000": "Webdings",
+      "en": "Webdings"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "webdings"
+  },
+  {
+    "name": "Wingdings",
+    "family": "Wingdings",
+    "style": "Regular",
+    "postScriptName": "Wingdings",
+    "gdiName": "Wingdings",
+    "aliases": [
+      "Wingdings"
+    ],
+    "normalizedAliases": [
+      "wingdings"
+    ],
+    "languageNames": {
+      "mac-0000": "Wingdings",
+      "en": "Wingdings"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "wingdings"
+  },
+  {
+    "name": "YeojuCeramic",
+    "family": "YeojuCeramic",
+    "style": "Regular",
+    "postScriptName": "여주도자체",
+    "gdiName": "여주도자체",
+    "aliases": [
+      "YeojuCeramic",
+      "ø©¡÷µµ¿⁄√º",
+      "여주도자체"
+    ],
+    "normalizedAliases": [
+      "yeojuceramic",
+      "øµµº",
+      "여주도자체"
+    ],
+    "languageNames": {
+      "mac-0000": "YeojuCeramic",
+      "mac-0017": "ø©¡÷µµ¿⁄√º",
+      "en": "YeojuCeramic",
+      "ko": "여주도자체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "여주도자체"
+  },
+  {
+    "name": "YEONGJUSeonbi",
+    "family": "YEONGJUSeonbi",
+    "style": "Regular",
+    "postScriptName": "영주선비체",
+    "gdiName": "영주선비체",
+    "aliases": [
+      "YEONGJUSeonbi",
+      "øµ¡÷º±∫Ò√º",
+      "영주선비체"
+    ],
+    "normalizedAliases": [
+      "yeongjuseonbi",
+      "øµºòº",
+      "영주선비체"
+    ],
+    "languageNames": {
+      "mac-0000": "YEONGJUSeonbi",
+      "mac-0017": "øµ¡÷º±∫Ò√º",
+      "en": "YEONGJUSeonbi",
+      "ko": "영주선비체"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "영주선비체"
+  },
+  {
+    "name": "Yu Gothic",
+    "family": "Yu Gothic",
+    "style": "Regular",
+    "postScriptName": "Yu Gothic",
+    "gdiName": "Yu Gothic",
+    "aliases": [
+      "Yu Gothic",
+      "游ゴシック"
+    ],
+    "normalizedAliases": [
+      "yugothic",
+      "游ゴシック"
+    ],
+    "languageNames": {
+      "en": "Yu Gothic",
+      "ja": "游ゴシック"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "yugothic"
+  },
+  {
+    "name": "Yu Gothic Light",
+    "family": "Yu Gothic Light",
+    "style": "Regular",
+    "postScriptName": "Yu Gothic Light",
+    "gdiName": "Yu Gothic Light",
+    "aliases": [
+      "Yu Gothic Light",
+      "游ゴシック Light"
+    ],
+    "normalizedAliases": [
+      "yugothiclight",
+      "游ゴシックlight"
+    ],
+    "languageNames": {
+      "en": "Yu Gothic Light",
+      "ja": "游ゴシック Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "yugothiclight"
+  },
+  {
+    "name": "Yu Gothic Medium",
+    "family": "Yu Gothic Medium",
+    "style": "Regular",
+    "postScriptName": "Yu Gothic Medium",
+    "gdiName": "Yu Gothic Medium",
+    "aliases": [
+      "Yu Gothic Medium",
+      "游ゴシック Medium"
+    ],
+    "normalizedAliases": [
+      "yugothicmedium",
+      "游ゴシックmedium"
+    ],
+    "languageNames": {
+      "en": "Yu Gothic Medium",
+      "ja": "游ゴシック Medium"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "yugothicmedium"
+  },
+  {
+    "name": "Yu Gothic UI",
+    "family": "Yu Gothic UI",
+    "style": "Regular",
+    "postScriptName": "Yu Gothic UI",
+    "gdiName": "Yu Gothic UI",
+    "aliases": [
+      "Yu Gothic UI"
+    ],
+    "normalizedAliases": [
+      "yugothicui"
+    ],
+    "languageNames": {
+      "en": "Yu Gothic UI"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "yugothicui"
+  },
+  {
+    "name": "Yu Gothic UI Light",
+    "family": "Yu Gothic UI Light",
+    "style": "Regular",
+    "postScriptName": "Yu Gothic UI Light",
+    "gdiName": "Yu Gothic UI Light",
+    "aliases": [
+      "Yu Gothic UI Light"
+    ],
+    "normalizedAliases": [
+      "yugothicuilight"
+    ],
+    "languageNames": {
+      "en": "Yu Gothic UI Light"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "yugothicuilight"
+  },
+  {
+    "name": "Yu Gothic UI Semibold",
+    "family": "Yu Gothic UI Semibold",
+    "style": "Regular",
+    "postScriptName": "Yu Gothic UI Semibold",
+    "gdiName": "Yu Gothic UI Semibold",
+    "aliases": [
+      "Yu Gothic UI Semibold"
+    ],
+    "normalizedAliases": [
+      "yugothicuisemibold"
+    ],
+    "languageNames": {
+      "en": "Yu Gothic UI Semibold"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "yugothicuisemibold"
+  },
+  {
+    "name": "Yu Gothic UI Semilight",
+    "family": "Yu Gothic UI Semilight",
+    "style": "Regular",
+    "postScriptName": "Yu Gothic UI Semilight",
+    "gdiName": "Yu Gothic UI Semilight",
+    "aliases": [
+      "Yu Gothic UI Semilight"
+    ],
+    "normalizedAliases": [
+      "yugothicuisemilight"
+    ],
+    "languageNames": {
+      "en": "Yu Gothic UI Semilight"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "yugothicuisemilight"
+  },
+  {
+    "name": "ZeroGothic",
+    "family": "ZeroGothic",
+    "style": "Regular",
+    "postScriptName": "ZeroGothic",
+    "gdiName": "ZeroGothic",
+    "aliases": [
+      "ZeroGothic",
+      "óÎÉSÉVÉbÉN",
+      "零ゴシック"
+    ],
+    "normalizedAliases": [
+      "zerogothic",
+      "óîésévébén",
+      "零ゴシック"
+    ],
+    "languageNames": {
+      "mac-0000": "ZeroGothic",
+      "mac-000b": "óÎÉSÉVÉbÉN",
+      "en": "ZeroGothic",
+      "ja": "零ゴシック"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "zerogothic"
+  },
+  {
+    "name": "ZWAdobeF",
+    "family": "ZWAdobeF",
+    "style": "Regular",
+    "postScriptName": "ZWAdobeF",
+    "gdiName": "ZWAdobeF",
+    "aliases": [
+      "ZWAdobeF"
+    ],
+    "normalizedAliases": [
+      "zwadobef"
+    ],
+    "languageNames": {
+      "mac-0000": "ZWAdobeF",
+      "en": "ZWAdobeF"
+    },
+    "forceBitmap": false,
+    "paths": [],
+    "key": "zwadobef"
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "directMappings": {
+    "binggraeii": "BinggraeⅡ",
+    "binggraeii-bold": "BinggraeⅡ Bold",
+    "binggraeii bold": "BinggraeⅡ Bold",
+    "binggraeiibold": "BinggraeⅡ Bold",
+    "binggraeiibolditalic": "BinggraeⅡ Bold Italic",
+    "sdaram05extraboldcond": "Sandoll Aram 05 ExtraBold Cond"
+  },
+  "patternRules": [
+    {
+      "pattern": "^(\\d{3})\\s+(.+?)\\s+(ExtraBold|Extra Bold)$",
+      "replacement": "$1 $2 ExBd"
+    },
+    {
+      "pattern": "^(\\d{3})\\s+(.+?)\\s+(ExtraBold\\s+Cond|Extra Bold Cond)$",
+      "replacement": "$1 $2 ExBd Cond"
+    },
+    {
+      "pattern": "^(\\d{3})\\s+(.+?)\\s+Bold\\s+italic$",
+      "replacement": "$1 $2 BI",
+      "flags": "i"
+    },
+    {
+      "pattern": "^(\\d{3})\\s+(.+?)\\s+Bold\\s+Italic$",
+      "replacement": "$1 $2 BI",
+      "flags": "i"
+    },
+    {
+      "pattern": "^(\\d{3})\\s+(.+?)\\s+italic$",
+      "replacement": "$1 $2 It",
+      "flags": "i"
+    }
+  ],
+  "suffixRules": {
+    "B": ["Bold", "Bd"],
+    "L": ["Light", "Lt"],
+    "M": ["Medium", "Md"],
+    "R": ["Regular"],
+    "SB": ["SemiBold", "Semi Bold", "Semibold", "Sb"],
+    "EB": ["ExtraBold", "Extra Bold", "XBold"],
+    "Cond": ["Condensed", "Cond"],
+    "BI": ["Bold italic", "Bold Italic", "Bi"],
+    "It": ["Italic", "Ital", "It"]
+  }
+}

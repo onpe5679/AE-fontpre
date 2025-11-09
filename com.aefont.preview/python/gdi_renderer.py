@@ -242,7 +242,8 @@ class GDIRenderer:
                         self.debug(
                             f"[GDI] Alias match: '{actual_name}' recognized as variant of '{face_name}'"
                         )
-                    self.debug(f"[GDI] ✓ Font verified: '{actual_name}' (weight={weight}, italic={italic})")
+                    # Avoid non-ASCII symbols to prevent UnicodeEncodeError on some Windows consoles
+                    self.debug(f"[GDI] OK Font verified: '{actual_name}' (weight={weight}, italic={italic})")
             else:
                 self.debug("[GDI] GetTextFaceW returned 0; proceeding without substitution check")
 

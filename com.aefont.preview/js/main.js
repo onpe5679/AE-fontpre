@@ -182,6 +182,13 @@
             } else {
                 textNode.style.removeProperty('font-weight');
             }
+            const styleName = font.style || '';
+            const isItalic = /\bitalic\b|\boblique\b/i.test(styleName);
+            if (isItalic) {
+                textNode.style.fontStyle = 'italic';
+            } else {
+                textNode.style.removeProperty('font-style');
+            }
             if (previewTextInput) {
                 textNode.textContent = previewTextInput.value;
             }
@@ -916,7 +923,7 @@
 
             document.querySelectorAll('.font-item.python-render').forEach(item => {
                 const rect = item.getBoundingClientRect();
-                if (rect.bottom < listRect.top - 2000 || rect.top > listRect.bottom + 2000) {
+                if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 2000) {
                     return;
                 }
                 const font = fontByUid.get(item.dataset.fontUid);

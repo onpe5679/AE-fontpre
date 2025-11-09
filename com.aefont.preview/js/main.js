@@ -929,8 +929,38 @@
                 const requestId = cacheKey;
                 if (!requestBindings.has(requestId)) {
                     requestBindings.set(requestId, []);
+                    const aliasValues = new Set();
+                    const pushAlias = value => {
+                        if (!value && value !== 0) {
+                            return;
+                        }
+                        const trimmed = String(value).trim();
+                        if (trimmed) {
+                            aliasValues.add(trimmed);
+                        }
+                    };
+                    pushAlias(font.displayName);
+                    pushAlias(font.pythonLookup);
+                    pushAlias(font.postScriptName);
+                    pushAlias(font.family);
+                    pushAlias(font.nativeFamily);
+                    pushAlias(font.nativeFull);
+                    if (font.nativeFamily && font.nativeStyle) {
+                        pushAlias(`${font.nativeFamily} ${font.nativeStyle}`);
+                        pushAlias(`${font.nativeFamily}-${font.nativeStyle}`);
+                    }
+                    if (font.aliases && typeof font.aliases.forEach === 'function') {
+                        font.aliases.forEach(pushAlias);
+                    }
+                    const aliasList = Array.from(aliasValues);
+                    const requestName = font.displayName
+                        || font.nativeFull
+                        || font.pythonLookup
+                        || font.postScriptName
+                        || font.family;
                     requestPayload.push({
-                        name: font.pythonLookup || font.displayName,
+                        name: requestName,
+                        aliases: aliasList,
                         postScriptName: font.postScriptName || null,
                         style: font.style || null,
                         width: viewportWidth,

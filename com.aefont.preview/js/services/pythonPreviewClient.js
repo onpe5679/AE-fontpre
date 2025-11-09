@@ -87,6 +87,7 @@
                         if (typeof entry === 'string') {
                             return {
                                 name: entry,
+                                aliases: [],
                                 width: 0,
                                 requestId: `${entry}__0`
                             };
@@ -95,8 +96,12 @@
                             return null;
                         }
                         const widthValue = Number.isFinite(entry.width) ? Math.max(0, Math.round(entry.width)) : 0;
+                        const aliasList = Array.isArray(entry.aliases)
+                            ? entry.aliases.filter(value => typeof value === 'string' && value.trim().length)
+                            : [];
                         return {
                             name: entry.name,
+                            aliases: aliasList,
                             postScriptName: entry.postScriptName || entry.postscript || null,
                             style: entry.style || null,
                             width: widthValue,

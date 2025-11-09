@@ -22,7 +22,7 @@ import sys
 from dataclasses import dataclass, field
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from typing import Dict, Iterable, List, Optional, Set
+from typing import Dict, Iterable, List, Optional, Set, Tuple
 from urllib.parse import parse_qs, urlparse, unquote
 from datetime import datetime
 from pathlib import Path
@@ -80,6 +80,7 @@ class FontMeta:
             "family": self.primary_name,
             "style": "Regular",
             "postScriptName": self.gdi_name,
+            "gdiName": self.gdi_name,
             "aliases": aliases_sorted,
             "normalizedAliases": norm_aliases_sorted,
             "languageNames": self.language_names,
@@ -118,7 +119,7 @@ class FontRegistry:
                     None,
                 )
             primary_name = english or face_name
-            gdi_name = english or face_name
+            gdi_name = face_name
 
             aliases = set(names)
             aliases.discard("")
@@ -198,6 +199,7 @@ class PreviewService:
     def __init__(self, registry: FontRegistry) -> None:
         self.registry = registry
         self.renderer = GDIRenderer(LOG.info)
+        self._gdi_log = Path('font_debug')
 
     def render_entry(
         self,
@@ -205,19 +207,6 @@ class PreviewService:
         text: str,
         size: int,
     ) -> Optional[Dict[str, object]]:
-        candidate_names = [
-            entry.get("name"),
-            entry.get("postScriptName"),
-            entry.get("family"),
-        ]
-        record = None
-        for candidate in candidate_names:
-            record = self.registry.find(candidate)
-            if record:
-                break
-        if not record:
-            return None
-
         width = 0
         raw_width = entry.get("width")
         if isinstance(raw_width, (int, float)):
@@ -231,30 +220,110 @@ class PreviewService:
             ps_name=str(entry.get("postScriptName") or ""),
         )
 
-        image, substituted = self.renderer.render(
-            record.gdi_name,
-            text,
-            size,
-            weight=weight,
-            italic=int(bool(italic)),
-            target_width=width,
-            alias_names=record.aliases,
-        )
-        if not image:
+        base_alias_pool: Set[str] = set()
+
+        def add_alias_source(value: Optional[str]) -> None:
+            if not value and value != 0:
+                return
+            text_value = str(value).strip()
+            if text_value:
+                base_alias_pool.add(text_value)
+
+        add_alias_source(entry.get("name"))
+        raw_aliases = entry.get("aliases")
+        if isinstance(raw_aliases, list):
+            for alias in raw_aliases:
+                add_alias_source(alias)
+        add_alias_source(entry.get("postScriptName"))
+        add_alias_source(entry.get("family"))
+
+        candidate_strings: List[str] = []
+        seen_candidates: Set[str] = set()
+
+        def add_candidate(value: Optional[str]) -> None:
+            if not value and value != 0:
+                return
+            candidate = str(value).strip()
+            if not candidate:
+                return
+            key = normalize(candidate)
+            if key in seen_candidates:
+                return
+            seen_candidates.add(key)
+            candidate_strings.append(candidate)
+
+        add_candidate(entry.get("name"))
+        if isinstance(raw_aliases, list):
+            for alias in raw_aliases:
+                add_candidate(alias)
+        add_candidate(entry.get("postScriptName"))
+        add_candidate(entry.get("family"))
+
+        attempt_queue: List[Tuple[str, Set[str], Optional[FontMeta], str]] = []
+        attempted_faces: Set[str] = set()
+
+        def enqueue(face_name: str, record: Optional[FontMeta], source: str) -> None:
+            normalized = normalize(face_name)
+            if not normalized or normalized in attempted_faces:
+                return
+            attempted_faces.add(normalized)
+            alias_names = set(base_alias_pool)
+            alias_names.add(face_name)
+            if record:
+                alias_names.update(record.aliases)
+            attempt_queue.append((face_name, alias_names, record, source))
+
+        for candidate in candidate_strings:
+            record = self.registry.find(candidate)
+            enqueue(candidate, record, "request")
+            if record and record.gdi_name:
+                enqueue(record.gdi_name, record, "registry")
+
+        if not attempt_queue:
             return None
 
-        request_id = entry.get("requestId")
-        if not request_id:
-            request_id = f"{record.key}:{width}"
+        for face_name, alias_names, record, source in attempt_queue:
+            image, substituted = self.renderer.render(
+                face_name,
+                text,
+                size,
+                weight=weight,
+                italic=int(bool(italic)),
+                target_width=width,
+                alias_names=alias_names,
+            )
+            actual_face = getattr(self.renderer, "last_actual_face", "")
+            self._log_gdi_attempt(
+                entry,
+                face_name=face_name,
+                actual_face=actual_face,
+                status="substituted" if substituted else ("success" if image else "failed"),
+                source=source,
+            )
+            if substituted:
+                continue
+            if not image:
+                continue
 
-        return {
-            "requestId": request_id,
-            "fontName": entry.get("name") or record.primary_name,
-            "faceName": record.gdi_name,
-            "image": image,
-            "substituted": bool(substituted),
-            "normalizedKey": record.key,
-        }
+            request_id = entry.get("requestId")
+            if not request_id:
+                key_hint = record.key if record else normalize(face_name)
+                request_id = f"{key_hint}:{width}"
+
+            normalized_key = record.key if record else normalize(face_name)
+            python_key = entry.get("pythonKey") or normalized_key
+            return {
+                "requestId": request_id,
+                "fontName": entry.get("name") or (record.primary_name if record else face_name),
+                "faceName": face_name,
+                "resolvedName": actual_face or face_name,
+                "image": image,
+                "substituted": False,
+                "normalizedKey": normalized_key,
+                "pythonKey": python_key,
+            }
+
+        return None
 
     def render_batch(
         self,
@@ -271,6 +340,33 @@ class PreviewService:
 
     def render_single(self, name: str, text: str, size: int) -> Optional[Dict[str, object]]:
         return self.render_entry({"name": name}, text, size)
+
+    def _log_gdi_attempt(
+        self,
+        entry: Dict[str, object],
+        face_name: str,
+        actual_face: str,
+        status: str,
+        source: str,
+    ) -> None:
+        try:
+            self._gdi_log.mkdir(exist_ok=True)
+            logfile = self._gdi_log / 'gdi_attempts.log'
+            payload = {
+                "timestamp": datetime.now().isoformat(timespec='seconds'),
+                "requestName": entry.get("name"),
+                "faceTried": face_name,
+                "actualFace": actual_face,
+                "status": status,
+                "source": source,
+                "width": entry.get("width"),
+                "style": entry.get("style"),
+                "pythonKey": entry.get("pythonKey"),
+            }
+            with logfile.open('a', encoding='utf-8') as handle:
+                handle.write(json.dumps(payload, ensure_ascii=False) + '\n')
+        except Exception as exc:
+            LOG.debug("Failed to log GDI attempt: %s", exc)
 
 
 REGISTRY = FontRegistry()

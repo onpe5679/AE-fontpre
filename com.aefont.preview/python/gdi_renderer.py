@@ -150,6 +150,7 @@ class GDIRenderer:
             debug_callback: 디버그 메시지를 출력할 콜백 함수
         """
         self.debug = debug_callback or (lambda msg: None)
+        self.last_actual_face: str = ''
     
     def render(
         self,
@@ -178,6 +179,8 @@ class GDIRenderer:
                 - Substitution 발생 시: (None, True)
                 - 실패 시: (None, False)
         """
+        self.last_actual_face = ''
+
         if Image is None:
             self.debug("PIL not available for GDI rendering")
             return None, False
@@ -227,6 +230,7 @@ class GDIRenderer:
 
             if result > 0:
                 actual_name = actual_face.value
+                self.last_actual_face = actual_name
                 actual_norm = normalize_face_name(actual_name)
                 if actual_norm not in alias_norms:
                     substitution_detected = True
@@ -241,6 +245,9 @@ class GDIRenderer:
                     self.debug(f"[GDI] ✓ Font verified: '{actual_name}' (weight={weight}, italic={italic})")
             else:
                 self.debug("[GDI] GetTextFaceW returned 0; proceeding without substitution check")
+
+            if substitution_detected:
+                return None, True
 
             # Measure text
             calc_rect = RECT(0, 0, target_width if target_width > 0 else 0, 0)

@@ -32,7 +32,7 @@ from pathlib import Path
 from font_enumerator import FontEnumerator
 from font_inspector import get_all_name_variants, get_localized_family_names
 from font_name_resolver import parse_style_flags
-from gdi_renderer import GDIRenderer
+from gdi_renderer import GDIRenderer, FW_NORMAL
 
 
 def _reconfigure_stdio() -> None:
@@ -81,6 +81,15 @@ logging.basicConfig(
 )
 
 DEFAULT_PORT = int(os.environ.get("AE_FONT_SERVER_PORT", "8765"))
+RBIZ_STYLES = {
+    "",
+    "regular",
+    "bold",
+    "italic",
+    "bold italic",
+    "italic bold",
+    "bolditalic",
+}
 
 
 def normalize(value: Optional[str]) -> str:
@@ -90,6 +99,13 @@ def normalize(value: Optional[str]) -> str:
     lowered = lowered.replace("\u3000", " ")  # ideographic space
     lowered = lowered.lstrip("@")  # vertical font flag
     return "".join(ch for ch in lowered if ch.isalnum())
+
+
+def is_rbiz_style(style: Optional[str]) -> bool:
+    if not style and style != 0:
+        return True
+    normalized = " ".join(str(style).lower().split())
+    return normalized in RBIZ_STYLES
 
 
 @dataclass
@@ -254,11 +270,16 @@ class PreviewService:
         elif isinstance(raw_width, str) and raw_width.isdigit():
             width = int(raw_width)
 
+        style_hint = str(entry.get("style") or "")
         weight, italic = parse_style_flags(
             font_name=str(entry.get("name") or ""),
-            style_hint=str(entry.get("style") or ""),
+            style_hint=style_hint,
             ps_name=str(entry.get("postScriptName") or ""),
         )
+
+        if not is_rbiz_style(style_hint):
+            weight = FW_NORMAL
+            italic = 0
 
         base_alias_pool: Set[str] = set()
 

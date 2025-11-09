@@ -895,7 +895,7 @@
         if (pythonUpdateTimer) {
             clearTimeout(pythonUpdateTimer);
         }
-        pythonUpdateTimer = setTimeout(updatePythonPreviews, 300);
+        pythonUpdateTimer = setTimeout(updatePythonPreviews, 100);
     }
 
     async function updatePythonPreviews() {
@@ -916,7 +916,7 @@
 
             document.querySelectorAll('.font-item.python-render').forEach(item => {
                 const rect = item.getBoundingClientRect();
-                if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 80) {
+                if (rect.bottom < listRect.top - 2000 || rect.top > listRect.bottom + 2000) {
                     return;
                 }
                 const font = fontByUid.get(item.dataset.fontUid);

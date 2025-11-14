@@ -15,6 +15,8 @@
     let ready = false;
     let catalog = new Map();
     const previewCache = new Map();
+    let statusPollingInterval = null;
+    let loadingCallbacks = [];
 
     function normalize(value) {
         return utils.normalizeFontKey(value);
@@ -93,7 +95,53 @@
         return `${base}::${style}::${normalizedText}::${size}::${width}`;
     }
 
-    async function ensureClientReady(extensionPathOverride) {
+    function startStatusPolling(onProgress) {
+        if (statusPollingInterval) {
+            return;
+        }
+
+        statusPollingInterval = setInterval(async () => {
+            if (!client) {
+                return;
+            }
+
+            try {
+                const status = await client.fetchStatus();
+                if (onProgress) {
+                    onProgress(status);
+                }
+
+                if (status.isReady && !ready) {
+                    // Font loading completed
+                    stopStatusPolling();
+                    catalog = await client.fetchFontCatalog();
+                    rebuildCatalogAliases();
+                    ready = true;
+
+                    // Notify all callbacks
+                    loadingCallbacks.forEach(callback => {
+                        try {
+                            callback(true, status);
+                        } catch (e) {
+                            console.error('[AEFontPythonBridge] Callback error:', e);
+                        }
+                    });
+                    loadingCallbacks = [];
+                }
+            } catch (error) {
+                console.warn('[AEFontPythonBridge] Status polling error:', error);
+            }
+        }, 200); // Poll every 200ms
+    }
+
+    function stopStatusPolling() {
+        if (statusPollingInterval) {
+            clearInterval(statusPollingInterval);
+            statusPollingInterval = null;
+        }
+    }
+
+    async function ensureClientReady(extensionPathOverride, onProgress) {
         if (ready && client) {
             return true;
         }
@@ -130,10 +178,31 @@
             return false;
         }
 
-        catalog = await client.fetchFontCatalog();
-        rebuildCatalogAliases();
-        ready = true;
-        return true;
+        // Check if fonts are already loaded
+        try {
+            const status = await client.fetchStatus();
+            if (status.isReady) {
+                // Fonts already loaded from cache
+                catalog = await client.fetchFontCatalog();
+                rebuildCatalogAliases();
+                ready = true;
+                if (onProgress) {
+                    onProgress(status);
+                }
+                return true;
+            } else {
+                // Fonts still loading - start polling
+                startStatusPolling(onProgress);
+                return true; // Server is ready, but fonts are loading
+            }
+        } catch (error) {
+            console.warn('[AEFontPythonBridge] Failed to check status:', error);
+            // Fallback to old behavior
+            catalog = await client.fetchFontCatalog();
+            rebuildCatalogAliases();
+            ready = true;
+            return true;
+        }
     }
 
     function mergeFonts(fonts) {
@@ -251,7 +320,36 @@
         previewCache.clear();
     }
 
+    async function clearCache() {
+        if (!client) {
+            return false;
+        }
+
+        try {
+            const result = await client.clearCache();
+            // Reset state
+            ready = false;
+            catalog = new Map();
+            previewCache.clear();
+            return result;
+        } catch (error) {
+            console.warn('[AEFontPythonBridge] Failed to clear cache:', error);
+            return false;
+        }
+    }
+
+    function onFontsReady(callback) {
+        if (ready) {
+            // Already ready, call immediately
+            callback(true, { isReady: true, progress: 1.0 });
+        } else {
+            // Add to queue
+            loadingCallbacks.push(callback);
+        }
+    }
+
     function stop() {
+        stopStatusPolling();
         if (processManager) {
             try {
                 processManager.stop();
@@ -264,11 +362,12 @@
         ready = false;
         catalog = new Map();
         previewCache.clear();
+        loadingCallbacks = [];
     }
 
     window.AEFontPythonBridge = {
-        async init(extensionPath) {
-            return ensureClientReady(extensionPath);
+        async init(extensionPath, onProgress) {
+            return ensureClientReady(extensionPath, onProgress);
         },
         isReady() {
             return ready;
@@ -277,6 +376,8 @@
         mergeFonts,
         findMetaForFont,
         clearPreviewCache,
+        clearCache,
+        onFontsReady,
         buildCacheKey,
         fetchBatchPreviews,
         getCatalog() {

@@ -103,6 +103,38 @@
             }
         });
     }
+    function showLoadingBar() {
+        const loader = document.getElementById('floating-loader');
+        if (loader) {
+            loader.style.display = 'block';
+        }
+    }
+
+    function hideLoadingBar() {
+        const loader = document.getElementById('floating-loader');
+        if (loader) {
+            loader.style.display = 'none';
+        }
+    }
+
+    function updateLoadingBar(status) {
+        const loaderText = document.getElementById('loader-text');
+        const loaderFill = document.getElementById('loader-progress-fill');
+        const loaderPercentage = document.getElementById('loader-percentage');
+
+        if (loaderText && status.message) {
+            loaderText.textContent = status.message;
+        }
+
+        const progress = Math.min(100, Math.max(0, (status.progress || 0) * 100));
+        if (loaderFill) {
+            loaderFill.style.width = progress + '%';
+        }
+        if (loaderPercentage) {
+            loaderPercentage.textContent = Math.round(progress) + '%';
+        }
+    }
+
     async function initializePythonSupport() {
         console.log('[initializePythonSupport] Starting...');
         if (disablePythonSupport) {
@@ -115,11 +147,36 @@
         }
         try {
             console.log('[initializePythonSupport] Calling AEFontPythonBridge.init()...');
-            const result = await AEFontPythonBridge.init();
+
+            // Show loading bar
+            showLoadingBar();
+
+            const result = await AEFontPythonBridge.init(null, (status) => {
+                // Update loading bar with progress
+                updateLoadingBar(status);
+            });
+
             console.log('[initializePythonSupport] Result:', result);
+
+            // Setup callback for when fonts are ready
+            AEFontPythonBridge.onFontsReady((ready, status) => {
+                console.log('[initializePythonSupport] Fonts ready!', status);
+                hideLoadingBar();
+                // Reload fonts to include Python catalog
+                if (availableFonts.length > 0) {
+                    loadFonts();
+                }
+            });
+
+            // If already ready, hide loader
+            if (AEFontPythonBridge.isReady()) {
+                hideLoadingBar();
+            }
+
             return result;
         } catch (error) {
             console.warn('[initializePythonSupport] Failed to initialize Python helper:', error);
+            hideLoadingBar();
             return false;
         }
     }
@@ -483,7 +540,21 @@
         const applyBtn = document.getElementById('apply-font');
         const loadTextBtn = document.getElementById('load-text-btn');
         if (refreshBtn) {
-            refreshBtn.addEventListener('click', () => loadFonts());
+            refreshBtn.addEventListener('click', async () => {
+                // Clear Python cache and reload fonts
+                if (window.AEFontPythonBridge && typeof AEFontPythonBridge.clearCache === 'function') {
+                    showLoadingBar();
+                    updateLoadingBar({ message: 'Clearing cache...', progress: 0 });
+
+                    await AEFontPythonBridge.clearCache();
+
+                    // Re-initialize Python support with loading bar
+                    await initializePythonSupport();
+                }
+
+                // Reload fonts
+                loadFonts();
+            });
         }
         if (applyBtn) {
             applyBtn.addEventListener('click', () => applySelectedFont());

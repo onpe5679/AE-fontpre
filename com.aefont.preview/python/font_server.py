@@ -20,6 +20,8 @@ import logging
 import os
 import sys
 import io
+import hashlib
+import threading
 from dataclasses import dataclass, field
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -69,6 +71,34 @@ def get_debug_dir() -> Path:
         base = Path("font_debug")
         base.mkdir(exist_ok=True)
     return base
+
+
+def get_cache_dir() -> Path:
+    """Return a user-writable directory for font cache."""
+    root = os.environ.get("LOCALAPPDATA") or os.environ.get("APPDATA")
+    if not root:
+        root = str(Path.home())
+    base = Path(root) / "AEFontPreview" / "cache"
+    try:
+        base.mkdir(parents=True, exist_ok=True)
+    except Exception:
+        # As a last resort, use current working directory
+        base = Path("cache")
+        base.mkdir(exist_ok=True)
+    return base
+
+
+def get_font_list_hash() -> str:
+    """Generate a hash of system fonts to detect changes."""
+    try:
+        enumerator = FontEnumerator()
+        families = enumerator.enumerate_all_fonts()
+        # Sort to ensure consistent hash
+        sorted_families = sorted(families)
+        hash_input = "\n".join(sorted_families).encode('utf-8')
+        return hashlib.sha256(hash_input).hexdigest()[:16]
+    except Exception:
+        return ""
 
 
 _reconfigure_stdio()
@@ -148,55 +178,220 @@ class FontMeta:
 
 
 class FontRegistry:
-    def __init__(self) -> None:
+    def __init__(self, background: bool = False) -> None:
         self._records: List[FontMeta] = []
         self._by_key: Dict[str, FontMeta] = {}
-        self._load()
-        self._write_debug_files()
+        self._is_loading = False
+        self._is_ready = False
+        self._load_progress = 0.0
+        self._load_message = "Initializing..."
+
+        if background:
+            # Start loading in background thread
+            self._is_loading = True
+            thread = threading.Thread(target=self._load_async, daemon=True)
+            thread.start()
+        else:
+            # Load synchronously (old behavior)
+            self._load()
+            self._write_debug_files()
 
     @property
     def fonts(self) -> List[FontMeta]:
         return list(self._records)
 
+    @property
+    def is_ready(self) -> bool:
+        return self._is_ready
+
+    @property
+    def is_loading(self) -> bool:
+        return self._is_loading
+
+    @property
+    def load_progress(self) -> float:
+        return self._load_progress
+
+    @property
+    def load_message(self) -> str:
+        return self._load_message
+
+    def _load_async(self) -> None:
+        """Load fonts asynchronously in background thread."""
+        try:
+            loaded_from_cache = self._load()
+            # Only write debug files if we did a full font enumeration (not from cache)
+            if not loaded_from_cache:
+                # Write debug files in a separate background thread to avoid blocking
+                threading.Thread(target=self._write_debug_files, daemon=True).start()
+        finally:
+            self._is_loading = False
+            self._is_ready = True
+            self._load_progress = 1.0
+            self._load_message = "Ready"
+
     def _load(self) -> None:
-        LOG.info("Enumerating fonts via EnumFontFamiliesExW ...")
-        enumerator = FontEnumerator()
-        families = enumerator.enumerate_all_fonts()
-        LOG.info("Found %d font families", len(families))
+        """Load fonts from cache or enumerate from system."""
+        self._load_message = "Checking cache..."
+        self._load_progress = 0.1
 
-        for face_name in families:
-            names = get_all_name_variants(face_name)
-            localized = get_localized_family_names(face_name)
+        loaded_from_cache = False
 
-            english = localized.get("en")
-            if not english:
-                # Try any language that starts with en (e.g., en-us)
-                english = next(
-                    (value for key, value in localized.items() if key.startswith("en")),
-                    None,
+        # Try to load from cache first
+        if self._load_from_cache():
+            LOG.info("Loaded fonts from cache")
+            self._is_ready = True
+            self._load_progress = 1.0
+            loaded_from_cache = True
+            # Don't return yet - we still want to write debug files
+        else:
+            # Cache miss or invalid - enumerate fonts
+            self._load_message = "Enumerating fonts..."
+            self._load_progress = 0.2
+            LOG.info("Enumerating fonts via EnumFontFamiliesExW ...")
+            enumerator = FontEnumerator()
+            families = enumerator.enumerate_all_fonts()
+            LOG.info("Found %d font families", len(families))
+
+            self._load_message = f"Processing {len(families)} fonts..."
+            self._load_progress = 0.3
+
+            for idx, face_name in enumerate(families):
+                # Update progress
+                progress = 0.3 + (0.6 * (idx / max(len(families), 1)))
+                self._load_progress = progress
+
+                names = get_all_name_variants(face_name)
+                localized = get_localized_family_names(face_name)
+
+                english = localized.get("en")
+                if not english:
+                    # Try any language that starts with en (e.g., en-us)
+                    english = next(
+                        (value for key, value in localized.items() if key.startswith("en")),
+                        None,
+                    )
+                primary_name = english or face_name
+                gdi_name = face_name
+
+                aliases = set(names)
+                aliases.discard("")
+                aliases.add(face_name)
+                if english:
+                    aliases.add(english)
+
+                meta = FontMeta(
+                    primary_name=primary_name,
+                    gdi_name=gdi_name,
+                    aliases=aliases,
+                    language_names=localized,
                 )
-            primary_name = english or face_name
-            gdi_name = face_name
 
-            aliases = set(names)
-            aliases.discard("")
-            aliases.add(face_name)
-            if english:
-                aliases.add(english)
+                inserted = self._register(meta)
+                if not inserted:
+                    LOG.debug("Duplicate font skipped: %s", face_name)
 
-            meta = FontMeta(
-                primary_name=primary_name,
-                gdi_name=gdi_name,
-                aliases=aliases,
-                language_names=localized,
-            )
+            self._load_message = "Finalizing..."
+            self._load_progress = 0.9
+            self._records.sort(key=lambda meta: meta.primary_name.lower())
+            LOG.info("Catalog ready with %d entries", len(self._records))
 
-            inserted = self._register(meta)
-            if not inserted:
-                LOG.debug("Duplicate font skipped: %s", face_name)
+            # Save to cache (only if we didn't load from cache)
+            self._save_to_cache()
+            self._is_ready = True
+            self._load_progress = 1.0
 
-        self._records.sort(key=lambda meta: meta.primary_name.lower())
-        LOG.info("Catalog ready with %d entries", len(self._records))
+        # Return whether we loaded from cache (so caller knows whether to write debug files)
+        return loaded_from_cache
+
+    def _get_cache_path(self) -> Path:
+        """Get the cache file path."""
+        cache_dir = get_cache_dir()
+        font_hash = get_font_list_hash()
+        return cache_dir / f"font_cache_{font_hash}.json"
+
+    def _load_from_cache(self) -> bool:
+        """Load font registry from cache. Returns True if successful."""
+        try:
+            cache_path = self._get_cache_path()
+            if not cache_path.exists():
+                LOG.info("No cache file found")
+                return False
+
+            LOG.info("Loading fonts from cache: %s", cache_path)
+            with cache_path.open('r', encoding='utf-8') as f:
+                data = json.load(f)
+
+            # Validate cache format
+            if not isinstance(data, dict) or 'fonts' not in data:
+                LOG.warning("Invalid cache format")
+                return False
+
+            # Reconstruct FontMeta objects
+            for font_data in data['fonts']:
+                meta = FontMeta(
+                    primary_name=font_data['primary_name'],
+                    gdi_name=font_data['gdi_name'],
+                    aliases=set(font_data.get('aliases', [])),
+                    language_names=font_data.get('language_names', {}),
+                )
+                self._register(meta)
+
+            self._records.sort(key=lambda meta: meta.primary_name.lower())
+            LOG.info("Loaded %d fonts from cache", len(self._records))
+            return True
+        except Exception as e:
+            LOG.warning("Failed to load cache: %s", e)
+            return False
+
+    def _save_to_cache(self) -> None:
+        """Save font registry to cache."""
+        try:
+            cache_dir = get_cache_dir()
+
+            # Clear old cache files
+            for old_cache in cache_dir.glob("font_cache_*.json"):
+                try:
+                    old_cache.unlink()
+                except Exception:
+                    pass
+
+            # Save new cache
+            cache_path = self._get_cache_path()
+            data = {
+                'version': 1,
+                'timestamp': datetime.now().isoformat(),
+                'count': len(self._records),
+                'fonts': [
+                    {
+                        'primary_name': meta.primary_name,
+                        'gdi_name': meta.gdi_name,
+                        'aliases': list(meta.aliases),
+                        'language_names': meta.language_names,
+                    }
+                    for meta in self._records
+                ]
+            }
+
+            LOG.info("Saving fonts to cache: %s", cache_path)
+            with cache_path.open('w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False)
+            LOG.info("Cache saved successfully")
+        except Exception as e:
+            LOG.warning("Failed to save cache: %s", e)
+
+    def clear_cache(self) -> None:
+        """Clear all font cache files."""
+        try:
+            cache_dir = get_cache_dir()
+            for cache_file in cache_dir.glob("font_cache_*.json"):
+                try:
+                    cache_file.unlink()
+                    LOG.info("Deleted cache file: %s", cache_file)
+                except Exception as e:
+                    LOG.warning("Failed to delete cache file %s: %s", cache_file, e)
+        except Exception as e:
+            LOG.warning("Failed to clear cache: %s", e)
 
     def _register(self, meta: FontMeta) -> bool:
         # Avoid overriding existing entries for the same normalized key
@@ -430,7 +625,7 @@ class PreviewService:
             LOG.debug("Failed to log GDI attempt: %s", exc)
 
 
-REGISTRY = FontRegistry()
+REGISTRY = FontRegistry(background=True)
 PREVIEW = PreviewService(REGISTRY)
 
 
@@ -483,6 +678,16 @@ class FontServerHandler(BaseHTTPRequestHandler):
             self._send_json({"status": "ok"})
             return
 
+        if parsed.path == "/status":
+            self._send_json({
+                "isReady": REGISTRY.is_ready,
+                "isLoading": REGISTRY.is_loading,
+                "progress": REGISTRY.load_progress,
+                "message": REGISTRY.load_message,
+                "count": len(REGISTRY.fonts)
+            })
+            return
+
         if parsed.path == "/fonts":
             self._send_json({"fonts": REGISTRY.catalog(), "count": len(REGISTRY.fonts)})
             return
@@ -512,6 +717,9 @@ class FontServerHandler(BaseHTTPRequestHandler):
             return
         if parsed.path == "/debug/cep-fonts":
             self._handle_cep_font_debug()
+            return
+        if parsed.path == "/clear-cache":
+            self._handle_clear_cache()
             return
 
         self.send_error(HTTPStatus.NOT_FOUND)
@@ -558,6 +766,22 @@ class FontServerHandler(BaseHTTPRequestHandler):
         except Exception as exc:
             LOG.warning("Failed to write CEP font debug file: %s", exc)
             self._send_json({"error": "write-failed"}, HTTPStatus.INTERNAL_SERVER_ERROR)
+
+    def _handle_clear_cache(self):
+        """Handle cache clearing and reload request."""
+        global REGISTRY, PREVIEW
+        try:
+            LOG.info("Clearing font cache and reloading...")
+            REGISTRY.clear_cache()
+
+            # Reload fonts in background
+            REGISTRY = FontRegistry(background=True)
+            PREVIEW = PreviewService(REGISTRY)
+
+            self._send_json({"status": "ok", "message": "Cache cleared and reloading"})
+        except Exception as exc:
+            LOG.warning("Failed to clear cache: %s", exc)
+            self._send_json({"error": str(exc)}, HTTPStatus.INTERNAL_SERVER_ERROR)
 
 
 def parse_args() -> argparse.Namespace:

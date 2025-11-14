@@ -3,7 +3,7 @@
 *.pyc
 /.rnd
 /AE-Font-Preview-v1.0.0.zip
-/AE-Font-Preview.zxp
+*.zxp
 /BrowserTools-extension
 /BrowserTools-extension.zip
 /CascadeProjects

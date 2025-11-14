@@ -145,6 +145,44 @@
             }
         }
 
+        async fetchStatus() {
+            try {
+                const response = await fetch(`${this.baseUrl}/status`, { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`Status ${response.status}`);
+                }
+                const data = await response.json();
+                return {
+                    isReady: data.isReady || false,
+                    isLoading: data.isLoading || false,
+                    progress: data.progress || 0,
+                    message: data.message || '',
+                    count: data.count || 0
+                };
+            } catch (error) {
+                console.warn('[PythonPreviewClient] Status request failed:', error);
+                return { isReady: false, isLoading: false, progress: 0, message: 'Error', count: 0 };
+            }
+        }
+
+        async clearCache() {
+            try {
+                const response = await fetch(`${this.baseUrl}/clear-cache`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                if (!response.ok) {
+                    throw new Error(`Status ${response.status}`);
+                }
+                const data = await response.json();
+                return data.status === 'ok';
+            } catch (error) {
+                console.warn('[PythonPreviewClient] Clear cache request failed:', error);
+                return false;
+            }
+        }
+
         _normalize(name) {
             if (!name && name !== 0) {
                 return '';

@@ -92,6 +92,8 @@
     let fontSizeInput;
     let applyButton;
     let cepFontSnapshotSent = false;
+    let previewObserver = null;
+    const visiblePythonItems = new Set();
 
     if (typeof i18n.onChange === 'function') {
         i18n.onChange(lang => {
@@ -162,9 +164,10 @@
             AEFontPythonBridge.onFontsReady((ready, status) => {
                 console.log('[initializePythonSupport] Fonts ready!', status);
                 hideLoadingBar();
-                // Reload fonts to include Python catalog
+                // Merge Python metadata without reloading from ExtendScript
                 if (availableFonts.length > 0) {
-                    loadFonts();
+                    // Just refresh the UI with merged data instead of reloading
+                    filterFonts();
                 }
             });
 
@@ -425,7 +428,27 @@
             sizeValue.textContent = fontSizeInput.value + 'px';
         }
 
+        // Setup IntersectionObserver for python previews
+        if ('IntersectionObserver' in window) {
+            previewObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        visiblePythonItems.add(entry.target);
+                    } else {
+                        visiblePythonItems.delete(entry.target);
+                    }
+                });
+                schedulePythonPreviewUpdate();
+            }, {
+                root: fontListElement,
+                rootMargin: '200px 0px'
+            });
+        }
+
         window.addEventListener('beforeunload', () => {
+            if (previewObserver) {
+                previewObserver.disconnect();
+            }
             if (window.AEFontPythonBridge && typeof AEFontPythonBridge.stop === 'function') {
                 try {
                     AEFontPythonBridge.stop();
@@ -866,6 +889,11 @@
                 item.dataset.pythonLookup = font.pythonLookup;
             }
             applyPlanToFontItem(font, item);
+
+            // Observe python-render items with IntersectionObserver
+            if (previewObserver && item.classList.contains('python-render')) {
+                previewObserver.observe(item);
+            }
         });
 
         if (selectedFontId) {
@@ -987,15 +1015,21 @@
         try {
             const text = previewTextInput ? previewTextInput.value : '';
             const size = fontSizeInput ? parseInt(fontSizeInput.value, 10) || 24 : 24;
-            const listRect = fontListElement.getBoundingClientRect();
 
             const requestPayload = [];
             const requestBindings = new Map();
 
-            document.querySelectorAll('.font-item.python-render').forEach(item => {
-                const rect = item.getBoundingClientRect();
-                if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 2000) {
-                    return;
+            // Use IntersectionObserver results if available, otherwise fallback to getBoundingClientRect
+            const itemsToProcess = previewObserver ? Array.from(visiblePythonItems) : Array.from(document.querySelectorAll('.font-item.python-render'));
+
+            itemsToProcess.forEach(item => {
+                // Fallback visibility check for non-observer mode
+                if (!previewObserver) {
+                    const listRect = fontListElement.getBoundingClientRect();
+                    const rect = item.getBoundingClientRect();
+                    if (rect.bottom < listRect.top - 80 || rect.top > listRect.bottom + 2000) {
+                        return;
+                    }
                 }
                 const font = fontByUid.get(item.dataset.fontUid);
                 if (!font) {

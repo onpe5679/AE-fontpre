@@ -24,7 +24,7 @@ import hashlib
 import threading
 from dataclasses import dataclass, field
 from http import HTTPStatus
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 import argparse
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 from urllib.parse import parse_qs, urlparse, unquote
@@ -185,6 +185,7 @@ class FontRegistry:
         self._is_ready = False
         self._load_progress = 0.0
         self._load_message = "Initializing..."
+        self._lock = threading.RLock()
 
         if background:
             # Start loading in background thread
@@ -198,7 +199,8 @@ class FontRegistry:
 
     @property
     def fonts(self) -> List[FontMeta]:
-        return list(self._records)
+        with self._lock:
+            return list(self._records)
 
     @property
     def is_ready(self) -> bool:
@@ -293,7 +295,8 @@ class FontRegistry:
 
             self._load_message = "Finalizing..."
             self._load_progress = 0.9
-            self._records.sort(key=lambda meta: meta.primary_name.lower())
+            with self._lock:
+                self._records.sort(key=lambda meta: meta.primary_name.lower())
             LOG.info("Catalog ready with %d entries", len(self._records))
 
             # Save to cache (only if we didn't load from cache)
@@ -337,7 +340,8 @@ class FontRegistry:
                 )
                 self._register(meta)
 
-            self._records.sort(key=lambda meta: meta.primary_name.lower())
+            with self._lock:
+                self._records.sort(key=lambda meta: meta.primary_name.lower())
             LOG.info("Loaded %d fonts from cache", len(self._records))
             return True
         except Exception as e:
@@ -395,28 +399,31 @@ class FontRegistry:
 
     def _register(self, meta: FontMeta) -> bool:
         # Avoid overriding existing entries for the same normalized key
-        keys = {meta.key} | meta.normalized_aliases
-        existing = None
-        for key in keys:
-            if key in self._by_key:
-                existing = self._by_key[key]
-                break
-        if existing:
-            return False
-        self._records.append(meta)
-        for key in keys:
-            if key:
-                self._by_key[key] = meta
-        return True
+        with self._lock:
+            keys = {meta.key} | meta.normalized_aliases
+            existing = None
+            for key in keys:
+                if key in self._by_key:
+                    existing = self._by_key[key]
+                    break
+            if existing:
+                return False
+            self._records.append(meta)
+            for key in keys:
+                if key:
+                    self._by_key[key] = meta
+            return True
 
     def find(self, name: Optional[str]) -> Optional[FontMeta]:
         if not name and name != 0:
             return None
         key = normalize(name)
-        return self._by_key.get(key)
+        with self._lock:
+            return self._by_key.get(key)
 
     def catalog(self) -> List[Dict[str, object]]:
-        return [meta.to_payload() for meta in self._records]
+        with self._lock:
+            return [meta.to_payload() for meta in self._records]
 
     def _write_debug_files(self) -> None:
         try:
@@ -451,6 +458,11 @@ class PreviewService:
         self.registry = registry
         self.renderer = GDIRenderer(LOG.info)
         self._gdi_log = get_debug_dir()
+
+    def close(self) -> None:
+        """Clean up GDI resources."""
+        if hasattr(self.renderer, 'close'):
+            self.renderer.close()
 
     def render_entry(
         self,
@@ -772,6 +784,12 @@ class FontServerHandler(BaseHTTPRequestHandler):
         global REGISTRY, PREVIEW
         try:
             LOG.info("Clearing font cache and reloading...")
+
+            # Clean up old resources
+            global PREVIEW, REGISTRY
+            if PREVIEW:
+                PREVIEW.close()
+
             REGISTRY.clear_cache()
 
             # Reload fonts in background
@@ -791,7 +809,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def run_server(port: int = DEFAULT_PORT) -> None:
-    server = HTTPServer(("127.0.0.1", port), FontServerHandler)
+    server = ThreadingHTTPServer(("127.0.0.1", port), FontServerHandler)
     print(f"PORT:{port}", flush=True)
     LOG.info("Font server listening on http://127.0.0.1:%d", port)
     try:

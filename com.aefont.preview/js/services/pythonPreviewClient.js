@@ -105,7 +105,8 @@
                             postScriptName: entry.postScriptName || entry.postscript || null,
                             style: entry.style || null,
                             width: widthValue,
-                            requestId: entry.requestId || `${entry.name}__${widthValue}`
+                            requestId: entry.requestId || `${entry.name}__${widthValue}`,
+                            pythonKey: entry.pythonKey || null
                         };
                     })
                     .filter(Boolean);
